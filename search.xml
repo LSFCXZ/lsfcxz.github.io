@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>小破站正式上线</title>
-    <url>/article/36e749dc.html</url>
+    <url>/LSFBlog/article/36e749dc.html</url>
     <content><![CDATA[<p>断断续续半年时间，使用Hexo已有一段时间，经历了不断的优化踩坑，最开始使用NexT做为博客主题，到后来使用了Butter主题，并对主题的一系列魔改，最终还是回归到NexT作为博客的主题。</p>
 <p>NexT主题相对来说较为简洁，使用Butter主题确实对博客有很大的美化程度，但不简约，最主要是在浏览器渲染上面，由于集成大量插件和动画特效，使得浏览时不是特别顺畅。</p>
 <p>最终本博客去繁化简，只留下实用功能，对博客轻美化，使得网站即顺畅又优美。</p>
@@ -14,7 +14,7 @@
   </entry>
   <entry>
     <title>图床的解决方案</title>
-    <url>/article/4c6068df.html</url>
+    <url>/LSFBlog/article/4c6068df.html</url>
     <content><![CDATA[<p>引子：为了利于博客的SEO，链接的简化，</p>
 ]]></content>
       <categories>
