@@ -1,3 +1,25 @@
+.post {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  padding: 25px;
+  -webkit-box-shadow: 0 0 5px rgba(202,203,203,0.5);
+  -moz-box-shadow: 0 0 5px rgba(202,203,204,0.5);
+}
+.headband {
+  display: none;
+}
+.tag-cloud a {
+  box-shadow: 0 1px 3px #6f42c1, 0 1px 2px #d9534f;
+  padding: 2px 10px;
+  margin: 8px;
+  background: rgba(193,66,92,0);
+  border-bottom: none;
+  border-radius: 20px;
+}
+code {
+  background: #555;
+  color: #fff;
+}
 :root {
   --body-bg-color: #f5f7f9;
   --content-bg-color: #fff;
@@ -381,6 +403,51 @@ td {
 .toggle.toggle-close .toggle-line-last {
   transform: rotate(45deg);
   top: -5px;
+}
+.highlight-container {
+  position: relative;
+}
+.highlight-container:hover .copy-btn,
+.highlight-container .copy-btn:focus {
+  opacity: 1;
+}
+.copy-btn {
+  color: #333;
+  cursor: pointer;
+  line-height: 1.6;
+  opacity: 0;
+  padding: 2px 6px;
+  position: absolute;
+  transition-delay: 0s;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+  color: #fff;
+  font-size: 14px;
+  right: 0;
+  top: 2px;
+}
+.highlight-container {
+  background: #21252b;
+  border-radius: 5px;
+  box-shadow: 0 10px 30px 0 rgba(0,0,0,0.4);
+  padding-top: 30px;
+}
+.highlight-container::before {
+  background: #fc625d;
+  border-radius: 50%;
+  box-shadow: 20px 0 #fdbc40, 40px 0 #35cd4b;
+  content: ' ';
+  height: 12px;
+  left: 12px;
+  margin-top: -20px;
+  position: absolute;
+  width: 12px;
+}
+.highlight-container .highlight {
+  border-radius: 0 0 5px 5px;
+}
+.highlight-container .highlight .table-container {
+  border-radius: 0 0 5px 5px;
 }
 .highlight,
 pre {
@@ -1179,7 +1246,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #9d83ff;
+  background: #a8ff04;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2277,7 +2344,7 @@ ul.breadcrumb li + li:last-child {
 }
 .header-inner {
   background: var(--content-bg-color);
-  border-radius: initial;
+  border-radius: 20px 20px 20px 20px;
   box-shadow: initial;
   overflow: hidden;
   padding: 0;
@@ -2310,7 +2377,7 @@ ul.breadcrumb li + li:last-child {
 }
 .content-wrap {
   background: var(--content-bg-color);
-  border-radius: initial;
+  border-radius: 20px 20px 20px 20px;
   box-shadow: initial;
   box-sizing: border-box;
   padding: 40px;
@@ -2472,7 +2539,7 @@ ul.breadcrumb li + li:last-child {
 }
 .sidebar-inner {
   background: var(--content-bg-color);
-  border-radius: initial;
+  border-radius: 20px;
   box-shadow: initial;
   box-sizing: border-box;
   color: var(--text-color);
