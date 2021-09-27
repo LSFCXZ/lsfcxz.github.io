@@ -20,6 +20,18 @@ code {
   background: #555;
   color: #fff;
 }
+.header-inner:hover {
+  box-shadow: 0 4px 8px 12px #d9d9d9;
+  transition: all 0.3s;
+}
+.sidebar-inner:hover {
+  box-shadow: 0 4px 8px 12px #d9d9d9;
+  transition: all 0.3s;
+}
+.content-wrap:hover {
+  box-shadow: 0 4px 8px 12px #d9d9d9;
+  transition: all 0.3s;
+}
 :root {
   --body-bg-color: #f5f7f9;
   --content-bg-color: #fff;
@@ -1246,7 +1258,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #a8ff04;
+  background: #776cf9;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
