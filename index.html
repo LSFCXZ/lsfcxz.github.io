@@ -196,6 +196,95 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lsfcxz.gitee.io/article/63b2262b.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="const name="LSF"">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大前端_LSF">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/article/63b2262b.html" class="post-title-link" itemprop="url">HTML5的十大新特性</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-09-27 13:13:58 / 修改时间：18:14:26" itemprop="dateCreated datePublished" datetime="2021-09-27T13:13:58+08:00">2021-09-27</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/HTML/" itemprop="url" rel="index"><span itemprop="name">HTML</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/article/63b2262b.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/article/63b2262b.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><h1 id="新增十大特性"><a href="#新增十大特性" class="headerlink" title="新增十大特性"></a>新增十大特性</h1>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/article/63b2262b.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://lsfcxz.gitee.io/article/4c6068df.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -259,23 +348,7 @@
 
       
           <p>引子：网站链接嵌套得越深，越不利于SEO优化，Hexo默认链接是年月日标题，如果标题是中文，那么链接就会变成乱码，这很不利于搜索引擎的搜索，为了达到目的，我们会使用<code>hexo-abbrlink</code>插件来解决问题，但是我们需要上传图片，图片要么需要图床，不然你就只能附带博客里面，以下分析个人在遇到这个问题的取舍与想法，愿与诸君分享。</p>
-<h1 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h1><ul>
-<li>我们需要利于SEO的网址</li>
-<li>我们需要一个安全、稳定、足够、免费的图床</li>
-<li>简单、最好一劳永逸</li>
-</ul>
-<h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><p>我们知道，为了达到Hexo的链接优化，需要用到<code>hexo-abbrlink</code>这个插件，使用上传图片使用<code>hexo-asset-image</code>插件，这两个插件单独使用没有问题，但是一起使用就会出现问题，前者把路径改了，后者当然无法找到图片，网上也是一堆长篇大论，这里不在累赘，难道没有一劳永逸吗？</p>
-<h1 id="再次分析"><a href="#再次分析" class="headerlink" title="再次分析"></a>再次分析</h1><p>既然两者一起使用会出现问题，（<code>hexo-asset-image</code>插件作者曾提到这是hexo的编译原理，具体可以看官方的lssues）,那么就不一起使用，此路不通，另寻它路。其实最简单的方式就是使用图床功能，把一张图片放到别人的服务器，通过URL就能看到图片，简单快捷，</p>
-<p>但是有几个问题：</p>
-<ul>
-<li><p>图片放在别人的服务器，不太安全</p>
-</li>
-<li><p>图床一般都需要收费，不可能给你白嫖</p>
-</li>
-<li><p>图床弄起来较为麻烦</p>
-</li>
-</ul>
-<p>综合以上，其实我们可以利用Gitee来作为我们的图床，有以下几个原因</p>
+<h1 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h1>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/article/4c6068df.html#more" rel="contents">
@@ -372,23 +445,6 @@
       
           <p>断断续续半年时间，使用<code>Hexo</code>已有很长一段时间，经历了不断的优化踩坑，最开始使用<code>NexT</code>做为博客主题，到后来使用了Butterfly主题，到对主题的一系列魔改，最终还是回归到<code>NexT</code>作为博客的主题。</p>
 <p><code>NexT</code>主题相对来说较为简洁，使用Butterfly主题确实对博客有很大的美化程度，但不简约，最主要是在浏览器渲染上面，由于集成大量插件和动画特效，使得浏览时不是特别顺畅。</p>
-<p>最终本博客去繁化简，只留下实用功能，对博客轻美化，让网站即顺畅又优美。</p>
-<p>小破站目前处于起步阶段，未来会不断优化完善！</p>
-<p>目前使用<code>GithubPages</code>加<code>GiteePages</code>双代码平台推送，测试下来，电信网络访问<code>githubPages</code>很大概率屏蔽，<code>GiteePages</code>需要手动更新，较为麻烦，<code>CDN</code>加速效果不明显，CI平台需要收取一定费用，介于目前情况，只能暂时如此，未来计划使用服务器搭建自己的CI平台进行自动化部署</p>
-<p><code>V1.0.0</code> ：2021-09-26</p>
-<ul>
-<li>添加评论、阅读计数</li>
-<li>页面Hover阴影效果</li>
-<li>暗黑模式</li>
-<li>URL优化、<code>Gitee</code>图床</li>
-<li>小功能美化</li>
-</ul>
-<p><code>V1.0.0 -1</code>：2021-09-27</p>
-<ul>
-<li>网络优化</li>
-<li>百度<code>SEO</code>优化</li>
-</ul>
-
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/article/36e749dc.html#more" rel="contents">
@@ -479,14 +535,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-count">3</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">2</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
   </nav>

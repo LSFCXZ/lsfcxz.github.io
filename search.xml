@@ -1,6 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>HTML5的十大新特性</title>
+    <url>/article/63b2262b.html</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><h1 id="新增十大特性"><a href="#新增十大特性" class="headerlink" title="新增十大特性"></a>新增十大特性</h1><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1>]]></content>
+      <categories>
+        <category>HTML</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>小破站正式上线</title>
+    <url>/article/36e749dc.html</url>
+    <content><![CDATA[<p>断断续续半年时间，使用<code>Hexo</code>已有很长一段时间，经历了不断的优化踩坑，最开始使用<code>NexT</code>做为博客主题，到后来使用了Butterfly主题，到对主题的一系列魔改，最终还是回归到<code>NexT</code>作为博客的主题。</p>
+<p><code>NexT</code>主题相对来说较为简洁，使用Butterfly主题确实对博客有很大的美化程度，但不简约，最主要是在浏览器渲染上面，由于集成大量插件和动画特效，使得浏览时不是特别顺畅。</p>
+<p>最终本博客去繁化简，只留下实用功能，对博客轻美化，让网站即顺畅又优美。</p>
+<p>小破站目前处于起步阶段，未来会不断优化完善！</p>
+<p>目前使用<code>GithubPages</code>加<code>GiteePages</code>双代码平台推送，测试下来，电信网络访问<code>githubPages</code>很大概率屏蔽，<code>GiteePages</code>需要手动更新，较为麻烦，<code>CDN</code>加速效果不明显，CI平台需要收取一定费用，介于目前情况，只能暂时如此，未来计划使用服务器搭建自己的CI平台进行自动化部署</p>
+<p><code>V1.0.0</code> ：2021-09-26</p>
+<ul>
+<li>添加评论、阅读计数</li>
+<li>页面Hover阴影效果</li>
+<li>暗黑模式</li>
+<li>URL优化、<code>Gitee</code>图床</li>
+<li>小功能美化</li>
+</ul>
+<p><code>V1.0.0 -1</code>：2021-09-27</p>
+<ul>
+<li>网络优化</li>
+<li>百度<code>SEO</code>优化</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Hexo框架</category>
+      </categories>
+  </entry>
+  <entry>
     <title>图床的解决方案</title>
     <url>/article/4c6068df.html</url>
     <content><![CDATA[<p>引子：网站链接嵌套得越深，越不利于SEO优化，Hexo默认链接是年月日标题，如果标题是中文，那么链接就会变成乱码，这很不利于搜索引擎的搜索，为了达到目的，我们会使用<code>hexo-abbrlink</code>插件来解决问题，但是我们需要上传图片，图片要么需要图床，不然你就只能附带博客里面，以下分析个人在遇到这个问题的取舍与想法，愿与诸君分享。</p>
@@ -42,32 +76,6 @@
 <li>图片只能1M上限，大于访问不了，需要登陆才可以有权限访问，这点可以自己测试</li>
 </ul>
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>这个办法其实是脱离插件的使用，即满足了URL的优化，又能得到一个图床应用，体验下来还是很方便的，唯一缺点就是流程可能稍加繁琐，不过使用过程非常方便！还是值得推荐的！</p>
-]]></content>
-      <categories>
-        <category>Hexo框架</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>小破站正式上线</title>
-    <url>/article/36e749dc.html</url>
-    <content><![CDATA[<p>断断续续半年时间，使用<code>Hexo</code>已有很长一段时间，经历了不断的优化踩坑，最开始使用<code>NexT</code>做为博客主题，到后来使用了Butterfly主题，到对主题的一系列魔改，最终还是回归到<code>NexT</code>作为博客的主题。</p>
-<p><code>NexT</code>主题相对来说较为简洁，使用Butterfly主题确实对博客有很大的美化程度，但不简约，最主要是在浏览器渲染上面，由于集成大量插件和动画特效，使得浏览时不是特别顺畅。</p>
-<p>最终本博客去繁化简，只留下实用功能，对博客轻美化，让网站即顺畅又优美。</p>
-<p>小破站目前处于起步阶段，未来会不断优化完善！</p>
-<p>目前使用<code>GithubPages</code>加<code>GiteePages</code>双代码平台推送，测试下来，电信网络访问<code>githubPages</code>很大概率屏蔽，<code>GiteePages</code>需要手动更新，较为麻烦，<code>CDN</code>加速效果不明显，CI平台需要收取一定费用，介于目前情况，只能暂时如此，未来计划使用服务器搭建自己的CI平台进行自动化部署</p>
-<p><code>V1.0.0</code> ：2021-09-26</p>
-<ul>
-<li>添加评论、阅读计数</li>
-<li>页面Hover阴影效果</li>
-<li>暗黑模式</li>
-<li>URL优化、<code>Gitee</code>图床</li>
-<li>小功能美化</li>
-</ul>
-<p><code>V1.0.0 -1</code>：2021-09-27</p>
-<ul>
-<li>网络优化</li>
-<li>百度<code>SEO</code>优化</li>
-</ul>
 ]]></content>
       <categories>
         <category>Hexo框架</category>
