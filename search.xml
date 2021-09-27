@@ -143,12 +143,22 @@
       </categories>
   </entry>
   <entry>
+    <title>无题</title>
+    <url>/article/9b44950b.html</url>
+    <content><![CDATA[<p>欢乐和苦恼必然联系在一起：</p>
+<p>每一个欢乐背后都隐藏着当这个欢乐失去后的苦恼，每一个苦恼背后都隐藏着，当这个苦恼失去后的快乐。</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20210927235346.png"></p>
+]]></content>
+      <categories>
+        <category>随笔</category>
+      </categories>
+  </entry>
+  <entry>
     <title>小破站正式上线</title>
     <url>/article/36e749dc.html</url>
     <content><![CDATA[<p>断断续续半年时间，使用<code>Hexo</code>已有很长一段时间，经历了不断的优化踩坑，最开始使用<code>NexT</code>做为博客主题，到后来使用了Butterfly主题，到对主题的一系列魔改，最终还是回归到<code>NexT</code>作为博客的主题。</p>
 <p><code>NexT</code>主题相对来说较为简洁，使用Butterfly主题确实对博客有很大的美化程度，但不简约，最主要是在浏览器渲染上面，由于集成大量插件和动画特效，使得浏览时不是特别顺畅。</p>
 <p>最终本博客去繁化简，只留下实用功能，对博客轻美化，让网站即顺畅又优美。</p>
-<p>小破站目前处于起步阶段，未来会不断优化完善！</p>
 <p>目前使用<code>GithubPages</code>加<code>GiteePages</code>双代码平台推送，测试下来，电信网络访问<code>githubPages</code>很大概率屏蔽，<code>GiteePages</code>需要手动更新，较为麻烦，<code>CDN</code>加速效果不明显，CI平台需要收取一定费用，介于目前情况，只能暂时如此，未来计划使用服务器搭建自己的CI平台进行自动化部署</p>
 <p><code>V1.0.0</code> ：2021-09-26</p>
 <ul>
