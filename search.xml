@@ -35,7 +35,139 @@
 
 
 
-<h2 id="伪类"><a href="#伪类" class="headerlink" title="伪类"></a>伪类</h2><h1 id="CSS3选择器"><a href="#CSS3选择器" class="headerlink" title="CSS3选择器"></a>CSS3选择器</h1><h2 id="元素关系选择器"><a href="#元素关系选择器" class="headerlink" title="元素关系选择器"></a>元素关系选择器</h2><h2 id="序号选择器"><a href="#序号选择器" class="headerlink" title="序号选择器"></a>序号选择器</h2><h2 id="属性选择器"><a href="#属性选择器" class="headerlink" title="属性选择器"></a>属性选择器</h2><h2 id="新增伪类选择器"><a href="#新增伪类选择器" class="headerlink" title="新增伪类选择器"></a>新增伪类选择器</h2><h2 id="伪元素选择器"><a href="#伪元素选择器" class="headerlink" title="伪元素选择器"></a>伪元素选择器</h2>]]></content>
+<h2 id="伪类"><a href="#伪类" class="headerlink" title="伪类"></a>伪类</h2><p>伪类是添加到选择器的描述性词语，指定要选择的元素的特殊状态。超级链接就拥有4个特殊的状态。</p>
+<table>
+<thead>
+<tr>
+<th align="center">伪类</th>
+<th align="center">意义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">a:link</td>
+<td align="center">没有被访问的链接</td>
+</tr>
+<tr>
+<td align="center">a:visited</td>
+<td align="center">已经被访问的链接</td>
+</tr>
+<tr>
+<td align="center">a:hover</td>
+<td align="center">鼠标悬停的链接</td>
+</tr>
+<tr>
+<td align="center">a:active</td>
+<td align="center">正在被激活的链接</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>TIP:a标签的伪类一定要按顺序书写样式，否则伪类失效。</p>
+</blockquote>
+<h1 id="CSS3选择器"><a href="#CSS3选择器" class="headerlink" title="CSS3选择器"></a>CSS3选择器</h1><h2 id="元素关系选择器"><a href="#元素关系选择器" class="headerlink" title="元素关系选择器"></a>元素关系选择器</h2><h3 id="子选择器"><a href="#子选择器" class="headerlink" title="子选择器"></a>子选择器</h3><p>当<strong>使用&gt;符号分隔</strong>两个元素时，它只会匹配那些作为<strong>第一个元素</strong>的直接后代元素，即两个标签为父子关系。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">div</span>&gt;<span class="selector-tag">p</span>&#123;</span><br><span class="line">   <span class="attribute">color</span>:blue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="相邻兄弟选择器"><a href="#相邻兄弟选择器" class="headerlink" title="相邻兄弟选择器"></a>相邻兄弟选择器</h3><p>相邻兄弟选择器，使用+符号连接两个选择器，有三个特点：同一父元素下的子元素，第一元素和第二元素是紧跟着的，他们是同级别的。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css"><span class="selector-tag">p</span> + <span class="selector-tag">span</span> &#123;</span></span><br><span class="line"><span class="css">  <span class="attribute">color</span>: aqua;</span></span><br><span class="line"><span class="css">&#125;</span></span><br><span class="line"><span class="css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span>BOX的P标签<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="comment">&lt;!-- 选中 --&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">span</span>&gt;</span>Span<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span>BOX的P标签<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="comment">&lt;!-- 选中 --&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">span</span>&gt;</span>Span<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span>BOX的P标签<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="comment">&lt;!-- 选中 --&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">span</span>&gt;</span>Span<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="通用兄弟选择器"><a href="#通用兄弟选择器" class="headerlink" title="通用兄弟选择器"></a>通用兄弟选择器</h3><p>通用选择器使用<del>符号，a</del>b选择a元素<strong>之后</strong>所有<strong>同层级</strong>b元素</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">   <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">     <span class="selector-tag">h3</span> ~ <span class="selector-tag">span</span> &#123;</span></span><br><span class="line"><span class="css">       <span class="attribute">color</span>: red;</span></span><br><span class="line"><span class="css">     &#125;</span></span><br><span class="line"><span class="css">   </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span>   </span><br><span class="line"><span class="tag">&lt;<span class="name">span</span>&gt;</span>Span<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">h3</span>&gt;</span>H3<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">   <span class="comment">&lt;!-- 这两个会选中 --&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">span</span>&gt;</span>Span<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">span</span>&gt;</span>Span<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">p</span>&gt;</span>p标签<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">   <span class="comment">&lt;!-- 选中 --&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">span</span>&gt;</span>Span<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">span</span>&gt;</span>Span<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">span</span>&gt;</span>Span<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211001100734.png"></p>
+<h2 id="序号选择器"><a href="#序号选择器" class="headerlink" title="序号选择器"></a>序号选择器</h2><p>选择该元素后面的第几个元素。</p>
+<table>
+<thead>
+<tr>
+<th align="center">举例</th>
+<th align="center">意义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">:first-child</td>
+<td align="center">第一个子元素</td>
+</tr>
+<tr>
+<td align="center">:last-child</td>
+<td align="center">最后一个子元素</td>
+</tr>
+<tr>
+<td align="center">:nth-child(n)</td>
+<td align="center">第n个子元素</td>
+</tr>
+<tr>
+<td align="center">:nth-of-type(n)</td>
+<td align="center">第n个某类型子元素</td>
+</tr>
+<tr>
+<td align="center">:nth-last-child</td>
+<td align="center">倒数第n个</td>
+</tr>
+<tr>
+<td align="center">:nth-last-of-type(n)</td>
+<td align="center">倒数第n个某类型子元素</td>
+</tr>
+</tbody></table>
+<h2 id="属性选择器"><a href="#属性选择器" class="headerlink" title="属性选择器"></a>属性选择器</h2><table>
+<thead>
+<tr>
+<th align="center">举例</th>
+<th align="center">意义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">img[alt]</td>
+<td align="center">选择有alt属性的img标签</td>
+</tr>
+<tr>
+<td align="center">img[alt=”故宫”]</td>
+<td align="center">选择有alt属性是故宫的img标签</td>
+</tr>
+<tr>
+<td align="center">img[alt^=”北京”]</td>
+<td align="center">选择有alt属性以北京<strong>开头</strong>的img标签</td>
+</tr>
+<tr>
+<td align="center">img[alt$=”夜景”]</td>
+<td align="center">选择有alt属性以夜景<strong>结尾</strong>的img标签</td>
+</tr>
+<tr>
+<td align="center">img[alt*=”美”]</td>
+<td align="center">选择有alt属性中<strong>含有</strong>美字样的img标签</td>
+</tr>
+<tr>
+<td align="center">img[alt~=”手机拍摄”]</td>
+<td align="center">选择有alt属性中有<strong>空格隔开</strong>的手机拍摄字样的img标签</td>
+</tr>
+<tr>
+<td align="center">img[alt|=”参赛作品”]</td>
+<td align="center">选择有alt属性以“参赛作品”<strong>开头</strong>的img标签</td>
+</tr>
+</tbody></table>
+<h2 id="新增伪类选择器"><a href="#新增伪类选择器" class="headerlink" title="新增伪类选择器"></a>新增伪类选择器</h2><p>empty：选择空标签，空格不算空标签 </p>
+<p>focus：选择当前获得焦点的表单元素</p>
+<p>enabled：选择当前有效的表单元素</p>
+<p>disabled：选择当前无效的表单元素</p>
+<p>checked：选择当前已经勾选的单选按钮或者复选框</p>
+<p>root：选择根元素，html标签</p>
+<h2 id="伪元素选择器"><a href="#伪元素选择器" class="headerlink" title="伪元素选择器"></a>伪元素选择器</h2><ul>
+<li><p><code>::before</code>：创建一个伪元素，其将成为匹配选中的元素的第一个子元素，必须设置content属性表示其中的内容</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">::before</span>&#123;</span><br><span class="line"><span class="attribute">content</span>:<span class="string">&#x27;★&#x27;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>::after</code>：创建一个伪元素，其将成为匹配选中的元素的最后一个子元素，必须设置content属性表示其中的内容</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">::after</span>&#123;</span><br><span class="line"><span class="attribute">content</span>:<span class="string">&#x27;★&#x27;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p><code>::selection</code>：文档被用户高亮的部分，使用鼠标圈选部分</p>
+</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.box</span><span class="selector-pseudo">::selection</span>&#123;</span><br><span class="line"><span class="attribute">color</span>:red</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p><code>::first-letter</code>：文档第一行第一个字</p>
+</li>
+<li><p><code>::first-line</code>：文档第一行字</p>
+</li>
+</ul>
+]]></content>
       <categories>
         <category>CSS</category>
       </categories>
@@ -216,18 +348,6 @@
       </categories>
   </entry>
   <entry>
-    <title>小破站正式上线</title>
-    <url>/article/36e749dc.html</url>
-    <content><![CDATA[<p>断断续续半年时间，使用<code>Hexo</code>已有很长一段时间，经历了不断的优化踩坑，最开始使用<code>NexT</code>做为博客主题，到后来使用了Butterfly主题，到对主题的一系列魔改，最终还是回归到<code>NexT</code>作为博客的主题。</p>
-<p><code>NexT</code>主题相对来说较为简洁，使用Butterfly主题确实对博客有很大的美化程度，但不简约，最主要是在浏览器渲染上面，由于集成大量插件和动画特效，使得浏览时不是特别顺畅。</p>
-<p>最终本博客去繁化简，只留下实用功能，对博客轻美化，让网站即顺畅又优美。</p>
-<p>目前使用<code>GithubPages</code>加<code>GiteePages</code>双代码平台推送，测试下来，电信网络访问<code>githubPages</code>很大概率屏蔽，<code>GiteePages</code>需要手动更新，较为麻烦，<code>CDN</code>加速效果不明显，CI平台需要收取一定费用，介于目前情况，只能暂时如此，未来计划使用服务器搭建自己的CI平台进行自动化部署</p>
-]]></content>
-      <categories>
-        <category>Hexo框架</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Hexo图床的解决方案</title>
     <url>/article/4c6068df.html</url>
     <content><![CDATA[<p>引子：网站链接嵌套得越深，越不利于SEO优化，Hexo默认链接是年月日标题，如果标题是中文，那么链接就会变成乱码，这很不利于搜索引擎的搜索，为了达到目的，我们会使用<code>hexo-abbrlink</code>插件来解决问题，但是我们需要上传图片，图片要么需要图床，不然你就只能附带博客里面，以下分析个人在遇到这个问题的取舍与想法，愿与诸君分享。</p>
@@ -278,14 +398,15 @@
       </categories>
   </entry>
   <entry>
-    <title>无题</title>
-    <url>/article/9b44950b.html</url>
-    <content><![CDATA[<p>欢乐和苦恼必然联系在一起：</p>
-<p>每一个欢乐背后都隐藏着当这个欢乐失去后的苦恼，每一个苦恼背后都隐藏着，当这个苦恼失去后的快乐。</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20210927235346.png"></p>
+    <title>小破站正式上线</title>
+    <url>/article/36e749dc.html</url>
+    <content><![CDATA[<p>断断续续半年时间，使用<code>Hexo</code>已有很长一段时间，经历了不断的优化踩坑，最开始使用<code>NexT</code>做为博客主题，到后来使用了Butterfly主题，到对主题的一系列魔改，最终还是回归到<code>NexT</code>作为博客的主题。</p>
+<p><code>NexT</code>主题相对来说较为简洁，使用Butterfly主题确实对博客有很大的美化程度，但不简约，最主要是在浏览器渲染上面，由于集成大量插件和动画特效，使得浏览时不是特别顺畅。</p>
+<p>最终本博客去繁化简，只留下实用功能，对博客轻美化，让网站即顺畅又优美。</p>
+<p>目前使用<code>GithubPages</code>加<code>GiteePages</code>双代码平台推送，测试下来，电信网络访问<code>githubPages</code>很大概率屏蔽，<code>GiteePages</code>需要手动更新，较为麻烦，<code>CDN</code>加速效果不明显，CI平台需要收取一定费用，介于目前情况，只能暂时如此，未来计划使用服务器搭建自己的CI平台进行自动化部署</p>
 ]]></content>
       <categories>
-        <category>随笔</category>
+        <category>Hexo框架</category>
       </categories>
   </entry>
   <entry>
@@ -307,5 +428,16 @@
       <tags>
         <tag>Bug</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>无题</title>
+    <url>/article/9b44950b.html</url>
+    <content><![CDATA[<p>欢乐和苦恼必然联系在一起：</p>
+<p>每一个欢乐背后都隐藏着当这个欢乐失去后的苦恼，每一个苦恼背后都隐藏着，当这个苦恼失去后的快乐。</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20210927235346.png"></p>
+]]></content>
+      <categories>
+        <category>随笔</category>
+      </categories>
   </entry>
 </search>
