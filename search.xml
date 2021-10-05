@@ -647,8 +647,8 @@
   <entry>
     <title>常用文本样式属性</title>
     <url>/article/90e0fc7e.html</url>
-    <content><![CDATA[<p>CSS3提供了大量的文本字体样式属性，本文章介绍CSS常用文本样式属性</p>
-<h1 id="Color属性"><a href="#Color属性" class="headerlink" title="Color属性"></a>Color属性</h1><ul>
+    <content><![CDATA[<p>CSS3提供了大量的文本字体样式属性，本文章介绍CSS常用文本样式属性，以下属性都具有继承性</p>
+<h1 id="color属性"><a href="#color属性" class="headerlink" title="color属性"></a>color属性</h1><ul>
 <li>Color属性可以设置文本的前景色</li>
 <li>属性值主要有英文、十六进制、rgb()、rgba()等表示法</li>
 <li>具有继承性</li>
@@ -657,9 +657,107 @@
 <p>#ff0000：三颜色，红绿蓝，ff是十进制的255，每种颜色都是0~255之间</p>
 <p>rgb()表示法：</p>
 <p>rgb(255,0,0)：三颜色，红绿蓝，ff是十进制的255，每种颜色都是0~255之间</p>
-<p>rgba()表示法：IE9兼容</p>
+<p>rgba()表示法：(IE9兼容)</p>
 <p>rgb(255,0,0, .65)：三颜色，红绿蓝，ff是十进制的255，每种颜色都是0<del>255之间，最后一位表示透明度，0</del>1之间</p>
-<h1 id="font-size属性"><a href="#font-size属性" class="headerlink" title="font-size属性"></a>font-size属性</h1>]]></content>
+<h1 id="font-size属性"><a href="#font-size属性" class="headerlink" title="font-size属性"></a>font-size属性</h1><p>font-size属性用来设置字号，单位有px、em、rem，浏览器一般最小是10px</p>
+<h1 id="font-weight属性"><a href="#font-weight属性" class="headerlink" title="font-weight属性"></a>font-weight属性</h1><p>font-weight属性用来设置粗细</p>
+<table>
+<thead>
+<tr>
+<th align="center">属性值</th>
+<th align="center">意义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">normal</td>
+<td align="center">正常属性，400等值</td>
+</tr>
+<tr>
+<td align="center">bold</td>
+<td align="center">加粗</td>
+</tr>
+<tr>
+<td align="center">lighter</td>
+<td align="center">更细（多数中文字体不支持）</td>
+</tr>
+<tr>
+<td align="center">bolder</td>
+<td align="center">更粗（多数中文字体不支持）</td>
+</tr>
+</tbody></table>
+<h1 id="font-style属性"><a href="#font-style属性" class="headerlink" title="font-style属性"></a>font-style属性</h1><table>
+<thead>
+<tr>
+<th align="center">属性值</th>
+<th align="center">意义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">normal</td>
+<td align="center">取消倾斜</td>
+</tr>
+<tr>
+<td align="center">italic</td>
+<td align="center">倾斜字体</td>
+</tr>
+<tr>
+<td align="center">oblique</td>
+<td align="center">倾斜字体(不常用)</td>
+</tr>
+</tbody></table>
+<h1 id="font-decoration属性"><a href="#font-decoration属性" class="headerlink" title="font-decoration属性"></a>font-decoration属性</h1><table>
+<thead>
+<tr>
+<th align="center">属性值</th>
+<th align="center">意义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">none</td>
+<td align="center">没有修饰线</td>
+</tr>
+<tr>
+<td align="center">underline</td>
+<td align="center">下划线</td>
+</tr>
+<tr>
+<td align="center">line-through</td>
+<td align="center">删除线</td>
+</tr>
+</tbody></table>
+<h1 id="font-family属性"><a href="#font-family属性" class="headerlink" title="font-family属性"></a>font-family属性</h1><p>示例：font-family:”微软雅黑”,serif,”Times New Roman”</p>
+<ul>
+<li>多个字体用逗号隔开，</li>
+<li>按顺序，第一个为首选字体，如果系统中没有该字体，则选择后面字体，以此类推</li>
+<li>中文和含有空格的英文字体需要引号包裹</li>
+<li>通常必须是用户计算机安装的字体</li>
+</ul>
+<p>自定义字体：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="keyword">@font-face</span> &#123;</span><br><span class="line">  <span class="attribute">font-family</span>: <span class="string">&#x27;webfont&#x27;</span>;</span><br><span class="line">  <span class="attribute">font-display</span>: swap;</span><br><span class="line">  <span class="attribute">src</span>: <span class="built_in">url</span>(<span class="string">&#x27;//at.alicdn.com/t/webfont_8pxgkjvoelj.eot&#x27;</span>); <span class="comment">/* IE9*/</span></span><br><span class="line">  <span class="attribute">src</span>: <span class="built_in">url</span>(<span class="string">&#x27;//at.alicdn.com/t/webfont_8pxgkjvoelj.eot?#iefix&#x27;</span>) <span class="built_in">format</span>(<span class="string">&#x27;embedded-opentype&#x27;</span>), /* IE6-IE8 */</span><br><span class="line">  <span class="built_in">url</span>(<span class="string">&#x27;//at.alicdn.com/t/webfont_8pxgkjvoelj.woff2&#x27;</span>) <span class="built_in">format</span>(<span class="string">&#x27;woff2&#x27;</span>),</span><br><span class="line">  <span class="built_in">url</span>(<span class="string">&#x27;//at.alicdn.com/t/webfont_8pxgkjvoelj.woff&#x27;</span>) <span class="built_in">format</span>(<span class="string">&#x27;woff&#x27;</span>), /* chrome、firefox */</span><br><span class="line">  <span class="built_in">url</span>(<span class="string">&#x27;//at.alicdn.com/t/webfont_8pxgkjvoelj.ttf&#x27;</span>) <span class="built_in">format</span>(<span class="string">&#x27;truetype&#x27;</span>), /* chrome、firefox、opera、Safari, Android, iOS <span class="number">4.2</span>+*/</span><br><span class="line">  <span class="built_in">url</span>(<span class="string">&#x27;//at.alicdn.com/t/webfont_8pxgkjvoelj.svg#思源黑体-极细&#x27;</span>) <span class="built_in">format</span>(<span class="string">&#x27;svg&#x27;</span>); <span class="comment">/* iOS 4.1- */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="text-indent属性"><a href="#text-indent属性" class="headerlink" title="text-indent属性"></a>text-indent属性</h1><p>首行缩进，单位em，表示字符宽度。</p>
+<h1 id="text-align属性"><a href="#text-align属性" class="headerlink" title="text-align属性"></a>text-align属性</h1><table>
+<thead>
+<tr>
+<th align="center">属性值</th>
+<th align="center">意义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">center</td>
+<td align="center">居中</td>
+</tr>
+<tr>
+<td align="center">right</td>
+<td align="center">居右</td>
+</tr>
+<tr>
+<td align="center">left</td>
+<td align="center">居左</td>
+</tr>
+</tbody></table>
+<h1 id="line-height属性"><a href="#line-height属性" class="headerlink" title="line-height属性"></a>line-height属性</h1><p>定义行高，行高等于盒子高实现垂直居中效果，单位可以是px，也可以是倍数，百分数</p>
+]]></content>
       <categories>
         <category>CSS</category>
       </categories>
