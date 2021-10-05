@@ -6,7 +6,7 @@
   <link href="https://lsfcxz.gitee.io/atom.xml" rel="self"/>
   
   <link href="https://lsfcxz.gitee.io/"/>
-  <updated>2021-10-04T06:03:41.424Z</updated>
+  <updated>2021-10-05T11:54:32.324Z</updated>
   <id>https://lsfcxz.gitee.io/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CSS盒模型</title>
+    <link href="https://lsfcxz.gitee.io/article/94a1bb4e.html"/>
+    <id>https://lsfcxz.gitee.io/article/94a1bb4e.html</id>
+    <published>2021-10-05T09:24:21.000Z</published>
+    <updated>2021-10-05T11:54:32.324Z</updated>
+    
+    <content type="html"><![CDATA[<p>CSS的盒模型分为W3C的标准模型和IE的怪异模型。</p><p>W3C的盒模型：</p><p>内容宽+左右内边距+左右边框 = 盒子宽度</p><p>width+padding-left+padding-right+border-left+boder+-righ=总宽度</p><p>高度同理，也就是设置的宽高就是内容可以使用的宽高，其他设置的值都是外扩的</p><p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/2015-10-03-css-27.jpg"></p><p>IE的怪异盒模型：</p><p>IE盒模型虽然包含W3C的盒模型，但是它内容宽包含了内边距、边框和外边距，也就是说，设置的宽高不一定就是内容可以使用的宽高，它属于内缩的一种。</p><p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/2015-10-03-css-30.jpg"></p><p>当然我们可以通过以下属性灵活切换模型：</p><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">box-sizing</span>: border-box;  // 设置为IE模型</span><br><span class="line"> <span class="attribute">box-sizing</span>: contetn-box; // 设置为标准模型</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;CSS的盒模型分为W3C的标准模型和IE的怪异模型。&lt;/p&gt;
+&lt;p&gt;W3C的盒模型：&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="CSS" scheme="https://lsfcxz.gitee.io/categories/CSS/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>搭建属于自己的UI组件库</title>
