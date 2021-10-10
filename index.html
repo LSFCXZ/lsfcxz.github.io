@@ -225,10 +225,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-10-08 20:28:49 / 修改时间：21:20:12" itemprop="dateCreated datePublished" datetime="2021-10-08T20:28:49+08:00">2021-10-08</time>
+              <time title="创建时间：2021-10-08 20:28:49" itemprop="dateCreated datePublished" datetime="2021-10-08T20:28:49+08:00">2021-10-08</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-10-09 09:29:26" itemprop="dateModified" datetime="2021-10-09T09:29:26+08:00">2021-10-09</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -265,7 +271,18 @@
 
       
           <p>前段时间写了LinView组件库，但是问题太多，按需引入总是出错，最后只能重写，因为重写，具体的不一一例举，重点把遇到的坑点和心得记录下</p>
-<h1 id="工程化目录"><a href="#工程化目录" class="headerlink" title="工程化目录"></a>工程化目录</h1>
+<h1 id="工程化目录"><a href="#工程化目录" class="headerlink" title="工程化目录"></a>工程化目录</h1><p>首先依然使用vue/cli形成目录，这是最后的目录结构：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line">|-- WeX-UI</span><br><span class="line">    |-- .gitignore</span><br><span class="line">    |-- babel.config.js</span><br><span class="line">    |-- components.json</span><br><span class="line">    |-- deploy.sh         <span class="comment">//vuepress部署</span></span><br><span class="line">    |-- package-lock.json</span><br><span class="line">    |-- package.json</span><br><span class="line">    |-- README.md</span><br><span class="line">    |-- build          <span class="comment">//打包配置文件</span></span><br><span class="line">    |   |-- utlis.js</span><br><span class="line">    |   |-- webpack.base.js</span><br><span class="line">    |   |-- webpack.component.js</span><br><span class="line">    |   |-- webpack.prod.js</span><br><span class="line">    |-- docs           <span class="comment">//vuepress文档</span></span><br><span class="line">    |   |-- index.md</span><br><span class="line">    |   |-- .vuepress</span><br><span class="line">    |   |   |-- config.js</span><br><span class="line">    |   |   |-- enhanceApp.js</span><br><span class="line">    |   |   |-- public</span><br><span class="line">    |   |       |-- card.png</span><br><span class="line">    |   |-- componentdocs</span><br><span class="line">    |   |   |-- card.md</span><br><span class="line">    |   |   |-- index.md</span><br><span class="line">    |   |   |-- start.md</span><br><span class="line">    |   |-- update</span><br><span class="line">    |       |-- index.md</span><br><span class="line">    |-- lib            <span class="comment">//打包后的组件和样式</span></span><br><span class="line">    |   |-- card.js</span><br><span class="line">    |   |-- demo.js</span><br><span class="line">    |   |-- wex-ui.min.js</span><br><span class="line">    |   |-- styles</span><br><span class="line">    |       |-- card.css</span><br><span class="line">    |       |-- demo.css</span><br><span class="line">    |       |-- index.css</span><br><span class="line">    |-- packages         <span class="comment">//原生代码</span></span><br><span class="line">    |   |-- card</span><br><span class="line">    |   |   |-- index.js</span><br><span class="line">    |   |   |-- src</span><br><span class="line">    |   |       |-- Index.vue</span><br><span class="line">    |   |-- demo</span><br><span class="line">    |   |   |-- index.js</span><br><span class="line">    |   |   |-- src</span><br><span class="line">    |   |       |-- Index.vue</span><br><span class="line">    |   |-- theme-chalk         <span class="comment">//样式文件</span></span><br><span class="line">    |       |-- gulpfile.js</span><br><span class="line">    |       |-- src</span><br><span class="line">    |           |-- card.scss</span><br><span class="line">    |           |-- demo.scss</span><br><span class="line">    |           |-- index.scss</span><br><span class="line">    |-- public</span><br><span class="line">    |   |-- favicon.ico</span><br><span class="line">    |   |-- index.html</span><br><span class="line">    |-- src</span><br><span class="line">        |-- App.vue</span><br><span class="line">        |-- index.js        <span class="comment">//全局注册组件</span></span><br><span class="line">        |-- main.js</span><br><span class="line">        |-- assets</span><br><span class="line">        |   |-- logo.png</span><br><span class="line">        |-- components</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>整个目录结构是参考了ElementUI的写法，做了减法</li>
+<li>为了第三方项目的按需加载，打包后的都放在lib文件夹</li>
+<li>把gulp打包文件放在CSS的包这是参考了ElementUI，感觉上更加舒服，不会在build文件夹还存放另外的打包工具文件</li>
+<li>components.json也是参考ElementUI，这是为了按需引入单独打包加上</li>
+<li>webpack分成3个，一个基础的，一个打包全部组件，一个用来单独组件打包，虽然现在一个也可以足够打包，但是为了后续的扩展，目前采取该方式</li>
+<li>enhanceAppjs文件是用来导入全部组件的，属于应用级别，以前写法是把组件复制过来，麻烦且浪费空间，应用该文件后，开发后的组件就可以书写文档。</li>
+<li>deploy.sh拉取到最外层，让config非常纯粹 ，（utils只是为解决路径问题）</li>
+</ul>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/article/c7f47550.html#more" rel="contents">
@@ -323,7 +340,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-08 08:47:33" itemprop="dateModified" datetime="2021-10-08T08:47:33+08:00">2021-10-08</time>
+                <time title="修改时间：2021-10-09 10:28:18" itemprop="dateModified" datetime="2021-10-09T10:28:18+08:00">2021-10-09</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -361,7 +378,9 @@
 
       
           <p>CSS的布局方式有很多种：表格、弹性、浮动等布局，本文章主要写浮动布局。</p>
-<h1 id="浮动布局"><a href="#浮动布局" class="headerlink" title="浮动布局"></a>浮动布局</h1>
+<h1 id="浮动布局"><a href="#浮动布局" class="headerlink" title="浮动布局"></a>浮动布局</h1><p><strong>基本概念</strong></p>
+<p>浮动最本质的功能就是实现并排，虽然使用<code>display: inline-block;</code>也可以实现并排，不过有间隙。</p>
+<p><strong>浮动关键字</strong></p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/article/29b6ab94.html#more" rel="contents">
@@ -458,6 +477,9 @@
       
           <p>CSS的盒模型分为W3C的标准模型和IE的怪异模型。</p>
 <p>W3C的盒模型：</p>
+<p>内容宽+左右内边距+左右边框 = 盒子<strong>实际</strong>宽度</p>
+<p>内容宽+左右内边距+左右边框+左右外边距= 盒子<strong>占用</strong>宽度</p>
+<p>高度同理，也就是设置的宽高就是内容可以使用的宽高，其他设置的值都是外扩的</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/article/94a1bb4e.html#more" rel="contents">
@@ -480,10 +502,210 @@
   
   
 
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lsfcxz.gitee.io/article/e3dabf31.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="const name="LSF"">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大前端_LSF">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/article/e3dabf31.html" class="post-title-link" itemprop="url">搭建属于自己的UI组件库</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-10-02 12:57:22" itemprop="dateCreated datePublished" datetime="2021-10-02T12:57:22+08:00">2021-10-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-10-08 20:29:25" itemprop="dateModified" datetime="2021-10-08T20:29:25+08:00">2021-10-08</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BB%84%E4%BB%B6%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">组件库</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/article/e3dabf31.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/article/e3dabf31.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>最近使用主流的UI框架，忽然心血来潮，何不自己搭建属于自己的UI组件库呢，类似Mint-UI、Element-UI、Vant等组件框架，好在大多UI框架都是开源，所以经过学习实践，终于搭建了属于自己UI组件库——LInView。</p>
+<p>当然想要跟主流框架一样，当然不能只停留在本地运行，我会发布到NPM上，并使用VuePress形成文档，以方便开发使用。</p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>本文章着重与全流程的开发，不单于仅限于开发一点，真正的从0到1的开发，LinView也不是基于其他UI框架进行二次开发，完全的样式开发。更着文章步骤，你也能实现自己UI组件库。</p>
+<p>为何造轮子：造轮子的意义在于理解其原理，并且对于一些UI框架出现的问题能及时定位，能对UI框架进行高度的自定义，使其更加贴合业务开发。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/article/e3dabf31.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lsfcxz.gitee.io/article/90e0fc7e.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="const name="LSF"">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大前端_LSF">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/article/90e0fc7e.html" class="post-title-link" itemprop="url">常用文本样式属性</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-10-01 22:54:48" itemprop="dateCreated datePublished" datetime="2021-10-01T22:54:48+08:00">2021-10-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-10-05 16:40:42" itemprop="dateModified" datetime="2021-10-05T16:40:42+08:00">2021-10-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CSS/" itemprop="url" rel="index"><span itemprop="name">CSS</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/article/90e0fc7e.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/article/90e0fc7e.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>CSS3提供了大量的文本字体样式属性，本文章介绍CSS常用文本样式属性，以下属性都具有继承性</p>
+<h1 id="color属性"><a href="#color属性" class="headerlink" title="color属性"></a>color属性</h1><ul>
+<li>Color属性可以设置文本的前景色</li>
+<li>属性值主要有英文、十六进制、rgb()、rgba()等表示法</li>
+<li>具有继承性</li>
+</ul>
+<p>十六进制表示法：</p>
+<p>#ff0000：三颜色，红绿蓝，ff是十进制的255，每种颜色都是0~255之间</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/article/90e0fc7e.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
