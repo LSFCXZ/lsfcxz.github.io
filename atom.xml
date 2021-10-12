@@ -6,7 +6,7 @@
   <link href="https://lsfcxz.gitee.io/atom.xml" rel="self"/>
   
   <link href="https://lsfcxz.gitee.io/"/>
-  <updated>2021-10-10T01:47:16.293Z</updated>
+  <updated>2021-10-12T13:58:48.416Z</updated>
   <id>https://lsfcxz.gitee.io/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CSS圆角和边框、盒阴影</title>
+    <link href="https://lsfcxz.gitee.io/article/a00aca70.html"/>
+    <id>https://lsfcxz.gitee.io/article/a00aca70.html</id>
+    <published>2021-10-12T10:17:54.000Z</published>
+    <updated>2021-10-12T13:58:48.416Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="边框（border）"><a href="#边框（border）" class="headerlink" title="边框（border）"></a>边框（border）</h1><p>盒子的边框有三个属性值，边框有16个属性，4个是边框的上下左右，12个上下左右加属性值的属性，边框小属性主要用来层叠大属性。</p><p>边框三要素：</p><ul><li><p>线宽度：单位px</p></li><li><p>线型：</p><p>（1）none (没有边框，无论边框宽度设为多大)<br>（2）dotted (点线式边框)<br>（3）dashed (破折线式边框)<br>（4）solid (直线式边框)<br>（5）double (双线式边框)<br>（6）groove (槽线式边框)<br>（7）ridge(脊线式边框)<br>（8）inset (内嵌效果的边框)<br>（9）outset (突起效果的边框)</p></li><li><p>颜色：英文、十六进制、rgb()、rgba()等表示法</p></li></ul><p>示例：</p><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">border</span>:<span class="number">1px</span> solid red;</span><br></pre></td></tr></table></figure><p>边框的4个方向属性：</p><ul><li> border-top：上边框</li><li>bottom-right:右边框</li><li>border-bottom：下边框</li><li>border-left：左边框</li></ul><p>边框12个小属性：</p><ul><li>border-top-width</li><li>border-top-style</li><li>border-top-color</li><li>bottom-right-width</li><li>bottom-right-style</li><li>bottom-right-color</li><li>border-bottom-width</li><li>border-bottom-style</li><li>border-bottom-color</li><li>border-left-width</li><li>border-left-style</li><li>border-left-color</li></ul><h1 id="圆角-border-radius"><a href="#圆角-border-radius" class="headerlink" title="圆角(border-radius)"></a>圆角(border-radius)</h1><p>边框圆角单位可以是百分比也可以是px单位，分别有4个小属性</p><ul><li>border-top-left-radius:</li><li>border-top-right-radius</li><li>border-bottom-right-radius</li><li>border-bottom-left-radius</li></ul><h1 id="盒阴影-box-shadow"><a href="#盒阴影-box-shadow" class="headerlink" title="盒阴影(box-shadow)"></a>盒阴影(box-shadow)</h1><p>四元素：</p><p>x偏移、y偏移、模糊量、颜色</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">box-shadow:10px 20px 30px rgba(0,0,0, .4)</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;边框（border）&quot;&gt;&lt;a href=&quot;#边框（border）&quot; class=&quot;headerlink&quot; title=&quot;边框（border）&quot;&gt;&lt;/a&gt;边框（border）&lt;/h1&gt;&lt;p&gt;盒子的边框有三个属性值，边框有16个属性，4个是边框的上下左右，12个上下左右加属性值的属性，边框小属性主要用来层叠大属性。&lt;/p&gt;
+&lt;p&gt;边框三要素：&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="CSS" scheme="https://lsfcxz.gitee.io/categories/CSS/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>BFC规范</title>
