@@ -22,19 +22,19 @@
     var CONFIG = {"hostname":"lsfcxz.gitee.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="BFC概念： BFC(Box Formatting Context 会计格式化上下文)是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素，反之亦然。BFC是封闭在一个盒子里面，使网页布局达到一种稳定状态 四种方法：">
+  <meta name="description" content="背景颜色(background-color) padding区域是有背景颜色 支持英文、十六进制、rgb()、rgba()等表示法  背景图片（ background-image）">
 <meta property="og:type" content="article">
-<meta property="og:title" content="BFC规范">
-<meta property="og:url" content="https://lsfcxz.gitee.io/article/9221e461.html">
+<meta property="og:title" content="CSS背景属性">
+<meta property="og:url" content="https://lsfcxz.gitee.io/article/9f33a331.html">
 <meta property="og:site_name" content="大前端_LSF">
-<meta property="og:description" content="BFC概念： BFC(Box Formatting Context 会计格式化上下文)是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素，反之亦然。BFC是封闭在一个盒子里面，使网页布局达到一种稳定状态 四种方法：">
+<meta property="og:description" content="背景颜色(background-color) padding区域是有背景颜色 支持英文、十六进制、rgb()、rgba()等表示法  背景图片（ background-image）">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-10-10T01:25:16.000Z">
-<meta property="article:modified_time" content="2021-10-10T01:47:16.293Z">
+<meta property="article:published_time" content="2021-10-13T10:53:22.000Z">
+<meta property="article:modified_time" content="2021-10-14T05:27:12.191Z">
 <meta property="article:author" content="const name&#x3D;&quot;LSF&quot;">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://lsfcxz.gitee.io/article/9221e461.html">
+<link rel="canonical" href="https://lsfcxz.gitee.io/article/9f33a331.html">
 
 
 <script id="page-configurations">
@@ -47,7 +47,7 @@
   };
 </script>
 
-  <title>BFC规范 | 大前端_LSF</title>
+  <title>CSS背景属性 | 大前端_LSF</title>
   
 
 
@@ -207,7 +207,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lsfcxz.gitee.io/article/9221e461.html">
+    <link itemprop="mainEntityOfPage" href="https://lsfcxz.gitee.io/article/9f33a331.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -220,7 +220,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          BFC规范
+          CSS背景属性
         </h1>
 
         <div class="post-meta">
@@ -229,10 +229,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-10-10 09:25:16 / 修改时间：09:47:16" itemprop="dateCreated datePublished" datetime="2021-10-10T09:25:16+08:00">2021-10-10</time>
+              <time title="创建时间：2021-10-13 18:53:22" itemprop="dateCreated datePublished" datetime="2021-10-13T18:53:22+08:00">2021-10-13</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-10-14 13:27:12" itemprop="dateModified" datetime="2021-10-14T13:27:12+08:00">2021-10-14</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -259,8 +265,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/article/9221e461.html#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/article/9221e461.html" itemprop="commentCount"></span>
+    <a title="valine" href="/article/9f33a331.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/article/9f33a331.html" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -275,15 +281,51 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>BFC概念：</p>
-<p>BFC(Box Formatting Context 会计格式化上下文)是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素，反之亦然。BFC是封闭在一个盒子里面，使网页布局达到一种稳定状态</p>
-<p>四种方法：</p>
-<ol>
-<li>float的值不是none</li>
-<li>posittion的值不是static或者relative</li>
-<li>display的值是inline-block、flex、或者inline-flex</li>
-<li>overflow：hidden</li>
-</ol>
+        <h1 id="背景颜色-background-color"><a href="#背景颜色-background-color" class="headerlink" title="背景颜色(background-color)"></a>背景颜色(background-color)</h1><ul>
+<li>padding区域是有背景颜色</li>
+<li>支持英文、十六进制、rgb()、rgba()等表示法</li>
+</ul>
+<h1 id="背景图片（-background-image）"><a href="#背景图片（-background-image）" class="headerlink" title="背景图片（ background-image）"></a>背景图片（ background-image）</h1><ul>
+<li>背景图片默认纵轴横轴重复</li>
+</ul>
+<p><strong>重复模式</strong>：</p>
+<p>background-repeat属性可以改变背景图片的重复模式</p>
+<table>
+<thead>
+<tr>
+<th align="center">值</th>
+<th align="center">意义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">repeat</td>
+<td align="center">x,y均平铺</td>
+</tr>
+<tr>
+<td align="center">repeat-x</td>
+<td align="center">x,重复</td>
+</tr>
+<tr>
+<td align="center">repeat-y</td>
+<td align="center">y重复</td>
+</tr>
+<tr>
+<td align="center">no-repeat</td>
+<td align="center">不重复</td>
+</tr>
+</tbody></table>
+<p><strong>背景图片尺寸</strong>：</p>
+<ul>
+<li>background-size用来设置图片的尺寸。</li>
+<li>contain表示图片尺寸以容纳到盒子里，完整显示，有白边</li>
+<li>cover表示将背景图片尺寸以撑满盒子，不完整显示</li>
+</ul>
+<p><strong>背景裁剪</strong>：</p>
+<p>background-clip用来设置裁剪，背景是会覆盖到盒子边框的，使用该属性可以控制盒子背景裁剪到哪个地方</p>
+<p><strong>背景定位</strong>：</p>
+<p><strong>背景位置</strong>：</p>
+<p><strong>线性渐变</strong>：</p>
+<p><strong>径向渐变</strong>：</p>
 
     </div>
 
@@ -299,7 +341,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://lsfcxz.gitee.io/article/9221e461.html" title="BFC规范">https://lsfcxz.gitee.io/article/9221e461.html</a>
+    <a href="https://lsfcxz.gitee.io/article/9f33a331.html" title="CSS背景属性">https://lsfcxz.gitee.io/article/9f33a331.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -345,13 +387,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/article/c7f47550.html" rel="prev" title="WeX-UI组件库搭建">
-      <i class="fa fa-chevron-left"></i> WeX-UI组件库搭建
+    <a href="/article/a00aca70.html" rel="prev" title="CSS圆角和边框、盒阴影">
+      <i class="fa fa-chevron-left"></i> CSS圆角和边框、盒阴影
     </a></div>
-      <div class="post-nav-item">
-    <a href="/article/a00aca70.html" rel="next" title="CSS圆角和边框、盒阴影">
-      CSS圆角和边框、盒阴影 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -411,6 +450,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%83%8C%E6%99%AF%E9%A2%9C%E8%89%B2-background-color"><span class="nav-number">1.</span> <span class="nav-text">背景颜色(background-color)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%83%8C%E6%99%AF%E5%9B%BE%E7%89%87%EF%BC%88-background-image%EF%BC%89"><span class="nav-number">2.</span> <span class="nav-text">背景图片（ background-image）</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
