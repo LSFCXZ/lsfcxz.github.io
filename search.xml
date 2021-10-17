@@ -1,23 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>BFC规范</title>
-    <url>/article/9221e461.html</url>
-    <content><![CDATA[<p>BFC概念：</p>
-<p>BFC(Box Formatting Context 会计格式化上下文)是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素，反之亦然。BFC是封闭在一个盒子里面，使网页布局达到一种稳定状态</p>
-<p>四种方法：</p>
-<ol>
-<li>float的值不是none</li>
-<li>posittion的值不是static或者relative</li>
-<li>display的值是inline-block、flex、或者inline-flex</li>
-<li>overflow：hidden</li>
-</ol>
-]]></content>
-      <categories>
-        <category>CSS</category>
-      </categories>
-  </entry>
-  <entry>
     <title>CSS3层叠性、继承性、优先级</title>
     <url>/article/96691857.html</url>
     <content><![CDATA[<p>在CSS3中如果同时多个选择器都在描述同一个元素，那么CSS3会把一层一层的样式刷上去，这就是他的层叠性，但是，如果多个选择器都在描述这个元素的同个属性，CSS3会采取权重计算后采用那个样式，如果属性是具有继承性，则优先采用就近原则，当一样近的时候，才选择权重计算。这些计算只能是在同一个引用方式生效，否则，行内式是最高权限，然后才是内嵌，最后是外链。</p>
@@ -73,6 +56,87 @@
 <li>color属性具有继承性，所以使用就近原则</li>
 <li>两个选择器一样远近，使用权重计算</li>
 </ul>
+]]></content>
+      <categories>
+        <category>CSS</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>BFC规范</title>
+    <url>/article/9221e461.html</url>
+    <content><![CDATA[<p>BFC概念：</p>
+<p>BFC(Box Formatting Context 会计格式化上下文)是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素，反之亦然。BFC是封闭在一个盒子里面，使网页布局达到一种稳定状态</p>
+<p>四种方法：</p>
+<ol>
+<li>float的值不是none</li>
+<li>posittion的值不是static或者relative</li>
+<li>display的值是inline-block、flex、或者inline-flex</li>
+<li>overflow：hidden</li>
+</ol>
+]]></content>
+      <categories>
+        <category>CSS</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>CSS圆角和边框、盒阴影</title>
+    <url>/article/a00aca70.html</url>
+    <content><![CDATA[<h1 id="边框（border）"><a href="#边框（border）" class="headerlink" title="边框（border）"></a>边框（border）</h1><p>盒子的边框有三个属性值，边框有16个属性，4个是边框的上下左右，12个上下左右加属性值的属性，边框小属性主要用来层叠大属性。</p>
+<p>边框三要素：</p>
+<ul>
+<li><p>线宽度：单位px</p>
+</li>
+<li><p>线型：</p>
+<p>（1）none (没有边框，无论边框宽度设为多大)<br>（2）dotted (点线式边框)<br>（3）dashed (破折线式边框)<br>（4）solid (直线式边框)<br>（5）double (双线式边框)<br>（6）groove (槽线式边框)<br>（7）ridge(脊线式边框)<br>（8）inset (内嵌效果的边框)<br>（9）outset (突起效果的边框)</p>
+</li>
+<li><p>颜色：英文、十六进制、rgb()、rgba()等表示法</p>
+</li>
+</ul>
+<p>示例：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="attribute">border</span>:<span class="number">1px</span> solid red;</span><br></pre></td></tr></table></figure>
+
+<p>边框的4个方向属性：</p>
+<ul>
+<li> border-top：上边框</li>
+<li>bottom-right:右边框</li>
+<li>border-bottom：下边框</li>
+<li>border-left：左边框</li>
+</ul>
+<p>边框12个小属性：</p>
+<ul>
+<li>border-top-width</li>
+<li>border-top-style</li>
+<li>border-top-color</li>
+<li>bottom-right-width</li>
+<li>bottom-right-style</li>
+<li>bottom-right-color</li>
+<li>border-bottom-width</li>
+<li>border-bottom-style</li>
+<li>border-bottom-color</li>
+<li>border-left-width</li>
+<li>border-left-style</li>
+<li>border-left-color</li>
+</ul>
+<h1 id="圆角-border-radius"><a href="#圆角-border-radius" class="headerlink" title="圆角(border-radius)"></a>圆角(border-radius)</h1><p>边框圆角单位可以是百分比也可以是px单位，分别有4个小属性</p>
+<ul>
+<li>border-top-left-radius:</li>
+<li>border-top-right-radius</li>
+<li>border-bottom-right-radius</li>
+<li>border-bottom-left-radius</li>
+</ul>
+<h1 id="盒阴影-box-shadow"><a href="#盒阴影-box-shadow" class="headerlink" title="盒阴影(box-shadow)"></a>盒阴影(box-shadow)</h1><p>五元素：</p>
+<p>x偏移、y偏移、(阴影延展)、模糊量、颜色</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="attribute">box-shadow</span>:<span class="number">10px</span> <span class="number">20px</span> <span class="number">30px</span> <span class="number">50px</span> <span class="built_in">rgba</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>, .<span class="number">4</span>)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>x偏移，正式往左边走，负数右边</li>
+<li>y偏移，正式往下边走，负数上边</li>
+<li>阴影延展：往4个方向扩展</li>
+<li>模糊量：模糊程度</li>
+<li>颜色：英文、十六进制、rgb()、rgba()等表示法</li>
+</ul>
+<p>盒子还可以设置内部阴影：inset</p>
+<p>也可以设置多个阴影重复，使用逗号隔开</p>
 ]]></content>
       <categories>
         <category>CSS</category>
@@ -271,64 +335,84 @@
       </categories>
   </entry>
   <entry>
-    <title>CSS圆角和边框、盒阴影</title>
-    <url>/article/a00aca70.html</url>
-    <content><![CDATA[<h1 id="边框（border）"><a href="#边框（border）" class="headerlink" title="边框（border）"></a>边框（border）</h1><p>盒子的边框有三个属性值，边框有16个属性，4个是边框的上下左右，12个上下左右加属性值的属性，边框小属性主要用来层叠大属性。</p>
-<p>边框三要素：</p>
-<ul>
-<li><p>线宽度：单位px</p>
-</li>
-<li><p>线型：</p>
-<p>（1）none (没有边框，无论边框宽度设为多大)<br>（2）dotted (点线式边框)<br>（3）dashed (破折线式边框)<br>（4）solid (直线式边框)<br>（5）double (双线式边框)<br>（6）groove (槽线式边框)<br>（7）ridge(脊线式边框)<br>（8）inset (内嵌效果的边框)<br>（9）outset (突起效果的边框)</p>
-</li>
-<li><p>颜色：英文、十六进制、rgb()、rgba()等表示法</p>
-</li>
+    <title>CSS背景属性</title>
+    <url>/article/9f33a331.html</url>
+    <content><![CDATA[<h1 id="背景颜色-background-color"><a href="#背景颜色-background-color" class="headerlink" title="背景颜色(background-color)"></a>背景颜色(background-color)</h1><ul>
+<li>padding区域是有背景颜色</li>
+<li>支持英文、十六进制、rgb()、rgba()等表示法</li>
 </ul>
+<h1 id="背景图片（-background-image）"><a href="#背景图片（-background-image）" class="headerlink" title="背景图片（ background-image）"></a>背景图片（ background-image）</h1><ul>
+<li>背景图片默认纵轴横轴重复</li>
+</ul>
+<p><strong>重复模式</strong>：</p>
+<p>background-repeat属性可以改变背景图片的重复模式</p>
+<table>
+<thead>
+<tr>
+<th align="center">值</th>
+<th align="center">意义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">repeat</td>
+<td align="center">x,y均平铺</td>
+</tr>
+<tr>
+<td align="center">repeat-x</td>
+<td align="center">x,重复</td>
+</tr>
+<tr>
+<td align="center">repeat-y</td>
+<td align="center">y重复</td>
+</tr>
+<tr>
+<td align="center">no-repeat</td>
+<td align="center">不重复</td>
+</tr>
+</tbody></table>
+<p><strong>背景图片尺寸</strong>：</p>
+<ul>
+<li>background-size用来设置图片的尺寸。</li>
+<li>contain表示图片尺寸以容纳到盒子里，完整显示，有白边</li>
+<li>cover表示将背景图片尺寸以撑满盒子，不完整显示</li>
+</ul>
+<p><strong>背景裁剪</strong>：</p>
+<p>background-clip用来设置裁剪，背景是会覆盖到盒子边框的，使用该属性可以控制盒子背景裁剪到哪个地方</p>
+<p><strong>背景定位</strong>：</p>
+<p>background-attachment用来设置背景的定位。</p>
+<table>
+<thead>
+<tr>
+<th align="center">值</th>
+<th align="center">意义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">fixed</td>
+<td align="center">自己滚动条不动，外部滚动条不动</td>
+</tr>
+<tr>
+<td align="center">local</td>
+<td align="center">自己滚动条动，外部滚动条动</td>
+</tr>
+<tr>
+<td align="center">scroll</td>
+<td align="center">自己滚动条不动，外部滚动条动（默认）</td>
+</tr>
+</tbody></table>
+<p><strong>背景位置</strong>：</p>
+<p> background-position用来设置背景图片的起点位置。</p>
 <p>示例：</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="attribute">border</span>:<span class="number">1px</span> solid red;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="attribute">background-position</span>:<span class="number">100px</span> <span class="number">200px</span>;</span><br></pre></td></tr></table></figure>
 
-<p>边框的4个方向属性：</p>
-<ul>
-<li> border-top：上边框</li>
-<li>bottom-right:右边框</li>
-<li>border-bottom：下边框</li>
-<li>border-left：左边框</li>
-</ul>
-<p>边框12个小属性：</p>
-<ul>
-<li>border-top-width</li>
-<li>border-top-style</li>
-<li>border-top-color</li>
-<li>bottom-right-width</li>
-<li>bottom-right-style</li>
-<li>bottom-right-color</li>
-<li>border-bottom-width</li>
-<li>border-bottom-style</li>
-<li>border-bottom-color</li>
-<li>border-left-width</li>
-<li>border-left-style</li>
-<li>border-left-color</li>
-</ul>
-<h1 id="圆角-border-radius"><a href="#圆角-border-radius" class="headerlink" title="圆角(border-radius)"></a>圆角(border-radius)</h1><p>边框圆角单位可以是百分比也可以是px单位，分别有4个小属性</p>
-<ul>
-<li>border-top-left-radius:</li>
-<li>border-top-right-radius</li>
-<li>border-bottom-right-radius</li>
-<li>border-bottom-left-radius</li>
-</ul>
-<h1 id="盒阴影-box-shadow"><a href="#盒阴影-box-shadow" class="headerlink" title="盒阴影(box-shadow)"></a>盒阴影(box-shadow)</h1><p>五元素：</p>
-<p>x偏移、y偏移、(阴影延展)、模糊量、颜色</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="attribute">box-shadow</span>:<span class="number">10px</span> <span class="number">20px</span> <span class="number">30px</span> <span class="number">50px</span> <span class="built_in">rgba</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>, .<span class="number">4</span>)</span><br></pre></td></tr></table></figure>
+<p>设置盒子横轴100px，纵轴200px，还可以使用四个方向的英文进行表示，CSS精灵</p>
+<p><strong>线性渐变</strong>：</p>
+<p>它是ackground-image的属性值，线型的</p>
+<p>示例：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="attribute">background-image</span>:<span class="built_in">linear-gradient</span>(to right, red,blue)</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>x偏移，正式往左边走，负数右边</li>
-<li>y偏移，正式往下边走，负数上边</li>
-<li>阴影延展：往4个方向扩展</li>
-<li>模糊量：模糊程度</li>
-<li>颜色：英文、十六进制、rgb()、rgba()等表示法</li>
-</ul>
-<p>盒子还可以设置内部阴影：inset</p>
-<p>也可以设置多个阴影重复，使用逗号隔开</p>
+<p>位置也可以是角度，单位deg，也可以使用百分号设置出现的位置</p>
+<p><strong>径向渐变</strong>：</p>
 ]]></content>
       <categories>
         <category>CSS</category>
@@ -408,90 +492,6 @@
 <figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.box</span>&#123; </span><br><span class="line">   	    <span class="attribute">position</span>: absolute;</span><br><span class="line">        <span class="attribute">top</span>: <span class="number">50%</span>;</span><br><span class="line">        <span class="attribute">left</span>: <span class="number">50%</span>;</span><br><span class="line">        <span class="attribute">margin-top</span>: 负自己高度一半;</span><br><span class="line">        <span class="attribute">margin-left</span>: 负自己宽度一半;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="固定定位（fixed）"><a href="#固定定位（fixed）" class="headerlink" title="固定定位（fixed）"></a>固定定位（fixed）</h2><p>不管页面如何卷动，永远固定在一个位置，相对于视口位置，脱离文档流</p>
-]]></content>
-      <categories>
-        <category>CSS</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>CSS背景属性</title>
-    <url>/article/9f33a331.html</url>
-    <content><![CDATA[<h1 id="背景颜色-background-color"><a href="#背景颜色-background-color" class="headerlink" title="背景颜色(background-color)"></a>背景颜色(background-color)</h1><ul>
-<li>padding区域是有背景颜色</li>
-<li>支持英文、十六进制、rgb()、rgba()等表示法</li>
-</ul>
-<h1 id="背景图片（-background-image）"><a href="#背景图片（-background-image）" class="headerlink" title="背景图片（ background-image）"></a>背景图片（ background-image）</h1><ul>
-<li>背景图片默认纵轴横轴重复</li>
-</ul>
-<p><strong>重复模式</strong>：</p>
-<p>background-repeat属性可以改变背景图片的重复模式</p>
-<table>
-<thead>
-<tr>
-<th align="center">值</th>
-<th align="center">意义</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">repeat</td>
-<td align="center">x,y均平铺</td>
-</tr>
-<tr>
-<td align="center">repeat-x</td>
-<td align="center">x,重复</td>
-</tr>
-<tr>
-<td align="center">repeat-y</td>
-<td align="center">y重复</td>
-</tr>
-<tr>
-<td align="center">no-repeat</td>
-<td align="center">不重复</td>
-</tr>
-</tbody></table>
-<p><strong>背景图片尺寸</strong>：</p>
-<ul>
-<li>background-size用来设置图片的尺寸。</li>
-<li>contain表示图片尺寸以容纳到盒子里，完整显示，有白边</li>
-<li>cover表示将背景图片尺寸以撑满盒子，不完整显示</li>
-</ul>
-<p><strong>背景裁剪</strong>：</p>
-<p>background-clip用来设置裁剪，背景是会覆盖到盒子边框的，使用该属性可以控制盒子背景裁剪到哪个地方</p>
-<p><strong>背景定位</strong>：</p>
-<p>background-attachment用来设置背景的定位。</p>
-<table>
-<thead>
-<tr>
-<th align="center">值</th>
-<th align="center">意义</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">fixed</td>
-<td align="center">自己滚动条不动，外部滚动条不动</td>
-</tr>
-<tr>
-<td align="center">local</td>
-<td align="center">自己滚动条动，外部滚动条动</td>
-</tr>
-<tr>
-<td align="center">scroll</td>
-<td align="center">自己滚动条不动，外部滚动条动（默认）</td>
-</tr>
-</tbody></table>
-<p><strong>背景位置</strong>：</p>
-<p> background-position用来设置背景图片的起点位置。</p>
-<p>示例：</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="attribute">background-position</span>:<span class="number">100px</span> <span class="number">200px</span>;</span><br></pre></td></tr></table></figure>
-
-<p>设置盒子横轴100px，纵轴200px，还可以使用四个方向的英文进行表示，CSS精灵</p>
-<p><strong>线性渐变</strong>：</p>
-<p>它是ackground-image的属性值，线型的</p>
-<p>示例：</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="attribute">background-image</span>:<span class="built_in">linear-gradient</span>(to right, red,blue)</span><br></pre></td></tr></table></figure>
-
-<p>位置也可以是角度，单位deg，也可以使用百分号设置出现的位置</p>
-<p><strong>径向渐变</strong>：</p>
 ]]></content>
       <categories>
         <category>CSS</category>
@@ -670,6 +670,176 @@
 ]]></content>
       <categories>
         <category>HTML</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>HTML5速查手册(持续更新中...)</title>
+    <url>/article/fbca42a6.html</url>
+    <content><![CDATA[<h1 id="HTML5骨架"><a href="#HTML5骨架" class="headerlink" title="HTML5骨架"></a>HTML5骨架</h1><p>示例：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;X-UA-Compatible&quot;</span> <span class="attr">content</span>=<span class="string">&quot;IE=edge&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>DOCTYPE是文档类型声明，声明该网页以哪个HTML版本执行，不同版本有不同声明方式，不写会引发浏览器兼容问题</p>
+</li>
+<li><p>html是网页根节点，lang属性表示网页的语言描述</p>
+</li>
+<li><p>head是配置项，主要放一些配置</p>
+</li>
+<li><p>meta元素可提供有关页面的元信息，比如针对搜索引擎和更新频度的描述和关键词。</p>
+<p>chartset属性是描述字符集。</p>
+<p>name属性的属性值有KeyWords、Description，分别是关键词和描述，这些都是成为了给搜索引擎看的</p>
+<p>name属性的属性值还有viewport，主要用在移动端设计，意思为视口</p>
+</li>
+<li><p>title是网站tag的标题</p>
+</li>
+<li><p>body是网页内容</p>
+</li>
+</ul>
+<h1 id="标题标签"><a href="#标题标签" class="headerlink" title="标题标签"></a>标题标签</h1><p>示例：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>h1<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h2</span>&gt;</span>h2<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h3</span>&gt;</span>h3<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h4</span>&gt;</span>h4<span class="tag">&lt;/<span class="name">h4</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h5</span>&gt;</span>h5<span class="tag">&lt;/<span class="name">h5</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h6</span>&gt;</span>h6<span class="tag">&lt;/<span class="name">h6</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>标题标签有6个，默认加粗</li>
+</ul>
+<h1 id="段落标签"><a href="#段落标签" class="headerlink" title="段落标签"></a>段落标签</h1><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>我是段落<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>我是段落<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>p标签表示段落，不能嵌套标题标签和段落标签</li>
+</ul>
+<h1 id="DIV标签"><a href="#DIV标签" class="headerlink" title="DIV标签"></a>DIV标签</h1><p>示例：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>盒子<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>div是一个容器，可以放入任何标签，用来分隔页面。</li>
+</ul>
+<h1 id="无序标签"><a href="#无序标签" class="headerlink" title="无序标签"></a>无序标签</h1><p>示例:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">h3</span>&gt;</span>广东省<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">li</span>&gt;</span>广州<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">li</span>&gt;</span>潮州<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">li</span>&gt;</span>清远<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">h3</span>&gt;</span>广东省<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">li</span>&gt;</span>广州<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">li</span>&gt;</span>潮州<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">li</span>&gt;</span>清远<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>无序标签需要搭配li标签使用,无序标签只能包含li,li能包含任何标签</li>
+<li>ul的type属性值有:<code>square</code>(实心方块)、<code>disc</code>（实心圆）、<code>circle</code>（空心圆）</li>
+</ul>
+<h1 id="有序标签"><a href="#有序标签" class="headerlink" title="有序标签"></a>有序标签</h1><p>示例：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ol</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>listitem<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>listitem<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>listitem<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ol</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>默认是数字排列，type属性值有：a、A、i、I、1</li>
+<li>有序列表有start属性，它的属性值只能阿拉伯数字，设置起始值</li>
+<li>有序列表有revered属性，没有属性值，倒序，HTML5新增</li>
+</ul>
+<h1 id="定义列表"><a href="#定义列表" class="headerlink" title="定义列表"></a>定义列表</h1><p>示例：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dl</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">dt</span>&gt;</span>北京<span class="tag">&lt;/<span class="name">dt</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">dd</span>&gt;</span>我国首都<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">dt</span>&gt;</span>上海<span class="tag">&lt;/<span class="name">dt</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">dd</span>&gt;</span>国际金融中心<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">dl</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>dl是定义列表，dt是数据项，dd是数据定义</li>
+</ul>
+<h1 id="视频标签"><a href="#视频标签" class="headerlink" title="视频标签"></a>视频标签</h1><h1 id="音频标签"><a href="#音频标签" class="headerlink" title="音频标签"></a>音频标签</h1><h1 id="表单标签"><a href="#表单标签" class="headerlink" title="表单标签"></a>表单标签</h1><p>示例：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;text&quot;</span>&gt;</span>输入框<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">id</span>=<span class="string">&quot;text&quot;</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;text&quot;</span>&gt;</span>数字<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;number&quot;</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;text&quot;</span>&gt;</span>输入框<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">value</span>=<span class="string">&quot;按钮&quot;</span> <span class="attr">class</span>=<span class="string">&quot;btnleft&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">value</span>=<span class="string">&quot;按钮&quot;</span> <span class="attr">class</span>=<span class="string">&quot;btnright&quot;</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="特殊字符"><a href="#特殊字符" class="headerlink" title="特殊字符"></a>特殊字符</h1><p><code>&amp;lt</code>：小于号</p>
+<p><code>&amp;gt</code>：大于号</p>
+<p><code>&amp;nbsp</code>：空格</p>
+<p><code>&amp;copy</code>：版权符号</p>
+]]></content>
+      <categories>
+        <category>文档</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>WeX-UI组件库搭建</title>
+    <url>/article/c7f47550.html</url>
+    <content><![CDATA[<p>前段时间写了LinView组件库，但是问题太多，按需引入总是出错，最后只能重写，因为重写，具体的不一一例举，重点把遇到的坑点和心得记录下</p>
+<h1 id="工程化目录"><a href="#工程化目录" class="headerlink" title="工程化目录"></a>工程化目录</h1><p>首先依然使用vue/cli形成目录，这是最后的目录结构：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">|-- WeX-UI</span><br><span class="line">    |-- .gitignore</span><br><span class="line">    |-- babel.config.js</span><br><span class="line">    |-- components.json</span><br><span class="line">    |-- deploy.sh         <span class="comment">//vuepress部署</span></span><br><span class="line">    |-- package-lock.json</span><br><span class="line">    |-- package.json</span><br><span class="line">    |-- README.md</span><br><span class="line">    |-- build          <span class="comment">//打包配置文件</span></span><br><span class="line">    |   |-- utlis.js</span><br><span class="line">    |   |-- webpack.base.js</span><br><span class="line">    |   |-- webpack.component.js</span><br><span class="line">    |   |-- webpack.prod.js</span><br><span class="line">    |-- docs           <span class="comment">//vuepress文档</span></span><br><span class="line">    |   |-- index.md</span><br><span class="line">    |   |-- .vuepress</span><br><span class="line">    |   |   |-- config.js</span><br><span class="line">    |   |   |-- enhanceApp.js</span><br><span class="line">    |   |   |-- public</span><br><span class="line">    |   |       |-- card.png</span><br><span class="line">    |   |-- componentdocs</span><br><span class="line">    |   |   |-- card.md</span><br><span class="line">    |   |   |-- index.md</span><br><span class="line">    |   |   |-- start.md</span><br><span class="line">    |   |-- update</span><br><span class="line">    |       |-- index.md</span><br><span class="line">    |-- lib            <span class="comment">//打包后的组件和样式</span></span><br><span class="line">    |   |-- card.js</span><br><span class="line">    |   |-- demo.js</span><br><span class="line">    |   |-- wex-ui.min.js</span><br><span class="line">    |   |-- styles</span><br><span class="line">    |       |-- card.css</span><br><span class="line">    |       |-- demo.css</span><br><span class="line">    |       |-- index.css</span><br><span class="line">    |-- packages         <span class="comment">//原生代码</span></span><br><span class="line">    |   |-- card</span><br><span class="line">    |   |   |-- index.js</span><br><span class="line">    |   |   |-- src</span><br><span class="line">    |   |       |-- Index.vue</span><br><span class="line">    |   |-- demo</span><br><span class="line">    |   |   |-- index.js</span><br><span class="line">    |   |   |-- src</span><br><span class="line">    |   |       |-- Index.vue</span><br><span class="line">    |   |-- theme-chalk         <span class="comment">//样式文件</span></span><br><span class="line">    |       |-- gulpfile.js</span><br><span class="line">    |       |-- src</span><br><span class="line">    |           |-- card.scss</span><br><span class="line">    |           |-- demo.scss</span><br><span class="line">    |           |-- index.scss</span><br><span class="line">    |-- public</span><br><span class="line">    |   |-- favicon.ico</span><br><span class="line">    |   |-- index.html</span><br><span class="line">    |-- src</span><br><span class="line">        |-- App.vue</span><br><span class="line">        |-- index.js        <span class="comment">//全局注册组件</span></span><br><span class="line">        |-- main.js</span><br><span class="line">        |-- assets</span><br><span class="line">        |   |-- logo.png</span><br><span class="line">        |-- components</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>整个目录结构是参考了ElementUI的写法，做了减法</li>
+<li>为了第三方项目的按需加载，打包后的都放在lib文件夹</li>
+<li>把gulp打包文件放在CSS的包这是参考了ElementUI，感觉上更加舒服，不会在build文件夹还存放另外的打包工具文件</li>
+<li>components.json也是参考ElementUI，这是为了按需引入单独打包加上</li>
+<li>webpack分成3个，一个基础的，一个打包全部组件，一个用来单独组件打包，虽然现在一个也可以足够打包，但是为了后续的扩展，目前采取该方式</li>
+<li>enhanceAppjs文件是用来导入全部组件的，属于应用级别，以前写法是把组件复制过来，麻烦且浪费空间，应用该文件后，开发后的组件就可以书写文档。</li>
+<li>deploy.sh拉取到最外层，让config非常纯粹 ，（utils只是为解决路径问题）</li>
+</ul>
+<h1 id="webpack打包"><a href="#webpack打包" class="headerlink" title="webpack打包"></a>webpack打包</h1><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// webpack.component.js 按需加载，单独组件打包</span></span><br><span class="line"><span class="keyword">const</span> &#123;VueLoaderPlugin&#125;  = <span class="built_in">require</span>(<span class="string">&#x27;vue-loader&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> components = <span class="built_in">require</span>(<span class="string">&#x27;../components.json&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> utlis = <span class="built_in">require</span>(<span class="string">&#x27;./utlis&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> list = &#123;&#125; <span class="comment">//入口文件</span></span><br><span class="line"><span class="keyword">const</span> basePath = path.resolve(__dirname, <span class="string">&#x27;../&#x27;</span>)</span><br><span class="line"><span class="built_in">Object</span>.keys(components).forEach(<span class="function"><span class="params">key</span> =&gt;</span> &#123;</span><br><span class="line">  list[key] = path.join(basePath,  components[key])</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// console.log(list);</span></span><br><span class="line"><span class="keyword">const</span> webpackconfig = &#123;</span><br><span class="line">  <span class="attr">entry</span>: list,</span><br><span class="line">  <span class="attr">mode</span>: <span class="string">&#x27;production&#x27;</span>,<span class="comment">//生产模式</span></span><br><span class="line">  <span class="attr">output</span>: &#123;</span><br><span class="line">    <span class="attr">path</span>: utlis.DIST_PATH,</span><br><span class="line">    <span class="attr">filename</span>: <span class="string">&#x27;[name].js&#x27;</span>,</span><br><span class="line">    <span class="attr">library</span>: <span class="string">&#x27;wex-ui&#x27;</span>, <span class="comment">//包名称</span></span><br><span class="line">    <span class="attr">libraryTarget</span>: <span class="string">&#x27;umd&#x27;</span>, <span class="comment">//支持的引入模式</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">module</span>: &#123;<span class="comment">//告诉webpack，什么文件使用什么rules</span></span><br><span class="line">    <span class="attr">rules</span>: [</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">test</span>: <span class="regexp">/\.vue$/</span>,</span><br><span class="line">        use: [</span><br><span class="line">          &#123;</span><br><span class="line">            <span class="attr">loader</span>: <span class="string">&#x27;vue-loader&#x27;</span>,</span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">    </span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">plugins</span>: [</span><br><span class="line">     <span class="keyword">new</span> VueLoaderPlugin()</span><br><span class="line">  ]</span><br><span class="line">  </span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">module</span>.exports = webpackconfig</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>整个打包文件最为精简，后续可能需要优化，减少包的体积</li>
+</ul>
+<h1 id="NPM上传"><a href="#NPM上传" class="headerlink" title="NPM上传"></a>NPM上传</h1><p>这是最没技术含量的问题，却是困惑我许久的问题：</p>
+<ul>
+<li>NPM莫名上传失败</li>
+</ul>
+<p>今天依旧想上传npm包，却发现：</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211008210126.png"></p>
+<p>这个问题网上找了很久，几乎全网没有答案，尝试了切版本，换源都没有用，最后尝试把http换成https，成功。</p>
+<ul>
+<li>NPM换源问题</li>
+</ul>
+<p>在上面问题没有解决的同时，我有进入另外别人设置好的的坑，没错就是下面的博文，</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211008210738.png"></p>
+<p>没错，这个源是错误的，正确的是：npm config set registry <a href="https://registry.npmjs.org/">https://registry.npmjs.org</a></p>
+<p>但是因为当时急于解决第一个问题，导致了失误。</p>
+<p>目前已经举报。。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>目前重写后可以正常使用，按需加载正常，后续包的优化，组件的增加有待研究</p>
+]]></content>
+      <categories>
+        <category>组件库</category>
+      </categories>
+      <tags>
+        <tag>自定义组件库</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo图床的解决方案</title>
+    <url>/article/4c6068df.html</url>
+    <content><![CDATA[<p>引子：网站链接嵌套得越深，越不利于SEO优化，Hexo默认链接是年月日标题，如果标题是中文，那么链接就会变成乱码，这很不利于搜索引擎的搜索，为了达到目的，我们会使用<code>hexo-abbrlink</code>插件来解决问题，但是我们需要上传图片，图片要么需要图床，不然你就只能附带博客里面，以下分析个人在遇到这个问题的取舍与想法，愿与诸君分享。</p>
+<h1 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h1><ul>
+<li>我们需要利于SEO的网址</li>
+<li>我们需要一个安全、稳定、足够、免费的图床</li>
+<li>简单、最好一劳永逸</li>
+</ul>
+<h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><p>我们知道，为了达到Hexo的链接优化，需要用到<code>hexo-abbrlink</code>这个插件，使用上传图片使用<code>hexo-asset-image</code>插件，这两个插件单独使用没有问题，但是一起使用就会出现问题，前者把路径改了，后者当然无法找到图片，网上也是一堆长篇大论，这里不在累赘，难道没有一劳永逸吗？</p>
+<p>既然两者一起使用会出现问题，（<code>hexo-asset-image</code>插件作者曾提到这是hexo的编译原理，具体可以看官方的lssues）,那么就不一起使用，此路不通，另寻它路。其实最简单的方式就是使用图床功能，把一张图片放到别人的服务器，通过URL就能看到图片，简单快捷，</p>
+<p>但是有几个问题：</p>
+<ul>
+<li><p>图片放在别人的服务器，不太安全</p>
+</li>
+<li><p>图床一般都需要收费，不可能给你白嫖</p>
+</li>
+<li><p>图床弄起来较为麻烦</p>
+</li>
+</ul>
+<p>综合以上，其实我们可以利用Gitee来作为我们的图床，有以下几个原因</p>
+<ul>
+<li>使用<code>hexo-asset-image</code>插件图片本身也是存放在<code>gitee</code>，那么我们这样其实是一样的，只不过不用<code>hexo-asset-image</code>插件</li>
+<li><code>Gitee</code>属于国内，速度更快</li>
+<li>个人免费有5G的空间，如果只是博客，这个空间还是够的</li>
+</ul>
+<h1 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h1><p>既然使用Gitee来作为图床，当然不能重复提交代码仓库来实现，这里使用picGo工具，</p>
+<p>官网：<a href="https://github.com/Molunerfinn/PicGo/releases">https://github.com/Molunerfinn/PicGo/releases</a></p>
+<p>安装好的界面</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20210926225740.png"></p>
+<p>安装插件：</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20210926230424.png"></p>
+<p>填写信息：</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20210926231011.png"></p>
+<ul>
+<li>用户名是注册时候的链接名，不是昵称！！</li>
+<li>仓库名小写，直接写就行，不需要写路径</li>
+<li>存放路径随意</li>
+<li>令牌是<code>Gitee</code>私人令牌，不要给太多权限，第一个就行</li>
+<li>图片只能1M上限，大于访问不了，需要登陆才可以有权限访问，这点可以自己测试</li>
+</ul>
+<h1 id="小工具"><a href="#小工具" class="headerlink" title="小工具"></a>小工具</h1><p>分享一个截图工具：snipaste，可以在win10商店里面下载即可。</p>
+<p>官网：<a href="https://zh.snipaste.com/">https://zh.snipaste.com/</a></p>
+<p>结合PicGo可以完美配合，复制粘贴上传，不用保存，截图大小也不是很大</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>这个办法其实是脱离插件的使用，即满足了URL的优化，又能得到一个图床应用，体验下来还是很方便的，唯一缺点就是流程可能稍加繁琐，不过使用过程非常方便！还是值得推荐的！</p>
+]]></content>
+      <categories>
+        <category>Hexo框架</category>
       </categories>
   </entry>
   <entry>
@@ -859,101 +1029,6 @@
       </tags>
   </entry>
   <entry>
-    <title>WeX-UI组件库搭建</title>
-    <url>/article/c7f47550.html</url>
-    <content><![CDATA[<p>前段时间写了LinView组件库，但是问题太多，按需引入总是出错，最后只能重写，因为重写，具体的不一一例举，重点把遇到的坑点和心得记录下</p>
-<h1 id="工程化目录"><a href="#工程化目录" class="headerlink" title="工程化目录"></a>工程化目录</h1><p>首先依然使用vue/cli形成目录，这是最后的目录结构：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">|-- WeX-UI</span><br><span class="line">    |-- .gitignore</span><br><span class="line">    |-- babel.config.js</span><br><span class="line">    |-- components.json</span><br><span class="line">    |-- deploy.sh         <span class="comment">//vuepress部署</span></span><br><span class="line">    |-- package-lock.json</span><br><span class="line">    |-- package.json</span><br><span class="line">    |-- README.md</span><br><span class="line">    |-- build          <span class="comment">//打包配置文件</span></span><br><span class="line">    |   |-- utlis.js</span><br><span class="line">    |   |-- webpack.base.js</span><br><span class="line">    |   |-- webpack.component.js</span><br><span class="line">    |   |-- webpack.prod.js</span><br><span class="line">    |-- docs           <span class="comment">//vuepress文档</span></span><br><span class="line">    |   |-- index.md</span><br><span class="line">    |   |-- .vuepress</span><br><span class="line">    |   |   |-- config.js</span><br><span class="line">    |   |   |-- enhanceApp.js</span><br><span class="line">    |   |   |-- public</span><br><span class="line">    |   |       |-- card.png</span><br><span class="line">    |   |-- componentdocs</span><br><span class="line">    |   |   |-- card.md</span><br><span class="line">    |   |   |-- index.md</span><br><span class="line">    |   |   |-- start.md</span><br><span class="line">    |   |-- update</span><br><span class="line">    |       |-- index.md</span><br><span class="line">    |-- lib            <span class="comment">//打包后的组件和样式</span></span><br><span class="line">    |   |-- card.js</span><br><span class="line">    |   |-- demo.js</span><br><span class="line">    |   |-- wex-ui.min.js</span><br><span class="line">    |   |-- styles</span><br><span class="line">    |       |-- card.css</span><br><span class="line">    |       |-- demo.css</span><br><span class="line">    |       |-- index.css</span><br><span class="line">    |-- packages         <span class="comment">//原生代码</span></span><br><span class="line">    |   |-- card</span><br><span class="line">    |   |   |-- index.js</span><br><span class="line">    |   |   |-- src</span><br><span class="line">    |   |       |-- Index.vue</span><br><span class="line">    |   |-- demo</span><br><span class="line">    |   |   |-- index.js</span><br><span class="line">    |   |   |-- src</span><br><span class="line">    |   |       |-- Index.vue</span><br><span class="line">    |   |-- theme-chalk         <span class="comment">//样式文件</span></span><br><span class="line">    |       |-- gulpfile.js</span><br><span class="line">    |       |-- src</span><br><span class="line">    |           |-- card.scss</span><br><span class="line">    |           |-- demo.scss</span><br><span class="line">    |           |-- index.scss</span><br><span class="line">    |-- public</span><br><span class="line">    |   |-- favicon.ico</span><br><span class="line">    |   |-- index.html</span><br><span class="line">    |-- src</span><br><span class="line">        |-- App.vue</span><br><span class="line">        |-- index.js        <span class="comment">//全局注册组件</span></span><br><span class="line">        |-- main.js</span><br><span class="line">        |-- assets</span><br><span class="line">        |   |-- logo.png</span><br><span class="line">        |-- components</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>整个目录结构是参考了ElementUI的写法，做了减法</li>
-<li>为了第三方项目的按需加载，打包后的都放在lib文件夹</li>
-<li>把gulp打包文件放在CSS的包这是参考了ElementUI，感觉上更加舒服，不会在build文件夹还存放另外的打包工具文件</li>
-<li>components.json也是参考ElementUI，这是为了按需引入单独打包加上</li>
-<li>webpack分成3个，一个基础的，一个打包全部组件，一个用来单独组件打包，虽然现在一个也可以足够打包，但是为了后续的扩展，目前采取该方式</li>
-<li>enhanceAppjs文件是用来导入全部组件的，属于应用级别，以前写法是把组件复制过来，麻烦且浪费空间，应用该文件后，开发后的组件就可以书写文档。</li>
-<li>deploy.sh拉取到最外层，让config非常纯粹 ，（utils只是为解决路径问题）</li>
-</ul>
-<h1 id="webpack打包"><a href="#webpack打包" class="headerlink" title="webpack打包"></a>webpack打包</h1><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// webpack.component.js 按需加载，单独组件打包</span></span><br><span class="line"><span class="keyword">const</span> &#123;VueLoaderPlugin&#125;  = <span class="built_in">require</span>(<span class="string">&#x27;vue-loader&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> components = <span class="built_in">require</span>(<span class="string">&#x27;../components.json&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> utlis = <span class="built_in">require</span>(<span class="string">&#x27;./utlis&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> list = &#123;&#125; <span class="comment">//入口文件</span></span><br><span class="line"><span class="keyword">const</span> basePath = path.resolve(__dirname, <span class="string">&#x27;../&#x27;</span>)</span><br><span class="line"><span class="built_in">Object</span>.keys(components).forEach(<span class="function"><span class="params">key</span> =&gt;</span> &#123;</span><br><span class="line">  list[key] = path.join(basePath,  components[key])</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// console.log(list);</span></span><br><span class="line"><span class="keyword">const</span> webpackconfig = &#123;</span><br><span class="line">  <span class="attr">entry</span>: list,</span><br><span class="line">  <span class="attr">mode</span>: <span class="string">&#x27;production&#x27;</span>,<span class="comment">//生产模式</span></span><br><span class="line">  <span class="attr">output</span>: &#123;</span><br><span class="line">    <span class="attr">path</span>: utlis.DIST_PATH,</span><br><span class="line">    <span class="attr">filename</span>: <span class="string">&#x27;[name].js&#x27;</span>,</span><br><span class="line">    <span class="attr">library</span>: <span class="string">&#x27;wex-ui&#x27;</span>, <span class="comment">//包名称</span></span><br><span class="line">    <span class="attr">libraryTarget</span>: <span class="string">&#x27;umd&#x27;</span>, <span class="comment">//支持的引入模式</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">module</span>: &#123;<span class="comment">//告诉webpack，什么文件使用什么rules</span></span><br><span class="line">    <span class="attr">rules</span>: [</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">test</span>: <span class="regexp">/\.vue$/</span>,</span><br><span class="line">        use: [</span><br><span class="line">          &#123;</span><br><span class="line">            <span class="attr">loader</span>: <span class="string">&#x27;vue-loader&#x27;</span>,</span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">    </span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">plugins</span>: [</span><br><span class="line">     <span class="keyword">new</span> VueLoaderPlugin()</span><br><span class="line">  ]</span><br><span class="line">  </span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">module</span>.exports = webpackconfig</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>整个打包文件最为精简，后续可能需要优化，减少包的体积</li>
-</ul>
-<h1 id="NPM上传"><a href="#NPM上传" class="headerlink" title="NPM上传"></a>NPM上传</h1><p>这是最没技术含量的问题，却是困惑我许久的问题：</p>
-<ul>
-<li>NPM莫名上传失败</li>
-</ul>
-<p>今天依旧想上传npm包，却发现：</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211008210126.png"></p>
-<p>这个问题网上找了很久，几乎全网没有答案，尝试了切版本，换源都没有用，最后尝试把http换成https，成功。</p>
-<ul>
-<li>NPM换源问题</li>
-</ul>
-<p>在上面问题没有解决的同时，我有进入另外别人设置好的的坑，没错就是下面的博文，</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211008210738.png"></p>
-<p>没错，这个源是错误的，正确的是：npm config set registry <a href="https://registry.npmjs.org/">https://registry.npmjs.org</a></p>
-<p>但是因为当时急于解决第一个问题，导致了失误。</p>
-<p>目前已经举报。。</p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>目前重写后可以正常使用，按需加载正常，后续包的优化，组件的增加有待研究</p>
-]]></content>
-      <categories>
-        <category>组件库</category>
-      </categories>
-      <tags>
-        <tag>自定义组件库</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo图床的解决方案</title>
-    <url>/article/4c6068df.html</url>
-    <content><![CDATA[<p>引子：网站链接嵌套得越深，越不利于SEO优化，Hexo默认链接是年月日标题，如果标题是中文，那么链接就会变成乱码，这很不利于搜索引擎的搜索，为了达到目的，我们会使用<code>hexo-abbrlink</code>插件来解决问题，但是我们需要上传图片，图片要么需要图床，不然你就只能附带博客里面，以下分析个人在遇到这个问题的取舍与想法，愿与诸君分享。</p>
-<h1 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h1><ul>
-<li>我们需要利于SEO的网址</li>
-<li>我们需要一个安全、稳定、足够、免费的图床</li>
-<li>简单、最好一劳永逸</li>
-</ul>
-<h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><p>我们知道，为了达到Hexo的链接优化，需要用到<code>hexo-abbrlink</code>这个插件，使用上传图片使用<code>hexo-asset-image</code>插件，这两个插件单独使用没有问题，但是一起使用就会出现问题，前者把路径改了，后者当然无法找到图片，网上也是一堆长篇大论，这里不在累赘，难道没有一劳永逸吗？</p>
-<p>既然两者一起使用会出现问题，（<code>hexo-asset-image</code>插件作者曾提到这是hexo的编译原理，具体可以看官方的lssues）,那么就不一起使用，此路不通，另寻它路。其实最简单的方式就是使用图床功能，把一张图片放到别人的服务器，通过URL就能看到图片，简单快捷，</p>
-<p>但是有几个问题：</p>
-<ul>
-<li><p>图片放在别人的服务器，不太安全</p>
-</li>
-<li><p>图床一般都需要收费，不可能给你白嫖</p>
-</li>
-<li><p>图床弄起来较为麻烦</p>
-</li>
-</ul>
-<p>综合以上，其实我们可以利用Gitee来作为我们的图床，有以下几个原因</p>
-<ul>
-<li>使用<code>hexo-asset-image</code>插件图片本身也是存放在<code>gitee</code>，那么我们这样其实是一样的，只不过不用<code>hexo-asset-image</code>插件</li>
-<li><code>Gitee</code>属于国内，速度更快</li>
-<li>个人免费有5G的空间，如果只是博客，这个空间还是够的</li>
-</ul>
-<h1 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h1><p>既然使用Gitee来作为图床，当然不能重复提交代码仓库来实现，这里使用picGo工具，</p>
-<p>官网：<a href="https://github.com/Molunerfinn/PicGo/releases">https://github.com/Molunerfinn/PicGo/releases</a></p>
-<p>安装好的界面</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20210926225740.png"></p>
-<p>安装插件：</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20210926230424.png"></p>
-<p>填写信息：</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20210926231011.png"></p>
-<ul>
-<li>用户名是注册时候的链接名，不是昵称！！</li>
-<li>仓库名小写，直接写就行，不需要写路径</li>
-<li>存放路径随意</li>
-<li>令牌是<code>Gitee</code>私人令牌，不要给太多权限，第一个就行</li>
-<li>图片只能1M上限，大于访问不了，需要登陆才可以有权限访问，这点可以自己测试</li>
-</ul>
-<h1 id="小工具"><a href="#小工具" class="headerlink" title="小工具"></a>小工具</h1><p>分享一个截图工具：snipaste，可以在win10商店里面下载即可。</p>
-<p>官网：<a href="https://zh.snipaste.com/">https://zh.snipaste.com/</a></p>
-<p>结合PicGo可以完美配合，复制粘贴上传，不用保存，截图大小也不是很大</p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>这个办法其实是脱离插件的使用，即满足了URL的优化，又能得到一个图床应用，体验下来还是很方便的，唯一缺点就是流程可能稍加繁琐，不过使用过程非常方便！还是值得推荐的！</p>
-]]></content>
-      <categories>
-        <category>Hexo框架</category>
-      </categories>
-  </entry>
-  <entry>
     <title>小破站正式上线</title>
     <url>/article/36e749dc.html</url>
     <content><![CDATA[<p>断断续续半年时间，使用<code>Hexo</code>已有很长一段时间，经历了不断的优化踩坑，最开始使用<code>NexT</code>做为博客主题，到后来使用了Butterfly主题，到对主题的一系列魔改，最终还是回归到<code>NexT</code>作为博客的主题。</p>
@@ -964,6 +1039,26 @@
       <categories>
         <category>Hexo框架</category>
       </categories>
+  </entry>
+  <entry>
+    <title>文章锚点失效问题</title>
+    <url>/article/26e0b522.html</url>
+    <content><![CDATA[<p>在测试博客中发现文章锚点失效问题，特此记录以下</p>
+<p>在 <code>Hexo</code> 更新至 5.x 版本，Next 更新至 7.x 版本后，会出现文章的中文目录点击跳转失效的 bug，本博客正式遇到此问题。</p>
+<p>在控制台打印如下错误：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">utils.js:<span class="number">240</span> Uncaught <span class="built_in">TypeError</span>: Cannot read properties <span class="keyword">of</span> <span class="literal">null</span> (reading <span class="string">&#x27;getBoundingClientRect&#x27;</span>)</span><br><span class="line">    at HTMLAnchorElement.&lt;anonymous&gt; (utils.js:<span class="number">240</span>)</span><br></pre></td></tr></table></figure>
+
+<p>翻看官方Issues得到解决方案：</p>
+<p>链接：<a href="https://github.com/theme-next/hexo-theme-next/pull/1540/files">https://github.com/theme-next/hexo-theme-next/pull/1540/files</a></p>
+<p>删除两行代码，增加两行代码：</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20210927205653.png"></p>
+]]></content>
+      <categories>
+        <category>Hexo框架</category>
+      </categories>
+      <tags>
+        <tag>Bug</tag>
+      </tags>
   </entry>
   <entry>
     <title>常用文本样式属性</title>
@@ -1082,26 +1177,6 @@
       <categories>
         <category>CSS</category>
       </categories>
-  </entry>
-  <entry>
-    <title>文章锚点失效问题</title>
-    <url>/article/26e0b522.html</url>
-    <content><![CDATA[<p>在测试博客中发现文章锚点失效问题，特此记录以下</p>
-<p>在 <code>Hexo</code> 更新至 5.x 版本，Next 更新至 7.x 版本后，会出现文章的中文目录点击跳转失效的 bug，本博客正式遇到此问题。</p>
-<p>在控制台打印如下错误：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">utils.js:<span class="number">240</span> Uncaught <span class="built_in">TypeError</span>: Cannot read properties <span class="keyword">of</span> <span class="literal">null</span> (reading <span class="string">&#x27;getBoundingClientRect&#x27;</span>)</span><br><span class="line">    at HTMLAnchorElement.&lt;anonymous&gt; (utils.js:<span class="number">240</span>)</span><br></pre></td></tr></table></figure>
-
-<p>翻看官方Issues得到解决方案：</p>
-<p>链接：<a href="https://github.com/theme-next/hexo-theme-next/pull/1540/files">https://github.com/theme-next/hexo-theme-next/pull/1540/files</a></p>
-<p>删除两行代码，增加两行代码：</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20210927205653.png"></p>
-]]></content>
-      <categories>
-        <category>Hexo框架</category>
-      </categories>
-      <tags>
-        <tag>Bug</tag>
-      </tags>
   </entry>
   <entry>
     <title>无题</title>
