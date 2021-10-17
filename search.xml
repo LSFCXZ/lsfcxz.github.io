@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>BFC规范</title>
+    <url>/article/9221e461.html</url>
+    <content><![CDATA[<p>BFC概念：</p>
+<p>BFC(Box Formatting Context 会计格式化上下文)是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素，反之亦然。BFC是封闭在一个盒子里面，使网页布局达到一种稳定状态</p>
+<p>四种方法：</p>
+<ol>
+<li>float的值不是none</li>
+<li>posittion的值不是static或者relative</li>
+<li>display的值是inline-block、flex、或者inline-flex</li>
+<li>overflow：hidden</li>
+</ol>
+]]></content>
+      <categories>
+        <category>CSS</category>
+      </categories>
+  </entry>
+  <entry>
     <title>CSS3层叠性、继承性、优先级</title>
     <url>/article/96691857.html</url>
     <content><![CDATA[<p>在CSS3中如果同时多个选择器都在描述同一个元素，那么CSS3会把一层一层的样式刷上去，这就是他的层叠性，但是，如果多个选择器都在描述这个元素的同个属性，CSS3会采取权重计算后采用那个样式，如果属性是具有继承性，则优先采用就近原则，当一样近的时候，才选择权重计算。这些计算只能是在同一个引用方式生效，否则，行内式是最高权限，然后才是内嵌，最后是外链。</p>
@@ -62,17 +79,20 @@
       </categories>
   </entry>
   <entry>
-    <title>BFC规范</title>
-    <url>/article/9221e461.html</url>
-    <content><![CDATA[<p>BFC概念：</p>
-<p>BFC(Box Formatting Context 会计格式化上下文)是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素，反之亦然。BFC是封闭在一个盒子里面，使网页布局达到一种稳定状态</p>
-<p>四种方法：</p>
-<ol>
-<li>float的值不是none</li>
-<li>posittion的值不是static或者relative</li>
-<li>display的值是inline-block、flex、或者inline-flex</li>
-<li>overflow：hidden</li>
-</ol>
+    <title>CSS盒模型</title>
+    <url>/article/94a1bb4e.html</url>
+    <content><![CDATA[<p>CSS的盒模型分为W3C的标准模型和IE的怪异模型。</p>
+<p>W3C的盒模型：</p>
+<p>内容宽+左右内边距+左右边框 = 盒子<strong>实际</strong>宽度</p>
+<p>内容宽+左右内边距+左右边框+左右外边距= 盒子<strong>占用</strong>宽度</p>
+<p>高度同理，也就是设置的宽高就是内容可以使用的宽高，其他设置的值都是外扩的</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/2015-10-03-css-27.jpg"></p>
+<p>IE的怪异盒模型：</p>
+<p>IE盒模型虽然包含W3C的盒模型，但是它内容宽包含了内边距、边框和外边距，也就是说，设置的宽高不一定就是内容可以使用的宽高，它属于内缩的一种。</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/2015-10-03-css-30.jpg"></p>
+<p>当然我们可以通过以下属性灵活切换模型：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="attribute">box-sizing</span>: border-box;  // 设置为IE模型</span><br><span class="line"> 	<span class="attribute">box-sizing</span>: contetn-box; // 设置为标准模型</span><br></pre></td></tr></table></figure>
+
 ]]></content>
       <categories>
         <category>CSS</category>
@@ -315,20 +335,79 @@
       </categories>
   </entry>
   <entry>
-    <title>CSS盒模型</title>
-    <url>/article/94a1bb4e.html</url>
-    <content><![CDATA[<p>CSS的盒模型分为W3C的标准模型和IE的怪异模型。</p>
-<p>W3C的盒模型：</p>
-<p>内容宽+左右内边距+左右边框 = 盒子<strong>实际</strong>宽度</p>
-<p>内容宽+左右内边距+左右边框+左右外边距= 盒子<strong>占用</strong>宽度</p>
-<p>高度同理，也就是设置的宽高就是内容可以使用的宽高，其他设置的值都是外扩的</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/2015-10-03-css-27.jpg"></p>
-<p>IE的怪异盒模型：</p>
-<p>IE盒模型虽然包含W3C的盒模型，但是它内容宽包含了内边距、边框和外边距，也就是说，设置的宽高不一定就是内容可以使用的宽高，它属于内缩的一种。</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/2015-10-03-css-30.jpg"></p>
-<p>当然我们可以通过以下属性灵活切换模型：</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="attribute">box-sizing</span>: border-box;  // 设置为IE模型</span><br><span class="line"> 	<span class="attribute">box-sizing</span>: contetn-box; // 设置为标准模型</span><br></pre></td></tr></table></figure>
+    <title>CSS浮动布局和定位</title>
+    <url>/article/29b6ab94.html</url>
+    <content><![CDATA[<p>CSS的布局方式有很多种：表格、弹性、浮动等布局，本文章主要写浮动布局。</p>
+<h1 id="浮动布局"><a href="#浮动布局" class="headerlink" title="浮动布局"></a>浮动布局</h1><p><strong>基本概念</strong></p>
+<p>浮动最本质的功能就是实现并排，虽然使用<code>display: inline-block;</code>也可以实现并排，不过有间隙。</p>
+<p><strong>浮动关键字</strong></p>
+<p> <code>float: left</code>：左浮动</p>
+<p> `float: right;：右浮动</p>
+<p><strong>浮动使用要点</strong></p>
+<ul>
+<li><p>要浮动都浮动</p>
+</li>
+<li><p>父盒子有足够宽度，否则盒子会往下掉</p>
+</li>
+</ul>
+<p><strong>浮动贴靠顺序</strong></p>
+<ul>
+<li>当父盒子空间不够时，浮动盒子会寻找前一个兄弟元素贴靠</li>
+</ul>
+<p><strong>浮动的特点</strong></p>
+<ul>
+<li>浮动的盒子无法称起父盒子，会造成高度塌陷</li>
+<li>设置成浮动的盒子都可以设置宽高</li>
+</ul>
+<p><strong>浮动形成的布局</strong></p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">  <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">    <span class="selector-tag">header</span> &#123;</span></span><br><span class="line"><span class="css">      <span class="attribute">width</span>: <span class="number">1000px</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">height</span>: <span class="number">50px</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">margin</span>: <span class="number">0</span> auto;</span></span><br><span class="line"><span class="css">      <span class="attribute">background-color</span>: black;</span></span><br><span class="line"><span class="css">    &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.logo</span> &#123;</span></span><br><span class="line"><span class="css">      <span class="attribute">width</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">height</span>: <span class="number">50px</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">float</span>: left;</span></span><br><span class="line"><span class="css">      <span class="attribute">background-color</span>: palegreen;</span></span><br><span class="line"><span class="css">    &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.denglu</span> &#123;</span></span><br><span class="line"><span class="css">      <span class="attribute">width</span>: <span class="number">100px</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">height</span>: <span class="number">30px</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">float</span>: right;</span></span><br><span class="line"><span class="css">      <span class="attribute">background-color</span>: blueviolet;</span></span><br><span class="line"><span class="css">    &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.miaosu</span> &#123;</span></span><br><span class="line"><span class="css">      <span class="attribute">width</span>: <span class="number">701px</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">height</span>: <span class="number">20px</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">background-color</span>: burlywood;</span></span><br><span class="line"><span class="css">      <span class="attribute">float</span>: right;</span></span><br><span class="line"><span class="css">    &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">main</span> &#123;</span></span><br><span class="line"><span class="css">      <span class="attribute">width</span>: <span class="number">1000px</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">height</span>: <span class="number">500px</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">margin</span>: <span class="number">20px</span> auto;</span></span><br><span class="line"><span class="css">      <span class="attribute">background-color</span>: black;</span></span><br><span class="line"><span class="css">    &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.conten</span> &#123;</span></span><br><span class="line"><span class="css">      <span class="attribute">width</span>: <span class="number">700px</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">height</span>: <span class="number">500px</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">float</span>: left;</span></span><br><span class="line"><span class="css">      <span class="attribute">background-color</span>: blue;</span></span><br><span class="line"><span class="css">    &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">aside</span> &#123;</span></span><br><span class="line"><span class="css">      <span class="attribute">width</span>: <span class="number">250px</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">height</span>: <span class="number">500px</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">float</span>: right;</span></span><br><span class="line"><span class="css">      <span class="attribute">background-color</span>: red;</span></span><br><span class="line"><span class="css">    &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">footer</span> &#123;</span></span><br><span class="line"><span class="css">      <span class="attribute">width</span>: <span class="number">1000px</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">height</span>: <span class="number">50px</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">margin</span>: <span class="number">0</span> auto;</span></span><br><span class="line"><span class="css">      <span class="attribute">background-color</span>: black;</span></span><br><span class="line"><span class="css">    &#125;</span></span><br><span class="line"><span class="css">  </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">header</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;logo&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;denglu&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;miaosu&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">header</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">main</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;conten&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">aside</span>&gt;</span><span class="tag">&lt;/<span class="name">aside</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">main</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">footer</span>&gt;</span><span class="tag">&lt;/<span class="name">footer</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211006210028.png"></p>
+<p><strong>清除浮动影响</strong>：</p>
+<ul>
+<li><p>overflow: hidden（不推荐）</p>
+<p>示例：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">   <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">  * &#123;</span></span><br><span class="line"><span class="css">    <span class="attribute">padding</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">    <span class="attribute">margin</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">  &#125;</span></span><br><span class="line"><span class="css">  <span class="selector-class">.box</span> &#123;</span></span><br><span class="line"><span class="css">    <span class="attribute">overflow</span>: hidden;</span></span><br><span class="line"><span class="css">  &#125;</span></span><br><span class="line"><span class="css">  <span class="selector-class">.box1</span> &#123;</span></span><br><span class="line"><span class="css">    <span class="attribute">height</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">    <span class="attribute">width</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">    <span class="attribute">background-color</span>: aqua;</span></span><br><span class="line"><span class="css">    <span class="attribute">float</span>: left;</span></span><br><span class="line"><span class="css">    <span class="attribute">margin-bottom</span>: <span class="number">10px</span>;</span></span><br><span class="line"><span class="css">  &#125;</span></span><br><span class="line"><span class="css">  <span class="selector-class">.box2</span> &#123;</span></span><br><span class="line"><span class="css">    <span class="attribute">height</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">    <span class="attribute">width</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">    <span class="attribute">background-color</span>: red;</span></span><br><span class="line"><span class="css">    <span class="attribute">float</span>: left;</span></span><br><span class="line"><span class="css">  &#125;</span></span><br><span class="line"><span class="css">  <span class="selector-class">.box3</span> &#123;</span></span><br><span class="line"><span class="css">    <span class="attribute">height</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">    <span class="attribute">width</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">    <span class="attribute">background-color</span>: blue;</span></span><br><span class="line"><span class="css">    <span class="attribute">margin-top</span>: <span class="number">20px</span>;</span></span><br><span class="line"><span class="css">  &#125;</span></span><br><span class="line"><span class="css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box1&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box2&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box3&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>不推荐理由：</p>
+<ul>
+<li>overflow: hidden主要是用来溢出隐藏，虽然可以使盒子遵循BFC规范而不造成浮动的影响，但是需要写一个父盒子，给父盒子设置属性</li>
+<li>overflow: hidden可以然清除浮动，但是想让它清除外边距垂直塌陷，这需要在父盒子里面写一个子盒子，然后再写外边距，这样才可以清除外边距垂直塌陷的问题，总的说，这种方法很简单，但是如果不小心使用，问题较多</li>
+</ul>
+<ul>
+<li><code>clear:both</code>（不推荐）</li>
+</ul>
+<p>给后面的父盒子设置，意为清除左右浮动</p>
+<p>示例：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">  <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">    * &#123;</span></span><br><span class="line"><span class="css">      <span class="attribute">padding</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">margin</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">    &#125;</span></span><br><span class="line"><span class="css"></span></span><br><span class="line"><span class="css">    <span class="selector-class">.box2</span> &#123;</span></span><br><span class="line"><span class="css">      <span class="attribute">width</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">height</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">float</span>: left;</span></span><br><span class="line"><span class="css">      <span class="attribute">background-color</span>: aqua;</span></span><br><span class="line"><span class="css">    &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.box3</span> &#123;</span></span><br><span class="line"><span class="css">      <span class="attribute">width</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">height</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">background-color</span>: blue;</span></span><br><span class="line"><span class="css">      <span class="attribute">clear</span>: both;</span></span><br><span class="line"><span class="css">    &#125;</span></span><br><span class="line"><span class="css">  </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box2&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box3&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>不推荐理由：</p>
+<ul>
+<li>margin失效，高度塌陷</li>
+</ul>
+<ul>
+<li>伪元素</li>
+</ul>
+<p>给父盒子设置伪元素</p>
+<p>示例：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">  * &#123;</span></span><br><span class="line"><span class="css">    <span class="attribute">padding</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">    <span class="attribute">margin</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">  &#125;</span></span><br><span class="line"><span class="css">  <span class="selector-tag">p</span> &#123;</span></span><br><span class="line"><span class="css">    <span class="attribute">width</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">    <span class="attribute">height</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">    <span class="attribute">float</span>: left;</span></span><br><span class="line"><span class="css">    <span class="attribute">background-color</span>: aqua;</span></span><br><span class="line"><span class="css">  &#125;</span></span><br><span class="line"><span class="css">  <span class="selector-class">.box</span> &#123;</span></span><br><span class="line"><span class="css">    <span class="attribute">margin-bottom</span>: <span class="number">20px</span>;</span></span><br><span class="line"><span class="css">  &#125;</span></span><br><span class="line"><span class="css">  <span class="selector-class">.clearfix</span><span class="selector-pseudo">::after</span> &#123;</span></span><br><span class="line"><span class="css">    <span class="attribute">content</span>: <span class="string">&#x27;&#x27;</span>;</span></span><br><span class="line"><span class="css">    <span class="attribute">clear</span>: both;</span></span><br><span class="line"><span class="css">    <span class="attribute">display</span>: block;</span></span><br><span class="line"><span class="css">  &#125;</span></span><br><span class="line"><span class="css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box clearfix&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box clearfix&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>高度没有塌陷，只是给父盒子设置一个伪元素类</li>
+</ul>
+<ul>
+<li>隔墙</li>
+</ul>
+<p>就是给div之间设置一个有高度的盒子</p>
+<p>示例：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">  <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">    * &#123;</span></span><br><span class="line"><span class="css">      <span class="attribute">padding</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">margin</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">    &#125;</span></span><br><span class="line"><span class="css"></span></span><br><span class="line"><span class="css">    <span class="selector-class">.box2</span> &#123;</span></span><br><span class="line"><span class="css">      <span class="attribute">width</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">height</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">float</span>: left;</span></span><br><span class="line"><span class="css">      <span class="attribute">background-color</span>: aqua;</span></span><br><span class="line"><span class="css">    &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.test</span> &#123;</span></span><br><span class="line"><span class="css">      <span class="attribute">height</span>: <span class="number">20px</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">clear</span>: both;</span></span><br><span class="line"><span class="css">    &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.box3</span> &#123;</span></span><br><span class="line"><span class="css">      <span class="attribute">width</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">height</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">background-color</span>: blue;</span></span><br><span class="line"><span class="css">    &#125;</span></span><br><span class="line"><span class="css">  </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box2&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;test&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box3&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="定位"><a href="#定位" class="headerlink" title="定位"></a>定位</h1><h2 id="相对定位（relative）"><a href="#相对定位（relative）" class="headerlink" title="相对定位（relative）"></a>相对定位（relative）</h2><p>相对自身进行定位，不脱离文档流，适合在微调的场景</p>
+<h2 id="绝对定位（absolute）"><a href="#绝对定位（absolute）" class="headerlink" title="绝对定位（absolute）"></a>绝对定位（absolute）</h2><p>相对于前一个定位元素进行定位，如果没有，则相对于body进行定位，脱离文档流，对其他元素不会产生干扰，而是进行压盖</p>
+<p><strong>垂直居中</strong>：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.box</span>&#123; </span><br><span class="line">   	    <span class="attribute">position</span>: absolute;</span><br><span class="line">        <span class="attribute">top</span>: <span class="number">50%</span>;</span><br><span class="line">        <span class="attribute">left</span>: <span class="number">50%</span>;</span><br><span class="line">        <span class="attribute">margin-top</span>: 负自己高度一半;</span><br><span class="line">        <span class="attribute">margin-left</span>: 负自己宽度一半;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="固定定位（fixed）"><a href="#固定定位（fixed）" class="headerlink" title="固定定位（fixed）"></a>固定定位（fixed）</h2><p>不管页面如何卷动，永远固定在一个位置，相对于视口位置，脱离文档流</p>
 ]]></content>
       <categories>
         <category>CSS</category>
@@ -413,85 +492,6 @@
 
 <p>位置也可以是角度，单位deg，也可以使用百分号设置出现的位置</p>
 <p><strong>径向渐变</strong>：</p>
-]]></content>
-      <categories>
-        <category>CSS</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>CSS浮动布局和定位</title>
-    <url>/article/29b6ab94.html</url>
-    <content><![CDATA[<p>CSS的布局方式有很多种：表格、弹性、浮动等布局，本文章主要写浮动布局。</p>
-<h1 id="浮动布局"><a href="#浮动布局" class="headerlink" title="浮动布局"></a>浮动布局</h1><p><strong>基本概念</strong></p>
-<p>浮动最本质的功能就是实现并排，虽然使用<code>display: inline-block;</code>也可以实现并排，不过有间隙。</p>
-<p><strong>浮动关键字</strong></p>
-<p> <code>float: left</code>：左浮动</p>
-<p> `float: right;：右浮动</p>
-<p><strong>浮动使用要点</strong></p>
-<ul>
-<li><p>要浮动都浮动</p>
-</li>
-<li><p>父盒子有足够宽度，否则盒子会往下掉</p>
-</li>
-</ul>
-<p><strong>浮动贴靠顺序</strong></p>
-<ul>
-<li>当父盒子空间不够时，浮动盒子会寻找前一个兄弟元素贴靠</li>
-</ul>
-<p><strong>浮动的特点</strong></p>
-<ul>
-<li>浮动的盒子无法称起父盒子，会造成高度塌陷</li>
-<li>设置成浮动的盒子都可以设置宽高</li>
-</ul>
-<p><strong>浮动形成的布局</strong></p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">  <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">    <span class="selector-tag">header</span> &#123;</span></span><br><span class="line"><span class="css">      <span class="attribute">width</span>: <span class="number">1000px</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">height</span>: <span class="number">50px</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">margin</span>: <span class="number">0</span> auto;</span></span><br><span class="line"><span class="css">      <span class="attribute">background-color</span>: black;</span></span><br><span class="line"><span class="css">    &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.logo</span> &#123;</span></span><br><span class="line"><span class="css">      <span class="attribute">width</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">height</span>: <span class="number">50px</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">float</span>: left;</span></span><br><span class="line"><span class="css">      <span class="attribute">background-color</span>: palegreen;</span></span><br><span class="line"><span class="css">    &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.denglu</span> &#123;</span></span><br><span class="line"><span class="css">      <span class="attribute">width</span>: <span class="number">100px</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">height</span>: <span class="number">30px</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">float</span>: right;</span></span><br><span class="line"><span class="css">      <span class="attribute">background-color</span>: blueviolet;</span></span><br><span class="line"><span class="css">    &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.miaosu</span> &#123;</span></span><br><span class="line"><span class="css">      <span class="attribute">width</span>: <span class="number">701px</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">height</span>: <span class="number">20px</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">background-color</span>: burlywood;</span></span><br><span class="line"><span class="css">      <span class="attribute">float</span>: right;</span></span><br><span class="line"><span class="css">    &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">main</span> &#123;</span></span><br><span class="line"><span class="css">      <span class="attribute">width</span>: <span class="number">1000px</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">height</span>: <span class="number">500px</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">margin</span>: <span class="number">20px</span> auto;</span></span><br><span class="line"><span class="css">      <span class="attribute">background-color</span>: black;</span></span><br><span class="line"><span class="css">    &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.conten</span> &#123;</span></span><br><span class="line"><span class="css">      <span class="attribute">width</span>: <span class="number">700px</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">height</span>: <span class="number">500px</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">float</span>: left;</span></span><br><span class="line"><span class="css">      <span class="attribute">background-color</span>: blue;</span></span><br><span class="line"><span class="css">    &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">aside</span> &#123;</span></span><br><span class="line"><span class="css">      <span class="attribute">width</span>: <span class="number">250px</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">height</span>: <span class="number">500px</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">float</span>: right;</span></span><br><span class="line"><span class="css">      <span class="attribute">background-color</span>: red;</span></span><br><span class="line"><span class="css">    &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">footer</span> &#123;</span></span><br><span class="line"><span class="css">      <span class="attribute">width</span>: <span class="number">1000px</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">height</span>: <span class="number">50px</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">margin</span>: <span class="number">0</span> auto;</span></span><br><span class="line"><span class="css">      <span class="attribute">background-color</span>: black;</span></span><br><span class="line"><span class="css">    &#125;</span></span><br><span class="line"><span class="css">  </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">header</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;logo&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;denglu&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;miaosu&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">header</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">main</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;conten&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">aside</span>&gt;</span><span class="tag">&lt;/<span class="name">aside</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">main</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">footer</span>&gt;</span><span class="tag">&lt;/<span class="name">footer</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211006210028.png"></p>
-<p><strong>清除浮动影响</strong>：</p>
-<ul>
-<li><p>overflow: hidden（不推荐）</p>
-<p>示例：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">   <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">  * &#123;</span></span><br><span class="line"><span class="css">    <span class="attribute">padding</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">    <span class="attribute">margin</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">  &#125;</span></span><br><span class="line"><span class="css">  <span class="selector-class">.box</span> &#123;</span></span><br><span class="line"><span class="css">    <span class="attribute">overflow</span>: hidden;</span></span><br><span class="line"><span class="css">  &#125;</span></span><br><span class="line"><span class="css">  <span class="selector-class">.box1</span> &#123;</span></span><br><span class="line"><span class="css">    <span class="attribute">height</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">    <span class="attribute">width</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">    <span class="attribute">background-color</span>: aqua;</span></span><br><span class="line"><span class="css">    <span class="attribute">float</span>: left;</span></span><br><span class="line"><span class="css">    <span class="attribute">margin-bottom</span>: <span class="number">10px</span>;</span></span><br><span class="line"><span class="css">  &#125;</span></span><br><span class="line"><span class="css">  <span class="selector-class">.box2</span> &#123;</span></span><br><span class="line"><span class="css">    <span class="attribute">height</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">    <span class="attribute">width</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">    <span class="attribute">background-color</span>: red;</span></span><br><span class="line"><span class="css">    <span class="attribute">float</span>: left;</span></span><br><span class="line"><span class="css">  &#125;</span></span><br><span class="line"><span class="css">  <span class="selector-class">.box3</span> &#123;</span></span><br><span class="line"><span class="css">    <span class="attribute">height</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">    <span class="attribute">width</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">    <span class="attribute">background-color</span>: blue;</span></span><br><span class="line"><span class="css">    <span class="attribute">margin-top</span>: <span class="number">20px</span>;</span></span><br><span class="line"><span class="css">  &#125;</span></span><br><span class="line"><span class="css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box1&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box2&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box3&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-<p>不推荐理由：</p>
-<ul>
-<li>overflow: hidden主要是用来溢出隐藏，虽然可以使盒子遵循BFC规范而不造成浮动的影响，但是需要写一个父盒子，给父盒子设置属性</li>
-<li>overflow: hidden可以然清除浮动，但是想让它清除外边距垂直塌陷，这需要在父盒子里面写一个子盒子，然后再写外边距，这样才可以清除外边距垂直塌陷的问题，总的说，这种方法很简单，但是如果不小心使用，问题较多</li>
-</ul>
-<ul>
-<li><code>clear:both</code>（不推荐）</li>
-</ul>
-<p>给后面的父盒子设置，意为清除左右浮动</p>
-<p>示例：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">  <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">    * &#123;</span></span><br><span class="line"><span class="css">      <span class="attribute">padding</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">margin</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">    &#125;</span></span><br><span class="line"><span class="css"></span></span><br><span class="line"><span class="css">    <span class="selector-class">.box2</span> &#123;</span></span><br><span class="line"><span class="css">      <span class="attribute">width</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">height</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">float</span>: left;</span></span><br><span class="line"><span class="css">      <span class="attribute">background-color</span>: aqua;</span></span><br><span class="line"><span class="css">    &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.box3</span> &#123;</span></span><br><span class="line"><span class="css">      <span class="attribute">width</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">height</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">background-color</span>: blue;</span></span><br><span class="line"><span class="css">      <span class="attribute">clear</span>: both;</span></span><br><span class="line"><span class="css">    &#125;</span></span><br><span class="line"><span class="css">  </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box2&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box3&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>不推荐理由：</p>
-<ul>
-<li>margin失效，高度塌陷</li>
-</ul>
-<ul>
-<li>伪元素</li>
-</ul>
-<p>给父盒子设置伪元素</p>
-<p>示例：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">  * &#123;</span></span><br><span class="line"><span class="css">    <span class="attribute">padding</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">    <span class="attribute">margin</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">  &#125;</span></span><br><span class="line"><span class="css">  <span class="selector-tag">p</span> &#123;</span></span><br><span class="line"><span class="css">    <span class="attribute">width</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">    <span class="attribute">height</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">    <span class="attribute">float</span>: left;</span></span><br><span class="line"><span class="css">    <span class="attribute">background-color</span>: aqua;</span></span><br><span class="line"><span class="css">  &#125;</span></span><br><span class="line"><span class="css">  <span class="selector-class">.box</span> &#123;</span></span><br><span class="line"><span class="css">    <span class="attribute">margin-bottom</span>: <span class="number">20px</span>;</span></span><br><span class="line"><span class="css">  &#125;</span></span><br><span class="line"><span class="css">  <span class="selector-class">.clearfix</span><span class="selector-pseudo">::after</span> &#123;</span></span><br><span class="line"><span class="css">    <span class="attribute">content</span>: <span class="string">&#x27;&#x27;</span>;</span></span><br><span class="line"><span class="css">    <span class="attribute">clear</span>: both;</span></span><br><span class="line"><span class="css">    <span class="attribute">display</span>: block;</span></span><br><span class="line"><span class="css">  &#125;</span></span><br><span class="line"><span class="css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box clearfix&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box clearfix&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>高度没有塌陷，只是给父盒子设置一个伪元素类</li>
-</ul>
-<ul>
-<li>隔墙</li>
-</ul>
-<p>就是给div之间设置一个有高度的盒子</p>
-<p>示例：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">  <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">    * &#123;</span></span><br><span class="line"><span class="css">      <span class="attribute">padding</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">margin</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">    &#125;</span></span><br><span class="line"><span class="css"></span></span><br><span class="line"><span class="css">    <span class="selector-class">.box2</span> &#123;</span></span><br><span class="line"><span class="css">      <span class="attribute">width</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">height</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">float</span>: left;</span></span><br><span class="line"><span class="css">      <span class="attribute">background-color</span>: aqua;</span></span><br><span class="line"><span class="css">    &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.test</span> &#123;</span></span><br><span class="line"><span class="css">      <span class="attribute">height</span>: <span class="number">20px</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">clear</span>: both;</span></span><br><span class="line"><span class="css">    &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.box3</span> &#123;</span></span><br><span class="line"><span class="css">      <span class="attribute">width</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">height</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">background-color</span>: blue;</span></span><br><span class="line"><span class="css">    &#125;</span></span><br><span class="line"><span class="css">  </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box2&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;test&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box3&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="定位"><a href="#定位" class="headerlink" title="定位"></a>定位</h1><h2 id="相对定位（relative）"><a href="#相对定位（relative）" class="headerlink" title="相对定位（relative）"></a>相对定位（relative）</h2><p>相对自身进行定位，不脱离文档流，适合在微调的场景</p>
-<h2 id="绝对定位（absolute）"><a href="#绝对定位（absolute）" class="headerlink" title="绝对定位（absolute）"></a>绝对定位（absolute）</h2><p>相对于前一个定位元素进行定位，如果没有，则相对于body进行定位，脱离文档流，对其他元素不会产生干扰，而是进行压盖</p>
-<p><strong>垂直居中</strong>：</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.box</span>&#123; </span><br><span class="line">   	    <span class="attribute">position</span>: absolute;</span><br><span class="line">        <span class="attribute">top</span>: <span class="number">50%</span>;</span><br><span class="line">        <span class="attribute">left</span>: <span class="number">50%</span>;</span><br><span class="line">        <span class="attribute">margin-top</span>: 负自己高度一半;</span><br><span class="line">        <span class="attribute">margin-left</span>: 负自己宽度一半;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="固定定位（fixed）"><a href="#固定定位（fixed）" class="headerlink" title="固定定位（fixed）"></a>固定定位（fixed）</h2><p>不管页面如何卷动，永远固定在一个位置，相对于视口位置，脱离文档流</p>
 ]]></content>
       <categories>
         <category>CSS</category>
@@ -607,7 +607,6 @@
 <p>新增的智能感应：</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;&quot;</span>&gt;</span></span><br><span class="line">  请输入您的乘车工具:</span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">list</span>=<span class="string">&quot;buy&quot;</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">datalist</span> <span class="attr">id</span>=<span class="string">&quot;buy&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">option</span>&gt;</span>轿车<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">option</span>&gt;</span>单车<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">option</span>&gt;</span>拖拉机<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">datalist</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20210929093435.png"></p>
 <h2 id="视频和音频"><a href="#视频和音频" class="headerlink" title="视频和音频"></a>视频和音频</h2><p>在HTML5之前实现网页的视频音频需要使用flash，而现在使用video和audio标签就能插入视频和音频。</p>
 <p>video 视频：</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">video</span> <span class="attr">src</span>=<span class="string">&quot;./assace/a.mp4&quot;</span> <span class="attr">controls</span> <span class="attr">autoplay</span> <span class="attr">loop</span>&gt;</span>你的浏览器不支持<span class="tag">&lt;/<span class="name">video</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -635,6 +634,36 @@
 <p>getContext(“2d”) 对象是内建的 HTML5 对象，拥有多种绘制路径、矩形、圆形、字符以及添加图像的方法。</p>
 <p>fillStyle 属性可以是CSS颜色，渐变，或图案。fillStyle默认设置是#000000（黑色）。</p>
 <p>fillRect(x,y,width,height) 方法定义了矩形当前的填充方式。意思是：在画布上绘制 150x75 的矩形，从左上角开始 (0,0)</p>
+<h2 id="SVG绘画"><a href="#SVG绘画" class="headerlink" title="SVG绘画"></a>SVG绘画</h2><p>时用XML绘制的2D图像，可以随时被javascrip操作。</p>
+<p>下面时对比：</p>
+<table>
+<thead>
+<tr>
+<th>Canvas</th>
+<th>SVG</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>与分辨率相关(可以理解为位图，图形放大会失真看到一个个像素点)</td>
+<td>与分辨率无关(可以理解为矢量，图形放大不会失真)</td>
+</tr>
+<tr>
+<td>不支持事件处理程序</td>
+<td>支持事件处理程序</td>
+</tr>
+<tr>
+<td>文字呈现功能比较简单</td>
+<td>最适合具有大型渲染区域地应用程序(如Google地图)</td>
+</tr>
+<tr>
+<td>可以将生成的图像保存为.png或.jpg</td>
+<td>如果复杂地话渲染速度慢(其实任何使用DOM的东西都会很慢)</td>
+</tr>
+<tr>
+<td>非常适合图形密集性游戏</td>
+<td>不适合游戏应用程序</td>
+</tr>
+</tbody></table>
 <h2 id="地理定位"><a href="#地理定位" class="headerlink" title="地理定位"></a>地理定位</h2><p>在HTML5的标准中新增了地理位置这一功能，由JavaScript进行实现，由于国内网络环境，如果使用以下这个例子，大概率是不成功。</p>
 <p>而想使用地理信息，就需要用到国内的地图平台，这里设计内容较多，后面文章在详细分析</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">     <span class="keyword">if</span> (navigator.geolocation) &#123;</span></span><br><span class="line"><span class="javascript">       navigator.geolocation.getCurrentPosition(onSuccess, onError);</span></span><br><span class="line"><span class="javascript">     &#125; <span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="javascript">       alert(<span class="string">&#x27;您的浏览器不支持使用HTML 5来获取地理位置服务&#x27;</span>);</span></span><br><span class="line"><span class="javascript">     &#125;</span></span><br><span class="line"><span class="javascript">     <span class="comment">//定位数据获取成功响应</span></span></span><br><span class="line"><span class="javascript">     <span class="function"><span class="keyword">function</span> <span class="title">onSuccess</span>(<span class="params">position</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">       <span class="built_in">document</span>.getElementById(<span class="string">&#x27;app&#x27;</span>).innerHTML =</span></span><br><span class="line"><span class="javascript">         <span class="string">&#x27;纬度: &#x27;</span> +</span></span><br><span class="line"><span class="javascript">         position.coords.latitude +</span></span><br><span class="line"><span class="javascript">         <span class="string">&#x27;\n&#x27;</span> +</span></span><br><span class="line"><span class="javascript">         <span class="string">&#x27;经度: &#x27;</span> +</span></span><br><span class="line"><span class="javascript">         position.coords.longitude +</span></span><br><span class="line"><span class="javascript">         <span class="string">&#x27;\n&#x27;</span> +</span></span><br><span class="line"><span class="javascript">         <span class="string">&#x27;海拔: &#x27;</span> +</span></span><br><span class="line"><span class="javascript">         position.coords.altitude +</span></span><br><span class="line"><span class="javascript">         <span class="string">&#x27;\n&#x27;</span> +</span></span><br><span class="line"><span class="javascript">         <span class="string">&#x27;水平精度: &#x27;</span> +</span></span><br><span class="line"><span class="javascript">         position.coords.accuracy +</span></span><br><span class="line"><span class="javascript">         <span class="string">&#x27;\n&#x27;</span> +</span></span><br><span class="line"><span class="javascript">         <span class="string">&#x27;垂直精度: &#x27;</span> +</span></span><br><span class="line"><span class="javascript">         position.coords.altitudeAccura;</span></span><br><span class="line"><span class="javascript">     &#125;</span></span><br><span class="line"><span class="javascript">     <span class="comment">//定位数据获取失败响应</span></span></span><br><span class="line"><span class="javascript">     <span class="function"><span class="keyword">function</span> <span class="title">onError</span>(<span class="params">error</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">       <span class="keyword">switch</span> (error.code) &#123;</span></span><br><span class="line"><span class="javascript">         <span class="keyword">case</span> error.PERMISSION_DENIED:</span></span><br><span class="line"><span class="javascript">           alert(<span class="string">&#x27;您拒绝对获取地理位置的请求&#x27;</span>);</span></span><br><span class="line"><span class="javascript">           <span class="keyword">break</span>;</span></span><br><span class="line"><span class="javascript">         <span class="keyword">case</span> error.POSITION_UNAVAILABLE:</span></span><br><span class="line"><span class="javascript">           alert(<span class="string">&#x27;位置信息是不可用的&#x27;</span>);</span></span><br><span class="line"><span class="javascript">           <span class="keyword">break</span>;</span></span><br><span class="line"><span class="javascript">         <span class="keyword">case</span> error.TIMEOUT:</span></span><br><span class="line"><span class="javascript">           alert(<span class="string">&#x27;请求您的地理位置超时&#x27;</span>);</span></span><br><span class="line"><span class="javascript">           <span class="keyword">break</span>;</span></span><br><span class="line"><span class="javascript">         <span class="keyword">case</span> error.UNKNOWN_ERROR:</span></span><br><span class="line"><span class="javascript">           alert(<span class="string">&#x27;未知错误&#x27;</span>);</span></span><br><span class="line"><span class="javascript">           <span class="keyword">break</span>;</span></span><br><span class="line"><span class="javascript">       &#125;</span></span><br><span class="line"><span class="javascript">     &#125;</span></span><br></pre></td></tr></table></figure>
@@ -679,21 +708,15 @@
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;X-UA-Compatible&quot;</span> <span class="attr">content</span>=<span class="string">&quot;IE=edge&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <ul>
-<li><p>DOCTYPE是文档类型声明，声明该网页以哪个HTML版本执行，不同版本有不同声明方式，不写会引发浏览器兼容问题</p>
-</li>
-<li><p>html是网页根节点，lang属性表示网页的语言描述</p>
-</li>
-<li><p>head是配置项，主要放一些配置</p>
-</li>
-<li><p>meta元素可提供有关页面的元信息，比如针对搜索引擎和更新频度的描述和关键词。</p>
-<p>chartset属性是描述字符集。</p>
-<p>name属性的属性值有KeyWords、Description，分别是关键词和描述，这些都是成为了给搜索引擎看的</p>
-<p>name属性的属性值还有viewport，主要用在移动端设计，意思为视口</p>
-</li>
-<li><p>title是网站tag的标题</p>
-</li>
-<li><p>body是网页内容</p>
-</li>
+<li>DOCTYPE是文档类型声明，声明该网页以哪个HTML版本执行，不同版本有不同声明方式，不写会引发浏览器兼容问题</li>
+<li>html是网页根节点，lang属性表示网页的语言描述</li>
+<li>head是配置项，主要放一些配置</li>
+<li>meta元素可提供有关页面的元信息，比如针对搜索引擎和更新频度的描述和关键词。</li>
+<li>chartset属性是描述字符集。</li>
+<li>name属性的属性值有KeyWords、Description，分别是关键词和描述，这些都是成为了给搜索引擎看的</li>
+<li>name属性的属性值还有viewport，主要用在移动端设计，意思为视口</li>
+<li>title是网站tag的标题</li>
+<li>body是网页内容</li>
 </ul>
 <h1 id="标题标签"><a href="#标题标签" class="headerlink" title="标题标签"></a>标题标签</h1><p>示例：</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>h1<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h2</span>&gt;</span>h2<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h3</span>&gt;</span>h3<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h4</span>&gt;</span>h4<span class="tag">&lt;/<span class="name">h4</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h5</span>&gt;</span>h5<span class="tag">&lt;/<span class="name">h5</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h6</span>&gt;</span>h6<span class="tag">&lt;/<span class="name">h6</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -701,7 +724,8 @@
 <ul>
 <li>标题标签有6个，默认加粗</li>
 </ul>
-<h1 id="段落标签"><a href="#段落标签" class="headerlink" title="段落标签"></a>段落标签</h1><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>我是段落<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>我是段落<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h1 id="段落标签"><a href="#段落标签" class="headerlink" title="段落标签"></a>段落标签</h1><p>示例：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>我是段落<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>我是段落<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>p标签表示段落，不能嵌套标题标签和段落标签</li>
@@ -733,11 +757,74 @@
 <ul>
 <li>dl是定义列表，dt是数据项，dd是数据定义</li>
 </ul>
-<h1 id="视频标签"><a href="#视频标签" class="headerlink" title="视频标签"></a>视频标签</h1><h1 id="音频标签"><a href="#音频标签" class="headerlink" title="音频标签"></a>音频标签</h1><h1 id="表单标签"><a href="#表单标签" class="headerlink" title="表单标签"></a>表单标签</h1><p>示例：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;text&quot;</span>&gt;</span>输入框<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">id</span>=<span class="string">&quot;text&quot;</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;text&quot;</span>&gt;</span>数字<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;number&quot;</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;text&quot;</span>&gt;</span>输入框<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">value</span>=<span class="string">&quot;按钮&quot;</span> <span class="attr">class</span>=<span class="string">&quot;btnleft&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">value</span>=<span class="string">&quot;按钮&quot;</span> <span class="attr">class</span>=<span class="string">&quot;btnright&quot;</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h1 id="图片标签"><a href="#图片标签" class="headerlink" title="图片标签"></a>图片标签</h1><p>示例：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;./images/beijing/1.jpg&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;图片丢失了&quot;</span> <span class="attr">width</span>=<span class="string">&quot;2000&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
 
+<ul>
+<li>图片标签有src属性，用来引用资源文件，alt属性，当图片不存在时显示，width和height属性用来设置宽高</li>
+<li>支持bmp、gif、jpeg、png、svg、webp格式</li>
+</ul>
+<h1 id="超级链接"><a href="#超级链接" class="headerlink" title="超级链接"></a>超级链接</h1><p>示例：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;https://www.baidu.com&quot;</span> <span class="attr">title</span>=<span class="string">&quot;标题&quot;</span> &gt;</span>百度<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
+<ul>
+<li>跳转到网页百度。</li>
+<li>在网址后面加入#id，就可以跳转到该网站的id标签处。</li>
+<li>href支持相对路径和绝对路径。</li>
+<li>title属性，设置悬停文本。</li>
+<li>target属性设置链接打开窗口，blank属性表示新窗口打开</li>
+</ul>
+<h1 id="视频标签"><a href="#视频标签" class="headerlink" title="视频标签"></a>视频标签</h1><p>示例：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">video</span> <span class="attr">src</span>=<span class="string">&quot;./video//flower.mp4&quot;</span> <span class="attr">controls</span> <span class="attr">loop</span> <span class="attr">autoplay</span>&gt;</span>不支持该标签<span class="tag">&lt;/<span class="name">video</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
+<ul>
+<li>支持格式：mp4、ogb、avi、webm</li>
+<li>controls属性显示控件，loop循环播放，autoplay自动播放</li>
+<li>不支持该标签的时候显示标签内部文字</li>
+</ul>
+<h1 id="音频标签"><a href="#音频标签" class="headerlink" title="音频标签"></a>音频标签</h1><p>示例：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">audio</span> <span class="attr">src</span>=<span class="string">&quot;./music/hangpaibgm(mp3).mp3&quot;</span> <span class="attr">controls</span> <span class="attr">loop</span> <span class="attr">autoplay</span>&gt;</span></span><br><span class="line">  不支持该标签</span><br><span class="line"><span class="tag">&lt;/<span class="name">audio</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>支持格式：mp3、ogg、wav</li>
+<li>属性与视频标签一样</li>
+</ul>
+<h1 id="区块标签"><a href="#区块标签" class="headerlink" title="区块标签"></a>区块标签</h1><p>区块标签与div一样，但是语义不同。</p>
+<ul>
+<li>section：文档区域，语义比div大</li>
+<li>article：文档，文章核心内容</li>
+<li>aside：非核心内容，比如广告</li>
+<li>nav：导航条</li>
+<li>header：页头</li>
+<li>main：网页核心</li>
+<li>footer：页脚</li>
+</ul>
+<h1 id="小语义标签"><a href="#小语义标签" class="headerlink" title="小语义标签"></a>小语义标签</h1><ul>
+<li>span：行内标签</li>
+<li>b：加粗（HTML5废弃）</li>
+<li>u：下划线（HTML5废弃）</li>
+<li>i：倾斜（HTML5废弃）</li>
+<li>strong：特别重要文字（加粗）</li>
+<li>em：强调文字（倾斜）</li>
+<li>mark：高亮文字</li>
+<li>figure代表独立内容，与说明figcaption配合使用</li>
+</ul>
+<h1 id="表单标签"><a href="#表单标签" class="headerlink" title="表单标签"></a>表单标签</h1><p>示例：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;&quot;</span> <span class="attr">method</span>=<span class="string">&quot;POST&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;text&quot;</span>&gt;</span>输入框<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">id</span>=<span class="string">&quot;text&quot;</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>action属性时提交到后台数据的链接，method时请求的方法</li>
+<li>表单控件有disabled、placeholder属性</li>
+<li>基础控件有text、password、radio、checkbox、（select、option）、textarea、button、submit、reset</li>
+<li>新增控件有datalist、color、date、time、email、range、search、url</li>
+</ul>
+<h1 id="表格标签"><a href="#表格标签" class="headerlink" title="表格标签"></a>表格标签</h1><p>示例：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">border</span>=<span class="string">&quot;1&quot;</span> <span class="attr">width</span>=<span class="string">&quot;600&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">caption</span>&gt;</span>我是表格的标题<span class="tag">&lt;/<span class="name">caption</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">th</span>&gt;</span>第一季度<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">th</span>&gt;</span>第二季度<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">th</span>&gt;</span>第三季度<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">th</span>&gt;</span>第四季度<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>A<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>B<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>C<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>D<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>E<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>F<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>G<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>H<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>I<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>J<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>K<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>L<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>table时表格意思，table row时表格行，table data表格数据</li>
+<li>rowspan时合并行，colspan时合并表格列</li>
+</ul>
 <h1 id="特殊字符"><a href="#特殊字符" class="headerlink" title="特殊字符"></a>特殊字符</h1><p><code>&amp;lt</code>：小于号</p>
 <p><code>&amp;gt</code>：大于号</p>
 <p><code>&amp;nbsp</code>：空格</p>
@@ -745,101 +832,6 @@
 ]]></content>
       <categories>
         <category>文档</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>WeX-UI组件库搭建</title>
-    <url>/article/c7f47550.html</url>
-    <content><![CDATA[<p>前段时间写了LinView组件库，但是问题太多，按需引入总是出错，最后只能重写，因为重写，具体的不一一例举，重点把遇到的坑点和心得记录下</p>
-<h1 id="工程化目录"><a href="#工程化目录" class="headerlink" title="工程化目录"></a>工程化目录</h1><p>首先依然使用vue/cli形成目录，这是最后的目录结构：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">|-- WeX-UI</span><br><span class="line">    |-- .gitignore</span><br><span class="line">    |-- babel.config.js</span><br><span class="line">    |-- components.json</span><br><span class="line">    |-- deploy.sh         <span class="comment">//vuepress部署</span></span><br><span class="line">    |-- package-lock.json</span><br><span class="line">    |-- package.json</span><br><span class="line">    |-- README.md</span><br><span class="line">    |-- build          <span class="comment">//打包配置文件</span></span><br><span class="line">    |   |-- utlis.js</span><br><span class="line">    |   |-- webpack.base.js</span><br><span class="line">    |   |-- webpack.component.js</span><br><span class="line">    |   |-- webpack.prod.js</span><br><span class="line">    |-- docs           <span class="comment">//vuepress文档</span></span><br><span class="line">    |   |-- index.md</span><br><span class="line">    |   |-- .vuepress</span><br><span class="line">    |   |   |-- config.js</span><br><span class="line">    |   |   |-- enhanceApp.js</span><br><span class="line">    |   |   |-- public</span><br><span class="line">    |   |       |-- card.png</span><br><span class="line">    |   |-- componentdocs</span><br><span class="line">    |   |   |-- card.md</span><br><span class="line">    |   |   |-- index.md</span><br><span class="line">    |   |   |-- start.md</span><br><span class="line">    |   |-- update</span><br><span class="line">    |       |-- index.md</span><br><span class="line">    |-- lib            <span class="comment">//打包后的组件和样式</span></span><br><span class="line">    |   |-- card.js</span><br><span class="line">    |   |-- demo.js</span><br><span class="line">    |   |-- wex-ui.min.js</span><br><span class="line">    |   |-- styles</span><br><span class="line">    |       |-- card.css</span><br><span class="line">    |       |-- demo.css</span><br><span class="line">    |       |-- index.css</span><br><span class="line">    |-- packages         <span class="comment">//原生代码</span></span><br><span class="line">    |   |-- card</span><br><span class="line">    |   |   |-- index.js</span><br><span class="line">    |   |   |-- src</span><br><span class="line">    |   |       |-- Index.vue</span><br><span class="line">    |   |-- demo</span><br><span class="line">    |   |   |-- index.js</span><br><span class="line">    |   |   |-- src</span><br><span class="line">    |   |       |-- Index.vue</span><br><span class="line">    |   |-- theme-chalk         <span class="comment">//样式文件</span></span><br><span class="line">    |       |-- gulpfile.js</span><br><span class="line">    |       |-- src</span><br><span class="line">    |           |-- card.scss</span><br><span class="line">    |           |-- demo.scss</span><br><span class="line">    |           |-- index.scss</span><br><span class="line">    |-- public</span><br><span class="line">    |   |-- favicon.ico</span><br><span class="line">    |   |-- index.html</span><br><span class="line">    |-- src</span><br><span class="line">        |-- App.vue</span><br><span class="line">        |-- index.js        <span class="comment">//全局注册组件</span></span><br><span class="line">        |-- main.js</span><br><span class="line">        |-- assets</span><br><span class="line">        |   |-- logo.png</span><br><span class="line">        |-- components</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>整个目录结构是参考了ElementUI的写法，做了减法</li>
-<li>为了第三方项目的按需加载，打包后的都放在lib文件夹</li>
-<li>把gulp打包文件放在CSS的包这是参考了ElementUI，感觉上更加舒服，不会在build文件夹还存放另外的打包工具文件</li>
-<li>components.json也是参考ElementUI，这是为了按需引入单独打包加上</li>
-<li>webpack分成3个，一个基础的，一个打包全部组件，一个用来单独组件打包，虽然现在一个也可以足够打包，但是为了后续的扩展，目前采取该方式</li>
-<li>enhanceAppjs文件是用来导入全部组件的，属于应用级别，以前写法是把组件复制过来，麻烦且浪费空间，应用该文件后，开发后的组件就可以书写文档。</li>
-<li>deploy.sh拉取到最外层，让config非常纯粹 ，（utils只是为解决路径问题）</li>
-</ul>
-<h1 id="webpack打包"><a href="#webpack打包" class="headerlink" title="webpack打包"></a>webpack打包</h1><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// webpack.component.js 按需加载，单独组件打包</span></span><br><span class="line"><span class="keyword">const</span> &#123;VueLoaderPlugin&#125;  = <span class="built_in">require</span>(<span class="string">&#x27;vue-loader&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> components = <span class="built_in">require</span>(<span class="string">&#x27;../components.json&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> utlis = <span class="built_in">require</span>(<span class="string">&#x27;./utlis&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> list = &#123;&#125; <span class="comment">//入口文件</span></span><br><span class="line"><span class="keyword">const</span> basePath = path.resolve(__dirname, <span class="string">&#x27;../&#x27;</span>)</span><br><span class="line"><span class="built_in">Object</span>.keys(components).forEach(<span class="function"><span class="params">key</span> =&gt;</span> &#123;</span><br><span class="line">  list[key] = path.join(basePath,  components[key])</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// console.log(list);</span></span><br><span class="line"><span class="keyword">const</span> webpackconfig = &#123;</span><br><span class="line">  <span class="attr">entry</span>: list,</span><br><span class="line">  <span class="attr">mode</span>: <span class="string">&#x27;production&#x27;</span>,<span class="comment">//生产模式</span></span><br><span class="line">  <span class="attr">output</span>: &#123;</span><br><span class="line">    <span class="attr">path</span>: utlis.DIST_PATH,</span><br><span class="line">    <span class="attr">filename</span>: <span class="string">&#x27;[name].js&#x27;</span>,</span><br><span class="line">    <span class="attr">library</span>: <span class="string">&#x27;wex-ui&#x27;</span>, <span class="comment">//包名称</span></span><br><span class="line">    <span class="attr">libraryTarget</span>: <span class="string">&#x27;umd&#x27;</span>, <span class="comment">//支持的引入模式</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">module</span>: &#123;<span class="comment">//告诉webpack，什么文件使用什么rules</span></span><br><span class="line">    <span class="attr">rules</span>: [</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">test</span>: <span class="regexp">/\.vue$/</span>,</span><br><span class="line">        use: [</span><br><span class="line">          &#123;</span><br><span class="line">            <span class="attr">loader</span>: <span class="string">&#x27;vue-loader&#x27;</span>,</span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">    </span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">plugins</span>: [</span><br><span class="line">     <span class="keyword">new</span> VueLoaderPlugin()</span><br><span class="line">  ]</span><br><span class="line">  </span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">module</span>.exports = webpackconfig</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>整个打包文件最为精简，后续可能需要优化，减少包的体积</li>
-</ul>
-<h1 id="NPM上传"><a href="#NPM上传" class="headerlink" title="NPM上传"></a>NPM上传</h1><p>这是最没技术含量的问题，却是困惑我许久的问题：</p>
-<ul>
-<li>NPM莫名上传失败</li>
-</ul>
-<p>今天依旧想上传npm包，却发现：</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211008210126.png"></p>
-<p>这个问题网上找了很久，几乎全网没有答案，尝试了切版本，换源都没有用，最后尝试把http换成https，成功。</p>
-<ul>
-<li>NPM换源问题</li>
-</ul>
-<p>在上面问题没有解决的同时，我有进入另外别人设置好的的坑，没错就是下面的博文，</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211008210738.png"></p>
-<p>没错，这个源是错误的，正确的是：npm config set registry <a href="https://registry.npmjs.org/">https://registry.npmjs.org</a></p>
-<p>但是因为当时急于解决第一个问题，导致了失误。</p>
-<p>目前已经举报。。</p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>目前重写后可以正常使用，按需加载正常，后续包的优化，组件的增加有待研究</p>
-]]></content>
-      <categories>
-        <category>组件库</category>
-      </categories>
-      <tags>
-        <tag>自定义组件库</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo图床的解决方案</title>
-    <url>/article/4c6068df.html</url>
-    <content><![CDATA[<p>引子：网站链接嵌套得越深，越不利于SEO优化，Hexo默认链接是年月日标题，如果标题是中文，那么链接就会变成乱码，这很不利于搜索引擎的搜索，为了达到目的，我们会使用<code>hexo-abbrlink</code>插件来解决问题，但是我们需要上传图片，图片要么需要图床，不然你就只能附带博客里面，以下分析个人在遇到这个问题的取舍与想法，愿与诸君分享。</p>
-<h1 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h1><ul>
-<li>我们需要利于SEO的网址</li>
-<li>我们需要一个安全、稳定、足够、免费的图床</li>
-<li>简单、最好一劳永逸</li>
-</ul>
-<h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><p>我们知道，为了达到Hexo的链接优化，需要用到<code>hexo-abbrlink</code>这个插件，使用上传图片使用<code>hexo-asset-image</code>插件，这两个插件单独使用没有问题，但是一起使用就会出现问题，前者把路径改了，后者当然无法找到图片，网上也是一堆长篇大论，这里不在累赘，难道没有一劳永逸吗？</p>
-<p>既然两者一起使用会出现问题，（<code>hexo-asset-image</code>插件作者曾提到这是hexo的编译原理，具体可以看官方的lssues）,那么就不一起使用，此路不通，另寻它路。其实最简单的方式就是使用图床功能，把一张图片放到别人的服务器，通过URL就能看到图片，简单快捷，</p>
-<p>但是有几个问题：</p>
-<ul>
-<li><p>图片放在别人的服务器，不太安全</p>
-</li>
-<li><p>图床一般都需要收费，不可能给你白嫖</p>
-</li>
-<li><p>图床弄起来较为麻烦</p>
-</li>
-</ul>
-<p>综合以上，其实我们可以利用Gitee来作为我们的图床，有以下几个原因</p>
-<ul>
-<li>使用<code>hexo-asset-image</code>插件图片本身也是存放在<code>gitee</code>，那么我们这样其实是一样的，只不过不用<code>hexo-asset-image</code>插件</li>
-<li><code>Gitee</code>属于国内，速度更快</li>
-<li>个人免费有5G的空间，如果只是博客，这个空间还是够的</li>
-</ul>
-<h1 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h1><p>既然使用Gitee来作为图床，当然不能重复提交代码仓库来实现，这里使用picGo工具，</p>
-<p>官网：<a href="https://github.com/Molunerfinn/PicGo/releases">https://github.com/Molunerfinn/PicGo/releases</a></p>
-<p>安装好的界面</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20210926225740.png"></p>
-<p>安装插件：</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20210926230424.png"></p>
-<p>填写信息：</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20210926231011.png"></p>
-<ul>
-<li>用户名是注册时候的链接名，不是昵称！！</li>
-<li>仓库名小写，直接写就行，不需要写路径</li>
-<li>存放路径随意</li>
-<li>令牌是<code>Gitee</code>私人令牌，不要给太多权限，第一个就行</li>
-<li>图片只能1M上限，大于访问不了，需要登陆才可以有权限访问，这点可以自己测试</li>
-</ul>
-<h1 id="小工具"><a href="#小工具" class="headerlink" title="小工具"></a>小工具</h1><p>分享一个截图工具：snipaste，可以在win10商店里面下载即可。</p>
-<p>官网：<a href="https://zh.snipaste.com/">https://zh.snipaste.com/</a></p>
-<p>结合PicGo可以完美配合，复制粘贴上传，不用保存，截图大小也不是很大</p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>这个办法其实是脱离插件的使用，即满足了URL的优化，又能得到一个图床应用，体验下来还是很方便的，唯一缺点就是流程可能稍加繁琐，不过使用过程非常方便！还是值得推荐的！</p>
-]]></content>
-      <categories>
-        <category>Hexo框架</category>
       </categories>
   </entry>
   <entry>
@@ -1029,6 +1021,101 @@
       </tags>
   </entry>
   <entry>
+    <title>WeX-UI组件库搭建</title>
+    <url>/article/c7f47550.html</url>
+    <content><![CDATA[<p>前段时间写了LinView组件库，但是问题太多，按需引入总是出错，最后只能重写，因为重写，具体的不一一例举，重点把遇到的坑点和心得记录下</p>
+<h1 id="工程化目录"><a href="#工程化目录" class="headerlink" title="工程化目录"></a>工程化目录</h1><p>首先依然使用vue/cli形成目录，这是最后的目录结构：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">|-- WeX-UI</span><br><span class="line">    |-- .gitignore</span><br><span class="line">    |-- babel.config.js</span><br><span class="line">    |-- components.json</span><br><span class="line">    |-- deploy.sh         <span class="comment">//vuepress部署</span></span><br><span class="line">    |-- package-lock.json</span><br><span class="line">    |-- package.json</span><br><span class="line">    |-- README.md</span><br><span class="line">    |-- build          <span class="comment">//打包配置文件</span></span><br><span class="line">    |   |-- utlis.js</span><br><span class="line">    |   |-- webpack.base.js</span><br><span class="line">    |   |-- webpack.component.js</span><br><span class="line">    |   |-- webpack.prod.js</span><br><span class="line">    |-- docs           <span class="comment">//vuepress文档</span></span><br><span class="line">    |   |-- index.md</span><br><span class="line">    |   |-- .vuepress</span><br><span class="line">    |   |   |-- config.js</span><br><span class="line">    |   |   |-- enhanceApp.js</span><br><span class="line">    |   |   |-- public</span><br><span class="line">    |   |       |-- card.png</span><br><span class="line">    |   |-- componentdocs</span><br><span class="line">    |   |   |-- card.md</span><br><span class="line">    |   |   |-- index.md</span><br><span class="line">    |   |   |-- start.md</span><br><span class="line">    |   |-- update</span><br><span class="line">    |       |-- index.md</span><br><span class="line">    |-- lib            <span class="comment">//打包后的组件和样式</span></span><br><span class="line">    |   |-- card.js</span><br><span class="line">    |   |-- demo.js</span><br><span class="line">    |   |-- wex-ui.min.js</span><br><span class="line">    |   |-- styles</span><br><span class="line">    |       |-- card.css</span><br><span class="line">    |       |-- demo.css</span><br><span class="line">    |       |-- index.css</span><br><span class="line">    |-- packages         <span class="comment">//原生代码</span></span><br><span class="line">    |   |-- card</span><br><span class="line">    |   |   |-- index.js</span><br><span class="line">    |   |   |-- src</span><br><span class="line">    |   |       |-- Index.vue</span><br><span class="line">    |   |-- demo</span><br><span class="line">    |   |   |-- index.js</span><br><span class="line">    |   |   |-- src</span><br><span class="line">    |   |       |-- Index.vue</span><br><span class="line">    |   |-- theme-chalk         <span class="comment">//样式文件</span></span><br><span class="line">    |       |-- gulpfile.js</span><br><span class="line">    |       |-- src</span><br><span class="line">    |           |-- card.scss</span><br><span class="line">    |           |-- demo.scss</span><br><span class="line">    |           |-- index.scss</span><br><span class="line">    |-- public</span><br><span class="line">    |   |-- favicon.ico</span><br><span class="line">    |   |-- index.html</span><br><span class="line">    |-- src</span><br><span class="line">        |-- App.vue</span><br><span class="line">        |-- index.js        <span class="comment">//全局注册组件</span></span><br><span class="line">        |-- main.js</span><br><span class="line">        |-- assets</span><br><span class="line">        |   |-- logo.png</span><br><span class="line">        |-- components</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>整个目录结构是参考了ElementUI的写法，做了减法</li>
+<li>为了第三方项目的按需加载，打包后的都放在lib文件夹</li>
+<li>把gulp打包文件放在CSS的包这是参考了ElementUI，感觉上更加舒服，不会在build文件夹还存放另外的打包工具文件</li>
+<li>components.json也是参考ElementUI，这是为了按需引入单独打包加上</li>
+<li>webpack分成3个，一个基础的，一个打包全部组件，一个用来单独组件打包，虽然现在一个也可以足够打包，但是为了后续的扩展，目前采取该方式</li>
+<li>enhanceAppjs文件是用来导入全部组件的，属于应用级别，以前写法是把组件复制过来，麻烦且浪费空间，应用该文件后，开发后的组件就可以书写文档。</li>
+<li>deploy.sh拉取到最外层，让config非常纯粹 ，（utils只是为解决路径问题）</li>
+</ul>
+<h1 id="webpack打包"><a href="#webpack打包" class="headerlink" title="webpack打包"></a>webpack打包</h1><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// webpack.component.js 按需加载，单独组件打包</span></span><br><span class="line"><span class="keyword">const</span> &#123;VueLoaderPlugin&#125;  = <span class="built_in">require</span>(<span class="string">&#x27;vue-loader&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> components = <span class="built_in">require</span>(<span class="string">&#x27;../components.json&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> utlis = <span class="built_in">require</span>(<span class="string">&#x27;./utlis&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> list = &#123;&#125; <span class="comment">//入口文件</span></span><br><span class="line"><span class="keyword">const</span> basePath = path.resolve(__dirname, <span class="string">&#x27;../&#x27;</span>)</span><br><span class="line"><span class="built_in">Object</span>.keys(components).forEach(<span class="function"><span class="params">key</span> =&gt;</span> &#123;</span><br><span class="line">  list[key] = path.join(basePath,  components[key])</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// console.log(list);</span></span><br><span class="line"><span class="keyword">const</span> webpackconfig = &#123;</span><br><span class="line">  <span class="attr">entry</span>: list,</span><br><span class="line">  <span class="attr">mode</span>: <span class="string">&#x27;production&#x27;</span>,<span class="comment">//生产模式</span></span><br><span class="line">  <span class="attr">output</span>: &#123;</span><br><span class="line">    <span class="attr">path</span>: utlis.DIST_PATH,</span><br><span class="line">    <span class="attr">filename</span>: <span class="string">&#x27;[name].js&#x27;</span>,</span><br><span class="line">    <span class="attr">library</span>: <span class="string">&#x27;wex-ui&#x27;</span>, <span class="comment">//包名称</span></span><br><span class="line">    <span class="attr">libraryTarget</span>: <span class="string">&#x27;umd&#x27;</span>, <span class="comment">//支持的引入模式</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">module</span>: &#123;<span class="comment">//告诉webpack，什么文件使用什么rules</span></span><br><span class="line">    <span class="attr">rules</span>: [</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">test</span>: <span class="regexp">/\.vue$/</span>,</span><br><span class="line">        use: [</span><br><span class="line">          &#123;</span><br><span class="line">            <span class="attr">loader</span>: <span class="string">&#x27;vue-loader&#x27;</span>,</span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">    </span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">plugins</span>: [</span><br><span class="line">     <span class="keyword">new</span> VueLoaderPlugin()</span><br><span class="line">  ]</span><br><span class="line">  </span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">module</span>.exports = webpackconfig</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>整个打包文件最为精简，后续可能需要优化，减少包的体积</li>
+</ul>
+<h1 id="NPM上传"><a href="#NPM上传" class="headerlink" title="NPM上传"></a>NPM上传</h1><p>这是最没技术含量的问题，却是困惑我许久的问题：</p>
+<ul>
+<li>NPM莫名上传失败</li>
+</ul>
+<p>今天依旧想上传npm包，却发现：</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211008210126.png"></p>
+<p>这个问题网上找了很久，几乎全网没有答案，尝试了切版本，换源都没有用，最后尝试把http换成https，成功。</p>
+<ul>
+<li>NPM换源问题</li>
+</ul>
+<p>在上面问题没有解决的同时，我有进入另外别人设置好的的坑，没错就是下面的博文，</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211008210738.png"></p>
+<p>没错，这个源是错误的，正确的是：npm config set registry <a href="https://registry.npmjs.org/">https://registry.npmjs.org</a></p>
+<p>但是因为当时急于解决第一个问题，导致了失误。</p>
+<p>目前已经举报。。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>目前重写后可以正常使用，按需加载正常，后续包的优化，组件的增加有待研究</p>
+]]></content>
+      <categories>
+        <category>组件库</category>
+      </categories>
+      <tags>
+        <tag>自定义组件库</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo图床的解决方案</title>
+    <url>/article/4c6068df.html</url>
+    <content><![CDATA[<p>引子：网站链接嵌套得越深，越不利于SEO优化，Hexo默认链接是年月日标题，如果标题是中文，那么链接就会变成乱码，这很不利于搜索引擎的搜索，为了达到目的，我们会使用<code>hexo-abbrlink</code>插件来解决问题，但是我们需要上传图片，图片要么需要图床，不然你就只能附带博客里面，以下分析个人在遇到这个问题的取舍与想法，愿与诸君分享。</p>
+<h1 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h1><ul>
+<li>我们需要利于SEO的网址</li>
+<li>我们需要一个安全、稳定、足够、免费的图床</li>
+<li>简单、最好一劳永逸</li>
+</ul>
+<h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><p>我们知道，为了达到Hexo的链接优化，需要用到<code>hexo-abbrlink</code>这个插件，使用上传图片使用<code>hexo-asset-image</code>插件，这两个插件单独使用没有问题，但是一起使用就会出现问题，前者把路径改了，后者当然无法找到图片，网上也是一堆长篇大论，这里不在累赘，难道没有一劳永逸吗？</p>
+<p>既然两者一起使用会出现问题，（<code>hexo-asset-image</code>插件作者曾提到这是hexo的编译原理，具体可以看官方的lssues）,那么就不一起使用，此路不通，另寻它路。其实最简单的方式就是使用图床功能，把一张图片放到别人的服务器，通过URL就能看到图片，简单快捷，</p>
+<p>但是有几个问题：</p>
+<ul>
+<li><p>图片放在别人的服务器，不太安全</p>
+</li>
+<li><p>图床一般都需要收费，不可能给你白嫖</p>
+</li>
+<li><p>图床弄起来较为麻烦</p>
+</li>
+</ul>
+<p>综合以上，其实我们可以利用Gitee来作为我们的图床，有以下几个原因</p>
+<ul>
+<li>使用<code>hexo-asset-image</code>插件图片本身也是存放在<code>gitee</code>，那么我们这样其实是一样的，只不过不用<code>hexo-asset-image</code>插件</li>
+<li><code>Gitee</code>属于国内，速度更快</li>
+<li>个人免费有5G的空间，如果只是博客，这个空间还是够的</li>
+</ul>
+<h1 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h1><p>既然使用Gitee来作为图床，当然不能重复提交代码仓库来实现，这里使用picGo工具，</p>
+<p>官网：<a href="https://github.com/Molunerfinn/PicGo/releases">https://github.com/Molunerfinn/PicGo/releases</a></p>
+<p>安装好的界面</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20210926225740.png"></p>
+<p>安装插件：</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20210926230424.png"></p>
+<p>填写信息：</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20210926231011.png"></p>
+<ul>
+<li>用户名是注册时候的链接名，不是昵称！！</li>
+<li>仓库名小写，直接写就行，不需要写路径</li>
+<li>存放路径随意</li>
+<li>令牌是<code>Gitee</code>私人令牌，不要给太多权限，第一个就行</li>
+<li>图片只能1M上限，大于访问不了，需要登陆才可以有权限访问，这点可以自己测试</li>
+</ul>
+<h1 id="小工具"><a href="#小工具" class="headerlink" title="小工具"></a>小工具</h1><p>分享一个截图工具：snipaste，可以在win10商店里面下载即可。</p>
+<p>官网：<a href="https://zh.snipaste.com/">https://zh.snipaste.com/</a></p>
+<p>结合PicGo可以完美配合，复制粘贴上传，不用保存，截图大小也不是很大</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>这个办法其实是脱离插件的使用，即满足了URL的优化，又能得到一个图床应用，体验下来还是很方便的，唯一缺点就是流程可能稍加繁琐，不过使用过程非常方便！还是值得推荐的！</p>
+]]></content>
+      <categories>
+        <category>Hexo框架</category>
+      </categories>
+  </entry>
+  <entry>
     <title>小破站正式上线</title>
     <url>/article/36e749dc.html</url>
     <content><![CDATA[<p>断断续续半年时间，使用<code>Hexo</code>已有很长一段时间，经历了不断的优化踩坑，最开始使用<code>NexT</code>做为博客主题，到后来使用了Butterfly主题，到对主题的一系列魔改，最终还是回归到<code>NexT</code>作为博客的主题。</p>
@@ -1039,26 +1126,6 @@
       <categories>
         <category>Hexo框架</category>
       </categories>
-  </entry>
-  <entry>
-    <title>文章锚点失效问题</title>
-    <url>/article/26e0b522.html</url>
-    <content><![CDATA[<p>在测试博客中发现文章锚点失效问题，特此记录以下</p>
-<p>在 <code>Hexo</code> 更新至 5.x 版本，Next 更新至 7.x 版本后，会出现文章的中文目录点击跳转失效的 bug，本博客正式遇到此问题。</p>
-<p>在控制台打印如下错误：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">utils.js:<span class="number">240</span> Uncaught <span class="built_in">TypeError</span>: Cannot read properties <span class="keyword">of</span> <span class="literal">null</span> (reading <span class="string">&#x27;getBoundingClientRect&#x27;</span>)</span><br><span class="line">    at HTMLAnchorElement.&lt;anonymous&gt; (utils.js:<span class="number">240</span>)</span><br></pre></td></tr></table></figure>
-
-<p>翻看官方Issues得到解决方案：</p>
-<p>链接：<a href="https://github.com/theme-next/hexo-theme-next/pull/1540/files">https://github.com/theme-next/hexo-theme-next/pull/1540/files</a></p>
-<p>删除两行代码，增加两行代码：</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20210927205653.png"></p>
-]]></content>
-      <categories>
-        <category>Hexo框架</category>
-      </categories>
-      <tags>
-        <tag>Bug</tag>
-      </tags>
   </entry>
   <entry>
     <title>常用文本样式属性</title>
@@ -1177,6 +1244,26 @@
       <categories>
         <category>CSS</category>
       </categories>
+  </entry>
+  <entry>
+    <title>文章锚点失效问题</title>
+    <url>/article/26e0b522.html</url>
+    <content><![CDATA[<p>在测试博客中发现文章锚点失效问题，特此记录以下</p>
+<p>在 <code>Hexo</code> 更新至 5.x 版本，Next 更新至 7.x 版本后，会出现文章的中文目录点击跳转失效的 bug，本博客正式遇到此问题。</p>
+<p>在控制台打印如下错误：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">utils.js:<span class="number">240</span> Uncaught <span class="built_in">TypeError</span>: Cannot read properties <span class="keyword">of</span> <span class="literal">null</span> (reading <span class="string">&#x27;getBoundingClientRect&#x27;</span>)</span><br><span class="line">    at HTMLAnchorElement.&lt;anonymous&gt; (utils.js:<span class="number">240</span>)</span><br></pre></td></tr></table></figure>
+
+<p>翻看官方Issues得到解决方案：</p>
+<p>链接：<a href="https://github.com/theme-next/hexo-theme-next/pull/1540/files">https://github.com/theme-next/hexo-theme-next/pull/1540/files</a></p>
+<p>删除两行代码，增加两行代码：</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20210927205653.png"></p>
+]]></content>
+      <categories>
+        <category>Hexo框架</category>
+      </categories>
+      <tags>
+        <tag>Bug</tag>
+      </tags>
   </entry>
   <entry>
     <title>无题</title>
