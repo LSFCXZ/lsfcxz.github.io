@@ -19,20 +19,20 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"lsfcxz.gitee.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"lsfcxz.gitee.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="前段时间写了LinView组件库，但是问题太多，按需引入总是出错，最后只能重写，因为重写，具体的不一一例举，重点把遇到的坑点和心得记录下 工程化目录首先依然使用vue&#x2F;cli形成目录，这是最后的目录结构：">
+  <meta name="description" content="前段时间写了LinView组件库，但是由于问题太多，按需引入出错，最后参考element-ui框架和参考一些技术博文，重新编写整个组件库，因为重写，具体的不一 一例举，重点把遇到的坑点和心得记录下。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="WeX-UI组件库搭建">
 <meta property="og:url" content="https://lsfcxz.gitee.io/article/c7f47550.html">
 <meta property="og:site_name" content="大前端_LSF">
-<meta property="og:description" content="前段时间写了LinView组件库，但是问题太多，按需引入总是出错，最后只能重写，因为重写，具体的不一一例举，重点把遇到的坑点和心得记录下 工程化目录首先依然使用vue&#x2F;cli形成目录，这是最后的目录结构：">
+<meta property="og:description" content="前段时间写了LinView组件库，但是由于问题太多，按需引入出错，最后参考element-ui框架和参考一些技术博文，重新编写整个组件库，因为重写，具体的不一 一例举，重点把遇到的坑点和心得记录下。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211008210126.png">
 <meta property="og:image" content="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211008210738.png">
 <meta property="article:published_time" content="2021-10-08T12:28:49.000Z">
-<meta property="article:modified_time" content="2021-10-09T01:29:26.104Z">
+<meta property="article:modified_time" content="2021-10-18T09:06:45.697Z">
 <meta property="article:author" content="const name&#x3D;&quot;LSF&quot;">
 <meta property="article:tag" content="自定义组件库">
 <meta name="twitter:card" content="summary">
@@ -197,6 +197,9 @@
     <i class="fa fa-arrow-up"></i>
     <span>0%</span>
   </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <a href="https://gitee.com/lsfcxz" class="github-corner" title="Follow me on Gitee" aria-label="Follow me on Gitee" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
 
 
     <main class="main">
@@ -241,7 +244,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-09 09:29:26" itemprop="dateModified" datetime="2021-10-09T09:29:26+08:00">2021-10-09</time>
+                <time title="修改时间：2021-10-18 17:06:45" itemprop="dateModified" datetime="2021-10-18T17:06:45+08:00">2021-10-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -285,23 +288,23 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>前段时间写了LinView组件库，但是问题太多，按需引入总是出错，最后只能重写，因为重写，具体的不一一例举，重点把遇到的坑点和心得记录下</p>
+        <p>前段时间写了LinView组件库，但是由于问题太多，按需引入出错，最后参考element-ui框架和参考一些技术博文，重新编写整个组件库，因为重写，具体的不一 一例举，重点把遇到的坑点和心得记录下。</p>
 <h1 id="工程化目录"><a href="#工程化目录" class="headerlink" title="工程化目录"></a>工程化目录</h1><p>首先依然使用vue/cli形成目录，这是最后的目录结构：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line">|-- WeX-UI</span><br><span class="line">    |-- .gitignore</span><br><span class="line">    |-- babel.config.js</span><br><span class="line">    |-- components.json</span><br><span class="line">    |-- deploy.sh         <span class="comment">//vuepress部署</span></span><br><span class="line">    |-- package-lock.json</span><br><span class="line">    |-- package.json</span><br><span class="line">    |-- README.md</span><br><span class="line">    |-- build          <span class="comment">//打包配置文件</span></span><br><span class="line">    |   |-- utlis.js</span><br><span class="line">    |   |-- webpack.base.js</span><br><span class="line">    |   |-- webpack.component.js</span><br><span class="line">    |   |-- webpack.prod.js</span><br><span class="line">    |-- docs           <span class="comment">//vuepress文档</span></span><br><span class="line">    |   |-- index.md</span><br><span class="line">    |   |-- .vuepress</span><br><span class="line">    |   |   |-- config.js</span><br><span class="line">    |   |   |-- enhanceApp.js</span><br><span class="line">    |   |   |-- public</span><br><span class="line">    |   |       |-- card.png</span><br><span class="line">    |   |-- componentdocs</span><br><span class="line">    |   |   |-- card.md</span><br><span class="line">    |   |   |-- index.md</span><br><span class="line">    |   |   |-- start.md</span><br><span class="line">    |   |-- update</span><br><span class="line">    |       |-- index.md</span><br><span class="line">    |-- lib            <span class="comment">//打包后的组件和样式</span></span><br><span class="line">    |   |-- card.js</span><br><span class="line">    |   |-- demo.js</span><br><span class="line">    |   |-- wex-ui.min.js</span><br><span class="line">    |   |-- styles</span><br><span class="line">    |       |-- card.css</span><br><span class="line">    |       |-- demo.css</span><br><span class="line">    |       |-- index.css</span><br><span class="line">    |-- packages         <span class="comment">//原生代码</span></span><br><span class="line">    |   |-- card</span><br><span class="line">    |   |   |-- index.js</span><br><span class="line">    |   |   |-- src</span><br><span class="line">    |   |       |-- Index.vue</span><br><span class="line">    |   |-- demo</span><br><span class="line">    |   |   |-- index.js</span><br><span class="line">    |   |   |-- src</span><br><span class="line">    |   |       |-- Index.vue</span><br><span class="line">    |   |-- theme-chalk         <span class="comment">//样式文件</span></span><br><span class="line">    |       |-- gulpfile.js</span><br><span class="line">    |       |-- src</span><br><span class="line">    |           |-- card.scss</span><br><span class="line">    |           |-- demo.scss</span><br><span class="line">    |           |-- index.scss</span><br><span class="line">    |-- public</span><br><span class="line">    |   |-- favicon.ico</span><br><span class="line">    |   |-- index.html</span><br><span class="line">    |-- src</span><br><span class="line">        |-- App.vue</span><br><span class="line">        |-- index.js        <span class="comment">//全局注册组件</span></span><br><span class="line">        |-- main.js</span><br><span class="line">        |-- assets</span><br><span class="line">        |   |-- logo.png</span><br><span class="line">        |-- components</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li>整个目录结构是参考了ElementUI的写法，做了减法</li>
-<li>为了第三方项目的按需加载，打包后的都放在lib文件夹</li>
-<li>把gulp打包文件放在CSS的包这是参考了ElementUI，感觉上更加舒服，不会在build文件夹还存放另外的打包工具文件</li>
-<li>components.json也是参考ElementUI，这是为了按需引入单独打包加上</li>
-<li>webpack分成3个，一个基础的，一个打包全部组件，一个用来单独组件打包，虽然现在一个也可以足够打包，但是为了后续的扩展，目前采取该方式</li>
+<li>整个目录结构是参考了ElementUI的写法，组件库没到一定规模，当然做了减法。</li>
+<li>为了第三方项目的按需加载，打包后的都放在lib文件夹。</li>
+<li>把gulp打包文件放在CSS的包这是参考了ElementUI，感觉上更加舒服，不会在build文件夹还存放另外的打包工具文件。</li>
+<li>components.json也是参考ElementUI，这是为了按需引入单独打包加上。</li>
+<li>webpack分成3个，一个公共打包，一个打包全部组件，一个用来单独组件打包，虽然现在一个也可以足够打包，但是为了后续的扩展，目前采取该方式。</li>
 <li>enhanceAppjs文件是用来导入全部组件的，属于应用级别，以前写法是把组件复制过来，麻烦且浪费空间，应用该文件后，开发后的组件就可以书写文档。</li>
-<li>deploy.sh拉取到最外层，让config非常纯粹 ，（utils只是为解决路径问题）</li>
+<li>deploy.sh拉取到最外层，让config只有webpack打包配置 ，（utils是为解决路径问题）</li>
 </ul>
 <h1 id="webpack打包"><a href="#webpack打包" class="headerlink" title="webpack打包"></a>webpack打包</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// webpack.component.js 按需加载，单独组件打包</span></span><br><span class="line"><span class="keyword">const</span> &#123;VueLoaderPlugin&#125;  = <span class="built_in">require</span>(<span class="string">&#x27;vue-loader&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> components = <span class="built_in">require</span>(<span class="string">&#x27;../components.json&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> utlis = <span class="built_in">require</span>(<span class="string">&#x27;./utlis&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> list = &#123;&#125; <span class="comment">//入口文件</span></span><br><span class="line"><span class="keyword">const</span> basePath = path.resolve(__dirname, <span class="string">&#x27;../&#x27;</span>)</span><br><span class="line"><span class="built_in">Object</span>.keys(components).forEach(<span class="function"><span class="params">key</span> =&gt;</span> &#123;</span><br><span class="line">  list[key] = path.join(basePath,  components[key])</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// console.log(list);</span></span><br><span class="line"><span class="keyword">const</span> webpackconfig = &#123;</span><br><span class="line">  <span class="attr">entry</span>: list,</span><br><span class="line">  <span class="attr">mode</span>: <span class="string">&#x27;production&#x27;</span>,<span class="comment">//生产模式</span></span><br><span class="line">  <span class="attr">output</span>: &#123;</span><br><span class="line">    <span class="attr">path</span>: utlis.DIST_PATH,</span><br><span class="line">    <span class="attr">filename</span>: <span class="string">&#x27;[name].js&#x27;</span>,</span><br><span class="line">    <span class="attr">library</span>: <span class="string">&#x27;wex-ui&#x27;</span>, <span class="comment">//包名称</span></span><br><span class="line">    <span class="attr">libraryTarget</span>: <span class="string">&#x27;umd&#x27;</span>, <span class="comment">//支持的引入模式</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">module</span>: &#123;<span class="comment">//告诉webpack，什么文件使用什么rules</span></span><br><span class="line">    <span class="attr">rules</span>: [</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">test</span>: <span class="regexp">/\.vue$/</span>,</span><br><span class="line">        use: [</span><br><span class="line">          &#123;</span><br><span class="line">            <span class="attr">loader</span>: <span class="string">&#x27;vue-loader&#x27;</span>,</span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">    </span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">plugins</span>: [</span><br><span class="line">     <span class="keyword">new</span> VueLoaderPlugin()</span><br><span class="line">  ]</span><br><span class="line">  </span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">module</span>.exports = webpackconfig</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li>整个打包文件最为精简，后续可能需要优化，减少包的体积</li>
+<li>整个打包文件主要就是对每个组件进行简单打包压缩，后续可能需要优化，尽量减少包的体积。</li>
 </ul>
 <h1 id="NPM上传"><a href="#NPM上传" class="headerlink" title="NPM上传"></a>NPM上传</h1><p>这是最没技术含量的问题，却是困惑我许久的问题：</p>
 <ul>
@@ -318,7 +321,7 @@
 <p>没错，这个源是错误的，正确的是：npm config set registry <a target="_blank" rel="noopener" href="https://registry.npmjs.org/">https://registry.npmjs.org</a></p>
 <p>但是因为当时急于解决第一个问题，导致了失误。</p>
 <p>目前已经举报。。</p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>目前重写后可以正常使用，按需加载正常，后续包的优化，组件的增加有待研究</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>目前重写后可以正常使用，按需加载正常，后续包的优化，组件的增加有待研究。</p>
 
     </div>
 
@@ -573,6 +576,8 @@
 
 
 <script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
 
 
   <script defer src="/lib/three/three.min.js"></script>
