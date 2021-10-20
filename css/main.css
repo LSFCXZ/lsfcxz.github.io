@@ -23,7 +23,7 @@ code {
 }
 .content-wrap:hover {
   box-shadow: 0 4px 8px 12px #d9d9d9;
-  transition: all 0.3s;
+  transition: box-shadow 0.3s;
 }
 :root {
   --body-bg-color: #f5f7f9;
@@ -1326,7 +1326,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ddad9e;
+  background: #30de55;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
