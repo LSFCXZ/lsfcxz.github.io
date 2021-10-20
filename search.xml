@@ -1,6 +1,127 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>CSS3文档</title>
+    <url>/article/248395c9.html</url>
+    <content><![CDATA[<p>本文主要介绍CSS3的属性和属性，以属性+属性值+注释的形式。</p>
+<h1 id="文本字体"><a href="#文本字体" class="headerlink" title="文本字体"></a>文本字体</h1><h2 id="color属性"><a href="#color属性" class="headerlink" title="color属性"></a>color属性</h2><p>属性值：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">color: 英文颜色|十六进制|rgb()|rgba();</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>设置文字前景色</li>
+<li>十六进制：红绿蓝，#ff0000</li>
+</ul>
+<h2 id="font-size属性"><a href="#font-size属性" class="headerlink" title="font-size属性"></a>font-size属性</h2><p>属性值：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">font-size:n px|n em|n rem</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>设置字号，网页通常字号16px，浏览器最小支持10px</li>
+</ul>
+<h2 id="font-weight属性"><a href="#font-weight属性" class="headerlink" title="font-weight属性"></a>font-weight属性</h2><p>属性值：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">font-weight:normal | bold |lighter | bolder</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>设置字号粗细</li>
+<li>normal：正常属性，400等值；bold，加粗；lighter，更细（多数中文字体不支持）；bolder,更粗（多数中文字体不支持）</li>
+</ul>
+<h2 id="font-style属性"><a href="#font-style属性" class="headerlink" title="font-style属性"></a>font-style属性</h2><p>属性值：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">font-style: normal | italic | oblique</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>设置字体倾斜</li>
+<li>normal表示取消倾斜；italic 表示倾斜字体； oblique表示倾斜字体(不常用)</li>
+</ul>
+<h2 id="font-decoration属性"><a href="#font-decoration属性" class="headerlink" title="font-decoration属性"></a>font-decoration属性</h2><p>属性值：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">font-decoration:none | underline | line-through</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>设置文字下划线</li>
+<li>none  表示没有修饰线；underline 表示下划线；line-through 表示删除线</li>
+</ul>
+<h2 id="font-family属性"><a href="#font-family属性" class="headerlink" title="font-family属性"></a>font-family属性</h2><p>属性值：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">font-family:&#x27;微软雅黑&#x27;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>用来设置字体</li>
+<li>字体可以是列表形式，后面的字体是前面的后备字体</li>
+<li>字体名称为中文或者英文有空格，都需要使用引号包裹</li>
+</ul>
+<h1 id="段落和行"><a href="#段落和行" class="headerlink" title="段落和行"></a>段落和行</h1><h2 id="text-indent属性"><a href="#text-indent属性" class="headerlink" title="text-indent属性"></a>text-indent属性</h2><p>属性值：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">text-indent: n em</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>设置首行文本缩进</li>
+</ul>
+<h2 id="text-align属性"><a href="#text-align属性" class="headerlink" title="text-align属性"></a>text-align属性</h2><p>属性值：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">text-align:left | center |right</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>是指文字横向方向</li>
+</ul>
+<h2 id="line-height属性"><a href="#line-height属性" class="headerlink" title="line-height属性"></a>line-height属性</h2><p>属性值：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">line-height: n px</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>设置文字段落行高</li>
+</ul>
+<h1 id="盒模型"><a href="#盒模型" class="headerlink" title="盒模型"></a>盒模型</h1><h2 id="width属性"><a href="#width属性" class="headerlink" title="width属性"></a>width属性</h2><ul>
+<li>设置宽度</li>
+</ul>
+<h2 id="height属性"><a href="#height属性" class="headerlink" title="height属性"></a>height属性</h2><ul>
+<li>设置高度</li>
+</ul>
+<h2 id="padding属性"><a href="#padding属性" class="headerlink" title="padding属性"></a>padding属性</h2><ul>
+<li>设置内边距</li>
+</ul>
+<h2 id="marght属性"><a href="#marght属性" class="headerlink" title="marght属性"></a>marght属性</h2><ul>
+<li>设置外边距 </li>
+</ul>
+<h2 id="border属性"><a href="#border属性" class="headerlink" title="border属性"></a>border属性</h2><ul>
+<li>设置边框</li>
+</ul>
+<h2 id="box-sizing属性"><a href="#box-sizing属性" class="headerlink" title="box-sizing属性"></a>box-sizing属性</h2><p>属性值：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">box-sizing:border-box | content-box</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>border-box设置为内缩形式，即IE盒模型，宽高为盒子的实际宽高。</li>
+<li>content-box为默认</li>
+</ul>
+<h1 id="元素隐藏"><a href="#元素隐藏" class="headerlink" title="元素隐藏"></a>元素隐藏</h1><h2 id="display属性"><a href="#display属性" class="headerlink" title="display属性"></a>display属性</h2><p>属性值：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">display:block | inline | inline-block |none</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>设置元素块级转换</li>
+<li>block为块级；inline为行内；inline-block为行内块;none为隐藏元素，彻底放弃位置</li>
+</ul>
+<h2 id="visibility属性"><a href="#visibility属性" class="headerlink" title="visibility属性"></a>visibility属性</h2><p>属性值：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">visibility:hidden</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>hidden设置为不可见，不放弃位置</li>
+</ul>
+<h1 id="浮动与定位"><a href="#浮动与定位" class="headerlink" title="浮动与定位"></a>浮动与定位</h1><h2 id="float属性"><a href="#float属性" class="headerlink" title="float属性"></a>float属性</h2><p>属性值：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">float:left | right</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>设置盒子的浮动，实现并排</li>
+<li>left左浮动,right右浮动</li>
+</ul>
+<h2 id="position属性"><a href="#position属性" class="headerlink" title="position属性"></a>position属性</h2><p>属性值：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">position: </span><br></pre></td></tr></table></figure>
+
+<ul>
+<li></li>
+</ul>
+<h1 id="盒子圆角、边框和阴影"><a href="#盒子圆角、边框和阴影" class="headerlink" title="盒子圆角、边框和阴影"></a>盒子圆角、边框和阴影</h1><h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><h1 id="弹性布局"><a href="#弹性布局" class="headerlink" title="弹性布局"></a>弹性布局</h1><h1 id="变形"><a href="#变形" class="headerlink" title="变形"></a>变形</h1><h1 id="过渡"><a href="#过渡" class="headerlink" title="过渡"></a>过渡</h1><h1 id="其他属性属性值"><a href="#其他属性属性值" class="headerlink" title="其他属性属性值"></a>其他属性属性值</h1><p>!important</p>
+<ul>
+<li>属性提升权重</li>
+</ul>
+]]></content>
+      <categories>
+        <category>文档</category>
+      </categories>
+  </entry>
+  <entry>
     <title>BFC规范</title>
     <url>/article/9221e461.html</url>
     <content><![CDATA[<p>本文介绍CSS的BFC规范和如何形成BFC的规范。</p>
@@ -187,36 +308,68 @@
       </categories>
   </entry>
   <entry>
-    <title>CSS3文档</title>
-    <url>/article/248395c9.html</url>
-    <content><![CDATA[<p>本文主要介绍CSS3的属性和属性，以属性+属性值+注释的形式。</p>
-<h1 id="文本字体"><a href="#文本字体" class="headerlink" title="文本字体"></a>文本字体</h1><h2 id="color属性"><a href="#color属性" class="headerlink" title="color属性"></a>color属性</h2><p>属性值：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">color: 英文颜色|十六进制|rgb()|rgba();</span><br></pre></td></tr></table></figure>
+    <title>CSS圆角和边框、盒阴影</title>
+    <url>/article/a00aca70.html</url>
+    <content><![CDATA[<p>本文主要介绍CSS的边框属性，圆角和盒子阴影。</p>
+<h1 id="边框（border）"><a href="#边框（border）" class="headerlink" title="边框（border）"></a>边框（border）</h1><p>盒子的边框有三个属性值，边框有16个属性，4个是边框的上下左右，12个上下左右加属性值的属性，边框小属性主要用来层叠大属性。</p>
+<p>边框三要素：</p>
+<ul>
+<li><p>线宽度：单位px</p>
+</li>
+<li><p>线型：</p>
+<p>（1）none (没有边框，无论边框宽度设为多大)<br>（2）dotted (点线式边框)<br>（3）dashed (破折线式边框)<br>（4）solid (直线式边框)<br>（5）double (双线式边框)<br>（6）groove (槽线式边框)<br>（7）ridge(脊线式边框)<br>（8）inset (内嵌效果的边框)<br>（9）outset (突起效果的边框)</p>
+</li>
+<li><p>颜色：英文、十六进制、rgb()、rgba()等表示法</p>
+</li>
+</ul>
+<p>示例：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="attribute">border</span>:<span class="number">1px</span> solid red;</span><br></pre></td></tr></table></figure>
+
+<p>边框的4个方向属性：</p>
+<ul>
+<li> border-top：上边框</li>
+<li>bottom-right:右边框</li>
+<li>border-bottom：下边框</li>
+<li>border-left：左边框</li>
+</ul>
+<p>边框12个小属性：</p>
+<ul>
+<li>border-top-width</li>
+<li>border-top-style</li>
+<li>border-top-color</li>
+<li>bottom-right-width</li>
+<li>bottom-right-style</li>
+<li>bottom-right-color</li>
+<li>border-bottom-width</li>
+<li>border-bottom-style</li>
+<li>border-bottom-color</li>
+<li>border-left-width</li>
+<li>border-left-style</li>
+<li>border-left-color</li>
+</ul>
+<h1 id="圆角-border-radius"><a href="#圆角-border-radius" class="headerlink" title="圆角(border-radius)"></a>圆角(border-radius)</h1><p>边框圆角单位可以是百分比也可以是px单位，分别有4个小属性</p>
+<ul>
+<li>border-top-left-radius:</li>
+<li>border-top-right-radius</li>
+<li>border-bottom-right-radius</li>
+<li>border-bottom-left-radius</li>
+</ul>
+<h1 id="盒阴影-box-shadow"><a href="#盒阴影-box-shadow" class="headerlink" title="盒阴影(box-shadow)"></a>盒阴影(box-shadow)</h1><p>五元素：</p>
+<p>x偏移、y偏移、(阴影延展)、模糊量、颜色</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="attribute">box-shadow</span>:<span class="number">10px</span> <span class="number">20px</span> <span class="number">30px</span> <span class="number">50px</span> <span class="built_in">rgba</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>, .<span class="number">4</span>)</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li>设置文字前景色</li>
-<li>十六进制：红绿蓝，#ff0000</li>
+<li>x偏移，正式往左边走，负数右边</li>
+<li>y偏移，正式往下边走，负数上边</li>
+<li>阴影延展：往4个方向扩展</li>
+<li>模糊量：模糊程度</li>
+<li>颜色：英文、十六进制、rgb()、rgba()等表示法</li>
 </ul>
-<h2 id="font-size属性"><a href="#font-size属性" class="headerlink" title="font-size属性"></a>font-size属性</h2><p>属性值：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">font-size:n px|n em|n rem</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>用来设置字号，网页通常字号16px，浏览器最小支持10px</li>
-</ul>
-<h2 id="font-weight属性"><a href="#font-weight属性" class="headerlink" title="font-weight属性"></a>font-weight属性</h2><p>属性值：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">font-weight:normal | bold |lighter | bolder</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>设置字号粗细</li>
-<li>normal：正常属性，400等值；bold，加粗；lighter，更细（多数中文字体不支持）；bolder,更粗（多数中文字体不支持）</li>
-</ul>
-<h2 id="font-style属性"><a href="#font-style属性" class="headerlink" title="font-style属性"></a>font-style属性</h2><h2 id="font-decoration属性"><a href="#font-decoration属性" class="headerlink" title="font-decoration属性"></a>font-decoration属性</h2><h2 id="font-family属性"><a href="#font-family属性" class="headerlink" title="font-family属性"></a>font-family属性</h2><h2 id="text-indent属性"><a href="#text-indent属性" class="headerlink" title="text-indent属性"></a>text-indent属性</h2><h2 id="text-align属性"><a href="#text-align属性" class="headerlink" title="text-align属性"></a>text-align属性</h2><h1 id="定位"><a href="#定位" class="headerlink" title="定位"></a>定位</h1><h1 id="浮动"><a href="#浮动" class="headerlink" title="浮动"></a>浮动</h1><h1 id="盒子圆角、边框和阴影"><a href="#盒子圆角、边框和阴影" class="headerlink" title="盒子圆角、边框和阴影"></a>盒子圆角、边框和阴影</h1><h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><h1 id="弹性布局"><a href="#弹性布局" class="headerlink" title="弹性布局"></a>弹性布局</h1><h1 id="变形"><a href="#变形" class="headerlink" title="变形"></a>变形</h1><h1 id="过渡"><a href="#过渡" class="headerlink" title="过渡"></a>过渡</h1><h1 id="其他属性属性值"><a href="#其他属性属性值" class="headerlink" title="其他属性属性值"></a>其他属性属性值</h1><p>!important</p>
-<ul>
-<li>属性提升权重</li>
-</ul>
+<p>盒子还可以设置内部阴影：inset</p>
+<p>也可以设置多个阴影重复，使用逗号隔开</p>
 ]]></content>
       <categories>
-        <category>文档</category>
+        <category>CSS</category>
       </categories>
   </entry>
   <entry>
@@ -301,65 +454,85 @@
       </categories>
   </entry>
   <entry>
-    <title>CSS圆角和边框、盒阴影</title>
-    <url>/article/a00aca70.html</url>
-    <content><![CDATA[<p>本文主要介绍CSS的边框属性，圆角和盒子阴影。</p>
-<h1 id="边框（border）"><a href="#边框（border）" class="headerlink" title="边框（border）"></a>边框（border）</h1><p>盒子的边框有三个属性值，边框有16个属性，4个是边框的上下左右，12个上下左右加属性值的属性，边框小属性主要用来层叠大属性。</p>
-<p>边框三要素：</p>
-<ul>
-<li><p>线宽度：单位px</p>
-</li>
-<li><p>线型：</p>
-<p>（1）none (没有边框，无论边框宽度设为多大)<br>（2）dotted (点线式边框)<br>（3）dashed (破折线式边框)<br>（4）solid (直线式边框)<br>（5）double (双线式边框)<br>（6）groove (槽线式边框)<br>（7）ridge(脊线式边框)<br>（8）inset (内嵌效果的边框)<br>（9）outset (突起效果的边框)</p>
-</li>
-<li><p>颜色：英文、十六进制、rgb()、rgba()等表示法</p>
-</li>
+    <title>CSS背景属性</title>
+    <url>/article/9f33a331.html</url>
+    <content><![CDATA[<p>本文章主要介绍CSS3的背景属性。</p>
+<h1 id="背景颜色-background-color"><a href="#背景颜色-background-color" class="headerlink" title="背景颜色(background-color)"></a>背景颜色(background-color)</h1><ul>
+<li>padding区域是有背景颜色</li>
+<li>支持英文、十六进制、rgb()、rgba()等表示法</li>
 </ul>
+<h1 id="背景图片（-background-image）"><a href="#背景图片（-background-image）" class="headerlink" title="背景图片（ background-image）"></a>背景图片（ background-image）</h1><ul>
+<li>背景图片默认纵轴横轴重复</li>
+</ul>
+<p><strong>重复模式</strong>：</p>
+<p>background-repeat属性可以改变背景图片的重复模式</p>
+<table>
+<thead>
+<tr>
+<th align="center">值</th>
+<th align="center">意义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">repeat</td>
+<td align="center">x,y均平铺</td>
+</tr>
+<tr>
+<td align="center">repeat-x</td>
+<td align="center">x,重复</td>
+</tr>
+<tr>
+<td align="center">repeat-y</td>
+<td align="center">y重复</td>
+</tr>
+<tr>
+<td align="center">no-repeat</td>
+<td align="center">不重复</td>
+</tr>
+</tbody></table>
+<p><strong>背景图片尺寸</strong>：</p>
+<ul>
+<li>background-size用来设置图片的尺寸。</li>
+<li>contain表示图片尺寸以容纳到盒子里，完整显示，有白边</li>
+<li>cover表示将背景图片尺寸以撑满盒子，不完整显示</li>
+</ul>
+<p><strong>背景裁剪</strong>：</p>
+<p>background-clip用来设置裁剪，背景是会覆盖到盒子边框的，使用该属性可以控制盒子背景裁剪到哪个地方</p>
+<p><strong>背景定位</strong>：</p>
+<p>background-attachment用来设置背景的定位。</p>
+<table>
+<thead>
+<tr>
+<th align="center">值</th>
+<th align="center">意义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">fixed</td>
+<td align="center">自己滚动条不动，外部滚动条不动</td>
+</tr>
+<tr>
+<td align="center">local</td>
+<td align="center">自己滚动条动，外部滚动条动</td>
+</tr>
+<tr>
+<td align="center">scroll</td>
+<td align="center">自己滚动条不动，外部滚动条动（默认）</td>
+</tr>
+</tbody></table>
+<p><strong>背景位置</strong>：</p>
+<p> background-position用来设置背景图片的起点位置。</p>
 <p>示例：</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="attribute">border</span>:<span class="number">1px</span> solid red;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="attribute">background-position</span>:<span class="number">100px</span> <span class="number">200px</span>;</span><br></pre></td></tr></table></figure>
 
-<p>边框的4个方向属性：</p>
-<ul>
-<li> border-top：上边框</li>
-<li>bottom-right:右边框</li>
-<li>border-bottom：下边框</li>
-<li>border-left：左边框</li>
-</ul>
-<p>边框12个小属性：</p>
-<ul>
-<li>border-top-width</li>
-<li>border-top-style</li>
-<li>border-top-color</li>
-<li>bottom-right-width</li>
-<li>bottom-right-style</li>
-<li>bottom-right-color</li>
-<li>border-bottom-width</li>
-<li>border-bottom-style</li>
-<li>border-bottom-color</li>
-<li>border-left-width</li>
-<li>border-left-style</li>
-<li>border-left-color</li>
-</ul>
-<h1 id="圆角-border-radius"><a href="#圆角-border-radius" class="headerlink" title="圆角(border-radius)"></a>圆角(border-radius)</h1><p>边框圆角单位可以是百分比也可以是px单位，分别有4个小属性</p>
-<ul>
-<li>border-top-left-radius:</li>
-<li>border-top-right-radius</li>
-<li>border-bottom-right-radius</li>
-<li>border-bottom-left-radius</li>
-</ul>
-<h1 id="盒阴影-box-shadow"><a href="#盒阴影-box-shadow" class="headerlink" title="盒阴影(box-shadow)"></a>盒阴影(box-shadow)</h1><p>五元素：</p>
-<p>x偏移、y偏移、(阴影延展)、模糊量、颜色</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="attribute">box-shadow</span>:<span class="number">10px</span> <span class="number">20px</span> <span class="number">30px</span> <span class="number">50px</span> <span class="built_in">rgba</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>, .<span class="number">4</span>)</span><br></pre></td></tr></table></figure>
+<p>设置盒子横轴100px，纵轴200px，还可以使用四个方向的英文进行表示，CSS精灵</p>
+<p><strong>线性渐变</strong>：</p>
+<p>它是ackground-image的属性值，线型的</p>
+<p>示例：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="attribute">background-image</span>:<span class="built_in">linear-gradient</span>(to right, red,blue)</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>x偏移，正式往左边走，负数右边</li>
-<li>y偏移，正式往下边走，负数上边</li>
-<li>阴影延展：往4个方向扩展</li>
-<li>模糊量：模糊程度</li>
-<li>颜色：英文、十六进制、rgb()、rgba()等表示法</li>
-</ul>
-<p>盒子还可以设置内部阴影：inset</p>
-<p>也可以设置多个阴影重复，使用逗号隔开</p>
+<p>位置也可以是角度，单位deg，也可以使用百分号设置出现的位置</p>
+<p><strong>径向渐变</strong>：</p>
 ]]></content>
       <categories>
         <category>CSS</category>
@@ -546,91 +719,6 @@
       </categories>
   </entry>
   <entry>
-    <title>CSS背景属性</title>
-    <url>/article/9f33a331.html</url>
-    <content><![CDATA[<p>本文章主要介绍CSS3的背景属性。</p>
-<h1 id="背景颜色-background-color"><a href="#背景颜色-background-color" class="headerlink" title="背景颜色(background-color)"></a>背景颜色(background-color)</h1><ul>
-<li>padding区域是有背景颜色</li>
-<li>支持英文、十六进制、rgb()、rgba()等表示法</li>
-</ul>
-<h1 id="背景图片（-background-image）"><a href="#背景图片（-background-image）" class="headerlink" title="背景图片（ background-image）"></a>背景图片（ background-image）</h1><ul>
-<li>背景图片默认纵轴横轴重复</li>
-</ul>
-<p><strong>重复模式</strong>：</p>
-<p>background-repeat属性可以改变背景图片的重复模式</p>
-<table>
-<thead>
-<tr>
-<th align="center">值</th>
-<th align="center">意义</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">repeat</td>
-<td align="center">x,y均平铺</td>
-</tr>
-<tr>
-<td align="center">repeat-x</td>
-<td align="center">x,重复</td>
-</tr>
-<tr>
-<td align="center">repeat-y</td>
-<td align="center">y重复</td>
-</tr>
-<tr>
-<td align="center">no-repeat</td>
-<td align="center">不重复</td>
-</tr>
-</tbody></table>
-<p><strong>背景图片尺寸</strong>：</p>
-<ul>
-<li>background-size用来设置图片的尺寸。</li>
-<li>contain表示图片尺寸以容纳到盒子里，完整显示，有白边</li>
-<li>cover表示将背景图片尺寸以撑满盒子，不完整显示</li>
-</ul>
-<p><strong>背景裁剪</strong>：</p>
-<p>background-clip用来设置裁剪，背景是会覆盖到盒子边框的，使用该属性可以控制盒子背景裁剪到哪个地方</p>
-<p><strong>背景定位</strong>：</p>
-<p>background-attachment用来设置背景的定位。</p>
-<table>
-<thead>
-<tr>
-<th align="center">值</th>
-<th align="center">意义</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">fixed</td>
-<td align="center">自己滚动条不动，外部滚动条不动</td>
-</tr>
-<tr>
-<td align="center">local</td>
-<td align="center">自己滚动条动，外部滚动条动</td>
-</tr>
-<tr>
-<td align="center">scroll</td>
-<td align="center">自己滚动条不动，外部滚动条动（默认）</td>
-</tr>
-</tbody></table>
-<p><strong>背景位置</strong>：</p>
-<p> background-position用来设置背景图片的起点位置。</p>
-<p>示例：</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="attribute">background-position</span>:<span class="number">100px</span> <span class="number">200px</span>;</span><br></pre></td></tr></table></figure>
-
-<p>设置盒子横轴100px，纵轴200px，还可以使用四个方向的英文进行表示，CSS精灵</p>
-<p><strong>线性渐变</strong>：</p>
-<p>它是ackground-image的属性值，线型的</p>
-<p>示例：</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="attribute">background-image</span>:<span class="built_in">linear-gradient</span>(to right, red,blue)</span><br></pre></td></tr></table></figure>
-
-<p>位置也可以是角度，单位deg，也可以使用百分号设置出现的位置</p>
-<p><strong>径向渐变</strong>：</p>
-]]></content>
-      <categories>
-        <category>CSS</category>
-      </categories>
-  </entry>
-  <entry>
     <title>HTML5文档</title>
     <url>/article/a73ea136.html</url>
     <content><![CDATA[<p>HTML5是HTML最新的修订版本，2014年10月由万维网联盟（W3C）完成标准制定。本文主要为HTML5的标签以及语义化说明，使用标签+示例+解释的形式。作为平常可以快速浏览的文章。</p>
@@ -763,6 +851,188 @@
       <categories>
         <category>文档</category>
       </categories>
+  </entry>
+  <entry>
+    <title>搭建属于自己的UI组件库</title>
+    <url>/article/e3dabf31.html</url>
+    <content><![CDATA[<p>最近使用主流的UI框架，忽然心血来潮，何不自己搭建属于自己的UI组件库呢，类似Mint-UI、Element-UI、Vant等组件框架，好在大多UI框架都是开源，所以经过学习实践，搭建了属于自己UI组件库——LInView。</p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>本文主要在于如何搭建和开发，不着重于某一点。</p>
+<p>在开发自定义组件库前先来看下思维导图，文章将主要分为六大步骤。</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211002133138.png"></p>
+<h1 id="工程化目录"><a href="#工程化目录" class="headerlink" title="工程化目录"></a>工程化目录</h1><p>一个好的工程目录能较好的体现项目的健壮性和可维护性。这里使用Vue/Cli形成目录。</p>
+<p>首先电脑需要下载安装好Node，我的Node版本为v14.17.6</p>
+<p>下载Vue/CLi：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install -g @vue/cli</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install -g @vue/cli-service-global</span><br></pre></td></tr></table></figure>
+
+<p>创建项目：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vue create linview</span><br></pre></td></tr></table></figure>
+
+<p>配置文件直接默认Vue2：</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211002153430.png"></p>
+<p>修改工程化目录：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">|-- linview</span><br><span class="line">    |-- .gitignore</span><br><span class="line">    |-- babel.config.js</span><br><span class="line">    |-- package-lock.json</span><br><span class="line">    |-- package.json</span><br><span class="line">    |-- README.md</span><br><span class="line">    |-- vue.config.js //Vue配置文件</span><br><span class="line">    |-- components //组件代码</span><br><span class="line">    |   |-- css    //组件样式</span><br><span class="line">    |   |   |-- demo.scss</span><br><span class="line">    |   |-- lib    //组件核心</span><br><span class="line">    |       |-- card</span><br><span class="line">    |       |-- demo</span><br><span class="line">    |           |-- index.js</span><br><span class="line">    |           |-- src</span><br><span class="line">    |               |-- Index.vue</span><br><span class="line">    |-- docs       //文档API</span><br><span class="line">    |-- examples   //业务代码</span><br><span class="line">    |   |-- App.vue</span><br><span class="line">    |   |-- main.js</span><br><span class="line">    |   |-- assets</span><br><span class="line">    |       |-- logo.png</span><br><span class="line">    |-- public</span><br><span class="line">        |-- favicon.ico</span><br><span class="line">        |-- index.html</span><br></pre></td></tr></table></figure>
+
+<p>src被修改后需要配置vue的入口文件，新建vue.config.js：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="attr">pages</span>: &#123;</span><br><span class="line">    <span class="attr">index</span>: &#123;</span><br><span class="line">      <span class="attr">entry</span>: <span class="string">&#x27;examples/main.js&#x27;</span>,</span><br><span class="line">      <span class="attr">template</span>: <span class="string">&#x27;public/index.html&#x27;</span>,</span><br><span class="line">      <span class="attr">filename</span>:<span class="string">&#x27;index.html&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>如果按照先前的步骤，到这里会提示sass-loader没有安装。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm i sass-loader -D</span><br></pre></td></tr></table></figure>
+
+<p>如果按照上面命令，又会出现如下错误：</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211002182221.png"></p>
+<p>原因是版本过高，我们需要换下版本：</p>
+<p>卸载：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm uninstall sass-loader -D</span><br></pre></td></tr></table></figure>
+
+<p>安装：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm i sass-loader@5 -D</span><br></pre></td></tr></table></figure>
+
+<p>如果此时运行，可能又会提示如下错误</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211002184021.png"></p>
+<p>原因是没有安装node-sass。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm i node-sass@4 -D</span><br></pre></td></tr></table></figure>
+
+<p>运行项目，没有报错，至此，工程化目录已经基本完成。</p>
+<h1 id="代码样式编写"><a href="#代码样式编写" class="headerlink" title="代码样式编写"></a>代码样式编写</h1><p>在正式组件开发之前，我们应该写一个Demo组件测试一下项目是否能跑起来。</p>
+<p><code>linview/components/lib/demo/src/Index.vue</code>：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div class=&quot;l-demo&quot;&gt;</span><br><span class="line">    Demo</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">  export default &#123;</span><br><span class="line">    name:&#x27;Demo&#x27;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><code>linview/components/css/demo.scss</code>：</p>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.l-demo</span>&#123;</span><br><span class="line">  <span class="attribute">color</span>: aqua;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>linview/examplesma/main.js</code></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;../components/css/demo.scss&#x27;</span><span class="comment">//引入样式</span></span><br><span class="line"><span class="keyword">import</span> Demo <span class="keyword">from</span> <span class="string">&#x27;../components/lib/demo/src/Index.vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> App <span class="keyword">from</span> <span class="string">&#x27;./App.vue&#x27;</span></span><br><span class="line">Vue.config.productionTip = <span class="literal">false</span></span><br><span class="line">Vue.use(Demo)</span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  <span class="attr">render</span>: <span class="function"><span class="params">h</span> =&gt;</span> h(App),</span><br><span class="line">&#125;).$mount(<span class="string">&#x27;#app&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><code>linview/examplesma/App.vue</code>:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div id=&quot;app&quot;&gt;</span><br><span class="line">    &lt;Demo&gt;&lt;/Demo&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  name: &#x27;App&#x27;,</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>如果按照上面的代码书写会发现，组件不起作用，可以我们在使用第三方UI组件库的时候确实是Use这个组件就可以使用了，我们打开控制台，会发现报以下错误：</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211002203418.png"></p>
+<p>大概意思是组件没有注册，那么接下来对组件的全局注册：</p>
+<p>修改<code>linview/examplesma/main.js</code>：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">&#x27;../components/css/demo.scss&#x27;</span></span><br><span class="line"><span class="keyword">import</span> Demo <span class="keyword">from</span> <span class="string">&#x27;../components/lib/demo/index.js&#x27;</span></span><br><span class="line"><span class="comment">//Vue.component(&#x27;name&#x27;,Demo)</span></span><br><span class="line"><span class="keyword">import</span> App <span class="keyword">from</span> <span class="string">&#x27;./App.vue&#x27;</span></span><br><span class="line"></span><br><span class="line">Vue.config.productionTip = <span class="literal">false</span></span><br><span class="line">Vue.use(Demo)<span class="comment">//Demo.install -&gt; vue.component</span></span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  <span class="attr">render</span>: <span class="function"><span class="params">h</span> =&gt;</span> h(App),</span><br><span class="line">&#125;).$mount(<span class="string">&#x27;#app&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>增加<code>linview/components/lib/demo/index.js</code></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> Demo <span class="keyword">from</span> <span class="string">&#x27;./src/Index.vue&#x27;</span>;</span><br><span class="line">Demo.install = <span class="function"><span class="keyword">function</span> (<span class="params">Vue</span>) </span>&#123;</span><br><span class="line">  Vue.component(Demo.name, Demo)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> Demo</span><br></pre></td></tr></table></figure>
+
+<p>运行项目，没有报错，则Demo组件完成。</p>
+<p>写到这里会发现，其实就是一个全局的组件，但是在开发过程中，首先要考虑的组件的通用性，再而是组件的可维护，组件库的意义个人觉得是在于便于开发，想想我只要npm install一个包，然后我在main引入，在组件传递几个数值，一个非常好看的页面就形成，何乐而不为呢</p>
+<p>接下来编写正式的第一个卡片组件：</p>
+<p><code>Index.vue</code></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div class=&quot;l-card&quot; :style=&quot;width?&#123;width:width+&#x27;px&#x27;&#125;:&#123;&#125;&quot;&gt;</span><br><span class="line">    &lt;div class=&quot;l-card-img&quot; :style=&quot;imgHeight?&#123;height:imgHeight+&#x27;px&#x27;&#125;:&#123;&#125;&quot;&gt;</span><br><span class="line">      &lt;img :src=&quot;imgSrc&quot; alt=&quot;img&quot;&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;div v-if=&quot;summary&quot; class=&quot;l-card-summary&quot;&gt;</span><br><span class="line">      &#123;&#123;summary&#125;&#125;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;div v-else class=&quot;l-card-summary&quot;&gt;</span><br><span class="line">      &lt;slot&gt;&lt;/slot&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;slot name=&quot;footer&quot;&gt;&lt;/slot&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">  export default &#123;</span><br><span class="line">    name:&#x27;Card&#x27;,</span><br><span class="line">    props:&#123;</span><br><span class="line">      //卡片宽度</span><br><span class="line">      width:&#123;</span><br><span class="line">        type:Number,</span><br><span class="line">        default:0</span><br><span class="line">      &#125;,</span><br><span class="line">      //卡片图片资源</span><br><span class="line">      imgSrc:&#123;</span><br><span class="line">        type:String,</span><br><span class="line">        default:&#x27;&#x27;</span><br><span class="line">      &#125;,</span><br><span class="line">      //卡片图片高度</span><br><span class="line">      imgHeight:&#123;</span><br><span class="line">        type:Number,</span><br><span class="line">        default:0</span><br><span class="line">      &#125;,</span><br><span class="line">      //卡片概要</span><br><span class="line">      summary:&#123;</span><br><span class="line">        type:String,</span><br><span class="line">        default:&#x27;&#x27;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style lang=&quot;scss&quot; scoped&gt;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+
+<p><code>card.scss</code></p>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.l-card</span>&#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">270px</span>;</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">8px</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#fff</span>;</span><br><span class="line">  <span class="attribute">overflow</span>: hidden;</span><br><span class="line">  <span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">6px</span> <span class="number">10px</span> <span class="number">0</span> rgba(<span class="number">95</span>,<span class="number">101</span>,<span class="number">105</span>,<span class="number">0.15</span>);</span><br><span class="line">  <span class="attribute">padding-bottom</span>: <span class="number">8px</span>;</span><br><span class="line">  &amp;-<span class="selector-tag">img</span>&#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">152px</span>;</span><br><span class="line">    <span class="selector-tag">img</span>&#123;</span><br><span class="line">      <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">      <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  &amp;-<span class="selector-tag">summary</span>&#123;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">8px</span>;</span><br><span class="line">    <span class="attribute">text-align</span>: left;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">14px</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>index.js</code></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> Card <span class="keyword">from</span> <span class="string">&#x27;./src/Index.vue&#x27;</span>;</span><br><span class="line">Card.install = <span class="function"><span class="keyword">function</span> (<span class="params">Vue</span>) </span>&#123;</span><br><span class="line">  Vue.component(Card.name, Card)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> Card</span><br></pre></td></tr></table></figure>
+
+<h1 id="组件测试"><a href="#组件测试" class="headerlink" title="组件测试"></a>组件测试</h1><p>编写好的组件需要在本地进行测试才能发布，这里的测试不是非常正规的单元测试，而是直接使用examples目录下的App文件测试框架。</p>
+<p><code>App.vue</code></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div id=&quot;app&quot;&gt;</span><br><span class="line">    &lt;Card imgSrc=&quot;./img/card.png&quot; summary=&quot;Vue.js 源码全方位深入解析 全面深入理解Vue实现原理，掌握源码分析技巧&quot;&gt;&lt;/Card&gt;</span><br><span class="line">    &lt;br /&gt;</span><br><span class="line">    &lt;Card imgSrc=&quot;./img/card.png&quot; summary=&quot;Vue.js 源码全方位深入解析 全面深入理解Vue实现原理，掌握源码分析技巧&quot;&gt;</span><br><span class="line">      &lt;template v-slot:footer&gt;</span><br><span class="line">        &lt;div class=&quot;footer&quot;&gt;</span><br><span class="line">          &lt;div class=&quot;level&quot;&gt;高级 · 4256人报名 &lt;/div&gt;</span><br><span class="line">          &lt;div class=&quot;price&quot;&gt;￥488.00&lt;/div&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">      &lt;/template&gt;</span><br><span class="line">    &lt;/Card&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  name: &#x27;App&#x27;,</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style&gt;</span><br><span class="line">#app &#123;</span><br><span class="line">  margin: 0 auto;</span><br><span class="line">  width: 270px;</span><br><span class="line">&#125;</span><br><span class="line">.footer &#123;</span><br><span class="line">  padding: 0 8px;</span><br><span class="line">  font-size: 12px;</span><br><span class="line">  text-align: left;</span><br><span class="line">&#125;</span><br><span class="line">.level &#123;</span><br><span class="line">  color: #9199a1;</span><br><span class="line">  margin-bottom: 8px;</span><br><span class="line">&#125;</span><br><span class="line">.price &#123;</span><br><span class="line">  color: #f01414;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+
+<p>预览效果：</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211002231029.png"></p>
+<h1 id="打包"><a href="#打包" class="headerlink" title="打包"></a>打包</h1><p>完成以上的步骤，其实已经可以发布到NPM上，但是有两个问题，</p>
+<ul>
+<li>现在使用该组件的时候，只能一个一个组件引用，不能全局引入，这需要两个入口文件，一个SCSS，一个JS。</li>
+<li>项目没有打包优化，包体积大</li>
+</ul>
+<p>对于以上问题，我使用WebPack来打包JS，Gulp打包CSS</p>
+<p>安装依赖：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm i gulp@4 gulp-minify-css gulp-sass@4 webpack-cli@4 -D</span><br></pre></td></tr></table></figure>
+
+<p><code>build/webpack.component.js</code></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123;VueLoaderPlugin&#125; = <span class="built_in">require</span>(<span class="string">&#x27;vue-loader&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> glob = <span class="built_in">require</span>(<span class="string">&#x27;glob&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> utlis =<span class="built_in">require</span>(<span class="string">&#x27;./utlis&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> list = &#123;&#125;</span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">makeList</span> (<span class="params">dirPath, list</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> files = glob.sync(<span class="string">`<span class="subst">$&#123;dirPath&#125;</span>/**/index.js`</span>)</span><br><span class="line">  <span class="comment">//[ &#x27;components/lib/card/index.js&#x27;, &#x27;components/lib/demo/index.js&#x27; ]</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;files&#x27;</span>, files);</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> file <span class="keyword">of</span> files) &#123;</span><br><span class="line">    <span class="comment">//component card  component demo</span></span><br><span class="line">    <span class="keyword">const</span> component = file.split(<span class="regexp">/[/.]/</span>)[<span class="number">2</span>];</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;component&#x27;</span>, component);</span><br><span class="line">    list[component] = <span class="string">`./<span class="subst">$&#123;file&#125;</span>`</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">console</span>.log(list);</span><br><span class="line">&#125;</span><br><span class="line">makeList(<span class="string">&#x27;components/lib&#x27;</span>,list)</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="attr">entry</span>: list,<span class="comment">//入口文件</span></span><br><span class="line">  <span class="attr">mode</span>:<span class="string">&#x27;production&#x27;</span>,<span class="comment">//生产模式</span></span><br><span class="line">  <span class="attr">output</span>: &#123;</span><br><span class="line">    <span class="attr">filename</span>: <span class="string">&#x27;[name].umd.js&#x27;</span>,</span><br><span class="line">    <span class="attr">path</span>: utlis.DIST_PATH,</span><br><span class="line">    <span class="attr">library</span>: <span class="string">&#x27;lview&#x27;</span>,</span><br><span class="line">    <span class="attr">libraryTarget</span>:<span class="string">&#x27;umd&#x27;</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">plugins</span>: [</span><br><span class="line">    <span class="keyword">new</span> VueLoaderPlugin()</span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">module</span>: &#123;</span><br><span class="line">    <span class="attr">rules</span>: [</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">test</span>: <span class="regexp">/\.vue$/</span>,</span><br><span class="line">        use: [</span><br><span class="line">          &#123;</span><br><span class="line">            <span class="attr">loader</span>:<span class="string">&#x27;vue-loader&#x27;</span></span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>build/utlis.js</code></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">exports</span>.resolve = <span class="function"><span class="keyword">function</span> <span class="title">resolve</span> (<span class="params">dir</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> path.join(__dirname, <span class="string">&#x27;..&#x27;</span>, dir)</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">exports</span>.APP_PATH = <span class="built_in">exports</span>.resolve(<span class="string">&#x27;src&#x27;</span>)</span><br><span class="line"><span class="built_in">exports</span>.DIST_PATH = <span class="built_in">exports</span>.resolve(<span class="string">&#x27;dist&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p><code>bulid/gulpfile.js</code></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> utlis =<span class="built_in">require</span>(<span class="string">&#x27;./utlis&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> gulp = <span class="built_in">require</span>(<span class="string">&#x27;gulp&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> sass = <span class="built_in">require</span>(<span class="string">&#x27;gulp-sass&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> minifyCSS = <span class="built_in">require</span>(<span class="string">&#x27;gulp-minify-css&#x27;</span>)</span><br><span class="line">gulp.task(<span class="string">&#x27;sass&#x27;</span>, <span class="keyword">async</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> gulp.src(<span class="string">&#x27;../components/css/**/*.scss&#x27;</span>)</span><br><span class="line">    .pipe(sass())</span><br><span class="line">    .pipe(minifyCSS())</span><br><span class="line">  .pipe(gulp.dest(utlis.DIST_PATH+<span class="string">&#x27;/css&#x27;</span>))</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p><code>Script</code>：</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="string">&quot;build&quot;</span>: <span class="string">&quot;npm run build:js &amp;&amp; npm run build:css&quot;</span>,</span><br><span class="line"><span class="string">&quot;build:js&quot;</span>: <span class="string">&quot;webpack --config ./build/webpack.component.js&quot;</span>,</span><br><span class="line"><span class="string">&quot;build:css&quot;</span>: <span class="string">&quot;npx gulp sass --gulpfile build/gulpfile.js&quot;</span>,</span><br></pre></td></tr></table></figure>
+
+<p>打包完成后会在项目根目录形成dist文件夹，这是等会我们要NPM上传的。</p>
+<h1 id="NPM发布"><a href="#NPM发布" class="headerlink" title="NPM发布"></a>NPM发布</h1><p>本地编写测试好的组件就要发布到NPM上，方便别人的下载使用，在使用之前，需要个人先注册好NPM账号。</p>
+<ul>
+<li>首先需要配置package.json文件：</li>
+</ul>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="string">&quot;name&quot;</span>: <span class="string">&quot;linview&quot;</span>,</span><br><span class="line"><span class="string">&quot;version&quot;</span>: <span class="string">&quot;0.1.2&quot;</span>,</span><br><span class="line"><span class="string">&quot;description&quot;</span>: <span class="string">&quot;个人开发者UI组件库&quot;</span>,</span><br><span class="line"><span class="string">&quot;main&quot;</span>: <span class="string">&quot;dist/index.umd.js&quot;</span>,</span><br><span class="line"><span class="string">&quot;keywords&quot;</span>: [</span><br><span class="line">  <span class="string">&quot;linview&quot;</span>,</span><br><span class="line">  <span class="string">&quot;UI&quot;</span>,</span><br><span class="line">  <span class="string">&quot;vue&quot;</span></span><br><span class="line">],</span><br><span class="line"><span class="string">&quot;author&quot;</span>: <span class="string">&quot;bamboo_lsf&quot;</span>,</span><br><span class="line"><span class="string">&quot;files&quot;</span>: [</span><br><span class="line">  <span class="string">&quot;dist&quot;</span>,</span><br><span class="line">  <span class="string">&quot;components&quot;</span></span><br><span class="line">],</span><br></pre></td></tr></table></figure>
+
+<p>name：包的名字</p>
+<p>version：版本，低版本不能覆盖高版本</p>
+<p>description：描述，在你搜索这个包的时候会出现的描述</p>
+<p>main：入口主文件，当别人引用包的名字时候，其实就是用的这个文件</p>
+<p>keywords：搜索的关键词</p>
+<p>author：作者</p>
+<p>files：要上传的文件</p>
+<ul>
+<li><p>书写好根目录的RedeMe文件，它是npm包上的RedeMe文件。</p>
+</li>
+<li><p>把本地的下载源切换会官方，否则无法登录。</p>
+</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm config set registry http://www.npmjs.org</span><br></pre></td></tr></table></figure>
+
+<p>window上如果登录失败可以在要登录的窗口上在次执行，因为我在切回官方源后，登录报错。</p>
+<p>登录命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm login</span><br></pre></td></tr></table></figure>
+
+<p>正常情况输入用户名，密码，邮箱即可登录完成。</p>
+<p>接下来使用<code>npm publish</code>上传，随后我们就可以在Npm看到自己发布的包了</p>
+<h1 id="文档站点"><a href="#文档站点" class="headerlink" title="文档站点"></a>文档站点</h1><p>一个好的UI框架，当然是需要一个文档展示，这样才方便以后的开发与维护。接下来使用VuePress来形成文档的站点。</p>
+<p>首先我们需要明白一个概念，文档和项目代码是在一起的，那么我们应该把文档的静态文件和仓库代码放一起，怎么做到呢，其实，我们只需要把文档形成的静态文件和项目代码放在仓库的不同分支即可。这样两者就不会冲突</p>
+<p>安装VuePress：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm i VuePress -D</span><br></pre></td></tr></table></figure>
+
+<p>生成以下文件和文件夹：</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211003183852.png"></p>
+<p>config.js</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="attr">title</span>: <span class="string">&#x27;LinView&#x27;</span>,</span><br><span class="line">  <span class="attr">base</span>:<span class="string">&#x27;/linview/&#x27;</span>,</span><br><span class="line">  <span class="attr">description</span>: <span class="string">&#x27;Just playing around&#x27;</span>,</span><br><span class="line">  <span class="attr">themeConfig</span>: &#123;</span><br><span class="line">    <span class="comment">//导航</span></span><br><span class="line">    <span class="attr">nav</span>: [</span><br><span class="line">      &#123; <span class="attr">text</span>: <span class="string">&#x27;首页&#x27;</span>, <span class="attr">link</span>: <span class="string">&#x27;/&#x27;</span> &#125;,</span><br><span class="line">      &#123; <span class="attr">text</span>: <span class="string">&#x27;指南&#x27;</span>, <span class="attr">link</span>: <span class="string">&#x27;/componentDocs/&#x27;</span>&#125;,</span><br><span class="line">      &#123;<span class="attr">text</span>:<span class="string">&#x27;更新日志&#x27;</span>,<span class="attr">link</span>:<span class="string">&#x27;/update/index&#x27;</span>&#125;,</span><br><span class="line">      &#123; <span class="attr">text</span>: <span class="string">&#x27;GitHub&#x27;</span>, <span class="attr">link</span>: <span class="string">&#x27;https://github.com/LSFCXZ/linview&#x27;</span> &#125;,</span><br><span class="line">      &#123; <span class="attr">text</span>: <span class="string">&#x27;NPM&#x27;</span>, <span class="attr">link</span>: <span class="string">&#x27;https://www.npmjs.com/package/linview&#x27;</span> &#125;,</span><br><span class="line">    ],</span><br><span class="line">    <span class="attr">sidebar</span>: &#123;</span><br><span class="line">     <span class="string">&#x27;/componentDocs/&#x27;</span>: [</span><br><span class="line">         &#123;</span><br><span class="line">        <span class="attr">title</span>: <span class="string">&#x27;简介&#x27;</span>,</span><br><span class="line">        <span class="attr">path</span>:<span class="string">&#x27;/componentDocs/&#x27;</span></span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">title</span>: <span class="string">&#x27;快速开始&#x27;</span>,</span><br><span class="line">        <span class="attr">path</span>:<span class="string">&#x27;/componentDocs/start&#x27;</span></span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">title</span>: <span class="string">&#x27;卡片&#x27;</span>,</span><br><span class="line">        <span class="attr">path</span>:<span class="string">&#x27;/componentDocs/card&#x27;</span></span><br><span class="line">      &#125;</span><br><span class="line">      ]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意：base是你仓库的名字，如果你的站点没有后缀，那么可以不填</p>
+<p>根目录index.md</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">home: true</span><br><span class="line">heroImage: </span><br><span class="line">heroText: LinView</span><br><span class="line">tagline: 简洁、美观、开源的UI框架</span><br><span class="line">actionText: 快速上手 →</span><br><span class="line">actionLink: /componentDocs/start</span><br><span class="line">features:</span><br><span class="line">- title: 简洁至上</span><br><span class="line">  details: 以 Markdown 为中心的项目结构，以最少的配置帮助你专注于写作。</span><br><span class="line">- title: 美观</span><br><span class="line">  details: 享受 Vue + webpack 的开发体验，在 Markdown 中使用 Vue 组件，同时可以使用 Vue 来开发自定义主题。</span><br><span class="line">- title: 开源免费</span><br><span class="line">  details: VuePress 为每个页面预渲染生成静态的 HTML，同时在页面被加载的时候，将作为 SPA 运行。</span><br><span class="line">footer: MIT Licensed | Copyright © 2021-present BambooLSF</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>具体可以参考vuepress的官网配置：<a href="https://vuepress.vuejs.org/zh/">https://vuepress.vuejs.org/zh/</a></p>
+<p>接下来就是配置脚本：</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="string">&quot;docs:dev&quot;</span>: <span class="string">&quot;vuepress dev docs&quot;</span>,</span><br><span class="line"><span class="string">&quot;docs:build&quot;</span>: <span class="string">&quot;vuepress build docs&quot;</span>,</span><br><span class="line"><span class="string">&quot;depoly&quot;</span>: <span class="string">&quot;bash ./build/deploy.sh&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>docs:dev：运行vuepress</p>
+<p>docs:build：打包</p>
+<p>depoly：部署</p>
+<p>接下来就是部署到githubpage：</p>
+<p>build/deploy.sh</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/usr/bin/env sh</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 确保脚本抛出遇到的错误</span></span><br><span class="line"><span class="built_in">set</span> -e</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成静态文件</span></span><br><span class="line">npm run docs:build</span><br><span class="line"></span><br><span class="line"><span class="comment"># 进入生成的文件夹</span></span><br><span class="line"><span class="built_in">cd</span> docs/.vuepress/dist</span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果是发布到自定义域名</span></span><br><span class="line"><span class="comment"># echo &#x27;www.example.com&#x27; &gt; CNAME</span></span><br><span class="line"></span><br><span class="line">git init</span><br><span class="line">git add -A</span><br><span class="line">git commit -m <span class="string">&#x27;deploy&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果发布到 https://&lt;USERNAME&gt;.github.io</span></span><br><span class="line"><span class="comment"># git push -f git@github.com:&lt;USERNAME&gt;/&lt;USERNAME&gt;.github.io.git master</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果发布到 https://&lt;USERNAME&gt;.github.io/&lt;REPO&gt;</span></span><br><span class="line"> git push -f git@github.com:LSFCXZ/linview.git master:gh-pages</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> -</span><br></pre></td></tr></table></figure>
+
+<p>注意： git push是要换成你的github地址 </p>
+<p>执行命令：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm run depoly</span><br></pre></td></tr></table></figure>
+
+<p>如果在window上无法执行，那么使用git命令窗口即可，这样站点已经完成。</p>
+<p>再把我们的项目代码上传：git init ,git add . ,git commit -m ‘’’第一次提交’ ，git push等一把梭上传代码</p>
+<p>至此，UI框架基本完成，可以新建项目，npm install 自己的UI库进行测试。</p>
+<h1 id="版本问题"><a href="#版本问题" class="headerlink" title="版本问题"></a>版本问题</h1><p>为了避免因为版本问题引起的错误，这里列举开发时版本环境：</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="string">&quot;dependencies&quot;</span>: &#123;</span><br><span class="line">    <span class="attr">&quot;core-js&quot;</span>: <span class="string">&quot;^3.6.5&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;vue&quot;</span>: <span class="string">&quot;^2.6.11&quot;</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">&quot;devDependencies&quot;</span>: &#123;</span><br><span class="line">    <span class="attr">&quot;@vue/cli-plugin-babel&quot;</span>: <span class="string">&quot;~4.5.0&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;@vue/cli-plugin-eslint&quot;</span>: <span class="string">&quot;~4.5.0&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;@vue/cli-service&quot;</span>: <span class="string">&quot;~4.5.0&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;babel-eslint&quot;</span>: <span class="string">&quot;^10.1.0&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;eslint&quot;</span>: <span class="string">&quot;^6.7.2&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;eslint-plugin-vue&quot;</span>: <span class="string">&quot;^6.2.2&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;gulp&quot;</span>: <span class="string">&quot;^4.0.2&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;gulp-minify-css&quot;</span>: <span class="string">&quot;^1.2.4&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;gulp-sass&quot;</span>: <span class="string">&quot;^4.1.1&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;node-sass&quot;</span>: <span class="string">&quot;^4.14.1&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;sass-loader&quot;</span>: <span class="string">&quot;^5.0.1&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;vue-loader&quot;</span>: <span class="string">&quot;^15.9.8&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;vue-template-compiler&quot;</span>: <span class="string">&quot;^2.6.11&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;vuepress&quot;</span>: <span class="string">&quot;^1.8.2&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;webpack-cli&quot;</span>: <span class="string">&quot;^4.8.0&quot;</span></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>经过已上步骤，基本已经形成一个较为完整的UI框架，唯一的缺点是按需加载有问题，接下来有待优化。</p>
+<p>Github开源地址：<a href="https://github.com/LSFCXZ/linview">https://github.com/LSFCXZ/linview</a></p>
+<p>文档站点：<a href="https://lsfcxz.github.io/linview/">https://lsfcxz.github.io/linview/</a></p>
+]]></content>
+      <categories>
+        <category>组件库</category>
+      </categories>
+      <tags>
+        <tag>自定义组件库</tag>
+      </tags>
   </entry>
   <entry>
     <title>HTML5的十大新特性</title>
@@ -969,188 +1239,6 @@
       </categories>
   </entry>
   <entry>
-    <title>搭建属于自己的UI组件库</title>
-    <url>/article/e3dabf31.html</url>
-    <content><![CDATA[<p>最近使用主流的UI框架，忽然心血来潮，何不自己搭建属于自己的UI组件库呢，类似Mint-UI、Element-UI、Vant等组件框架，好在大多UI框架都是开源，所以经过学习实践，搭建了属于自己UI组件库——LInView。</p>
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>本文主要在于如何搭建和开发，不着重于某一点。</p>
-<p>在开发自定义组件库前先来看下思维导图，文章将主要分为六大步骤。</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211002133138.png"></p>
-<h1 id="工程化目录"><a href="#工程化目录" class="headerlink" title="工程化目录"></a>工程化目录</h1><p>一个好的工程目录能较好的体现项目的健壮性和可维护性。这里使用Vue/Cli形成目录。</p>
-<p>首先电脑需要下载安装好Node，我的Node版本为v14.17.6</p>
-<p>下载Vue/CLi：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install -g @vue/cli</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install -g @vue/cli-service-global</span><br></pre></td></tr></table></figure>
-
-<p>创建项目：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vue create linview</span><br></pre></td></tr></table></figure>
-
-<p>配置文件直接默认Vue2：</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211002153430.png"></p>
-<p>修改工程化目录：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">|-- linview</span><br><span class="line">    |-- .gitignore</span><br><span class="line">    |-- babel.config.js</span><br><span class="line">    |-- package-lock.json</span><br><span class="line">    |-- package.json</span><br><span class="line">    |-- README.md</span><br><span class="line">    |-- vue.config.js //Vue配置文件</span><br><span class="line">    |-- components //组件代码</span><br><span class="line">    |   |-- css    //组件样式</span><br><span class="line">    |   |   |-- demo.scss</span><br><span class="line">    |   |-- lib    //组件核心</span><br><span class="line">    |       |-- card</span><br><span class="line">    |       |-- demo</span><br><span class="line">    |           |-- index.js</span><br><span class="line">    |           |-- src</span><br><span class="line">    |               |-- Index.vue</span><br><span class="line">    |-- docs       //文档API</span><br><span class="line">    |-- examples   //业务代码</span><br><span class="line">    |   |-- App.vue</span><br><span class="line">    |   |-- main.js</span><br><span class="line">    |   |-- assets</span><br><span class="line">    |       |-- logo.png</span><br><span class="line">    |-- public</span><br><span class="line">        |-- favicon.ico</span><br><span class="line">        |-- index.html</span><br></pre></td></tr></table></figure>
-
-<p>src被修改后需要配置vue的入口文件，新建vue.config.js：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="attr">pages</span>: &#123;</span><br><span class="line">    <span class="attr">index</span>: &#123;</span><br><span class="line">      <span class="attr">entry</span>: <span class="string">&#x27;examples/main.js&#x27;</span>,</span><br><span class="line">      <span class="attr">template</span>: <span class="string">&#x27;public/index.html&#x27;</span>,</span><br><span class="line">      <span class="attr">filename</span>:<span class="string">&#x27;index.html&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<p>如果按照先前的步骤，到这里会提示sass-loader没有安装。</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm i sass-loader -D</span><br></pre></td></tr></table></figure>
-
-<p>如果按照上面命令，又会出现如下错误：</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211002182221.png"></p>
-<p>原因是版本过高，我们需要换下版本：</p>
-<p>卸载：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm uninstall sass-loader -D</span><br></pre></td></tr></table></figure>
-
-<p>安装：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm i sass-loader@5 -D</span><br></pre></td></tr></table></figure>
-
-<p>如果此时运行，可能又会提示如下错误</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211002184021.png"></p>
-<p>原因是没有安装node-sass。</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm i node-sass@4 -D</span><br></pre></td></tr></table></figure>
-
-<p>运行项目，没有报错，至此，工程化目录已经基本完成。</p>
-<h1 id="代码样式编写"><a href="#代码样式编写" class="headerlink" title="代码样式编写"></a>代码样式编写</h1><p>在正式组件开发之前，我们应该写一个Demo组件测试一下项目是否能跑起来。</p>
-<p><code>linview/components/lib/demo/src/Index.vue</code>：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div class=&quot;l-demo&quot;&gt;</span><br><span class="line">    Demo</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">  export default &#123;</span><br><span class="line">    name:&#x27;Demo&#x27;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><code>linview/components/css/demo.scss</code>：</p>
-<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.l-demo</span>&#123;</span><br><span class="line">  <span class="attribute">color</span>: aqua;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><code>linview/examplesma/main.js</code></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;../components/css/demo.scss&#x27;</span><span class="comment">//引入样式</span></span><br><span class="line"><span class="keyword">import</span> Demo <span class="keyword">from</span> <span class="string">&#x27;../components/lib/demo/src/Index.vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> App <span class="keyword">from</span> <span class="string">&#x27;./App.vue&#x27;</span></span><br><span class="line">Vue.config.productionTip = <span class="literal">false</span></span><br><span class="line">Vue.use(Demo)</span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  <span class="attr">render</span>: <span class="function"><span class="params">h</span> =&gt;</span> h(App),</span><br><span class="line">&#125;).$mount(<span class="string">&#x27;#app&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><code>linview/examplesma/App.vue</code>:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div id=&quot;app&quot;&gt;</span><br><span class="line">    &lt;Demo&gt;&lt;/Demo&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  name: &#x27;App&#x27;,</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-
-<p>如果按照上面的代码书写会发现，组件不起作用，可以我们在使用第三方UI组件库的时候确实是Use这个组件就可以使用了，我们打开控制台，会发现报以下错误：</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211002203418.png"></p>
-<p>大概意思是组件没有注册，那么接下来对组件的全局注册：</p>
-<p>修改<code>linview/examplesma/main.js</code>：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">&#x27;../components/css/demo.scss&#x27;</span></span><br><span class="line"><span class="keyword">import</span> Demo <span class="keyword">from</span> <span class="string">&#x27;../components/lib/demo/index.js&#x27;</span></span><br><span class="line"><span class="comment">//Vue.component(&#x27;name&#x27;,Demo)</span></span><br><span class="line"><span class="keyword">import</span> App <span class="keyword">from</span> <span class="string">&#x27;./App.vue&#x27;</span></span><br><span class="line"></span><br><span class="line">Vue.config.productionTip = <span class="literal">false</span></span><br><span class="line">Vue.use(Demo)<span class="comment">//Demo.install -&gt; vue.component</span></span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  <span class="attr">render</span>: <span class="function"><span class="params">h</span> =&gt;</span> h(App),</span><br><span class="line">&#125;).$mount(<span class="string">&#x27;#app&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>增加<code>linview/components/lib/demo/index.js</code></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> Demo <span class="keyword">from</span> <span class="string">&#x27;./src/Index.vue&#x27;</span>;</span><br><span class="line">Demo.install = <span class="function"><span class="keyword">function</span> (<span class="params">Vue</span>) </span>&#123;</span><br><span class="line">  Vue.component(Demo.name, Demo)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> Demo</span><br></pre></td></tr></table></figure>
-
-<p>运行项目，没有报错，则Demo组件完成。</p>
-<p>写到这里会发现，其实就是一个全局的组件，但是在开发过程中，首先要考虑的组件的通用性，再而是组件的可维护，组件库的意义个人觉得是在于便于开发，想想我只要npm install一个包，然后我在main引入，在组件传递几个数值，一个非常好看的页面就形成，何乐而不为呢</p>
-<p>接下来编写正式的第一个卡片组件：</p>
-<p><code>Index.vue</code></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div class=&quot;l-card&quot; :style=&quot;width?&#123;width:width+&#x27;px&#x27;&#125;:&#123;&#125;&quot;&gt;</span><br><span class="line">    &lt;div class=&quot;l-card-img&quot; :style=&quot;imgHeight?&#123;height:imgHeight+&#x27;px&#x27;&#125;:&#123;&#125;&quot;&gt;</span><br><span class="line">      &lt;img :src=&quot;imgSrc&quot; alt=&quot;img&quot;&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;div v-if=&quot;summary&quot; class=&quot;l-card-summary&quot;&gt;</span><br><span class="line">      &#123;&#123;summary&#125;&#125;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;div v-else class=&quot;l-card-summary&quot;&gt;</span><br><span class="line">      &lt;slot&gt;&lt;/slot&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;slot name=&quot;footer&quot;&gt;&lt;/slot&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">  export default &#123;</span><br><span class="line">    name:&#x27;Card&#x27;,</span><br><span class="line">    props:&#123;</span><br><span class="line">      //卡片宽度</span><br><span class="line">      width:&#123;</span><br><span class="line">        type:Number,</span><br><span class="line">        default:0</span><br><span class="line">      &#125;,</span><br><span class="line">      //卡片图片资源</span><br><span class="line">      imgSrc:&#123;</span><br><span class="line">        type:String,</span><br><span class="line">        default:&#x27;&#x27;</span><br><span class="line">      &#125;,</span><br><span class="line">      //卡片图片高度</span><br><span class="line">      imgHeight:&#123;</span><br><span class="line">        type:Number,</span><br><span class="line">        default:0</span><br><span class="line">      &#125;,</span><br><span class="line">      //卡片概要</span><br><span class="line">      summary:&#123;</span><br><span class="line">        type:String,</span><br><span class="line">        default:&#x27;&#x27;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style lang=&quot;scss&quot; scoped&gt;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
-
-<p><code>card.scss</code></p>
-<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.l-card</span>&#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">270px</span>;</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">8px</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#fff</span>;</span><br><span class="line">  <span class="attribute">overflow</span>: hidden;</span><br><span class="line">  <span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">6px</span> <span class="number">10px</span> <span class="number">0</span> rgba(<span class="number">95</span>,<span class="number">101</span>,<span class="number">105</span>,<span class="number">0.15</span>);</span><br><span class="line">  <span class="attribute">padding-bottom</span>: <span class="number">8px</span>;</span><br><span class="line">  &amp;-<span class="selector-tag">img</span>&#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">152px</span>;</span><br><span class="line">    <span class="selector-tag">img</span>&#123;</span><br><span class="line">      <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">      <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  &amp;-<span class="selector-tag">summary</span>&#123;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">8px</span>;</span><br><span class="line">    <span class="attribute">text-align</span>: left;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">14px</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><code>index.js</code></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> Card <span class="keyword">from</span> <span class="string">&#x27;./src/Index.vue&#x27;</span>;</span><br><span class="line">Card.install = <span class="function"><span class="keyword">function</span> (<span class="params">Vue</span>) </span>&#123;</span><br><span class="line">  Vue.component(Card.name, Card)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> Card</span><br></pre></td></tr></table></figure>
-
-<h1 id="组件测试"><a href="#组件测试" class="headerlink" title="组件测试"></a>组件测试</h1><p>编写好的组件需要在本地进行测试才能发布，这里的测试不是非常正规的单元测试，而是直接使用examples目录下的App文件测试框架。</p>
-<p><code>App.vue</code></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div id=&quot;app&quot;&gt;</span><br><span class="line">    &lt;Card imgSrc=&quot;./img/card.png&quot; summary=&quot;Vue.js 源码全方位深入解析 全面深入理解Vue实现原理，掌握源码分析技巧&quot;&gt;&lt;/Card&gt;</span><br><span class="line">    &lt;br /&gt;</span><br><span class="line">    &lt;Card imgSrc=&quot;./img/card.png&quot; summary=&quot;Vue.js 源码全方位深入解析 全面深入理解Vue实现原理，掌握源码分析技巧&quot;&gt;</span><br><span class="line">      &lt;template v-slot:footer&gt;</span><br><span class="line">        &lt;div class=&quot;footer&quot;&gt;</span><br><span class="line">          &lt;div class=&quot;level&quot;&gt;高级 · 4256人报名 &lt;/div&gt;</span><br><span class="line">          &lt;div class=&quot;price&quot;&gt;￥488.00&lt;/div&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">      &lt;/template&gt;</span><br><span class="line">    &lt;/Card&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  name: &#x27;App&#x27;,</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style&gt;</span><br><span class="line">#app &#123;</span><br><span class="line">  margin: 0 auto;</span><br><span class="line">  width: 270px;</span><br><span class="line">&#125;</span><br><span class="line">.footer &#123;</span><br><span class="line">  padding: 0 8px;</span><br><span class="line">  font-size: 12px;</span><br><span class="line">  text-align: left;</span><br><span class="line">&#125;</span><br><span class="line">.level &#123;</span><br><span class="line">  color: #9199a1;</span><br><span class="line">  margin-bottom: 8px;</span><br><span class="line">&#125;</span><br><span class="line">.price &#123;</span><br><span class="line">  color: #f01414;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
-
-<p>预览效果：</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211002231029.png"></p>
-<h1 id="打包"><a href="#打包" class="headerlink" title="打包"></a>打包</h1><p>完成以上的步骤，其实已经可以发布到NPM上，但是有两个问题，</p>
-<ul>
-<li>现在使用该组件的时候，只能一个一个组件引用，不能全局引入，这需要两个入口文件，一个SCSS，一个JS。</li>
-<li>项目没有打包优化，包体积大</li>
-</ul>
-<p>对于以上问题，我使用WebPack来打包JS，Gulp打包CSS</p>
-<p>安装依赖：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm i gulp@4 gulp-minify-css gulp-sass@4 webpack-cli@4 -D</span><br></pre></td></tr></table></figure>
-
-<p><code>build/webpack.component.js</code></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123;VueLoaderPlugin&#125; = <span class="built_in">require</span>(<span class="string">&#x27;vue-loader&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> glob = <span class="built_in">require</span>(<span class="string">&#x27;glob&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> utlis =<span class="built_in">require</span>(<span class="string">&#x27;./utlis&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> list = &#123;&#125;</span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">makeList</span> (<span class="params">dirPath, list</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> files = glob.sync(<span class="string">`<span class="subst">$&#123;dirPath&#125;</span>/**/index.js`</span>)</span><br><span class="line">  <span class="comment">//[ &#x27;components/lib/card/index.js&#x27;, &#x27;components/lib/demo/index.js&#x27; ]</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;files&#x27;</span>, files);</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> file <span class="keyword">of</span> files) &#123;</span><br><span class="line">    <span class="comment">//component card  component demo</span></span><br><span class="line">    <span class="keyword">const</span> component = file.split(<span class="regexp">/[/.]/</span>)[<span class="number">2</span>];</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;component&#x27;</span>, component);</span><br><span class="line">    list[component] = <span class="string">`./<span class="subst">$&#123;file&#125;</span>`</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">console</span>.log(list);</span><br><span class="line">&#125;</span><br><span class="line">makeList(<span class="string">&#x27;components/lib&#x27;</span>,list)</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="attr">entry</span>: list,<span class="comment">//入口文件</span></span><br><span class="line">  <span class="attr">mode</span>:<span class="string">&#x27;production&#x27;</span>,<span class="comment">//生产模式</span></span><br><span class="line">  <span class="attr">output</span>: &#123;</span><br><span class="line">    <span class="attr">filename</span>: <span class="string">&#x27;[name].umd.js&#x27;</span>,</span><br><span class="line">    <span class="attr">path</span>: utlis.DIST_PATH,</span><br><span class="line">    <span class="attr">library</span>: <span class="string">&#x27;lview&#x27;</span>,</span><br><span class="line">    <span class="attr">libraryTarget</span>:<span class="string">&#x27;umd&#x27;</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">plugins</span>: [</span><br><span class="line">    <span class="keyword">new</span> VueLoaderPlugin()</span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">module</span>: &#123;</span><br><span class="line">    <span class="attr">rules</span>: [</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">test</span>: <span class="regexp">/\.vue$/</span>,</span><br><span class="line">        use: [</span><br><span class="line">          &#123;</span><br><span class="line">            <span class="attr">loader</span>:<span class="string">&#x27;vue-loader&#x27;</span></span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><code>build/utlis.js</code></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">exports</span>.resolve = <span class="function"><span class="keyword">function</span> <span class="title">resolve</span> (<span class="params">dir</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> path.join(__dirname, <span class="string">&#x27;..&#x27;</span>, dir)</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">exports</span>.APP_PATH = <span class="built_in">exports</span>.resolve(<span class="string">&#x27;src&#x27;</span>)</span><br><span class="line"><span class="built_in">exports</span>.DIST_PATH = <span class="built_in">exports</span>.resolve(<span class="string">&#x27;dist&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<p><code>bulid/gulpfile.js</code></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> utlis =<span class="built_in">require</span>(<span class="string">&#x27;./utlis&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> gulp = <span class="built_in">require</span>(<span class="string">&#x27;gulp&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> sass = <span class="built_in">require</span>(<span class="string">&#x27;gulp-sass&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> minifyCSS = <span class="built_in">require</span>(<span class="string">&#x27;gulp-minify-css&#x27;</span>)</span><br><span class="line">gulp.task(<span class="string">&#x27;sass&#x27;</span>, <span class="keyword">async</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> gulp.src(<span class="string">&#x27;../components/css/**/*.scss&#x27;</span>)</span><br><span class="line">    .pipe(sass())</span><br><span class="line">    .pipe(minifyCSS())</span><br><span class="line">  .pipe(gulp.dest(utlis.DIST_PATH+<span class="string">&#x27;/css&#x27;</span>))</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p><code>Script</code>：</p>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="string">&quot;build&quot;</span>: <span class="string">&quot;npm run build:js &amp;&amp; npm run build:css&quot;</span>,</span><br><span class="line"><span class="string">&quot;build:js&quot;</span>: <span class="string">&quot;webpack --config ./build/webpack.component.js&quot;</span>,</span><br><span class="line"><span class="string">&quot;build:css&quot;</span>: <span class="string">&quot;npx gulp sass --gulpfile build/gulpfile.js&quot;</span>,</span><br></pre></td></tr></table></figure>
-
-<p>打包完成后会在项目根目录形成dist文件夹，这是等会我们要NPM上传的。</p>
-<h1 id="NPM发布"><a href="#NPM发布" class="headerlink" title="NPM发布"></a>NPM发布</h1><p>本地编写测试好的组件就要发布到NPM上，方便别人的下载使用，在使用之前，需要个人先注册好NPM账号。</p>
-<ul>
-<li>首先需要配置package.json文件：</li>
-</ul>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="string">&quot;name&quot;</span>: <span class="string">&quot;linview&quot;</span>,</span><br><span class="line"><span class="string">&quot;version&quot;</span>: <span class="string">&quot;0.1.2&quot;</span>,</span><br><span class="line"><span class="string">&quot;description&quot;</span>: <span class="string">&quot;个人开发者UI组件库&quot;</span>,</span><br><span class="line"><span class="string">&quot;main&quot;</span>: <span class="string">&quot;dist/index.umd.js&quot;</span>,</span><br><span class="line"><span class="string">&quot;keywords&quot;</span>: [</span><br><span class="line">  <span class="string">&quot;linview&quot;</span>,</span><br><span class="line">  <span class="string">&quot;UI&quot;</span>,</span><br><span class="line">  <span class="string">&quot;vue&quot;</span></span><br><span class="line">],</span><br><span class="line"><span class="string">&quot;author&quot;</span>: <span class="string">&quot;bamboo_lsf&quot;</span>,</span><br><span class="line"><span class="string">&quot;files&quot;</span>: [</span><br><span class="line">  <span class="string">&quot;dist&quot;</span>,</span><br><span class="line">  <span class="string">&quot;components&quot;</span></span><br><span class="line">],</span><br></pre></td></tr></table></figure>
-
-<p>name：包的名字</p>
-<p>version：版本，低版本不能覆盖高版本</p>
-<p>description：描述，在你搜索这个包的时候会出现的描述</p>
-<p>main：入口主文件，当别人引用包的名字时候，其实就是用的这个文件</p>
-<p>keywords：搜索的关键词</p>
-<p>author：作者</p>
-<p>files：要上传的文件</p>
-<ul>
-<li><p>书写好根目录的RedeMe文件，它是npm包上的RedeMe文件。</p>
-</li>
-<li><p>把本地的下载源切换会官方，否则无法登录。</p>
-</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm config set registry http://www.npmjs.org</span><br></pre></td></tr></table></figure>
-
-<p>window上如果登录失败可以在要登录的窗口上在次执行，因为我在切回官方源后，登录报错。</p>
-<p>登录命令：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm login</span><br></pre></td></tr></table></figure>
-
-<p>正常情况输入用户名，密码，邮箱即可登录完成。</p>
-<p>接下来使用<code>npm publish</code>上传，随后我们就可以在Npm看到自己发布的包了</p>
-<h1 id="文档站点"><a href="#文档站点" class="headerlink" title="文档站点"></a>文档站点</h1><p>一个好的UI框架，当然是需要一个文档展示，这样才方便以后的开发与维护。接下来使用VuePress来形成文档的站点。</p>
-<p>首先我们需要明白一个概念，文档和项目代码是在一起的，那么我们应该把文档的静态文件和仓库代码放一起，怎么做到呢，其实，我们只需要把文档形成的静态文件和项目代码放在仓库的不同分支即可。这样两者就不会冲突</p>
-<p>安装VuePress：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm i VuePress -D</span><br></pre></td></tr></table></figure>
-
-<p>生成以下文件和文件夹：</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211003183852.png"></p>
-<p>config.js</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="attr">title</span>: <span class="string">&#x27;LinView&#x27;</span>,</span><br><span class="line">  <span class="attr">base</span>:<span class="string">&#x27;/linview/&#x27;</span>,</span><br><span class="line">  <span class="attr">description</span>: <span class="string">&#x27;Just playing around&#x27;</span>,</span><br><span class="line">  <span class="attr">themeConfig</span>: &#123;</span><br><span class="line">    <span class="comment">//导航</span></span><br><span class="line">    <span class="attr">nav</span>: [</span><br><span class="line">      &#123; <span class="attr">text</span>: <span class="string">&#x27;首页&#x27;</span>, <span class="attr">link</span>: <span class="string">&#x27;/&#x27;</span> &#125;,</span><br><span class="line">      &#123; <span class="attr">text</span>: <span class="string">&#x27;指南&#x27;</span>, <span class="attr">link</span>: <span class="string">&#x27;/componentDocs/&#x27;</span>&#125;,</span><br><span class="line">      &#123;<span class="attr">text</span>:<span class="string">&#x27;更新日志&#x27;</span>,<span class="attr">link</span>:<span class="string">&#x27;/update/index&#x27;</span>&#125;,</span><br><span class="line">      &#123; <span class="attr">text</span>: <span class="string">&#x27;GitHub&#x27;</span>, <span class="attr">link</span>: <span class="string">&#x27;https://github.com/LSFCXZ/linview&#x27;</span> &#125;,</span><br><span class="line">      &#123; <span class="attr">text</span>: <span class="string">&#x27;NPM&#x27;</span>, <span class="attr">link</span>: <span class="string">&#x27;https://www.npmjs.com/package/linview&#x27;</span> &#125;,</span><br><span class="line">    ],</span><br><span class="line">    <span class="attr">sidebar</span>: &#123;</span><br><span class="line">     <span class="string">&#x27;/componentDocs/&#x27;</span>: [</span><br><span class="line">         &#123;</span><br><span class="line">        <span class="attr">title</span>: <span class="string">&#x27;简介&#x27;</span>,</span><br><span class="line">        <span class="attr">path</span>:<span class="string">&#x27;/componentDocs/&#x27;</span></span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">title</span>: <span class="string">&#x27;快速开始&#x27;</span>,</span><br><span class="line">        <span class="attr">path</span>:<span class="string">&#x27;/componentDocs/start&#x27;</span></span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">title</span>: <span class="string">&#x27;卡片&#x27;</span>,</span><br><span class="line">        <span class="attr">path</span>:<span class="string">&#x27;/componentDocs/card&#x27;</span></span><br><span class="line">      &#125;</span><br><span class="line">      ]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>注意：base是你仓库的名字，如果你的站点没有后缀，那么可以不填</p>
-<p>根目录index.md</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">home: true</span><br><span class="line">heroImage: </span><br><span class="line">heroText: LinView</span><br><span class="line">tagline: 简洁、美观、开源的UI框架</span><br><span class="line">actionText: 快速上手 →</span><br><span class="line">actionLink: /componentDocs/start</span><br><span class="line">features:</span><br><span class="line">- title: 简洁至上</span><br><span class="line">  details: 以 Markdown 为中心的项目结构，以最少的配置帮助你专注于写作。</span><br><span class="line">- title: 美观</span><br><span class="line">  details: 享受 Vue + webpack 的开发体验，在 Markdown 中使用 Vue 组件，同时可以使用 Vue 来开发自定义主题。</span><br><span class="line">- title: 开源免费</span><br><span class="line">  details: VuePress 为每个页面预渲染生成静态的 HTML，同时在页面被加载的时候，将作为 SPA 运行。</span><br><span class="line">footer: MIT Licensed | Copyright © 2021-present BambooLSF</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>具体可以参考vuepress的官网配置：<a href="https://vuepress.vuejs.org/zh/">https://vuepress.vuejs.org/zh/</a></p>
-<p>接下来就是配置脚本：</p>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="string">&quot;docs:dev&quot;</span>: <span class="string">&quot;vuepress dev docs&quot;</span>,</span><br><span class="line"><span class="string">&quot;docs:build&quot;</span>: <span class="string">&quot;vuepress build docs&quot;</span>,</span><br><span class="line"><span class="string">&quot;depoly&quot;</span>: <span class="string">&quot;bash ./build/deploy.sh&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>docs:dev：运行vuepress</p>
-<p>docs:build：打包</p>
-<p>depoly：部署</p>
-<p>接下来就是部署到githubpage：</p>
-<p>build/deploy.sh</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/usr/bin/env sh</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 确保脚本抛出遇到的错误</span></span><br><span class="line"><span class="built_in">set</span> -e</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成静态文件</span></span><br><span class="line">npm run docs:build</span><br><span class="line"></span><br><span class="line"><span class="comment"># 进入生成的文件夹</span></span><br><span class="line"><span class="built_in">cd</span> docs/.vuepress/dist</span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果是发布到自定义域名</span></span><br><span class="line"><span class="comment"># echo &#x27;www.example.com&#x27; &gt; CNAME</span></span><br><span class="line"></span><br><span class="line">git init</span><br><span class="line">git add -A</span><br><span class="line">git commit -m <span class="string">&#x27;deploy&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果发布到 https://&lt;USERNAME&gt;.github.io</span></span><br><span class="line"><span class="comment"># git push -f git@github.com:&lt;USERNAME&gt;/&lt;USERNAME&gt;.github.io.git master</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果发布到 https://&lt;USERNAME&gt;.github.io/&lt;REPO&gt;</span></span><br><span class="line"> git push -f git@github.com:LSFCXZ/linview.git master:gh-pages</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> -</span><br></pre></td></tr></table></figure>
-
-<p>注意： git push是要换成你的github地址 </p>
-<p>执行命令：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm run depoly</span><br></pre></td></tr></table></figure>
-
-<p>如果在window上无法执行，那么使用git命令窗口即可，这样站点已经完成。</p>
-<p>再把我们的项目代码上传：git init ,git add . ,git commit -m ‘’’第一次提交’ ，git push等一把梭上传代码</p>
-<p>至此，UI框架基本完成，可以新建项目，npm install 自己的UI库进行测试。</p>
-<h1 id="版本问题"><a href="#版本问题" class="headerlink" title="版本问题"></a>版本问题</h1><p>为了避免因为版本问题引起的错误，这里列举开发时版本环境：</p>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="string">&quot;dependencies&quot;</span>: &#123;</span><br><span class="line">    <span class="attr">&quot;core-js&quot;</span>: <span class="string">&quot;^3.6.5&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;vue&quot;</span>: <span class="string">&quot;^2.6.11&quot;</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">&quot;devDependencies&quot;</span>: &#123;</span><br><span class="line">    <span class="attr">&quot;@vue/cli-plugin-babel&quot;</span>: <span class="string">&quot;~4.5.0&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;@vue/cli-plugin-eslint&quot;</span>: <span class="string">&quot;~4.5.0&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;@vue/cli-service&quot;</span>: <span class="string">&quot;~4.5.0&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;babel-eslint&quot;</span>: <span class="string">&quot;^10.1.0&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;eslint&quot;</span>: <span class="string">&quot;^6.7.2&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;eslint-plugin-vue&quot;</span>: <span class="string">&quot;^6.2.2&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;gulp&quot;</span>: <span class="string">&quot;^4.0.2&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;gulp-minify-css&quot;</span>: <span class="string">&quot;^1.2.4&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;gulp-sass&quot;</span>: <span class="string">&quot;^4.1.1&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;node-sass&quot;</span>: <span class="string">&quot;^4.14.1&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;sass-loader&quot;</span>: <span class="string">&quot;^5.0.1&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;vue-loader&quot;</span>: <span class="string">&quot;^15.9.8&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;vue-template-compiler&quot;</span>: <span class="string">&quot;^2.6.11&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;vuepress&quot;</span>: <span class="string">&quot;^1.8.2&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;webpack-cli&quot;</span>: <span class="string">&quot;^4.8.0&quot;</span></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>经过已上步骤，基本已经形成一个较为完整的UI框架，唯一的缺点是按需加载有问题，接下来有待优化。</p>
-<p>Github开源地址：<a href="https://github.com/LSFCXZ/linview">https://github.com/LSFCXZ/linview</a></p>
-<p>文档站点：<a href="https://lsfcxz.github.io/linview/">https://lsfcxz.github.io/linview/</a></p>
-]]></content>
-      <categories>
-        <category>组件库</category>
-      </categories>
-      <tags>
-        <tag>自定义组件库</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>WeX-UI组件库搭建</title>
     <url>/article/c7f47550.html</url>
     <content><![CDATA[<p>前段时间写了LinView组件库，但是由于问题太多，按需引入出错，最后参考element-ui框架和参考一些技术博文，重新编写整个组件库，因为重写，具体的不一 一例举，重点把遇到的坑点和心得记录下。</p>
@@ -1194,6 +1282,68 @@
       <tags>
         <tag>自定义组件库</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Hexo图床的解决方案</title>
+    <url>/article/4c6068df.html</url>
+    <content><![CDATA[<p>网站链接嵌套得越深，越不利于SEO优化，Hexo默认链接是年月日标题，如果标题是中文，那么链接就会变成乱码，这很不利于搜索引擎的搜索，为了达到目的，我们会使用<code>hexo-abbrlink</code>插件来解决问题，但是我们需要上传图片，图片要么需要图床，不然你就只能附带博客里面，以下分析个人在遇到这个问题的取舍与想法，愿与诸君分享。</p>
+<h1 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h1><ul>
+<li>我们需要利于SEO的网址</li>
+<li>我们需要一个安全、稳定、足够、免费的图床</li>
+<li>简单、最好一劳永逸</li>
+</ul>
+<h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><p>我们知道，为了达到Hexo的链接优化，需要用到<code>hexo-abbrlink</code>这个插件，使用上传图片使用<code>hexo-asset-image</code>插件，这两个插件单独使用没有问题，但是一起使用就会出现问题，前者把路径改了，后者当然无法找到图片，网上也是一堆长篇大论，这里不在累赘，难道没有一劳永逸吗？</p>
+<p>既然两者一起使用会出现问题，（<code>hexo-asset-image</code>插件作者曾提到这是hexo的编译原理，具体可以看官方的lssues）,那么就不一起使用，此路不通，另寻它路。其实最简单的方式就是使用图床功能，把一张图片放到别人的服务器，通过URL就能看到图片，简单快捷，</p>
+<p>但是有几个问题：</p>
+<ul>
+<li><p>图片放在别人的服务器，不太安全</p>
+</li>
+<li><p>图床一般都需要收费，不可能给你白嫖</p>
+</li>
+<li><p>图床弄起来较为麻烦</p>
+</li>
+</ul>
+<p>综合以上，其实我们可以利用Gitee来作为我们的图床，有以下几个原因</p>
+<ul>
+<li>使用<code>hexo-asset-image</code>插件图片本身也是存放在<code>gitee</code>，那么我们这样其实是一样的，只不过不用<code>hexo-asset-image</code>插件</li>
+<li><code>Gitee</code>属于国内，速度更快</li>
+<li>个人免费有5G的空间，如果只是博客，这个空间还是够的</li>
+</ul>
+<h1 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h1><p>既然使用Gitee来作为图床，当然不能重复提交代码仓库来实现，这里使用picGo工具，</p>
+<p>官网：<a href="https://github.com/Molunerfinn/PicGo/releases">https://github.com/Molunerfinn/PicGo/releases</a></p>
+<p>安装好的界面</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20210926225740.png"></p>
+<p>安装插件：</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20210926230424.png"></p>
+<p>填写信息：</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20210926231011.png"></p>
+<ul>
+<li>用户名是注册时候的链接名，不是昵称！！</li>
+<li>仓库名小写，直接写就行，不需要写路径</li>
+<li>存放路径随意</li>
+<li>令牌是<code>Gitee</code>私人令牌，不要给太多权限，第一个就行</li>
+<li>图片只能1M上限，大于访问不了，需要登陆才可以有权限访问，这点可以自己测试</li>
+</ul>
+<h1 id="小工具"><a href="#小工具" class="headerlink" title="小工具"></a>小工具</h1><p>分享一个截图工具：snipaste，可以在win10商店里面下载即可。</p>
+<p>官网：<a href="https://zh.snipaste.com/">https://zh.snipaste.com/</a></p>
+<p>结合PicGo可以完美配合，复制粘贴上传，不用保存，截图大小也不是很大</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>这个办法其实是脱离插件的使用，即满足了URL的优化，又能得到一个图床应用，体验下来还是很方便的，唯一缺点就是流程可能稍加繁琐，不过使用过程非常方便！还是值得推荐的！</p>
+]]></content>
+      <categories>
+        <category>Hexo框架</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>小破站正式上线</title>
+    <url>/article/36e749dc.html</url>
+    <content><![CDATA[<p>断断续续半年时间，使用<code>Hexo</code>已有很长一段时间，经历了不断的优化踩坑，最开始使用<code>NexT</code>做为博客主题，到后来使用了Butterfly主题，到对主题的一系列魔改，最终还是回归到<code>NexT</code>作为博客的主题。</p>
+<p><code>NexT</code>主题相对来说较为简洁，使用Butterfly主题确实对博客有很大的美化程度，但不简约，最主要是在浏览器渲染上面，由于集成大量插件和动画特效，使得浏览时不是特别顺畅。</p>
+<p>最终本博客去繁化简，只留下实用功能，对博客轻美化，让网站即顺畅又优美。</p>
+<p>目前使用<code>GithubPages</code>加<code>GiteePages</code>双代码平台推送，测试下来，电信网络访问<code>githubPages</code>很大概率屏蔽，<code>GiteePages</code>需要手动更新，较为麻烦，<code>CDN</code>加速效果不明显，CI平台需要收取一定费用，介于目前情况，只能暂时如此，未来计划使用服务器搭建自己的CI平台进行自动化部署</p>
+]]></content>
+      <categories>
+        <category>Hexo框架</category>
+      </categories>
   </entry>
   <entry>
     <title>常用文本样式属性</title>
@@ -1314,18 +1464,6 @@
       </categories>
   </entry>
   <entry>
-    <title>小破站正式上线</title>
-    <url>/article/36e749dc.html</url>
-    <content><![CDATA[<p>断断续续半年时间，使用<code>Hexo</code>已有很长一段时间，经历了不断的优化踩坑，最开始使用<code>NexT</code>做为博客主题，到后来使用了Butterfly主题，到对主题的一系列魔改，最终还是回归到<code>NexT</code>作为博客的主题。</p>
-<p><code>NexT</code>主题相对来说较为简洁，使用Butterfly主题确实对博客有很大的美化程度，但不简约，最主要是在浏览器渲染上面，由于集成大量插件和动画特效，使得浏览时不是特别顺畅。</p>
-<p>最终本博客去繁化简，只留下实用功能，对博客轻美化，让网站即顺畅又优美。</p>
-<p>目前使用<code>GithubPages</code>加<code>GiteePages</code>双代码平台推送，测试下来，电信网络访问<code>githubPages</code>很大概率屏蔽，<code>GiteePages</code>需要手动更新，较为麻烦，<code>CDN</code>加速效果不明显，CI平台需要收取一定费用，介于目前情况，只能暂时如此，未来计划使用服务器搭建自己的CI平台进行自动化部署</p>
-]]></content>
-      <categories>
-        <category>Hexo框架</category>
-      </categories>
-  </entry>
-  <entry>
     <title>文章锚点失效问题</title>
     <url>/article/26e0b522.html</url>
     <content><![CDATA[<p>在测试博客中发现文章锚点失效问题，特此记录一下。</p>
@@ -1344,56 +1482,6 @@
       <tags>
         <tag>Bug</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Hexo图床的解决方案</title>
-    <url>/article/4c6068df.html</url>
-    <content><![CDATA[<p>网站链接嵌套得越深，越不利于SEO优化，Hexo默认链接是年月日标题，如果标题是中文，那么链接就会变成乱码，这很不利于搜索引擎的搜索，为了达到目的，我们会使用<code>hexo-abbrlink</code>插件来解决问题，但是我们需要上传图片，图片要么需要图床，不然你就只能附带博客里面，以下分析个人在遇到这个问题的取舍与想法，愿与诸君分享。</p>
-<h1 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h1><ul>
-<li>我们需要利于SEO的网址</li>
-<li>我们需要一个安全、稳定、足够、免费的图床</li>
-<li>简单、最好一劳永逸</li>
-</ul>
-<h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><p>我们知道，为了达到Hexo的链接优化，需要用到<code>hexo-abbrlink</code>这个插件，使用上传图片使用<code>hexo-asset-image</code>插件，这两个插件单独使用没有问题，但是一起使用就会出现问题，前者把路径改了，后者当然无法找到图片，网上也是一堆长篇大论，这里不在累赘，难道没有一劳永逸吗？</p>
-<p>既然两者一起使用会出现问题，（<code>hexo-asset-image</code>插件作者曾提到这是hexo的编译原理，具体可以看官方的lssues）,那么就不一起使用，此路不通，另寻它路。其实最简单的方式就是使用图床功能，把一张图片放到别人的服务器，通过URL就能看到图片，简单快捷，</p>
-<p>但是有几个问题：</p>
-<ul>
-<li><p>图片放在别人的服务器，不太安全</p>
-</li>
-<li><p>图床一般都需要收费，不可能给你白嫖</p>
-</li>
-<li><p>图床弄起来较为麻烦</p>
-</li>
-</ul>
-<p>综合以上，其实我们可以利用Gitee来作为我们的图床，有以下几个原因</p>
-<ul>
-<li>使用<code>hexo-asset-image</code>插件图片本身也是存放在<code>gitee</code>，那么我们这样其实是一样的，只不过不用<code>hexo-asset-image</code>插件</li>
-<li><code>Gitee</code>属于国内，速度更快</li>
-<li>个人免费有5G的空间，如果只是博客，这个空间还是够的</li>
-</ul>
-<h1 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h1><p>既然使用Gitee来作为图床，当然不能重复提交代码仓库来实现，这里使用picGo工具，</p>
-<p>官网：<a href="https://github.com/Molunerfinn/PicGo/releases">https://github.com/Molunerfinn/PicGo/releases</a></p>
-<p>安装好的界面</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20210926225740.png"></p>
-<p>安装插件：</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20210926230424.png"></p>
-<p>填写信息：</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20210926231011.png"></p>
-<ul>
-<li>用户名是注册时候的链接名，不是昵称！！</li>
-<li>仓库名小写，直接写就行，不需要写路径</li>
-<li>存放路径随意</li>
-<li>令牌是<code>Gitee</code>私人令牌，不要给太多权限，第一个就行</li>
-<li>图片只能1M上限，大于访问不了，需要登陆才可以有权限访问，这点可以自己测试</li>
-</ul>
-<h1 id="小工具"><a href="#小工具" class="headerlink" title="小工具"></a>小工具</h1><p>分享一个截图工具：snipaste，可以在win10商店里面下载即可。</p>
-<p>官网：<a href="https://zh.snipaste.com/">https://zh.snipaste.com/</a></p>
-<p>结合PicGo可以完美配合，复制粘贴上传，不用保存，截图大小也不是很大</p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>这个办法其实是脱离插件的使用，即满足了URL的优化，又能得到一个图床应用，体验下来还是很方便的，唯一缺点就是流程可能稍加繁琐，不过使用过程非常方便！还是值得推荐的！</p>
-]]></content>
-      <categories>
-        <category>Hexo框架</category>
-      </categories>
   </entry>
   <entry>
     <title>无题</title>
