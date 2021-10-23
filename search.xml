@@ -13,6 +13,69 @@
 <li>display的值是inline-block、flex、或者inline-flex</li>
 <li>overflow：hidden</li>
 </ol>
+<p>浏览器差异：</p>
+<p>IE6、7浏览器使用haslayout机制，和BFC规范略有差异，比如IE浏览器可以使用zoom：1属性“让盒子拥有layout”</p>
+]]></content>
+      <categories>
+        <category>CSS</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>CSS3层叠性、继承性、优先级</title>
+    <url>/article/96691857.html</url>
+    <content><![CDATA[<p>在CSS3中如果同时多个选择器都在描述同一个元素，那么CSS3会把一层一层的样式刷上去，这就是他的层叠性，但是，如果多个选择器都在描述这个元素的同个属性，CSS3会采取权重计算后采用那个样式，如果属性是具有继承性，则优先采用就近原则，当一样近的时候，才选择权重计算。这些计算只能是在同一个引用方式生效，否则，行内式是最高权重，然后才是内嵌，最后是外链。</p>
+<h1 id="层叠性"><a href="#层叠性" class="headerlink" title="层叠性"></a>层叠性</h1><p>首先CSS全称叫CascadingStyleSheets，中文名为层叠性样式表，CSS根据选择器，属性，属性值为HTML标签刷上一层一层样式。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">  <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">    <span class="selector-tag">p</span> &#123;</span></span><br><span class="line"><span class="css">      <span class="attribute">color</span>: aqua;</span></span><br><span class="line"><span class="css">    &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.spec</span> &#123;</span></span><br><span class="line"><span class="css">      <span class="attribute">text-decoration</span>: underline;</span></span><br><span class="line"><span class="css">    &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-id">#paragraph</span> &#123;</span></span><br><span class="line"><span class="css">      <span class="attribute">font-size</span>: <span class="number">25px</span>;</span></span><br><span class="line"><span class="css">    &#125;</span></span><br><span class="line"><span class="css">  </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">&quot;spec&quot;</span> <span class="attr">id</span>=<span class="string">&quot;paragraph&quot;</span>&gt;</span>我是段落<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>最终效果：</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211001202944.png"></p>
+<p>可以看到，每个选择器的样式都是一层一层刷上去的，但是如果每个选择器都在描述同一个属性呢，这需要后面的优先级，权重计算来衡量。</p>
+<h1 id="优先级"><a href="#优先级" class="headerlink" title="优先级"></a>优先级</h1><p>CSS的优先级可以分为文件的引入方式和选择器的优先级</p>
+<p>文件的引入方式，优先级又高到低：</p>
+<ul>
+<li>行内样式&gt;内嵌式&gt;链接式&gt;@import导入式</li>
+</ul>
+<p>选择器优先级：</p>
+<ul>
+<li>ID&gt;Classs&gt;属性选择器&gt;伪类选择器&gt;伪元素选择器&gt;标签选择器&gt;标签&gt;通配选择器</li>
+</ul>
+<h1 id="继承性"><a href="#继承性" class="headerlink" title="继承性"></a>继承性</h1><p>color、font-开头、list-开头、text-开头、line-开头都具有继承性，继承性是祖先元素设置后，后代元素生效</p>
+<h1 id="两个属性"><a href="#两个属性" class="headerlink" title="两个属性"></a>两个属性</h1><h2 id="important"><a href="#important" class="headerlink" title="!important"></a>!important</h2><p>!important是提升属性的权重，它影响的是该属性中的权重值，写在属性后面，该属性的权重为最大</p>
+<h2 id="z-index"><a href="#z-index" class="headerlink" title="z-index"></a>z-index</h2><p>z-index是影响层叠性，需要注意的是两个元素是<strong>需要设置定位属性</strong>才可以生效！</p>
+<h1 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h1><ul>
+<li>下面p段落的文字是什么颜色？</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">     <span class="selector-tag">p</span> &#123;</span></span><br><span class="line"><span class="css">       <span class="attribute">color</span>: aqua;</span></span><br><span class="line"><span class="css">     &#125;</span></span><br><span class="line"><span class="css">     <span class="selector-class">.box</span> <span class="selector-class">.box1</span> &#123;</span></span><br><span class="line"><span class="css">       <span class="attribute">color</span>: red;</span></span><br><span class="line"><span class="css">     &#125;</span></span><br><span class="line"><span class="css">     <span class="selector-id">#box2</span> &#123;</span></span><br><span class="line"><span class="css">       <span class="attribute">color</span>: blue;</span></span><br><span class="line"><span class="css">     &#125;</span></span><br><span class="line"><span class="css">   </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span>   </span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box1&quot;</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;box2&quot;</span> <span class="attr">style</span>=<span class="string">&quot;color: yellow&quot;</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">p</span>&gt;</span>我是段落<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>正确答案是：aqua颜色</p>
+<p>小结：</p>
+<ul>
+<li>首先color是继承属性，所以优先采用就近原则</li>
+<li>就近原则在于描述的是否接近，如果一样近，权重又是一样，就看书写的远近。</li>
+</ul>
+<hr>
+<ul>
+<li>下面代码中会出现什么颜色？</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">  <span class="selector-class">.box</span> &#123;</span></span><br><span class="line"><span class="css">    <span class="attribute">width</span>: <span class="number">120px</span>;</span></span><br><span class="line"><span class="css">    <span class="attribute">height</span>: <span class="number">120px</span>;</span></span><br><span class="line"><span class="css">    <span class="attribute">background-color</span>: blue;</span></span><br><span class="line"><span class="css">  &#125;</span></span><br><span class="line"><span class="css">  <span class="selector-class">.box1</span> &#123;</span></span><br><span class="line"><span class="css">    <span class="attribute">width</span>: <span class="number">120px</span>;</span></span><br><span class="line"><span class="css">    <span class="attribute">height</span>: <span class="number">120px</span>;</span></span><br><span class="line"><span class="css">    <span class="attribute">background-color</span>: red;</span></span><br><span class="line"><span class="css">  &#125;</span></span><br><span class="line"><span class="css">  <span class="selector-id">#box2</span> <span class="selector-tag">p</span>&#123;</span></span><br><span class="line"><span class="css">    <span class="attribute">width</span>: <span class="number">120px</span>;</span></span><br><span class="line"><span class="css">    <span class="attribute">height</span>: <span class="number">120px</span>;</span></span><br><span class="line"><span class="css">    <span class="attribute">background-color</span>: aqua;</span></span><br><span class="line"><span class="css">  &#125;</span></span><br><span class="line"><span class="css">  <span class="selector-class">.box3</span> &#123;</span></span><br><span class="line"><span class="css">    <span class="attribute">width</span>: <span class="number">120px</span>;</span></span><br><span class="line"><span class="css">    <span class="attribute">height</span>: <span class="number">120px</span>;</span></span><br><span class="line"><span class="css">    <span class="attribute">background-color</span>: yellow;</span></span><br><span class="line"><span class="css">  &#125;</span></span><br><span class="line"><span class="css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box1&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;box2&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box3&quot;</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">p</span>&gt;</span>我是段落<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>正确答案：aqua</p>
+<p>小结：</p>
+<ul>
+<li>background-color属性没有继承性，优先使用权重</li>
+</ul>
+<hr>
+<ul>
+<li>下面p段落的文字是什么颜色？</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">       <span class="selector-id">#box2</span> <span class="selector-class">.box3</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">color</span>: red;</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-id">#box4</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">color</span>: blue;</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box1&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;box2&quot;</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box3&quot;</span> <span class="attr">id</span>=<span class="string">&quot;box4&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">p</span>&gt;</span>我是段落<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>正确答案：red</p>
+<p>小结：</p>
+<ul>
+<li>color属性具有继承性，所以使用就近原则</li>
+<li>两个选择器一样远近，使用权重计算</li>
+</ul>
 ]]></content>
       <categories>
         <category>CSS</category>
@@ -213,7 +276,14 @@
 
 
 
-<h1 id="弹性布局"><a href="#弹性布局" class="headerlink" title="弹性布局"></a>弹性布局</h1><h1 id="变形"><a href="#变形" class="headerlink" title="变形"></a>变形</h1><h1 id="过渡"><a href="#过渡" class="headerlink" title="过渡"></a>过渡</h1><h1 id="其他属性属性值"><a href="#其他属性属性值" class="headerlink" title="其他属性属性值"></a>其他属性属性值</h1><h2 id="important"><a href="#important" class="headerlink" title="!important"></a>!important</h2><ul>
+<h1 id="弹性布局"><a href="#弹性布局" class="headerlink" title="弹性布局"></a>弹性布局</h1><h1 id="变形"><a href="#变形" class="headerlink" title="变形"></a>变形</h1><h1 id="过渡"><a href="#过渡" class="headerlink" title="过渡"></a>过渡</h1><h1 id="鼠标形状"><a href="#鼠标形状" class="headerlink" title="鼠标形状"></a>鼠标形状</h1><p>属性值：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">curaor: pointer</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>设置鼠标形状</li>
+<li>pointer表示小手状态</li>
+</ul>
+<h1 id="其他属性属性值"><a href="#其他属性属性值" class="headerlink" title="其他属性属性值"></a>其他属性属性值</h1><h2 id="important"><a href="#important" class="headerlink" title="!important"></a>!important</h2><ul>
 <li>属性提升权重</li>
 </ul>
 <h2 id="z-index"><a href="#z-index" class="headerlink" title="z-index"></a>z-index</h2><ul>
@@ -222,67 +292,6 @@
 <h2 id="ackground-image"><a href="#ackground-image" class="headerlink" title="ackground-image"></a>ackground-image</h2>]]></content>
       <categories>
         <category>文档</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>CSS3层叠性、继承性、优先级</title>
-    <url>/article/96691857.html</url>
-    <content><![CDATA[<p>在CSS3中如果同时多个选择器都在描述同一个元素，那么CSS3会把一层一层的样式刷上去，这就是他的层叠性，但是，如果多个选择器都在描述这个元素的同个属性，CSS3会采取权重计算后采用那个样式，如果属性是具有继承性，则优先采用就近原则，当一样近的时候，才选择权重计算。这些计算只能是在同一个引用方式生效，否则，行内式是最高权重，然后才是内嵌，最后是外链。</p>
-<h1 id="层叠性"><a href="#层叠性" class="headerlink" title="层叠性"></a>层叠性</h1><p>首先CSS全称叫CascadingStyleSheets，中文名为层叠性样式表，CSS根据选择器，属性，属性值为HTML标签刷上一层一层样式。</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">  <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">    <span class="selector-tag">p</span> &#123;</span></span><br><span class="line"><span class="css">      <span class="attribute">color</span>: aqua;</span></span><br><span class="line"><span class="css">    &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.spec</span> &#123;</span></span><br><span class="line"><span class="css">      <span class="attribute">text-decoration</span>: underline;</span></span><br><span class="line"><span class="css">    &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-id">#paragraph</span> &#123;</span></span><br><span class="line"><span class="css">      <span class="attribute">font-size</span>: <span class="number">25px</span>;</span></span><br><span class="line"><span class="css">    &#125;</span></span><br><span class="line"><span class="css">  </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">&quot;spec&quot;</span> <span class="attr">id</span>=<span class="string">&quot;paragraph&quot;</span>&gt;</span>我是段落<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>最终效果：</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211001202944.png"></p>
-<p>可以看到，每个选择器的样式都是一层一层刷上去的，但是如果每个选择器都在描述同一个属性呢，这需要后面的优先级，权重计算来衡量。</p>
-<h1 id="优先级"><a href="#优先级" class="headerlink" title="优先级"></a>优先级</h1><p>CSS的优先级可以分为文件的引入方式和选择器的优先级</p>
-<p>文件的引入方式，优先级又高到低：</p>
-<ul>
-<li>行内样式&gt;内嵌式&gt;链接式&gt;@import导入式</li>
-</ul>
-<p>选择器优先级：</p>
-<ul>
-<li>ID&gt;Classs&gt;属性选择器&gt;伪类选择器&gt;伪元素选择器&gt;标签选择器&gt;标签&gt;通配选择器</li>
-</ul>
-<h1 id="继承性"><a href="#继承性" class="headerlink" title="继承性"></a>继承性</h1><p>color、font-开头、list-开头、text-开头、line-开头都具有继承性，继承性是祖先元素设置后，后代元素生效</p>
-<h1 id="两个属性"><a href="#两个属性" class="headerlink" title="两个属性"></a>两个属性</h1><h2 id="important"><a href="#important" class="headerlink" title="!important"></a>!important</h2><p>!important是提升属性的权重，它影响的是该属性中的权重值，写在属性后面，该属性的权重为最大</p>
-<h2 id="z-index"><a href="#z-index" class="headerlink" title="z-index"></a>z-index</h2><p>z-index是影响层叠性，需要注意的是两个元素是<strong>需要设置定位属性</strong>才可以生效！</p>
-<h1 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h1><ul>
-<li>下面p段落的文字是什么颜色？</li>
-</ul>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">     <span class="selector-tag">p</span> &#123;</span></span><br><span class="line"><span class="css">       <span class="attribute">color</span>: aqua;</span></span><br><span class="line"><span class="css">     &#125;</span></span><br><span class="line"><span class="css">     <span class="selector-class">.box</span> <span class="selector-class">.box1</span> &#123;</span></span><br><span class="line"><span class="css">       <span class="attribute">color</span>: red;</span></span><br><span class="line"><span class="css">     &#125;</span></span><br><span class="line"><span class="css">     <span class="selector-id">#box2</span> &#123;</span></span><br><span class="line"><span class="css">       <span class="attribute">color</span>: blue;</span></span><br><span class="line"><span class="css">     &#125;</span></span><br><span class="line"><span class="css">   </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span>   </span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box1&quot;</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;box2&quot;</span> <span class="attr">style</span>=<span class="string">&quot;color: yellow&quot;</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">p</span>&gt;</span>我是段落<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>正确答案是：aqua颜色</p>
-<p>小结：</p>
-<ul>
-<li>首先color是继承属性，所以优先采用就近原则</li>
-<li>就近原则在于描述的是否接近，如果一样近，权重又是一样，就看书写的远近。</li>
-</ul>
-<hr>
-<ul>
-<li>下面代码中会出现什么颜色？</li>
-</ul>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">  <span class="selector-class">.box</span> &#123;</span></span><br><span class="line"><span class="css">    <span class="attribute">width</span>: <span class="number">120px</span>;</span></span><br><span class="line"><span class="css">    <span class="attribute">height</span>: <span class="number">120px</span>;</span></span><br><span class="line"><span class="css">    <span class="attribute">background-color</span>: blue;</span></span><br><span class="line"><span class="css">  &#125;</span></span><br><span class="line"><span class="css">  <span class="selector-class">.box1</span> &#123;</span></span><br><span class="line"><span class="css">    <span class="attribute">width</span>: <span class="number">120px</span>;</span></span><br><span class="line"><span class="css">    <span class="attribute">height</span>: <span class="number">120px</span>;</span></span><br><span class="line"><span class="css">    <span class="attribute">background-color</span>: red;</span></span><br><span class="line"><span class="css">  &#125;</span></span><br><span class="line"><span class="css">  <span class="selector-id">#box2</span> <span class="selector-tag">p</span>&#123;</span></span><br><span class="line"><span class="css">    <span class="attribute">width</span>: <span class="number">120px</span>;</span></span><br><span class="line"><span class="css">    <span class="attribute">height</span>: <span class="number">120px</span>;</span></span><br><span class="line"><span class="css">    <span class="attribute">background-color</span>: aqua;</span></span><br><span class="line"><span class="css">  &#125;</span></span><br><span class="line"><span class="css">  <span class="selector-class">.box3</span> &#123;</span></span><br><span class="line"><span class="css">    <span class="attribute">width</span>: <span class="number">120px</span>;</span></span><br><span class="line"><span class="css">    <span class="attribute">height</span>: <span class="number">120px</span>;</span></span><br><span class="line"><span class="css">    <span class="attribute">background-color</span>: yellow;</span></span><br><span class="line"><span class="css">  &#125;</span></span><br><span class="line"><span class="css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box1&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;box2&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box3&quot;</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">p</span>&gt;</span>我是段落<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>正确答案：aqua</p>
-<p>小结：</p>
-<ul>
-<li>background-color属性没有继承性，优先使用权重</li>
-</ul>
-<hr>
-<ul>
-<li>下面p段落的文字是什么颜色？</li>
-</ul>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">       <span class="selector-id">#box2</span> <span class="selector-class">.box3</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">color</span>: red;</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-id">#box4</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">color</span>: blue;</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box1&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;box2&quot;</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box3&quot;</span> <span class="attr">id</span>=<span class="string">&quot;box4&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">p</span>&gt;</span>我是段落<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>正确答案：red</p>
-<p>小结：</p>
-<ul>
-<li>color属性具有继承性，所以使用就近原则</li>
-<li>两个选择器一样远近，使用权重计算</li>
-</ul>
-]]></content>
-      <categories>
-        <category>CSS</category>
       </categories>
   </entry>
   <entry>
@@ -519,6 +528,26 @@
       </categories>
   </entry>
   <entry>
+    <title>CSS盒模型</title>
+    <url>/article/94a1bb4e.html</url>
+    <content><![CDATA[<p>本文介绍的是CSS的盒模型，CSS的盒模型分为W3C的标准模型和IE的怪异模型。</p>
+<p>W3C的盒模型：</p>
+<p>内容宽+左右内边距+左右边框 = 盒子<strong>实际</strong>宽度</p>
+<p>内容宽+左右内边距+左右边框+左右外边距= 盒子<strong>占用</strong>宽度</p>
+<p>高度同理，也就是设置的宽高就是内容可以使用的宽高，其他设置的值都是外扩的</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/2015-10-03-css-27.jpg"></p>
+<p>IE的怪异盒模型：</p>
+<p>IE盒模型虽然包含W3C的盒模型，但是它内容宽包含了内边距、边框和外边距，也就是说，设置的宽高不一定就是内容可以使用的宽高，它属于内缩的一种。</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/2015-10-03-css-30.jpg"></p>
+<p>当然我们可以通过以下属性灵活切换模型：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="attribute">box-sizing</span>: border-box;  // 设置为IE模型</span><br><span class="line"> 	<span class="attribute">box-sizing</span>: contetn-box; // 设置为标准模型</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>CSS</category>
+      </categories>
+  </entry>
+  <entry>
     <title>CSS浮动布局和定位</title>
     <url>/article/29b6ab94.html</url>
     <content><![CDATA[<p>本文章主要介绍CSS的浮动布局和定位属性相关。</p>
@@ -547,8 +576,7 @@
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line">  <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">    <span class="selector-tag">header</span> &#123;</span></span><br><span class="line"><span class="css">      <span class="attribute">width</span>: <span class="number">1000px</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">height</span>: <span class="number">50px</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">margin</span>: <span class="number">0</span> auto;</span></span><br><span class="line"><span class="css">      <span class="attribute">background-color</span>: black;</span></span><br><span class="line"><span class="css">    &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.logo</span> &#123;</span></span><br><span class="line"><span class="css">      <span class="attribute">width</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">height</span>: <span class="number">50px</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">float</span>: left;</span></span><br><span class="line"><span class="css">      <span class="attribute">background-color</span>: palegreen;</span></span><br><span class="line"><span class="css">    &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.denglu</span> &#123;</span></span><br><span class="line"><span class="css">      <span class="attribute">width</span>: <span class="number">100px</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">height</span>: <span class="number">30px</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">float</span>: right;</span></span><br><span class="line"><span class="css">      <span class="attribute">background-color</span>: blueviolet;</span></span><br><span class="line"><span class="css">    &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.miaosu</span> &#123;</span></span><br><span class="line"><span class="css">      <span class="attribute">width</span>: <span class="number">701px</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">height</span>: <span class="number">20px</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">background-color</span>: burlywood;</span></span><br><span class="line"><span class="css">      <span class="attribute">float</span>: right;</span></span><br><span class="line"><span class="css">    &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">main</span> &#123;</span></span><br><span class="line"><span class="css">      <span class="attribute">width</span>: <span class="number">1000px</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">height</span>: <span class="number">500px</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">margin</span>: <span class="number">20px</span> auto;</span></span><br><span class="line"><span class="css">      <span class="attribute">background-color</span>: black;</span></span><br><span class="line"><span class="css">    &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.conten</span> &#123;</span></span><br><span class="line"><span class="css">      <span class="attribute">width</span>: <span class="number">700px</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">height</span>: <span class="number">500px</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">float</span>: left;</span></span><br><span class="line"><span class="css">      <span class="attribute">background-color</span>: blue;</span></span><br><span class="line"><span class="css">    &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">aside</span> &#123;</span></span><br><span class="line"><span class="css">      <span class="attribute">width</span>: <span class="number">250px</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">height</span>: <span class="number">500px</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">float</span>: right;</span></span><br><span class="line"><span class="css">      <span class="attribute">background-color</span>: red;</span></span><br><span class="line"><span class="css">    &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">footer</span> &#123;</span></span><br><span class="line"><span class="css">      <span class="attribute">width</span>: <span class="number">1000px</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">height</span>: <span class="number">50px</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">margin</span>: <span class="number">0</span> auto;</span></span><br><span class="line"><span class="css">      <span class="attribute">background-color</span>: black;</span></span><br><span class="line"><span class="css">    &#125;</span></span><br><span class="line"><span class="css">  </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">header</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;logo&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;denglu&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;miaosu&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">header</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">main</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;conten&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">aside</span>&gt;</span><span class="tag">&lt;/<span class="name">aside</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">main</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">footer</span>&gt;</span><span class="tag">&lt;/<span class="name">footer</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211006210028.png"></p>
-<p><strong>清除浮动影响</strong>：</p>
-<ul>
+<h1 id="清除浮动影响："><a href="#清除浮动影响：" class="headerlink" title="清除浮动影响："></a>清除浮动影响：</h1><ul>
 <li><p>overflow: hidden（不推荐）</p>
 <p>示例：</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line">   <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">  * &#123;</span></span><br><span class="line"><span class="css">    <span class="attribute">padding</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">    <span class="attribute">margin</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">  &#125;</span></span><br><span class="line"><span class="css">  <span class="selector-class">.box</span> &#123;</span></span><br><span class="line"><span class="css">    <span class="attribute">overflow</span>: hidden;</span></span><br><span class="line"><span class="css">  &#125;</span></span><br><span class="line"><span class="css">  <span class="selector-class">.box1</span> &#123;</span></span><br><span class="line"><span class="css">    <span class="attribute">height</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">    <span class="attribute">width</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">    <span class="attribute">background-color</span>: aqua;</span></span><br><span class="line"><span class="css">    <span class="attribute">float</span>: left;</span></span><br><span class="line"><span class="css">    <span class="attribute">margin-bottom</span>: <span class="number">10px</span>;</span></span><br><span class="line"><span class="css">  &#125;</span></span><br><span class="line"><span class="css">  <span class="selector-class">.box2</span> &#123;</span></span><br><span class="line"><span class="css">    <span class="attribute">height</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">    <span class="attribute">width</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">    <span class="attribute">background-color</span>: red;</span></span><br><span class="line"><span class="css">    <span class="attribute">float</span>: left;</span></span><br><span class="line"><span class="css">  &#125;</span></span><br><span class="line"><span class="css">  <span class="selector-class">.box3</span> &#123;</span></span><br><span class="line"><span class="css">    <span class="attribute">height</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">    <span class="attribute">width</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">    <span class="attribute">background-color</span>: blue;</span></span><br><span class="line"><span class="css">    <span class="attribute">margin-top</span>: <span class="number">20px</span>;</span></span><br><span class="line"><span class="css">  &#125;</span></span><br><span class="line"><span class="css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box1&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box2&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box3&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
@@ -586,32 +614,13 @@
 <p>示例：</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line">  <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">    * &#123;</span></span><br><span class="line"><span class="css">      <span class="attribute">padding</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">margin</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">    &#125;</span></span><br><span class="line"><span class="css"></span></span><br><span class="line"><span class="css">    <span class="selector-class">.box2</span> &#123;</span></span><br><span class="line"><span class="css">      <span class="attribute">width</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">height</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">float</span>: left;</span></span><br><span class="line"><span class="css">      <span class="attribute">background-color</span>: aqua;</span></span><br><span class="line"><span class="css">    &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.test</span> &#123;</span></span><br><span class="line"><span class="css">      <span class="attribute">height</span>: <span class="number">20px</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">clear</span>: both;</span></span><br><span class="line"><span class="css">    &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.box3</span> &#123;</span></span><br><span class="line"><span class="css">      <span class="attribute">width</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">height</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">background-color</span>: blue;</span></span><br><span class="line"><span class="css">    &#125;</span></span><br><span class="line"><span class="css">  </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box2&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;test&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box3&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h1 id="定位"><a href="#定位" class="headerlink" title="定位"></a>定位</h1><h2 id="相对定位（relative）"><a href="#相对定位（relative）" class="headerlink" title="相对定位（relative）"></a>相对定位（relative）</h2><p>相对自身进行定位，不脱离文档流，适合在微调的场景</p>
+<h1 id="定位"><a href="#定位" class="headerlink" title="定位"></a>定位</h1><h2 id="相对定位（relative）"><a href="#相对定位（relative）" class="headerlink" title="相对定位（relative）"></a>相对定位（relative）</h2><p>相对自身进行定位，会在原来位置占位，适合在微调的场景，不脱离文档流</p>
 <h2 id="绝对定位（absolute）"><a href="#绝对定位（absolute）" class="headerlink" title="绝对定位（absolute）"></a>绝对定位（absolute）</h2><p>相对于前一个定位元素进行定位，如果没有，则相对于body进行定位，脱离文档流，对其他元素不会产生干扰，而是进行压盖</p>
 <p><strong>横向垂直居中</strong>：</p>
 <figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.box</span>&#123; </span><br><span class="line">   	    <span class="attribute">position</span>: absolute;</span><br><span class="line">        <span class="attribute">top</span>: <span class="number">50%</span>;</span><br><span class="line">        <span class="attribute">left</span>: <span class="number">50%</span>;</span><br><span class="line">        <span class="attribute">margin-top</span>: 负自己高度一半;</span><br><span class="line">        <span class="attribute">margin-left</span>: 负自己宽度一半;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="固定定位（fixed）"><a href="#固定定位（fixed）" class="headerlink" title="固定定位（fixed）"></a>固定定位（fixed）</h2><p>不管页面如何卷动，永远固定在一个位置，相对于视口位置，脱离文档流</p>
-]]></content>
-      <categories>
-        <category>CSS</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>CSS盒模型</title>
-    <url>/article/94a1bb4e.html</url>
-    <content><![CDATA[<p>本文介绍的是CSS的盒模型，CSS的盒模型分为W3C的标准模型和IE的怪异模型。</p>
-<p>W3C的盒模型：</p>
-<p>内容宽+左右内边距+左右边框 = 盒子<strong>实际</strong>宽度</p>
-<p>内容宽+左右内边距+左右边框+左右外边距= 盒子<strong>占用</strong>宽度</p>
-<p>高度同理，也就是设置的宽高就是内容可以使用的宽高，其他设置的值都是外扩的</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/2015-10-03-css-27.jpg"></p>
-<p>IE的怪异盒模型：</p>
-<p>IE盒模型虽然包含W3C的盒模型，但是它内容宽包含了内边距、边框和外边距，也就是说，设置的宽高不一定就是内容可以使用的宽高，它属于内缩的一种。</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/2015-10-03-css-30.jpg"></p>
-<p>当然我们可以通过以下属性灵活切换模型：</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="attribute">box-sizing</span>: border-box;  // 设置为IE模型</span><br><span class="line"> 	<span class="attribute">box-sizing</span>: contetn-box; // 设置为标准模型</span><br></pre></td></tr></table></figure>
-
+<h2 id="粘性定位（sticky）"><a href="#粘性定位（sticky）" class="headerlink" title="粘性定位（sticky）"></a>粘性定位（sticky）</h2><p>可以理解为相对定位和固定定位的结合，位置相对原来位置偏移，浏览器滚动不随着滚动，脱离文档流</p>
 ]]></content>
       <categories>
         <category>CSS</category>
@@ -1369,18 +1378,6 @@
       </tags>
   </entry>
   <entry>
-    <title>小破站正式上线</title>
-    <url>/article/36e749dc.html</url>
-    <content><![CDATA[<p>断断续续半年时间，使用<code>Hexo</code>已有很长一段时间，经历了不断的优化踩坑，最开始使用<code>NexT</code>做为博客主题，到后来使用了Butterfly主题，到对主题的一系列魔改，最终还是回归到<code>NexT</code>作为博客的主题。</p>
-<p><code>NexT</code>主题相对来说较为简洁，使用Butterfly主题确实对博客有很大的美化程度，但不简约，最主要是在浏览器渲染上面，由于集成大量插件和动画特效，使得浏览时不是特别顺畅。</p>
-<p>最终本博客去繁化简，只留下实用功能，对博客轻美化，让网站即顺畅又优美。</p>
-<p>目前使用<code>GithubPages</code>加<code>GiteePages</code>双代码平台推送，测试下来，电信网络访问<code>githubPages</code>很大概率屏蔽，<code>GiteePages</code>需要手动更新，较为麻烦，<code>CDN</code>加速效果不明显，CI平台需要收取一定费用，介于目前情况，只能暂时如此，未来计划使用服务器搭建自己的CI平台进行自动化部署</p>
-]]></content>
-      <categories>
-        <category>Hexo框架</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Hexo图床的解决方案</title>
     <url>/article/4c6068df.html</url>
     <content><![CDATA[<p>网站链接嵌套得越深，越不利于SEO优化，Hexo默认链接是年月日标题，如果标题是中文，那么链接就会变成乱码，这很不利于搜索引擎的搜索，为了达到目的，我们会使用<code>hexo-abbrlink</code>插件来解决问题，但是我们需要上传图片，图片要么需要图床，不然你就只能附带博客里面，以下分析个人在遇到这个问题的取舍与想法，愿与诸君分享。</p>
@@ -1429,6 +1426,56 @@
       <categories>
         <category>Hexo框架</category>
       </categories>
+  </entry>
+  <entry>
+    <title>小破站正式上线</title>
+    <url>/article/36e749dc.html</url>
+    <content><![CDATA[<p>断断续续半年时间，使用<code>Hexo</code>已有很长一段时间，经历了不断的优化踩坑，最开始使用<code>NexT</code>做为博客主题，到后来使用了Butterfly主题，到对主题的一系列魔改，最终还是回归到<code>NexT</code>作为博客的主题。</p>
+<p><code>NexT</code>主题相对来说较为简洁，使用Butterfly主题确实对博客有很大的美化程度，但不简约，最主要是在浏览器渲染上面，由于集成大量插件和动画特效，使得浏览时不是特别顺畅。</p>
+<p>最终本博客去繁化简，只留下实用功能，对博客轻美化，让网站即顺畅又优美。</p>
+<p>目前使用<code>GithubPages</code>加<code>GiteePages</code>双代码平台推送，测试下来，电信网络访问<code>githubPages</code>很大概率屏蔽，<code>GiteePages</code>需要手动更新，较为麻烦，<code>CDN</code>加速效果不明显，CI平台需要收取一定费用，介于目前情况，只能暂时如此，未来计划使用服务器搭建自己的CI平台进行自动化部署</p>
+]]></content>
+      <categories>
+        <category>Hexo框架</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>布局问题</title>
+    <url>/article/9a7d9672.html</url>
+    <content><![CDATA[<p>在开发网页布局的时候，遇到浏览器正常窗口，正常显示，但是浏览器缩小，页面混乱问题，特此记录一下。</p>
+<h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>这是正常情况：</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211023105243.png"></p>
+<p>这是缩小情况，非常丑陋：</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211023105341.png"></p>
+<h1 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h1><p>通过审核元素可以看到，父盒子没有宽度，是由子盒子撑开，但是背景颜色是在父盒子，给父盒子设置宽度即可解决，但是背景颜色是铺满的，所以就需要使用min-width属性。</p>
+<p><img src="C:\Users\CXZ\AppData\Roaming\Typora\typora-user-images\image-20211023110010817.png" alt="image-20211023110010817"></p>
+<p>第二个问题，就是轮播的问题，这里依然使用min-width属性给父盒子设置宽度即可解决。</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211023110527.png"></p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>设置width100%是有问题的，当浏览器缩小，那么会认为浏览器就是这么小，宽度就占满，那么再去拖动滚动条，后面的内容也就看不到了</p>
+]]></content>
+      <categories>
+        <category>开发问题</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>文章锚点失效问题</title>
+    <url>/article/26e0b522.html</url>
+    <content><![CDATA[<p>在测试博客中发现文章锚点失效问题，特此记录一下。</p>
+<p>在 <code>Hexo</code> 更新至 5.x 版本，Next 更新至 7.x 版本后，会出现文章的中文目录点击跳转失效的 bug，本博客正式遇到此问题。</p>
+<p>在控制台打印如下错误：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">utils.js:<span class="number">240</span> Uncaught <span class="built_in">TypeError</span>: Cannot read properties <span class="keyword">of</span> <span class="literal">null</span> (reading <span class="string">&#x27;getBoundingClientRect&#x27;</span>)</span><br><span class="line">    at HTMLAnchorElement.&lt;anonymous&gt; (utils.js:<span class="number">240</span>)</span><br></pre></td></tr></table></figure>
+
+<p>翻看官方Issues得到解决方案：</p>
+<p>链接：<a href="https://github.com/theme-next/hexo-theme-next/pull/1540/files">https://github.com/theme-next/hexo-theme-next/pull/1540/files</a></p>
+<p>删除两行代码，增加两行代码：</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20210927205653.png"></p>
+]]></content>
+      <categories>
+        <category>Hexo框架</category>
+      </categories>
+      <tags>
+        <tag>Bug</tag>
+      </tags>
   </entry>
   <entry>
     <title>常用文本样式属性</title>
@@ -1547,26 +1594,6 @@
       <categories>
         <category>CSS</category>
       </categories>
-  </entry>
-  <entry>
-    <title>文章锚点失效问题</title>
-    <url>/article/26e0b522.html</url>
-    <content><![CDATA[<p>在测试博客中发现文章锚点失效问题，特此记录一下。</p>
-<p>在 <code>Hexo</code> 更新至 5.x 版本，Next 更新至 7.x 版本后，会出现文章的中文目录点击跳转失效的 bug，本博客正式遇到此问题。</p>
-<p>在控制台打印如下错误：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">utils.js:<span class="number">240</span> Uncaught <span class="built_in">TypeError</span>: Cannot read properties <span class="keyword">of</span> <span class="literal">null</span> (reading <span class="string">&#x27;getBoundingClientRect&#x27;</span>)</span><br><span class="line">    at HTMLAnchorElement.&lt;anonymous&gt; (utils.js:<span class="number">240</span>)</span><br></pre></td></tr></table></figure>
-
-<p>翻看官方Issues得到解决方案：</p>
-<p>链接：<a href="https://github.com/theme-next/hexo-theme-next/pull/1540/files">https://github.com/theme-next/hexo-theme-next/pull/1540/files</a></p>
-<p>删除两行代码，增加两行代码：</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20210927205653.png"></p>
-]]></content>
-      <categories>
-        <category>Hexo框架</category>
-      </categories>
-      <tags>
-        <tag>Bug</tag>
-      </tags>
   </entry>
   <entry>
     <title>无题</title>
