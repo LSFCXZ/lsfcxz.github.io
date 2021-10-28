@@ -380,37 +380,6 @@
       </categories>
   </entry>
   <entry>
-    <title>CSS3的变形属性</title>
-    <url>/article/a8e47f07.html</url>
-    <content><![CDATA[<p>本文主要介绍CSS3中的变形属性。</p>
-<p>CSS3中主要使用<code>tranform</code>属性来进行盒子的变形，变形主要分为2D和3D两大变形</p>
-<h1 id="2D变形"><a href="#2D变形" class="headerlink" title="2D变形"></a>2D变形</h1><h2 id="旋转变形"><a href="#旋转变形" class="headerlink" title="旋转变形"></a>旋转变形</h2><p>将<code>tranform</code>属性的属性值设置为rotate(),即可实现旋转变形，单位deg表示为度数，正数表示顺时针方向，负数反之。</p>
-<p>示例：<code>tranform:rotate(45deg)</code>,表示顺时针旋转45度</p>
-<p>默认旋转是绕着中心点位置旋转，如果绕着的点不是中心位置，那么就使用<code>tranform-origin</code>属性。</p>
-<p>示例：<code>tranform-origin:0 0</code>，表示绕着左上角旋转</p>
-<h2 id="缩放变形"><a href="#缩放变形" class="headerlink" title="缩放变形"></a>缩放变形</h2><p>将<code>tranform</code>属性的属性值设置为scale(),即可实现缩放变形，括号里面是缩放倍数。</p>
-<p>示例：<code>tranform:scale(3)</code>,表示放大3倍</p>
-<p>也可以 <code>transform-origin</code>属性表示从哪个点开始放大，默认中心点</p>
-<h2 id="斜切变形"><a href="#斜切变形" class="headerlink" title="斜切变形"></a>斜切变形</h2><p>将<code>tranform</code>属性的属性值设置为skew(),即可实现斜切变形，括号里面是两个数值，一个x斜切度，一个y斜切度,单位deg</p>
-<p>示例：<code>tranform:skew(10deg,20deg)</code>,</p>
-<h2 id="位移变形"><a href="#位移变形" class="headerlink" title="位移变形"></a>位移变形</h2><p>将<code>tranform</code>属性的属性值设置为translate(),即可实现位移变形，括号里面是两个数值，向右，向下两个方向,单位px。</p>
-<p>和相对定位差不多，不会放弃自己原来的位置，兼容到IE9</p>
-<p>示例:<code>transform:translate(100px,200px)</code></p>
-<h1 id="3D变形"><a href="#3D变形" class="headerlink" title="3D变形"></a>3D变形</h1><h2 id="3D旋转"><a href="#3D旋转" class="headerlink" title="3D旋转"></a>3D旋转</h2><p>将<code>transform</code>属性的属性值设置为<code>rotateX()</code>或者<code>rotateY()</code>,即可实现3D旋转。</p>
-<p><code>rotateX()</code>是绕横轴旋转，<code>rotateY()</code>是绕纵轴旋转，括号里面是度数,单位deg。</p>
-<p>perspective属性用来定义透视强度，可以理解为人眼到舞台的距离，单位是px，直白点说，设置3D旋转的父盒子必须设置perspective属性。</p>
-<p>3D旋转可以X，Y同时旋转，示例:<code>transform: rotateY(45deg) rotateX(45deg);</code></p>
-<h2 id="空间移动"><a href="#空间移动" class="headerlink" title="空间移动"></a>空间移动</h2><p>将<code>transform</code>属性的属性值设置为<code>rotateX()</code>或者<code>rotateY()</code>后成为3D旋转后可继续添加translateX、translateY或者translateZ实现空间移动，换句话说，想实现空间移动，必须3旋转后才可以，空间移动单位为px。</p>
-<p>示例：<code>transform: rotateY(128deg) rotateX(52deg) translateY(50px) translateZ(50px);</code></p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>代码示例：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;X-UA-Compatible&quot;</span> <span class="attr">content</span>=<span class="string">&quot;IE=edge&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">      * &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">padding</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">margin</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.box</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">width</span>: <span class="number">100px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">height</span>: <span class="number">100px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">background-color</span>: aqua;</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="comment">/* 透视强度 */</span></span></span><br><span class="line"><span class="css">      <span class="selector-class">.per</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">width</span>: <span class="number">100px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">height</span>: <span class="number">100px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">perspective</span>: <span class="number">179px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">margin</span>: <span class="number">10px</span> auto;</span></span><br><span class="line"><span class="css">        <span class="attribute">border</span>: <span class="number">1px</span> solid black;</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="comment">/* 旋转 */</span></span></span><br><span class="line"><span class="css">      <span class="selector-class">.box1</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">margin</span>: <span class="number">10px</span> auto;</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.box1</span><span class="selector-pseudo">:hover</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">transform</span>: <span class="built_in">rotate</span>(<span class="number">45deg</span>);</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="comment">/* 缩放 */</span></span></span><br><span class="line"><span class="css">      <span class="selector-class">.box2</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">margin</span>: <span class="number">10px</span> auto;</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.box2</span><span class="selector-pseudo">:hover</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">transform</span>: <span class="built_in">scale</span>(<span class="number">2</span>);</span></span><br><span class="line"><span class="css">        <span class="comment">/* 中心点 */</span></span></span><br><span class="line"><span class="css">        <span class="comment">/* transform-origin: 0 0; */</span></span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="comment">/* 斜切 */</span></span></span><br><span class="line"><span class="css">      <span class="selector-class">.box3</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">margin</span>: <span class="number">10px</span> auto;</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.box3</span><span class="selector-pseudo">:hover</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">transform</span>: <span class="built_in">skew</span>(<span class="number">10deg</span>, <span class="number">20deg</span>);</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="comment">/* 位移 */</span></span></span><br><span class="line"><span class="css">      <span class="selector-class">.box4</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">margin</span>: <span class="number">10px</span> auto;</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.box4</span><span class="selector-pseudo">:hover</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">transform</span>: <span class="built_in">translate</span>(<span class="number">100px</span>, <span class="number">200px</span>);</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="comment">/* 3D旋转 */</span></span></span><br><span class="line"><span class="css">      <span class="selector-class">.box5</span><span class="selector-pseudo">:hover</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">transform</span>: <span class="built_in">rotateY</span>(<span class="number">45deg</span>) <span class="built_in">rotateX</span>(<span class="number">45deg</span>);</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="comment">/* 空间移动 */</span></span></span><br><span class="line"><span class="css">      <span class="selector-class">.box6</span><span class="selector-pseudo">:hover</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">transform</span>: <span class="built_in">rotateY</span>(<span class="number">128deg</span>) <span class="built_in">rotateX</span>(<span class="number">52deg</span>) <span class="built_in">translateY</span>(<span class="number">50px</span>)</span></span><br><span class="line"><span class="css">          <span class="built_in">translateZ</span>(<span class="number">50px</span>);</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box1 box&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box2 box&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box3 box&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box4 box&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;per&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box5 box&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;per&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box6 box&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>CSS</category>
-      </categories>
-  </entry>
-  <entry>
     <title>CSS3的过渡与动画</title>
     <url>/article/c2010641.html</url>
     <content><![CDATA[<p>本文主要介绍CSS3里面的过渡与动画属性。</p>
@@ -489,6 +458,37 @@
       <tags>
         <tag>过渡与动画</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>CSS3的变形属性</title>
+    <url>/article/a8e47f07.html</url>
+    <content><![CDATA[<p>本文主要介绍CSS3中的变形属性。</p>
+<p>CSS3中主要使用<code>tranform</code>属性来进行盒子的变形，变形主要分为2D和3D两大变形</p>
+<h1 id="2D变形"><a href="#2D变形" class="headerlink" title="2D变形"></a>2D变形</h1><h2 id="旋转变形"><a href="#旋转变形" class="headerlink" title="旋转变形"></a>旋转变形</h2><p>将<code>tranform</code>属性的属性值设置为rotate(),即可实现旋转变形，单位deg表示为度数，正数表示顺时针方向，负数反之。</p>
+<p>示例：<code>tranform:rotate(45deg)</code>,表示顺时针旋转45度</p>
+<p>默认旋转是绕着中心点位置旋转，如果绕着的点不是中心位置，那么就使用<code>tranform-origin</code>属性。</p>
+<p>示例：<code>tranform-origin:0 0</code>，表示绕着左上角旋转</p>
+<h2 id="缩放变形"><a href="#缩放变形" class="headerlink" title="缩放变形"></a>缩放变形</h2><p>将<code>tranform</code>属性的属性值设置为scale(),即可实现缩放变形，括号里面是缩放倍数。</p>
+<p>示例：<code>tranform:scale(3)</code>,表示放大3倍</p>
+<p>也可以 <code>transform-origin</code>属性表示从哪个点开始放大，默认中心点</p>
+<h2 id="斜切变形"><a href="#斜切变形" class="headerlink" title="斜切变形"></a>斜切变形</h2><p>将<code>tranform</code>属性的属性值设置为skew(),即可实现斜切变形，括号里面是两个数值，一个x斜切度，一个y斜切度,单位deg</p>
+<p>示例：<code>tranform:skew(10deg,20deg)</code>,</p>
+<h2 id="位移变形"><a href="#位移变形" class="headerlink" title="位移变形"></a>位移变形</h2><p>将<code>tranform</code>属性的属性值设置为translate(),即可实现位移变形，括号里面是两个数值，向右，向下两个方向,单位px。</p>
+<p>和相对定位差不多，不会放弃自己原来的位置，兼容到IE9</p>
+<p>示例:<code>transform:translate(100px,200px)</code></p>
+<h1 id="3D变形"><a href="#3D变形" class="headerlink" title="3D变形"></a>3D变形</h1><h2 id="3D旋转"><a href="#3D旋转" class="headerlink" title="3D旋转"></a>3D旋转</h2><p>将<code>transform</code>属性的属性值设置为<code>rotateX()</code>或者<code>rotateY()</code>,即可实现3D旋转。</p>
+<p><code>rotateX()</code>是绕横轴旋转，<code>rotateY()</code>是绕纵轴旋转，括号里面是度数,单位deg。</p>
+<p>perspective属性用来定义透视强度，可以理解为人眼到舞台的距离，单位是px，直白点说，设置3D旋转的父盒子必须设置perspective属性。</p>
+<p>3D旋转可以X，Y同时旋转，示例:<code>transform: rotateY(45deg) rotateX(45deg);</code></p>
+<h2 id="空间移动"><a href="#空间移动" class="headerlink" title="空间移动"></a>空间移动</h2><p>将<code>transform</code>属性的属性值设置为<code>rotateX()</code>或者<code>rotateY()</code>后成为3D旋转后可继续添加translateX、translateY或者translateZ实现空间移动，换句话说，想实现空间移动，必须3旋转后才可以，空间移动单位为px。</p>
+<p>示例：<code>transform: rotateY(128deg) rotateX(52deg) translateY(50px) translateZ(50px);</code></p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>代码示例：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;X-UA-Compatible&quot;</span> <span class="attr">content</span>=<span class="string">&quot;IE=edge&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">      * &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">padding</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">margin</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.box</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">width</span>: <span class="number">100px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">height</span>: <span class="number">100px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">background-color</span>: aqua;</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="comment">/* 透视强度 */</span></span></span><br><span class="line"><span class="css">      <span class="selector-class">.per</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">width</span>: <span class="number">100px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">height</span>: <span class="number">100px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">perspective</span>: <span class="number">179px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">margin</span>: <span class="number">10px</span> auto;</span></span><br><span class="line"><span class="css">        <span class="attribute">border</span>: <span class="number">1px</span> solid black;</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="comment">/* 旋转 */</span></span></span><br><span class="line"><span class="css">      <span class="selector-class">.box1</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">margin</span>: <span class="number">10px</span> auto;</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.box1</span><span class="selector-pseudo">:hover</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">transform</span>: <span class="built_in">rotate</span>(<span class="number">45deg</span>);</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="comment">/* 缩放 */</span></span></span><br><span class="line"><span class="css">      <span class="selector-class">.box2</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">margin</span>: <span class="number">10px</span> auto;</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.box2</span><span class="selector-pseudo">:hover</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">transform</span>: <span class="built_in">scale</span>(<span class="number">2</span>);</span></span><br><span class="line"><span class="css">        <span class="comment">/* 中心点 */</span></span></span><br><span class="line"><span class="css">        <span class="comment">/* transform-origin: 0 0; */</span></span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="comment">/* 斜切 */</span></span></span><br><span class="line"><span class="css">      <span class="selector-class">.box3</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">margin</span>: <span class="number">10px</span> auto;</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.box3</span><span class="selector-pseudo">:hover</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">transform</span>: <span class="built_in">skew</span>(<span class="number">10deg</span>, <span class="number">20deg</span>);</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="comment">/* 位移 */</span></span></span><br><span class="line"><span class="css">      <span class="selector-class">.box4</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">margin</span>: <span class="number">10px</span> auto;</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.box4</span><span class="selector-pseudo">:hover</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">transform</span>: <span class="built_in">translate</span>(<span class="number">100px</span>, <span class="number">200px</span>);</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="comment">/* 3D旋转 */</span></span></span><br><span class="line"><span class="css">      <span class="selector-class">.box5</span><span class="selector-pseudo">:hover</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">transform</span>: <span class="built_in">rotateY</span>(<span class="number">45deg</span>) <span class="built_in">rotateX</span>(<span class="number">45deg</span>);</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="comment">/* 空间移动 */</span></span></span><br><span class="line"><span class="css">      <span class="selector-class">.box6</span><span class="selector-pseudo">:hover</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">transform</span>: <span class="built_in">rotateY</span>(<span class="number">128deg</span>) <span class="built_in">rotateX</span>(<span class="number">52deg</span>) <span class="built_in">translateY</span>(<span class="number">50px</span>)</span></span><br><span class="line"><span class="css">          <span class="built_in">translateZ</span>(<span class="number">50px</span>);</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box1 box&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box2 box&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box3 box&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box4 box&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;per&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box5 box&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;per&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box6 box&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>CSS</category>
+      </categories>
   </entry>
   <entry>
     <title>CSS3选择器</title>
@@ -659,6 +659,43 @@
       </categories>
   </entry>
   <entry>
+    <title>CSS实现正方体</title>
+    <url>/article/6ad90280.html</url>
+    <content><![CDATA[<p>本文主要使用CSS实现一个正方体。</p>
+<p>直接看代码。</p>
+<iframe height="300" style="width: 100%;" scrolling="no" title="Untitled" src="https://codepen.io/lsfcxz/embed/ZEJKPjr?default-tab=html%2Cresult&editable=true&theme-id=light" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href="https://codepen.io/lsfcxz/pen/ZEJKPjr">
+  Untitled</a> by LSFCXZ (<a href="https://codepen.io/lsfcxz">@lsfcxz</a>)
+  on <a href="https://codepen.io">CodePen</a>.
+</iframe>
+
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;X-UA-Compatible&quot;</span> <span class="attr">content</span>=<span class="string">&quot;IE=edge&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>正方体<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">      * &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">padding</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">margin</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.box</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">width</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">height</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">margin</span>: <span class="number">100px</span> auto;</span></span><br><span class="line"><span class="css">        <span class="attribute">border</span>: <span class="number">1px</span> solid black;</span></span><br><span class="line"><span class="css">        <span class="attribute">perspective</span>: <span class="number">300px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">position</span>: relative;</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-tag">p</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">width</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">height</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">position</span>: absolute;</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.box</span> <span class="selector-tag">p</span><span class="selector-pseudo">:nth-child</span>(<span class="number">1</span>) &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">background-color</span>: <span class="built_in">rgba</span>(<span class="number">255</span>, <span class="number">0</span>, <span class="number">234</span>, <span class="number">0.295</span>);</span></span><br><span class="line"><span class="css">        <span class="comment">/* 前面 */</span></span></span><br><span class="line"><span class="css">        <span class="attribute">transform</span>: <span class="built_in">translateZ</span>(<span class="number">100px</span>);</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.box</span> <span class="selector-tag">p</span><span class="selector-pseudo">:nth-child</span>(<span class="number">2</span>) &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">background-color</span>: <span class="built_in">rgba</span>(<span class="number">255</span>, <span class="number">145</span>, <span class="number">0</span>, <span class="number">0.336</span>);</span></span><br><span class="line"><span class="css">        <span class="comment">/* 顶面 */</span></span></span><br><span class="line"><span class="css">        <span class="attribute">transform</span>: <span class="built_in">rotateX</span>(<span class="number">90deg</span>) <span class="built_in">translateZ</span>(<span class="number">100px</span>);</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.box</span> <span class="selector-tag">p</span><span class="selector-pseudo">:nth-child</span>(<span class="number">3</span>) &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">background-color</span>: <span class="built_in">rgba</span>(<span class="number">179</span>, <span class="number">255</span>, <span class="number">0</span>, <span class="number">0.384</span>);</span></span><br><span class="line"><span class="css">        <span class="comment">/* 背面 */</span></span></span><br><span class="line"><span class="css">        <span class="attribute">transform</span>: <span class="built_in">rotateX</span>(<span class="number">180deg</span>) <span class="built_in">translateZ</span>(<span class="number">100px</span>);</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css"></span></span><br><span class="line"><span class="css">      <span class="selector-class">.box</span> <span class="selector-tag">p</span><span class="selector-pseudo">:nth-child</span>(<span class="number">4</span>) &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">background-color</span>: <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">26</span>, <span class="number">255</span>, <span class="number">0.37</span>);</span></span><br><span class="line"><span class="css">        <span class="comment">/* 底面 */</span></span></span><br><span class="line"><span class="css">        <span class="attribute">transform</span>: <span class="built_in">rotateX</span>(-<span class="number">90deg</span>) <span class="built_in">translateZ</span>(<span class="number">100px</span>);</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.box</span> <span class="selector-tag">p</span><span class="selector-pseudo">:nth-child</span>(<span class="number">5</span>) &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">background-color</span>: <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">255</span>, <span class="number">128</span>, <span class="number">0.485</span>);</span></span><br><span class="line"><span class="css">        <span class="comment">/* 侧面 */</span></span></span><br><span class="line"><span class="css">        <span class="attribute">transform</span>: <span class="built_in">rotateY</span>(<span class="number">90deg</span>) <span class="built_in">translateZ</span>(<span class="number">100px</span>);</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.box</span> <span class="selector-tag">p</span><span class="selector-pseudo">:nth-child</span>(<span class="number">6</span>) &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">background-color</span>: <span class="built_in">rgba</span>(<span class="number">255</span>, <span class="number">0</span>, <span class="number">106</span>, <span class="number">0.39</span>);</span></span><br><span class="line"><span class="css">        <span class="comment">/* 侧面 */</span></span></span><br><span class="line"><span class="css">        <span class="attribute">transform</span>: <span class="built_in">rotateY</span>(-<span class="number">90deg</span>) <span class="built_in">translateZ</span>(<span class="number">100px</span>);</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>效果：</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211025193759.png"></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>CSS盒模型</title>
+    <url>/article/94a1bb4e.html</url>
+    <content><![CDATA[<p>本文介绍的是CSS的盒模型，CSS的盒模型分为W3C的标准模型和IE的怪异模型。</p>
+<p>W3C的盒模型：</p>
+<p>内容宽+左右内边距+左右边框 = 盒子<strong>实际</strong>宽度</p>
+<p>内容宽+左右内边距+左右边框+左右外边距= 盒子<strong>占用</strong>宽度</p>
+<p>高度同理，也就是设置的宽高就是内容可以使用的宽高，其他设置的值都是外扩的</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/2015-10-03-css-27.jpg"></p>
+<p>IE的怪异盒模型：</p>
+<p>IE盒模型虽然包含W3C的盒模型，但是它内容宽包含了内边距、边框和外边距，也就是说，设置的宽高不一定就是内容可以使用的宽高，它属于内缩的一种。</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/2015-10-03-css-30.jpg"></p>
+<p>当然我们可以通过以下属性灵活切换模型：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="attribute">box-sizing</span>: border-box;  // 设置为IE模型</span><br><span class="line"> 	<span class="attribute">box-sizing</span>: contetn-box; // 设置为标准模型</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>CSS</category>
+      </categories>
+  </entry>
+  <entry>
     <title>CSS圆角和边框、盒阴影</title>
     <url>/article/a00aca70.html</url>
     <content><![CDATA[<p>本文主要介绍CSS的边框属性，圆角和盒子阴影。</p>
@@ -718,43 +755,6 @@
 </ul>
 <p>盒子还可以设置内部阴影：inset</p>
 <p>也可以设置多个阴影重复，使用逗号隔开</p>
-]]></content>
-      <categories>
-        <category>CSS</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>CSS实现正方体</title>
-    <url>/article/6ad90280.html</url>
-    <content><![CDATA[<p>本文主要使用CSS实现一个正方体。</p>
-<p>直接看代码。</p>
-<iframe height="300" style="width: 100%;" scrolling="no" title="Untitled" src="https://codepen.io/lsfcxz/embed/ZEJKPjr?default-tab=html%2Cresult&editable=true&theme-id=light" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href="https://codepen.io/lsfcxz/pen/ZEJKPjr">
-  Untitled</a> by LSFCXZ (<a href="https://codepen.io/lsfcxz">@lsfcxz</a>)
-  on <a href="https://codepen.io">CodePen</a>.
-</iframe>
-
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;X-UA-Compatible&quot;</span> <span class="attr">content</span>=<span class="string">&quot;IE=edge&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>正方体<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">      * &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">padding</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">margin</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.box</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">width</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">height</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">margin</span>: <span class="number">100px</span> auto;</span></span><br><span class="line"><span class="css">        <span class="attribute">border</span>: <span class="number">1px</span> solid black;</span></span><br><span class="line"><span class="css">        <span class="attribute">perspective</span>: <span class="number">300px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">position</span>: relative;</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-tag">p</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">width</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">height</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">position</span>: absolute;</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.box</span> <span class="selector-tag">p</span><span class="selector-pseudo">:nth-child</span>(<span class="number">1</span>) &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">background-color</span>: <span class="built_in">rgba</span>(<span class="number">255</span>, <span class="number">0</span>, <span class="number">234</span>, <span class="number">0.295</span>);</span></span><br><span class="line"><span class="css">        <span class="comment">/* 前面 */</span></span></span><br><span class="line"><span class="css">        <span class="attribute">transform</span>: <span class="built_in">translateZ</span>(<span class="number">100px</span>);</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.box</span> <span class="selector-tag">p</span><span class="selector-pseudo">:nth-child</span>(<span class="number">2</span>) &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">background-color</span>: <span class="built_in">rgba</span>(<span class="number">255</span>, <span class="number">145</span>, <span class="number">0</span>, <span class="number">0.336</span>);</span></span><br><span class="line"><span class="css">        <span class="comment">/* 顶面 */</span></span></span><br><span class="line"><span class="css">        <span class="attribute">transform</span>: <span class="built_in">rotateX</span>(<span class="number">90deg</span>) <span class="built_in">translateZ</span>(<span class="number">100px</span>);</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.box</span> <span class="selector-tag">p</span><span class="selector-pseudo">:nth-child</span>(<span class="number">3</span>) &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">background-color</span>: <span class="built_in">rgba</span>(<span class="number">179</span>, <span class="number">255</span>, <span class="number">0</span>, <span class="number">0.384</span>);</span></span><br><span class="line"><span class="css">        <span class="comment">/* 背面 */</span></span></span><br><span class="line"><span class="css">        <span class="attribute">transform</span>: <span class="built_in">rotateX</span>(<span class="number">180deg</span>) <span class="built_in">translateZ</span>(<span class="number">100px</span>);</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css"></span></span><br><span class="line"><span class="css">      <span class="selector-class">.box</span> <span class="selector-tag">p</span><span class="selector-pseudo">:nth-child</span>(<span class="number">4</span>) &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">background-color</span>: <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">26</span>, <span class="number">255</span>, <span class="number">0.37</span>);</span></span><br><span class="line"><span class="css">        <span class="comment">/* 底面 */</span></span></span><br><span class="line"><span class="css">        <span class="attribute">transform</span>: <span class="built_in">rotateX</span>(-<span class="number">90deg</span>) <span class="built_in">translateZ</span>(<span class="number">100px</span>);</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.box</span> <span class="selector-tag">p</span><span class="selector-pseudo">:nth-child</span>(<span class="number">5</span>) &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">background-color</span>: <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">255</span>, <span class="number">128</span>, <span class="number">0.485</span>);</span></span><br><span class="line"><span class="css">        <span class="comment">/* 侧面 */</span></span></span><br><span class="line"><span class="css">        <span class="attribute">transform</span>: <span class="built_in">rotateY</span>(<span class="number">90deg</span>) <span class="built_in">translateZ</span>(<span class="number">100px</span>);</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.box</span> <span class="selector-tag">p</span><span class="selector-pseudo">:nth-child</span>(<span class="number">6</span>) &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">background-color</span>: <span class="built_in">rgba</span>(<span class="number">255</span>, <span class="number">0</span>, <span class="number">106</span>, <span class="number">0.39</span>);</span></span><br><span class="line"><span class="css">        <span class="comment">/* 侧面 */</span></span></span><br><span class="line"><span class="css">        <span class="attribute">transform</span>: <span class="built_in">rotateY</span>(-<span class="number">90deg</span>) <span class="built_in">translateZ</span>(<span class="number">100px</span>);</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>效果：</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211025193759.png"></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>CSS盒模型</title>
-    <url>/article/94a1bb4e.html</url>
-    <content><![CDATA[<p>本文介绍的是CSS的盒模型，CSS的盒模型分为W3C的标准模型和IE的怪异模型。</p>
-<p>W3C的盒模型：</p>
-<p>内容宽+左右内边距+左右边框 = 盒子<strong>实际</strong>宽度</p>
-<p>内容宽+左右内边距+左右边框+左右外边距= 盒子<strong>占用</strong>宽度</p>
-<p>高度同理，也就是设置的宽高就是内容可以使用的宽高，其他设置的值都是外扩的</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/2015-10-03-css-27.jpg"></p>
-<p>IE的怪异盒模型：</p>
-<p>IE盒模型虽然包含W3C的盒模型，但是它内容宽包含了内边距、边框和外边距，也就是说，设置的宽高不一定就是内容可以使用的宽高，它属于内缩的一种。</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/2015-10-03-css-30.jpg"></p>
-<p>当然我们可以通过以下属性灵活切换模型：</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="attribute">box-sizing</span>: border-box;  // 设置为IE模型</span><br><span class="line"> 	<span class="attribute">box-sizing</span>: contetn-box; // 设置为标准模型</span><br></pre></td></tr></table></figure>
-
 ]]></content>
       <categories>
         <category>CSS</category>
@@ -834,99 +834,6 @@
 
 <h2 id="固定定位（fixed）"><a href="#固定定位（fixed）" class="headerlink" title="固定定位（fixed）"></a>固定定位（fixed）</h2><p>不管页面如何卷动，永远固定在一个位置，相对于视口位置，脱离文档流</p>
 <h2 id="粘性定位（sticky）"><a href="#粘性定位（sticky）" class="headerlink" title="粘性定位（sticky）"></a>粘性定位（sticky）</h2><p>可以理解为相对定位和固定定位的结合，位置相对原来位置偏移，浏览器滚动不随着滚动，脱离文档流</p>
-]]></content>
-      <categories>
-        <category>CSS</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>CSS背景属性</title>
-    <url>/article/9f33a331.html</url>
-    <content><![CDATA[<p>本文章主要介绍CSS3的背景属性。</p>
-<h1 id="背景颜色-background-color"><a href="#背景颜色-background-color" class="headerlink" title="背景颜色(background-color)"></a>背景颜色(background-color)</h1><ul>
-<li>padding区域是有背景颜色</li>
-<li>支持英文、十六进制、rgb()、rgba()等表示法</li>
-</ul>
-<h1 id="背景图片（-background-image）"><a href="#背景图片（-background-image）" class="headerlink" title="背景图片（ background-image）"></a>背景图片（ background-image）</h1><ul>
-<li>背景图片默认纵轴横轴重复</li>
-</ul>
-<p><strong>重复模式</strong>：</p>
-<p>background-repeat属性可以改变背景图片的重复模式</p>
-<table>
-<thead>
-<tr>
-<th align="center">值</th>
-<th align="center">意义</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">repeat</td>
-<td align="center">x,y均平铺</td>
-</tr>
-<tr>
-<td align="center">repeat-x</td>
-<td align="center">x,重复</td>
-</tr>
-<tr>
-<td align="center">repeat-y</td>
-<td align="center">y重复</td>
-</tr>
-<tr>
-<td align="center">no-repeat</td>
-<td align="center">不重复</td>
-</tr>
-</tbody></table>
-<p><strong>背景图片尺寸</strong>：</p>
-<ul>
-<li>background-size用来设置图片的尺寸。</li>
-<li>contain表示图片尺寸以容纳到盒子里，完整显示，有白边</li>
-<li>cover表示将背景图片尺寸以撑满盒子，不完整显示</li>
-</ul>
-<p><strong>背景裁剪</strong>：</p>
-<p>background-clip用来设置裁剪，背景是会覆盖到盒子边框的，使用该属性可以控制盒子背景裁剪到哪个地方</p>
-<p><strong>背景定位</strong>：</p>
-<p>background-attachment用来设置背景的定位。</p>
-<table>
-<thead>
-<tr>
-<th align="center">值</th>
-<th align="center">意义</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">fixed</td>
-<td align="center">自己滚动条不动，外部滚动条不动</td>
-</tr>
-<tr>
-<td align="center">local</td>
-<td align="center">自己滚动条动，外部滚动条动</td>
-</tr>
-<tr>
-<td align="center">scroll</td>
-<td align="center">自己滚动条不动，外部滚动条动（默认）</td>
-</tr>
-</tbody></table>
-<p><strong>背景位置</strong>：</p>
-<p> background-position用来设置背景图片的起点位置。</p>
-<p>示例：</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="attribute">background-position</span>:<span class="number">100px</span> <span class="number">200px</span>;</span><br></pre></td></tr></table></figure>
-
-<p>设置盒子横轴100px，纵轴200px，还可以使用四个方向的英文进行表示，CSS精灵</p>
-<p><strong>线性渐变</strong>：</p>
-<p>它是ackground-image的属性值，线型的</p>
-<p>示例：</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="attribute">background-image</span>:<span class="built_in">linear-gradient</span>(to right, red,blue)</span><br></pre></td></tr></table></figure>
-
-<p>位置也可以是角度，单位deg，也可以使用百分号设置出现的位置</p>
-<p><strong>径向渐变</strong>：</p>
-<p>radial-gradient属性值</p>
-<p>background-image属性可以使用radial-gradient()创建渐性渐变</p>
-<p>示例</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="attribute">background-image</span>:<span class="built_in">radial-gradient</span>(<span class="number">50%</span> <span class="number">50%</span>,blue,red)</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>50% 50%表示圆心坐标，blue表示内部颜色，red表示外部颜</li>
-</ul>
 ]]></content>
       <categories>
         <category>CSS</category>
@@ -1037,138 +944,279 @@
       </tags>
   </entry>
   <entry>
-    <title>HTML5文档</title>
-    <url>/article/a73ea136.html</url>
-    <content><![CDATA[<p>HTML5是HTML最新的修订版本，2014年10月由万维网联盟（W3C）完成标准制定。本文主要为HTML5的标签以及语义化说明，使用标签+示例+解释的形式。作为平常可以快速浏览的文章。</p>
-<h1 id="HTML5骨架"><a href="#HTML5骨架" class="headerlink" title="HTML5骨架"></a>HTML5骨架</h1><p>示例：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;X-UA-Compatible&quot;</span> <span class="attr">content</span>=<span class="string">&quot;IE=edge&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+    <title>CSS背景属性</title>
+    <url>/article/9f33a331.html</url>
+    <content><![CDATA[<p>本文章主要介绍CSS3的背景属性。</p>
+<h1 id="背景颜色-background-color"><a href="#背景颜色-background-color" class="headerlink" title="背景颜色(background-color)"></a>背景颜色(background-color)</h1><ul>
+<li>padding区域是有背景颜色</li>
+<li>支持英文、十六进制、rgb()、rgba()等表示法</li>
+</ul>
+<h1 id="背景图片（-background-image）"><a href="#背景图片（-background-image）" class="headerlink" title="背景图片（ background-image）"></a>背景图片（ background-image）</h1><ul>
+<li>背景图片默认纵轴横轴重复</li>
+</ul>
+<p><strong>重复模式</strong>：</p>
+<p>background-repeat属性可以改变背景图片的重复模式</p>
+<table>
+<thead>
+<tr>
+<th align="center">值</th>
+<th align="center">意义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">repeat</td>
+<td align="center">x,y均平铺</td>
+</tr>
+<tr>
+<td align="center">repeat-x</td>
+<td align="center">x,重复</td>
+</tr>
+<tr>
+<td align="center">repeat-y</td>
+<td align="center">y重复</td>
+</tr>
+<tr>
+<td align="center">no-repeat</td>
+<td align="center">不重复</td>
+</tr>
+</tbody></table>
+<p><strong>背景图片尺寸</strong>：</p>
+<ul>
+<li>background-size用来设置图片的尺寸。</li>
+<li>contain表示图片尺寸以容纳到盒子里，完整显示，有白边</li>
+<li>cover表示将背景图片尺寸以撑满盒子，不完整显示</li>
+</ul>
+<p><strong>背景裁剪</strong>：</p>
+<p>background-clip用来设置裁剪，背景是会覆盖到盒子边框的，使用该属性可以控制盒子背景裁剪到哪个地方</p>
+<p><strong>背景定位</strong>：</p>
+<p>background-attachment用来设置背景的定位。</p>
+<table>
+<thead>
+<tr>
+<th align="center">值</th>
+<th align="center">意义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">fixed</td>
+<td align="center">自己滚动条不动，外部滚动条不动</td>
+</tr>
+<tr>
+<td align="center">local</td>
+<td align="center">自己滚动条动，外部滚动条动</td>
+</tr>
+<tr>
+<td align="center">scroll</td>
+<td align="center">自己滚动条不动，外部滚动条动（默认）</td>
+</tr>
+</tbody></table>
+<p><strong>背景位置</strong>：</p>
+<p> background-position用来设置背景图片的起点位置。</p>
+<p>示例：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="attribute">background-position</span>:<span class="number">100px</span> <span class="number">200px</span>;</span><br></pre></td></tr></table></figure>
+
+<p>设置盒子横轴100px，纵轴200px，还可以使用四个方向的英文进行表示，CSS精灵</p>
+<p><strong>线性渐变</strong>：</p>
+<p>它是ackground-image的属性值，线型的</p>
+<p>示例：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="attribute">background-image</span>:<span class="built_in">linear-gradient</span>(to right, red,blue)</span><br></pre></td></tr></table></figure>
+
+<p>位置也可以是角度，单位deg，也可以使用百分号设置出现的位置</p>
+<p><strong>径向渐变</strong>：</p>
+<p>radial-gradient属性值</p>
+<p>background-image属性可以使用radial-gradient()创建渐性渐变</p>
+<p>示例</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="attribute">background-image</span>:<span class="built_in">radial-gradient</span>(<span class="number">50%</span> <span class="number">50%</span>,blue,red)</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li>DOCTYPE是文档类型声明，声明该网页以哪个HTML版本执行，不同版本有不同声明方式，不写会引发浏览器兼容问题</li>
-<li>html是网页根节点，lang属性表示网页的语言描述</li>
-<li>head是配置项，主要放一些配置</li>
-<li>meta元素可提供有关页面的元信息，比如针对搜索引擎和更新频度的描述和关键词。</li>
-<li>chartset属性是描述字符集。</li>
-<li>name属性的属性值有KeyWords、Description，分别是关键词和描述，这些都是成为了给搜索引擎看的</li>
-<li>name属性的属性值还有viewport，主要用在移动端设计，意思为视口</li>
-<li>title是网站tag的标题</li>
-<li>body是网页内容</li>
+<li>50% 50%表示圆心坐标，blue表示内部颜色，red表示外部颜</li>
 </ul>
-<h1 id="标题标签"><a href="#标题标签" class="headerlink" title="标题标签"></a>标题标签</h1><p>示例：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>h1<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h2</span>&gt;</span>h2<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h3</span>&gt;</span>h3<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h4</span>&gt;</span>h4<span class="tag">&lt;/<span class="name">h4</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h5</span>&gt;</span>h5<span class="tag">&lt;/<span class="name">h5</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h6</span>&gt;</span>h6<span class="tag">&lt;/<span class="name">h6</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>标题标签有6个，默认加粗</li>
-</ul>
-<h1 id="段落标签"><a href="#段落标签" class="headerlink" title="段落标签"></a>段落标签</h1><p>示例：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>我是段落<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>我是段落<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>p标签表示段落，不能嵌套标题标签和段落标签</li>
-</ul>
-<h1 id="DIV标签"><a href="#DIV标签" class="headerlink" title="DIV标签"></a>DIV标签</h1><p>示例：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>盒子<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>div是一个容器，可以放入任何标签，用来分隔页面。</li>
-</ul>
-<h1 id="无序标签"><a href="#无序标签" class="headerlink" title="无序标签"></a>无序标签</h1><p>示例:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">h3</span>&gt;</span>广东省<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">li</span>&gt;</span>广州<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">li</span>&gt;</span>潮州<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">li</span>&gt;</span>清远<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">h3</span>&gt;</span>广东省<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">li</span>&gt;</span>广州<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">li</span>&gt;</span>潮州<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">li</span>&gt;</span>清远<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>无序标签需要搭配li标签使用,无序标签只能包含li,li能包含任何标签</li>
-<li>ul的type属性值有:<code>square</code>(实心方块)、<code>disc</code>（实心圆）、<code>circle</code>（空心圆）</li>
-</ul>
-<h1 id="有序标签"><a href="#有序标签" class="headerlink" title="有序标签"></a>有序标签</h1><p>示例：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ol</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>listitem<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>listitem<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>listitem<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ol</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>默认是数字排列，type属性值有：a、A、i、I、1</li>
-<li>有序列表有start属性，它的属性值只能阿拉伯数字，设置起始值</li>
-<li>有序列表有revered属性，没有属性值，倒序，HTML5新增</li>
-</ul>
-<h1 id="定义列表"><a href="#定义列表" class="headerlink" title="定义列表"></a>定义列表</h1><p>示例：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dl</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">dt</span>&gt;</span>北京<span class="tag">&lt;/<span class="name">dt</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">dd</span>&gt;</span>我国首都<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">dt</span>&gt;</span>上海<span class="tag">&lt;/<span class="name">dt</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">dd</span>&gt;</span>国际金融中心<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">dl</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>dl是定义列表，dt是数据项，dd是数据定义</li>
-</ul>
-<h1 id="图片标签"><a href="#图片标签" class="headerlink" title="图片标签"></a>图片标签</h1><p>示例：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;./images/beijing/1.jpg&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;图片丢失了&quot;</span> <span class="attr">width</span>=<span class="string">&quot;2000&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>图片标签有src属性，用来引用资源文件，alt属性，当图片不存在时显示，width和height属性用来设置宽高</li>
-<li>支持bmp、gif、jpeg、png、svg、webp格式</li>
-</ul>
-<h1 id="超级链接"><a href="#超级链接" class="headerlink" title="超级链接"></a>超级链接</h1><p>示例：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;https://www.baidu.com&quot;</span> <span class="attr">title</span>=<span class="string">&quot;标题&quot;</span> &gt;</span>百度<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>跳转到网页百度。</li>
-<li>在网址后面加入#id，就可以跳转到该网站的id标签处。</li>
-<li>href支持相对路径和绝对路径。</li>
-<li>title属性，设置悬停文本。</li>
-<li>target属性设置链接打开窗口，blank属性表示新窗口打开</li>
-</ul>
-<h1 id="视频标签"><a href="#视频标签" class="headerlink" title="视频标签"></a>视频标签</h1><p>示例：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">video</span> <span class="attr">src</span>=<span class="string">&quot;./video//flower.mp4&quot;</span> <span class="attr">controls</span> <span class="attr">loop</span> <span class="attr">autoplay</span>&gt;</span>不支持该标签<span class="tag">&lt;/<span class="name">video</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>支持格式：mp4、ogb、avi、webm</li>
-<li>controls属性显示控件，loop循环播放，autoplay自动播放</li>
-<li>不支持该标签的时候显示标签内部文字</li>
-</ul>
-<h1 id="音频标签"><a href="#音频标签" class="headerlink" title="音频标签"></a>音频标签</h1><p>示例：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">audio</span> <span class="attr">src</span>=<span class="string">&quot;./music/hangpaibgm(mp3).mp3&quot;</span> <span class="attr">controls</span> <span class="attr">loop</span> <span class="attr">autoplay</span>&gt;</span></span><br><span class="line">  不支持该标签</span><br><span class="line"><span class="tag">&lt;/<span class="name">audio</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>支持格式：mp3、ogg、wav</li>
-<li>属性与视频标签一样</li>
-</ul>
-<h1 id="区块标签"><a href="#区块标签" class="headerlink" title="区块标签"></a>区块标签</h1><p>区块标签与div一样，但是语义不同。</p>
-<ul>
-<li>section：文档区域，语义比div大</li>
-<li>article：文档，文章核心内容</li>
-<li>aside：非核心内容，比如广告</li>
-<li>nav：导航条</li>
-<li>header：页头</li>
-<li>main：网页核心</li>
-<li>footer：页脚</li>
-</ul>
-<h1 id="小语义标签"><a href="#小语义标签" class="headerlink" title="小语义标签"></a>小语义标签</h1><ul>
-<li>span：行内标签</li>
-<li>b：加粗（HTML5废弃）</li>
-<li>u：下划线（HTML5废弃）</li>
-<li>i：倾斜（HTML5废弃）</li>
-<li>strong：特别重要文字（加粗）</li>
-<li>em：强调文字（倾斜）</li>
-<li>mark：高亮文字</li>
-<li>figure代表独立内容，与说明figcaption配合使用</li>
-</ul>
-<h1 id="表单标签"><a href="#表单标签" class="headerlink" title="表单标签"></a>表单标签</h1><p>示例：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;&quot;</span> <span class="attr">method</span>=<span class="string">&quot;POST&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;text&quot;</span>&gt;</span>输入框<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">id</span>=<span class="string">&quot;text&quot;</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>action属性时提交到后台数据的链接，method时请求的方法</li>
-<li>表单控件有disabled、placeholder属性</li>
-<li>基础控件有text、password、radio、checkbox、（select、option）、textarea、button、submit、reset</li>
-<li>新增控件有datalist、color、date、time、email、range、search、url</li>
-</ul>
-<h1 id="表格标签"><a href="#表格标签" class="headerlink" title="表格标签"></a>表格标签</h1><p>示例：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">border</span>=<span class="string">&quot;1&quot;</span> <span class="attr">width</span>=<span class="string">&quot;600&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">caption</span>&gt;</span>我是表格的标题<span class="tag">&lt;/<span class="name">caption</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">th</span>&gt;</span>第一季度<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">th</span>&gt;</span>第二季度<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">th</span>&gt;</span>第三季度<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">th</span>&gt;</span>第四季度<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>A<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>B<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>C<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>D<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>E<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>F<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>G<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>H<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>I<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>J<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>K<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>L<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>table时表格意思，table row时表格行，table data表格数据</li>
-<li>rowspan时合并行，colspan时合并表格列</li>
-</ul>
-<h1 id="特殊字符"><a href="#特殊字符" class="headerlink" title="特殊字符"></a>特殊字符</h1><p><code>&amp;lt</code>：小于号</p>
-<p><code>&amp;gt</code>：大于号</p>
-<p><code>&amp;nbsp</code>：空格</p>
-<p><code>&amp;copy</code>：版权符号</p>
 ]]></content>
       <categories>
-        <category>文档(更新中)</category>
+        <category>CSS</category>
       </categories>
+  </entry>
+  <entry>
+    <title>搭建属于自己的UI组件库</title>
+    <url>/article/e3dabf31.html</url>
+    <content><![CDATA[<p>最近使用主流的UI框架，忽然心血来潮，何不自己搭建属于自己的UI组件库呢，类似Mint-UI、Element-UI、Vant等组件框架，好在大多UI框架都是开源，所以经过学习实践，搭建了属于自己UI组件库——LInView。</p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>本文主要在于如何搭建和开发，不着重于某一点。</p>
+<p>在开发自定义组件库前先来看下思维导图，文章将主要分为六大步骤。</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211002133138.png"></p>
+<h1 id="工程化目录"><a href="#工程化目录" class="headerlink" title="工程化目录"></a>工程化目录</h1><p>一个好的工程目录能较好的体现项目的健壮性和可维护性。这里使用Vue/Cli形成目录。</p>
+<p>首先电脑需要下载安装好Node，我的Node版本为v14.17.6</p>
+<p>下载Vue/CLi：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install -g @vue/cli</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install -g @vue/cli-service-global</span><br></pre></td></tr></table></figure>
+
+<p>创建项目：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vue create linview</span><br></pre></td></tr></table></figure>
+
+<p>配置文件直接默认Vue2：</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211002153430.png"></p>
+<p>修改工程化目录：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">|-- linview</span><br><span class="line">    |-- .gitignore</span><br><span class="line">    |-- babel.config.js</span><br><span class="line">    |-- package-lock.json</span><br><span class="line">    |-- package.json</span><br><span class="line">    |-- README.md</span><br><span class="line">    |-- vue.config.js //Vue配置文件</span><br><span class="line">    |-- components //组件代码</span><br><span class="line">    |   |-- css    //组件样式</span><br><span class="line">    |   |   |-- demo.scss</span><br><span class="line">    |   |-- lib    //组件核心</span><br><span class="line">    |       |-- card</span><br><span class="line">    |       |-- demo</span><br><span class="line">    |           |-- index.js</span><br><span class="line">    |           |-- src</span><br><span class="line">    |               |-- Index.vue</span><br><span class="line">    |-- docs       //文档API</span><br><span class="line">    |-- examples   //业务代码</span><br><span class="line">    |   |-- App.vue</span><br><span class="line">    |   |-- main.js</span><br><span class="line">    |   |-- assets</span><br><span class="line">    |       |-- logo.png</span><br><span class="line">    |-- public</span><br><span class="line">        |-- favicon.ico</span><br><span class="line">        |-- index.html</span><br></pre></td></tr></table></figure>
+
+<p>src被修改后需要配置vue的入口文件，新建vue.config.js：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="attr">pages</span>: &#123;</span><br><span class="line">    <span class="attr">index</span>: &#123;</span><br><span class="line">      <span class="attr">entry</span>: <span class="string">&#x27;examples/main.js&#x27;</span>,</span><br><span class="line">      <span class="attr">template</span>: <span class="string">&#x27;public/index.html&#x27;</span>,</span><br><span class="line">      <span class="attr">filename</span>:<span class="string">&#x27;index.html&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>如果按照先前的步骤，到这里会提示sass-loader没有安装。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm i sass-loader -D</span><br></pre></td></tr></table></figure>
+
+<p>如果按照上面命令，又会出现如下错误：</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211002182221.png"></p>
+<p>原因是版本过高，我们需要换下版本：</p>
+<p>卸载：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm uninstall sass-loader -D</span><br></pre></td></tr></table></figure>
+
+<p>安装：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm i sass-loader@5 -D</span><br></pre></td></tr></table></figure>
+
+<p>如果此时运行，可能又会提示如下错误</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211002184021.png"></p>
+<p>原因是没有安装node-sass。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm i node-sass@4 -D</span><br></pre></td></tr></table></figure>
+
+<p>运行项目，没有报错，至此，工程化目录已经基本完成。</p>
+<h1 id="代码样式编写"><a href="#代码样式编写" class="headerlink" title="代码样式编写"></a>代码样式编写</h1><p>在正式组件开发之前，我们应该写一个Demo组件测试一下项目是否能跑起来。</p>
+<p><code>linview/components/lib/demo/src/Index.vue</code>：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div class=&quot;l-demo&quot;&gt;</span><br><span class="line">    Demo</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">  export default &#123;</span><br><span class="line">    name:&#x27;Demo&#x27;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><code>linview/components/css/demo.scss</code>：</p>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.l-demo</span>&#123;</span><br><span class="line">  <span class="attribute">color</span>: aqua;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>linview/examplesma/main.js</code></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;../components/css/demo.scss&#x27;</span><span class="comment">//引入样式</span></span><br><span class="line"><span class="keyword">import</span> Demo <span class="keyword">from</span> <span class="string">&#x27;../components/lib/demo/src/Index.vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> App <span class="keyword">from</span> <span class="string">&#x27;./App.vue&#x27;</span></span><br><span class="line">Vue.config.productionTip = <span class="literal">false</span></span><br><span class="line">Vue.use(Demo)</span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  <span class="attr">render</span>: <span class="function"><span class="params">h</span> =&gt;</span> h(App),</span><br><span class="line">&#125;).$mount(<span class="string">&#x27;#app&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><code>linview/examplesma/App.vue</code>:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div id=&quot;app&quot;&gt;</span><br><span class="line">    &lt;Demo&gt;&lt;/Demo&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  name: &#x27;App&#x27;,</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>如果按照上面的代码书写会发现，组件不起作用，可以我们在使用第三方UI组件库的时候确实是Use这个组件就可以使用了，我们打开控制台，会发现报以下错误：</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211002203418.png"></p>
+<p>大概意思是组件没有注册，那么接下来对组件的全局注册：</p>
+<p>修改<code>linview/examplesma/main.js</code>：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">&#x27;../components/css/demo.scss&#x27;</span></span><br><span class="line"><span class="keyword">import</span> Demo <span class="keyword">from</span> <span class="string">&#x27;../components/lib/demo/index.js&#x27;</span></span><br><span class="line"><span class="comment">//Vue.component(&#x27;name&#x27;,Demo)</span></span><br><span class="line"><span class="keyword">import</span> App <span class="keyword">from</span> <span class="string">&#x27;./App.vue&#x27;</span></span><br><span class="line"></span><br><span class="line">Vue.config.productionTip = <span class="literal">false</span></span><br><span class="line">Vue.use(Demo)<span class="comment">//Demo.install -&gt; vue.component</span></span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  <span class="attr">render</span>: <span class="function"><span class="params">h</span> =&gt;</span> h(App),</span><br><span class="line">&#125;).$mount(<span class="string">&#x27;#app&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>增加<code>linview/components/lib/demo/index.js</code></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> Demo <span class="keyword">from</span> <span class="string">&#x27;./src/Index.vue&#x27;</span>;</span><br><span class="line">Demo.install = <span class="function"><span class="keyword">function</span> (<span class="params">Vue</span>) </span>&#123;</span><br><span class="line">  Vue.component(Demo.name, Demo)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> Demo</span><br></pre></td></tr></table></figure>
+
+<p>运行项目，没有报错，则Demo组件完成。</p>
+<p>写到这里会发现，其实就是一个全局的组件，但是在开发过程中，首先要考虑的组件的通用性，再而是组件的可维护，组件库的意义个人觉得是在于便于开发，想想我只要npm install一个包，然后我在main引入，在组件传递几个数值，一个非常好看的页面就形成，何乐而不为呢</p>
+<p>接下来编写正式的第一个卡片组件：</p>
+<p><code>Index.vue</code></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div class=&quot;l-card&quot; :style=&quot;width?&#123;width:width+&#x27;px&#x27;&#125;:&#123;&#125;&quot;&gt;</span><br><span class="line">    &lt;div class=&quot;l-card-img&quot; :style=&quot;imgHeight?&#123;height:imgHeight+&#x27;px&#x27;&#125;:&#123;&#125;&quot;&gt;</span><br><span class="line">      &lt;img :src=&quot;imgSrc&quot; alt=&quot;img&quot;&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;div v-if=&quot;summary&quot; class=&quot;l-card-summary&quot;&gt;</span><br><span class="line">      &#123;&#123;summary&#125;&#125;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;div v-else class=&quot;l-card-summary&quot;&gt;</span><br><span class="line">      &lt;slot&gt;&lt;/slot&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;slot name=&quot;footer&quot;&gt;&lt;/slot&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">  export default &#123;</span><br><span class="line">    name:&#x27;Card&#x27;,</span><br><span class="line">    props:&#123;</span><br><span class="line">      //卡片宽度</span><br><span class="line">      width:&#123;</span><br><span class="line">        type:Number,</span><br><span class="line">        default:0</span><br><span class="line">      &#125;,</span><br><span class="line">      //卡片图片资源</span><br><span class="line">      imgSrc:&#123;</span><br><span class="line">        type:String,</span><br><span class="line">        default:&#x27;&#x27;</span><br><span class="line">      &#125;,</span><br><span class="line">      //卡片图片高度</span><br><span class="line">      imgHeight:&#123;</span><br><span class="line">        type:Number,</span><br><span class="line">        default:0</span><br><span class="line">      &#125;,</span><br><span class="line">      //卡片概要</span><br><span class="line">      summary:&#123;</span><br><span class="line">        type:String,</span><br><span class="line">        default:&#x27;&#x27;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style lang=&quot;scss&quot; scoped&gt;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+
+<p><code>card.scss</code></p>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.l-card</span>&#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">270px</span>;</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">8px</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#fff</span>;</span><br><span class="line">  <span class="attribute">overflow</span>: hidden;</span><br><span class="line">  <span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">6px</span> <span class="number">10px</span> <span class="number">0</span> rgba(<span class="number">95</span>,<span class="number">101</span>,<span class="number">105</span>,<span class="number">0.15</span>);</span><br><span class="line">  <span class="attribute">padding-bottom</span>: <span class="number">8px</span>;</span><br><span class="line">  &amp;-<span class="selector-tag">img</span>&#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">152px</span>;</span><br><span class="line">    <span class="selector-tag">img</span>&#123;</span><br><span class="line">      <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">      <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  &amp;-<span class="selector-tag">summary</span>&#123;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">8px</span>;</span><br><span class="line">    <span class="attribute">text-align</span>: left;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">14px</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>index.js</code></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> Card <span class="keyword">from</span> <span class="string">&#x27;./src/Index.vue&#x27;</span>;</span><br><span class="line">Card.install = <span class="function"><span class="keyword">function</span> (<span class="params">Vue</span>) </span>&#123;</span><br><span class="line">  Vue.component(Card.name, Card)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> Card</span><br></pre></td></tr></table></figure>
+
+<h1 id="组件测试"><a href="#组件测试" class="headerlink" title="组件测试"></a>组件测试</h1><p>编写好的组件需要在本地进行测试才能发布，这里的测试不是非常正规的单元测试，而是直接使用examples目录下的App文件测试框架。</p>
+<p><code>App.vue</code></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div id=&quot;app&quot;&gt;</span><br><span class="line">    &lt;Card imgSrc=&quot;./img/card.png&quot; summary=&quot;Vue.js 源码全方位深入解析 全面深入理解Vue实现原理，掌握源码分析技巧&quot;&gt;&lt;/Card&gt;</span><br><span class="line">    &lt;br /&gt;</span><br><span class="line">    &lt;Card imgSrc=&quot;./img/card.png&quot; summary=&quot;Vue.js 源码全方位深入解析 全面深入理解Vue实现原理，掌握源码分析技巧&quot;&gt;</span><br><span class="line">      &lt;template v-slot:footer&gt;</span><br><span class="line">        &lt;div class=&quot;footer&quot;&gt;</span><br><span class="line">          &lt;div class=&quot;level&quot;&gt;高级 · 4256人报名 &lt;/div&gt;</span><br><span class="line">          &lt;div class=&quot;price&quot;&gt;￥488.00&lt;/div&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">      &lt;/template&gt;</span><br><span class="line">    &lt;/Card&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  name: &#x27;App&#x27;,</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style&gt;</span><br><span class="line">#app &#123;</span><br><span class="line">  margin: 0 auto;</span><br><span class="line">  width: 270px;</span><br><span class="line">&#125;</span><br><span class="line">.footer &#123;</span><br><span class="line">  padding: 0 8px;</span><br><span class="line">  font-size: 12px;</span><br><span class="line">  text-align: left;</span><br><span class="line">&#125;</span><br><span class="line">.level &#123;</span><br><span class="line">  color: #9199a1;</span><br><span class="line">  margin-bottom: 8px;</span><br><span class="line">&#125;</span><br><span class="line">.price &#123;</span><br><span class="line">  color: #f01414;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+
+<p>预览效果：</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211002231029.png"></p>
+<h1 id="打包"><a href="#打包" class="headerlink" title="打包"></a>打包</h1><p>完成以上的步骤，其实已经可以发布到NPM上，但是有两个问题，</p>
+<ul>
+<li>现在使用该组件的时候，只能一个一个组件引用，不能全局引入，这需要两个入口文件，一个SCSS，一个JS。</li>
+<li>项目没有打包优化，包体积大</li>
+</ul>
+<p>对于以上问题，我使用WebPack来打包JS，Gulp打包CSS</p>
+<p>安装依赖：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm i gulp@4 gulp-minify-css gulp-sass@4 webpack-cli@4 -D</span><br></pre></td></tr></table></figure>
+
+<p><code>build/webpack.component.js</code></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123;VueLoaderPlugin&#125; = <span class="built_in">require</span>(<span class="string">&#x27;vue-loader&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> glob = <span class="built_in">require</span>(<span class="string">&#x27;glob&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> utlis =<span class="built_in">require</span>(<span class="string">&#x27;./utlis&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> list = &#123;&#125;</span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">makeList</span> (<span class="params">dirPath, list</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> files = glob.sync(<span class="string">`<span class="subst">$&#123;dirPath&#125;</span>/**/index.js`</span>)</span><br><span class="line">  <span class="comment">//[ &#x27;components/lib/card/index.js&#x27;, &#x27;components/lib/demo/index.js&#x27; ]</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;files&#x27;</span>, files);</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> file <span class="keyword">of</span> files) &#123;</span><br><span class="line">    <span class="comment">//component card  component demo</span></span><br><span class="line">    <span class="keyword">const</span> component = file.split(<span class="regexp">/[/.]/</span>)[<span class="number">2</span>];</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;component&#x27;</span>, component);</span><br><span class="line">    list[component] = <span class="string">`./<span class="subst">$&#123;file&#125;</span>`</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">console</span>.log(list);</span><br><span class="line">&#125;</span><br><span class="line">makeList(<span class="string">&#x27;components/lib&#x27;</span>,list)</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="attr">entry</span>: list,<span class="comment">//入口文件</span></span><br><span class="line">  <span class="attr">mode</span>:<span class="string">&#x27;production&#x27;</span>,<span class="comment">//生产模式</span></span><br><span class="line">  <span class="attr">output</span>: &#123;</span><br><span class="line">    <span class="attr">filename</span>: <span class="string">&#x27;[name].umd.js&#x27;</span>,</span><br><span class="line">    <span class="attr">path</span>: utlis.DIST_PATH,</span><br><span class="line">    <span class="attr">library</span>: <span class="string">&#x27;lview&#x27;</span>,</span><br><span class="line">    <span class="attr">libraryTarget</span>:<span class="string">&#x27;umd&#x27;</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">plugins</span>: [</span><br><span class="line">    <span class="keyword">new</span> VueLoaderPlugin()</span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">module</span>: &#123;</span><br><span class="line">    <span class="attr">rules</span>: [</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">test</span>: <span class="regexp">/\.vue$/</span>,</span><br><span class="line">        use: [</span><br><span class="line">          &#123;</span><br><span class="line">            <span class="attr">loader</span>:<span class="string">&#x27;vue-loader&#x27;</span></span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>build/utlis.js</code></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">exports</span>.resolve = <span class="function"><span class="keyword">function</span> <span class="title">resolve</span> (<span class="params">dir</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> path.join(__dirname, <span class="string">&#x27;..&#x27;</span>, dir)</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">exports</span>.APP_PATH = <span class="built_in">exports</span>.resolve(<span class="string">&#x27;src&#x27;</span>)</span><br><span class="line"><span class="built_in">exports</span>.DIST_PATH = <span class="built_in">exports</span>.resolve(<span class="string">&#x27;dist&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p><code>bulid/gulpfile.js</code></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> utlis =<span class="built_in">require</span>(<span class="string">&#x27;./utlis&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> gulp = <span class="built_in">require</span>(<span class="string">&#x27;gulp&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> sass = <span class="built_in">require</span>(<span class="string">&#x27;gulp-sass&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> minifyCSS = <span class="built_in">require</span>(<span class="string">&#x27;gulp-minify-css&#x27;</span>)</span><br><span class="line">gulp.task(<span class="string">&#x27;sass&#x27;</span>, <span class="keyword">async</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> gulp.src(<span class="string">&#x27;../components/css/**/*.scss&#x27;</span>)</span><br><span class="line">    .pipe(sass())</span><br><span class="line">    .pipe(minifyCSS())</span><br><span class="line">  .pipe(gulp.dest(utlis.DIST_PATH+<span class="string">&#x27;/css&#x27;</span>))</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p><code>Script</code>：</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="string">&quot;build&quot;</span>: <span class="string">&quot;npm run build:js &amp;&amp; npm run build:css&quot;</span>,</span><br><span class="line"><span class="string">&quot;build:js&quot;</span>: <span class="string">&quot;webpack --config ./build/webpack.component.js&quot;</span>,</span><br><span class="line"><span class="string">&quot;build:css&quot;</span>: <span class="string">&quot;npx gulp sass --gulpfile build/gulpfile.js&quot;</span>,</span><br></pre></td></tr></table></figure>
+
+<p>打包完成后会在项目根目录形成dist文件夹，这是等会我们要NPM上传的。</p>
+<h1 id="NPM发布"><a href="#NPM发布" class="headerlink" title="NPM发布"></a>NPM发布</h1><p>本地编写测试好的组件就要发布到NPM上，方便别人的下载使用，在使用之前，需要个人先注册好NPM账号。</p>
+<ul>
+<li>首先需要配置package.json文件：</li>
+</ul>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="string">&quot;name&quot;</span>: <span class="string">&quot;linview&quot;</span>,</span><br><span class="line"><span class="string">&quot;version&quot;</span>: <span class="string">&quot;0.1.2&quot;</span>,</span><br><span class="line"><span class="string">&quot;description&quot;</span>: <span class="string">&quot;个人开发者UI组件库&quot;</span>,</span><br><span class="line"><span class="string">&quot;main&quot;</span>: <span class="string">&quot;dist/index.umd.js&quot;</span>,</span><br><span class="line"><span class="string">&quot;keywords&quot;</span>: [</span><br><span class="line">  <span class="string">&quot;linview&quot;</span>,</span><br><span class="line">  <span class="string">&quot;UI&quot;</span>,</span><br><span class="line">  <span class="string">&quot;vue&quot;</span></span><br><span class="line">],</span><br><span class="line"><span class="string">&quot;author&quot;</span>: <span class="string">&quot;bamboo_lsf&quot;</span>,</span><br><span class="line"><span class="string">&quot;files&quot;</span>: [</span><br><span class="line">  <span class="string">&quot;dist&quot;</span>,</span><br><span class="line">  <span class="string">&quot;components&quot;</span></span><br><span class="line">],</span><br></pre></td></tr></table></figure>
+
+<p>name：包的名字</p>
+<p>version：版本，低版本不能覆盖高版本</p>
+<p>description：描述，在你搜索这个包的时候会出现的描述</p>
+<p>main：入口主文件，当别人引用包的名字时候，其实就是用的这个文件</p>
+<p>keywords：搜索的关键词</p>
+<p>author：作者</p>
+<p>files：要上传的文件</p>
+<ul>
+<li><p>书写好根目录的RedeMe文件，它是npm包上的RedeMe文件。</p>
+</li>
+<li><p>把本地的下载源切换会官方，否则无法登录。</p>
+</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm config set registry http://www.npmjs.org</span><br></pre></td></tr></table></figure>
+
+<p>window上如果登录失败可以在要登录的窗口上在次执行，因为我在切回官方源后，登录报错。</p>
+<p>登录命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm login</span><br></pre></td></tr></table></figure>
+
+<p>正常情况输入用户名，密码，邮箱即可登录完成。</p>
+<p>接下来使用<code>npm publish</code>上传，随后我们就可以在Npm看到自己发布的包了</p>
+<h1 id="文档站点"><a href="#文档站点" class="headerlink" title="文档站点"></a>文档站点</h1><p>一个好的UI框架，当然是需要一个文档展示，这样才方便以后的开发与维护。接下来使用VuePress来形成文档的站点。</p>
+<p>首先我们需要明白一个概念，文档和项目代码是在一起的，那么我们应该把文档的静态文件和仓库代码放一起，怎么做到呢，其实，我们只需要把文档形成的静态文件和项目代码放在仓库的不同分支即可。这样两者就不会冲突</p>
+<p>安装VuePress：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm i VuePress -D</span><br></pre></td></tr></table></figure>
+
+<p>生成以下文件和文件夹：</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211003183852.png"></p>
+<p>config.js</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="attr">title</span>: <span class="string">&#x27;LinView&#x27;</span>,</span><br><span class="line">  <span class="attr">base</span>:<span class="string">&#x27;/linview/&#x27;</span>,</span><br><span class="line">  <span class="attr">description</span>: <span class="string">&#x27;Just playing around&#x27;</span>,</span><br><span class="line">  <span class="attr">themeConfig</span>: &#123;</span><br><span class="line">    <span class="comment">//导航</span></span><br><span class="line">    <span class="attr">nav</span>: [</span><br><span class="line">      &#123; <span class="attr">text</span>: <span class="string">&#x27;首页&#x27;</span>, <span class="attr">link</span>: <span class="string">&#x27;/&#x27;</span> &#125;,</span><br><span class="line">      &#123; <span class="attr">text</span>: <span class="string">&#x27;指南&#x27;</span>, <span class="attr">link</span>: <span class="string">&#x27;/componentDocs/&#x27;</span>&#125;,</span><br><span class="line">      &#123;<span class="attr">text</span>:<span class="string">&#x27;更新日志&#x27;</span>,<span class="attr">link</span>:<span class="string">&#x27;/update/index&#x27;</span>&#125;,</span><br><span class="line">      &#123; <span class="attr">text</span>: <span class="string">&#x27;GitHub&#x27;</span>, <span class="attr">link</span>: <span class="string">&#x27;https://github.com/LSFCXZ/linview&#x27;</span> &#125;,</span><br><span class="line">      &#123; <span class="attr">text</span>: <span class="string">&#x27;NPM&#x27;</span>, <span class="attr">link</span>: <span class="string">&#x27;https://www.npmjs.com/package/linview&#x27;</span> &#125;,</span><br><span class="line">    ],</span><br><span class="line">    <span class="attr">sidebar</span>: &#123;</span><br><span class="line">     <span class="string">&#x27;/componentDocs/&#x27;</span>: [</span><br><span class="line">         &#123;</span><br><span class="line">        <span class="attr">title</span>: <span class="string">&#x27;简介&#x27;</span>,</span><br><span class="line">        <span class="attr">path</span>:<span class="string">&#x27;/componentDocs/&#x27;</span></span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">title</span>: <span class="string">&#x27;快速开始&#x27;</span>,</span><br><span class="line">        <span class="attr">path</span>:<span class="string">&#x27;/componentDocs/start&#x27;</span></span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">title</span>: <span class="string">&#x27;卡片&#x27;</span>,</span><br><span class="line">        <span class="attr">path</span>:<span class="string">&#x27;/componentDocs/card&#x27;</span></span><br><span class="line">      &#125;</span><br><span class="line">      ]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意：base是你仓库的名字，如果你的站点没有后缀，那么可以不填</p>
+<p>根目录index.md</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">home: true</span><br><span class="line">heroImage: </span><br><span class="line">heroText: LinView</span><br><span class="line">tagline: 简洁、美观、开源的UI框架</span><br><span class="line">actionText: 快速上手 →</span><br><span class="line">actionLink: /componentDocs/start</span><br><span class="line">features:</span><br><span class="line">- title: 简洁至上</span><br><span class="line">  details: 以 Markdown 为中心的项目结构，以最少的配置帮助你专注于写作。</span><br><span class="line">- title: 美观</span><br><span class="line">  details: 享受 Vue + webpack 的开发体验，在 Markdown 中使用 Vue 组件，同时可以使用 Vue 来开发自定义主题。</span><br><span class="line">- title: 开源免费</span><br><span class="line">  details: VuePress 为每个页面预渲染生成静态的 HTML，同时在页面被加载的时候，将作为 SPA 运行。</span><br><span class="line">footer: MIT Licensed | Copyright © 2021-present BambooLSF</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>具体可以参考vuepress的官网配置：<a href="https://vuepress.vuejs.org/zh/">https://vuepress.vuejs.org/zh/</a></p>
+<p>接下来就是配置脚本：</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="string">&quot;docs:dev&quot;</span>: <span class="string">&quot;vuepress dev docs&quot;</span>,</span><br><span class="line"><span class="string">&quot;docs:build&quot;</span>: <span class="string">&quot;vuepress build docs&quot;</span>,</span><br><span class="line"><span class="string">&quot;depoly&quot;</span>: <span class="string">&quot;bash ./build/deploy.sh&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>docs:dev：运行vuepress</p>
+<p>docs:build：打包</p>
+<p>depoly：部署</p>
+<p>接下来就是部署到githubpage：</p>
+<p>build/deploy.sh</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/usr/bin/env sh</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 确保脚本抛出遇到的错误</span></span><br><span class="line"><span class="built_in">set</span> -e</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成静态文件</span></span><br><span class="line">npm run docs:build</span><br><span class="line"></span><br><span class="line"><span class="comment"># 进入生成的文件夹</span></span><br><span class="line"><span class="built_in">cd</span> docs/.vuepress/dist</span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果是发布到自定义域名</span></span><br><span class="line"><span class="comment"># echo &#x27;www.example.com&#x27; &gt; CNAME</span></span><br><span class="line"></span><br><span class="line">git init</span><br><span class="line">git add -A</span><br><span class="line">git commit -m <span class="string">&#x27;deploy&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果发布到 https://&lt;USERNAME&gt;.github.io</span></span><br><span class="line"><span class="comment"># git push -f git@github.com:&lt;USERNAME&gt;/&lt;USERNAME&gt;.github.io.git master</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果发布到 https://&lt;USERNAME&gt;.github.io/&lt;REPO&gt;</span></span><br><span class="line"> git push -f git@github.com:LSFCXZ/linview.git master:gh-pages</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> -</span><br></pre></td></tr></table></figure>
+
+<p>注意： git push是要换成你的github地址 </p>
+<p>执行命令：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm run depoly</span><br></pre></td></tr></table></figure>
+
+<p>如果在window上无法执行，那么使用git命令窗口即可，这样站点已经完成。</p>
+<p>再把我们的项目代码上传：git init ,git add . ,git commit -m ‘’’第一次提交’ ，git push等一把梭上传代码</p>
+<p>至此，UI框架基本完成，可以新建项目，npm install 自己的UI库进行测试。</p>
+<h1 id="版本问题"><a href="#版本问题" class="headerlink" title="版本问题"></a>版本问题</h1><p>为了避免因为版本问题引起的错误，这里列举开发时版本环境：</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="string">&quot;dependencies&quot;</span>: &#123;</span><br><span class="line">    <span class="attr">&quot;core-js&quot;</span>: <span class="string">&quot;^3.6.5&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;vue&quot;</span>: <span class="string">&quot;^2.6.11&quot;</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">&quot;devDependencies&quot;</span>: &#123;</span><br><span class="line">    <span class="attr">&quot;@vue/cli-plugin-babel&quot;</span>: <span class="string">&quot;~4.5.0&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;@vue/cli-plugin-eslint&quot;</span>: <span class="string">&quot;~4.5.0&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;@vue/cli-service&quot;</span>: <span class="string">&quot;~4.5.0&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;babel-eslint&quot;</span>: <span class="string">&quot;^10.1.0&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;eslint&quot;</span>: <span class="string">&quot;^6.7.2&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;eslint-plugin-vue&quot;</span>: <span class="string">&quot;^6.2.2&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;gulp&quot;</span>: <span class="string">&quot;^4.0.2&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;gulp-minify-css&quot;</span>: <span class="string">&quot;^1.2.4&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;gulp-sass&quot;</span>: <span class="string">&quot;^4.1.1&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;node-sass&quot;</span>: <span class="string">&quot;^4.14.1&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;sass-loader&quot;</span>: <span class="string">&quot;^5.0.1&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;vue-loader&quot;</span>: <span class="string">&quot;^15.9.8&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;vue-template-compiler&quot;</span>: <span class="string">&quot;^2.6.11&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;vuepress&quot;</span>: <span class="string">&quot;^1.8.2&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;webpack-cli&quot;</span>: <span class="string">&quot;^4.8.0&quot;</span></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>经过已上步骤，基本已经形成一个较为完整的UI框架，唯一的缺点是按需加载有问题，接下来有待优化。</p>
+<p>Github开源地址：<a href="https://github.com/LSFCXZ/linview">https://github.com/LSFCXZ/linview</a></p>
+<p>文档站点：<a href="https://lsfcxz.github.io/linview/">https://lsfcxz.github.io/linview/</a></p>
+]]></content>
+      <categories>
+        <category>组件库</category>
+      </categories>
+      <tags>
+        <tag>自定义组件库</tag>
+      </tags>
   </entry>
   <entry>
     <title>HTML5的十大新特性</title>
@@ -1375,185 +1423,215 @@
       </categories>
   </entry>
   <entry>
-    <title>搭建属于自己的UI组件库</title>
-    <url>/article/e3dabf31.html</url>
-    <content><![CDATA[<p>最近使用主流的UI框架，忽然心血来潮，何不自己搭建属于自己的UI组件库呢，类似Mint-UI、Element-UI、Vant等组件框架，好在大多UI框架都是开源，所以经过学习实践，搭建了属于自己UI组件库——LInView。</p>
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>本文主要在于如何搭建和开发，不着重于某一点。</p>
-<p>在开发自定义组件库前先来看下思维导图，文章将主要分为六大步骤。</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211002133138.png"></p>
-<h1 id="工程化目录"><a href="#工程化目录" class="headerlink" title="工程化目录"></a>工程化目录</h1><p>一个好的工程目录能较好的体现项目的健壮性和可维护性。这里使用Vue/Cli形成目录。</p>
-<p>首先电脑需要下载安装好Node，我的Node版本为v14.17.6</p>
-<p>下载Vue/CLi：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install -g @vue/cli</span><br></pre></td></tr></table></figure>
+    <title>HTML5文档</title>
+    <url>/article/a73ea136.html</url>
+    <content><![CDATA[<p>HTML5是HTML最新的修订版本，2014年10月由万维网联盟（W3C）完成标准制定。本文主要为HTML5的标签以及语义化说明，使用标签+示例+解释的形式。作为平常可以快速浏览的文章。</p>
+<h1 id="HTML5骨架"><a href="#HTML5骨架" class="headerlink" title="HTML5骨架"></a>HTML5骨架</h1><p>示例：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;X-UA-Compatible&quot;</span> <span class="attr">content</span>=<span class="string">&quot;IE=edge&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install -g @vue/cli-service-global</span><br></pre></td></tr></table></figure>
-
-<p>创建项目：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vue create linview</span><br></pre></td></tr></table></figure>
-
-<p>配置文件直接默认Vue2：</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211002153430.png"></p>
-<p>修改工程化目录：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">|-- linview</span><br><span class="line">    |-- .gitignore</span><br><span class="line">    |-- babel.config.js</span><br><span class="line">    |-- package-lock.json</span><br><span class="line">    |-- package.json</span><br><span class="line">    |-- README.md</span><br><span class="line">    |-- vue.config.js //Vue配置文件</span><br><span class="line">    |-- components //组件代码</span><br><span class="line">    |   |-- css    //组件样式</span><br><span class="line">    |   |   |-- demo.scss</span><br><span class="line">    |   |-- lib    //组件核心</span><br><span class="line">    |       |-- card</span><br><span class="line">    |       |-- demo</span><br><span class="line">    |           |-- index.js</span><br><span class="line">    |           |-- src</span><br><span class="line">    |               |-- Index.vue</span><br><span class="line">    |-- docs       //文档API</span><br><span class="line">    |-- examples   //业务代码</span><br><span class="line">    |   |-- App.vue</span><br><span class="line">    |   |-- main.js</span><br><span class="line">    |   |-- assets</span><br><span class="line">    |       |-- logo.png</span><br><span class="line">    |-- public</span><br><span class="line">        |-- favicon.ico</span><br><span class="line">        |-- index.html</span><br></pre></td></tr></table></figure>
-
-<p>src被修改后需要配置vue的入口文件，新建vue.config.js：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="attr">pages</span>: &#123;</span><br><span class="line">    <span class="attr">index</span>: &#123;</span><br><span class="line">      <span class="attr">entry</span>: <span class="string">&#x27;examples/main.js&#x27;</span>,</span><br><span class="line">      <span class="attr">template</span>: <span class="string">&#x27;public/index.html&#x27;</span>,</span><br><span class="line">      <span class="attr">filename</span>:<span class="string">&#x27;index.html&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<p>如果按照先前的步骤，到这里会提示sass-loader没有安装。</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm i sass-loader -D</span><br></pre></td></tr></table></figure>
-
-<p>如果按照上面命令，又会出现如下错误：</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211002182221.png"></p>
-<p>原因是版本过高，我们需要换下版本：</p>
-<p>卸载：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm uninstall sass-loader -D</span><br></pre></td></tr></table></figure>
-
-<p>安装：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm i sass-loader@5 -D</span><br></pre></td></tr></table></figure>
-
-<p>如果此时运行，可能又会提示如下错误</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211002184021.png"></p>
-<p>原因是没有安装node-sass。</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm i node-sass@4 -D</span><br></pre></td></tr></table></figure>
-
-<p>运行项目，没有报错，至此，工程化目录已经基本完成。</p>
-<h1 id="代码样式编写"><a href="#代码样式编写" class="headerlink" title="代码样式编写"></a>代码样式编写</h1><p>在正式组件开发之前，我们应该写一个Demo组件测试一下项目是否能跑起来。</p>
-<p><code>linview/components/lib/demo/src/Index.vue</code>：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div class=&quot;l-demo&quot;&gt;</span><br><span class="line">    Demo</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">  export default &#123;</span><br><span class="line">    name:&#x27;Demo&#x27;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><code>linview/components/css/demo.scss</code>：</p>
-<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.l-demo</span>&#123;</span><br><span class="line">  <span class="attribute">color</span>: aqua;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><code>linview/examplesma/main.js</code></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;../components/css/demo.scss&#x27;</span><span class="comment">//引入样式</span></span><br><span class="line"><span class="keyword">import</span> Demo <span class="keyword">from</span> <span class="string">&#x27;../components/lib/demo/src/Index.vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> App <span class="keyword">from</span> <span class="string">&#x27;./App.vue&#x27;</span></span><br><span class="line">Vue.config.productionTip = <span class="literal">false</span></span><br><span class="line">Vue.use(Demo)</span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  <span class="attr">render</span>: <span class="function"><span class="params">h</span> =&gt;</span> h(App),</span><br><span class="line">&#125;).$mount(<span class="string">&#x27;#app&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><code>linview/examplesma/App.vue</code>:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div id=&quot;app&quot;&gt;</span><br><span class="line">    &lt;Demo&gt;&lt;/Demo&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  name: &#x27;App&#x27;,</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-
-<p>如果按照上面的代码书写会发现，组件不起作用，可以我们在使用第三方UI组件库的时候确实是Use这个组件就可以使用了，我们打开控制台，会发现报以下错误：</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211002203418.png"></p>
-<p>大概意思是组件没有注册，那么接下来对组件的全局注册：</p>
-<p>修改<code>linview/examplesma/main.js</code>：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">&#x27;../components/css/demo.scss&#x27;</span></span><br><span class="line"><span class="keyword">import</span> Demo <span class="keyword">from</span> <span class="string">&#x27;../components/lib/demo/index.js&#x27;</span></span><br><span class="line"><span class="comment">//Vue.component(&#x27;name&#x27;,Demo)</span></span><br><span class="line"><span class="keyword">import</span> App <span class="keyword">from</span> <span class="string">&#x27;./App.vue&#x27;</span></span><br><span class="line"></span><br><span class="line">Vue.config.productionTip = <span class="literal">false</span></span><br><span class="line">Vue.use(Demo)<span class="comment">//Demo.install -&gt; vue.component</span></span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  <span class="attr">render</span>: <span class="function"><span class="params">h</span> =&gt;</span> h(App),</span><br><span class="line">&#125;).$mount(<span class="string">&#x27;#app&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>增加<code>linview/components/lib/demo/index.js</code></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> Demo <span class="keyword">from</span> <span class="string">&#x27;./src/Index.vue&#x27;</span>;</span><br><span class="line">Demo.install = <span class="function"><span class="keyword">function</span> (<span class="params">Vue</span>) </span>&#123;</span><br><span class="line">  Vue.component(Demo.name, Demo)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> Demo</span><br></pre></td></tr></table></figure>
-
-<p>运行项目，没有报错，则Demo组件完成。</p>
-<p>写到这里会发现，其实就是一个全局的组件，但是在开发过程中，首先要考虑的组件的通用性，再而是组件的可维护，组件库的意义个人觉得是在于便于开发，想想我只要npm install一个包，然后我在main引入，在组件传递几个数值，一个非常好看的页面就形成，何乐而不为呢</p>
-<p>接下来编写正式的第一个卡片组件：</p>
-<p><code>Index.vue</code></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div class=&quot;l-card&quot; :style=&quot;width?&#123;width:width+&#x27;px&#x27;&#125;:&#123;&#125;&quot;&gt;</span><br><span class="line">    &lt;div class=&quot;l-card-img&quot; :style=&quot;imgHeight?&#123;height:imgHeight+&#x27;px&#x27;&#125;:&#123;&#125;&quot;&gt;</span><br><span class="line">      &lt;img :src=&quot;imgSrc&quot; alt=&quot;img&quot;&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;div v-if=&quot;summary&quot; class=&quot;l-card-summary&quot;&gt;</span><br><span class="line">      &#123;&#123;summary&#125;&#125;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;div v-else class=&quot;l-card-summary&quot;&gt;</span><br><span class="line">      &lt;slot&gt;&lt;/slot&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;slot name=&quot;footer&quot;&gt;&lt;/slot&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">  export default &#123;</span><br><span class="line">    name:&#x27;Card&#x27;,</span><br><span class="line">    props:&#123;</span><br><span class="line">      //卡片宽度</span><br><span class="line">      width:&#123;</span><br><span class="line">        type:Number,</span><br><span class="line">        default:0</span><br><span class="line">      &#125;,</span><br><span class="line">      //卡片图片资源</span><br><span class="line">      imgSrc:&#123;</span><br><span class="line">        type:String,</span><br><span class="line">        default:&#x27;&#x27;</span><br><span class="line">      &#125;,</span><br><span class="line">      //卡片图片高度</span><br><span class="line">      imgHeight:&#123;</span><br><span class="line">        type:Number,</span><br><span class="line">        default:0</span><br><span class="line">      &#125;,</span><br><span class="line">      //卡片概要</span><br><span class="line">      summary:&#123;</span><br><span class="line">        type:String,</span><br><span class="line">        default:&#x27;&#x27;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style lang=&quot;scss&quot; scoped&gt;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
-
-<p><code>card.scss</code></p>
-<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.l-card</span>&#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">270px</span>;</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">8px</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#fff</span>;</span><br><span class="line">  <span class="attribute">overflow</span>: hidden;</span><br><span class="line">  <span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">6px</span> <span class="number">10px</span> <span class="number">0</span> rgba(<span class="number">95</span>,<span class="number">101</span>,<span class="number">105</span>,<span class="number">0.15</span>);</span><br><span class="line">  <span class="attribute">padding-bottom</span>: <span class="number">8px</span>;</span><br><span class="line">  &amp;-<span class="selector-tag">img</span>&#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">152px</span>;</span><br><span class="line">    <span class="selector-tag">img</span>&#123;</span><br><span class="line">      <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">      <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  &amp;-<span class="selector-tag">summary</span>&#123;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">8px</span>;</span><br><span class="line">    <span class="attribute">text-align</span>: left;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">14px</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><code>index.js</code></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> Card <span class="keyword">from</span> <span class="string">&#x27;./src/Index.vue&#x27;</span>;</span><br><span class="line">Card.install = <span class="function"><span class="keyword">function</span> (<span class="params">Vue</span>) </span>&#123;</span><br><span class="line">  Vue.component(Card.name, Card)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> Card</span><br></pre></td></tr></table></figure>
-
-<h1 id="组件测试"><a href="#组件测试" class="headerlink" title="组件测试"></a>组件测试</h1><p>编写好的组件需要在本地进行测试才能发布，这里的测试不是非常正规的单元测试，而是直接使用examples目录下的App文件测试框架。</p>
-<p><code>App.vue</code></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div id=&quot;app&quot;&gt;</span><br><span class="line">    &lt;Card imgSrc=&quot;./img/card.png&quot; summary=&quot;Vue.js 源码全方位深入解析 全面深入理解Vue实现原理，掌握源码分析技巧&quot;&gt;&lt;/Card&gt;</span><br><span class="line">    &lt;br /&gt;</span><br><span class="line">    &lt;Card imgSrc=&quot;./img/card.png&quot; summary=&quot;Vue.js 源码全方位深入解析 全面深入理解Vue实现原理，掌握源码分析技巧&quot;&gt;</span><br><span class="line">      &lt;template v-slot:footer&gt;</span><br><span class="line">        &lt;div class=&quot;footer&quot;&gt;</span><br><span class="line">          &lt;div class=&quot;level&quot;&gt;高级 · 4256人报名 &lt;/div&gt;</span><br><span class="line">          &lt;div class=&quot;price&quot;&gt;￥488.00&lt;/div&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">      &lt;/template&gt;</span><br><span class="line">    &lt;/Card&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  name: &#x27;App&#x27;,</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style&gt;</span><br><span class="line">#app &#123;</span><br><span class="line">  margin: 0 auto;</span><br><span class="line">  width: 270px;</span><br><span class="line">&#125;</span><br><span class="line">.footer &#123;</span><br><span class="line">  padding: 0 8px;</span><br><span class="line">  font-size: 12px;</span><br><span class="line">  text-align: left;</span><br><span class="line">&#125;</span><br><span class="line">.level &#123;</span><br><span class="line">  color: #9199a1;</span><br><span class="line">  margin-bottom: 8px;</span><br><span class="line">&#125;</span><br><span class="line">.price &#123;</span><br><span class="line">  color: #f01414;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
-
-<p>预览效果：</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211002231029.png"></p>
-<h1 id="打包"><a href="#打包" class="headerlink" title="打包"></a>打包</h1><p>完成以上的步骤，其实已经可以发布到NPM上，但是有两个问题，</p>
 <ul>
-<li>现在使用该组件的时候，只能一个一个组件引用，不能全局引入，这需要两个入口文件，一个SCSS，一个JS。</li>
-<li>项目没有打包优化，包体积大</li>
+<li>DOCTYPE是文档类型声明，声明该网页以哪个HTML版本执行，不同版本有不同声明方式，不写会引发浏览器兼容问题</li>
+<li>html是网页根节点，lang属性表示网页的语言描述</li>
+<li>head是配置项，主要放一些配置</li>
+<li>meta元素可提供有关页面的元信息，比如针对搜索引擎和更新频度的描述和关键词。</li>
+<li>chartset属性是描述字符集。</li>
+<li>name属性的属性值有KeyWords、Description，分别是关键词和描述，这些都是成为了给搜索引擎看的</li>
+<li>name属性的属性值还有viewport，主要用在移动端设计，意思为视口</li>
+<li>title是网站tag的标题</li>
+<li>body是网页内容</li>
 </ul>
-<p>对于以上问题，我使用WebPack来打包JS，Gulp打包CSS</p>
-<p>安装依赖：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm i gulp@4 gulp-minify-css gulp-sass@4 webpack-cli@4 -D</span><br></pre></td></tr></table></figure>
+<h1 id="标题标签"><a href="#标题标签" class="headerlink" title="标题标签"></a>标题标签</h1><p>示例：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>h1<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h2</span>&gt;</span>h2<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h3</span>&gt;</span>h3<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h4</span>&gt;</span>h4<span class="tag">&lt;/<span class="name">h4</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h5</span>&gt;</span>h5<span class="tag">&lt;/<span class="name">h5</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h6</span>&gt;</span>h6<span class="tag">&lt;/<span class="name">h6</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p><code>build/webpack.component.js</code></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123;VueLoaderPlugin&#125; = <span class="built_in">require</span>(<span class="string">&#x27;vue-loader&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> glob = <span class="built_in">require</span>(<span class="string">&#x27;glob&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> utlis =<span class="built_in">require</span>(<span class="string">&#x27;./utlis&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> list = &#123;&#125;</span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">makeList</span> (<span class="params">dirPath, list</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> files = glob.sync(<span class="string">`<span class="subst">$&#123;dirPath&#125;</span>/**/index.js`</span>)</span><br><span class="line">  <span class="comment">//[ &#x27;components/lib/card/index.js&#x27;, &#x27;components/lib/demo/index.js&#x27; ]</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;files&#x27;</span>, files);</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> file <span class="keyword">of</span> files) &#123;</span><br><span class="line">    <span class="comment">//component card  component demo</span></span><br><span class="line">    <span class="keyword">const</span> component = file.split(<span class="regexp">/[/.]/</span>)[<span class="number">2</span>];</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;component&#x27;</span>, component);</span><br><span class="line">    list[component] = <span class="string">`./<span class="subst">$&#123;file&#125;</span>`</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">console</span>.log(list);</span><br><span class="line">&#125;</span><br><span class="line">makeList(<span class="string">&#x27;components/lib&#x27;</span>,list)</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="attr">entry</span>: list,<span class="comment">//入口文件</span></span><br><span class="line">  <span class="attr">mode</span>:<span class="string">&#x27;production&#x27;</span>,<span class="comment">//生产模式</span></span><br><span class="line">  <span class="attr">output</span>: &#123;</span><br><span class="line">    <span class="attr">filename</span>: <span class="string">&#x27;[name].umd.js&#x27;</span>,</span><br><span class="line">    <span class="attr">path</span>: utlis.DIST_PATH,</span><br><span class="line">    <span class="attr">library</span>: <span class="string">&#x27;lview&#x27;</span>,</span><br><span class="line">    <span class="attr">libraryTarget</span>:<span class="string">&#x27;umd&#x27;</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">plugins</span>: [</span><br><span class="line">    <span class="keyword">new</span> VueLoaderPlugin()</span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">module</span>: &#123;</span><br><span class="line">    <span class="attr">rules</span>: [</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">test</span>: <span class="regexp">/\.vue$/</span>,</span><br><span class="line">        use: [</span><br><span class="line">          &#123;</span><br><span class="line">            <span class="attr">loader</span>:<span class="string">&#x27;vue-loader&#x27;</span></span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><code>build/utlis.js</code></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">exports</span>.resolve = <span class="function"><span class="keyword">function</span> <span class="title">resolve</span> (<span class="params">dir</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> path.join(__dirname, <span class="string">&#x27;..&#x27;</span>, dir)</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">exports</span>.APP_PATH = <span class="built_in">exports</span>.resolve(<span class="string">&#x27;src&#x27;</span>)</span><br><span class="line"><span class="built_in">exports</span>.DIST_PATH = <span class="built_in">exports</span>.resolve(<span class="string">&#x27;dist&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<p><code>bulid/gulpfile.js</code></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> utlis =<span class="built_in">require</span>(<span class="string">&#x27;./utlis&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> gulp = <span class="built_in">require</span>(<span class="string">&#x27;gulp&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> sass = <span class="built_in">require</span>(<span class="string">&#x27;gulp-sass&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> minifyCSS = <span class="built_in">require</span>(<span class="string">&#x27;gulp-minify-css&#x27;</span>)</span><br><span class="line">gulp.task(<span class="string">&#x27;sass&#x27;</span>, <span class="keyword">async</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> gulp.src(<span class="string">&#x27;../components/css/**/*.scss&#x27;</span>)</span><br><span class="line">    .pipe(sass())</span><br><span class="line">    .pipe(minifyCSS())</span><br><span class="line">  .pipe(gulp.dest(utlis.DIST_PATH+<span class="string">&#x27;/css&#x27;</span>))</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p><code>Script</code>：</p>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="string">&quot;build&quot;</span>: <span class="string">&quot;npm run build:js &amp;&amp; npm run build:css&quot;</span>,</span><br><span class="line"><span class="string">&quot;build:js&quot;</span>: <span class="string">&quot;webpack --config ./build/webpack.component.js&quot;</span>,</span><br><span class="line"><span class="string">&quot;build:css&quot;</span>: <span class="string">&quot;npx gulp sass --gulpfile build/gulpfile.js&quot;</span>,</span><br></pre></td></tr></table></figure>
-
-<p>打包完成后会在项目根目录形成dist文件夹，这是等会我们要NPM上传的。</p>
-<h1 id="NPM发布"><a href="#NPM发布" class="headerlink" title="NPM发布"></a>NPM发布</h1><p>本地编写测试好的组件就要发布到NPM上，方便别人的下载使用，在使用之前，需要个人先注册好NPM账号。</p>
 <ul>
-<li>首先需要配置package.json文件：</li>
+<li>标题标签有6个，默认加粗</li>
 </ul>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="string">&quot;name&quot;</span>: <span class="string">&quot;linview&quot;</span>,</span><br><span class="line"><span class="string">&quot;version&quot;</span>: <span class="string">&quot;0.1.2&quot;</span>,</span><br><span class="line"><span class="string">&quot;description&quot;</span>: <span class="string">&quot;个人开发者UI组件库&quot;</span>,</span><br><span class="line"><span class="string">&quot;main&quot;</span>: <span class="string">&quot;dist/index.umd.js&quot;</span>,</span><br><span class="line"><span class="string">&quot;keywords&quot;</span>: [</span><br><span class="line">  <span class="string">&quot;linview&quot;</span>,</span><br><span class="line">  <span class="string">&quot;UI&quot;</span>,</span><br><span class="line">  <span class="string">&quot;vue&quot;</span></span><br><span class="line">],</span><br><span class="line"><span class="string">&quot;author&quot;</span>: <span class="string">&quot;bamboo_lsf&quot;</span>,</span><br><span class="line"><span class="string">&quot;files&quot;</span>: [</span><br><span class="line">  <span class="string">&quot;dist&quot;</span>,</span><br><span class="line">  <span class="string">&quot;components&quot;</span></span><br><span class="line">],</span><br></pre></td></tr></table></figure>
+<h1 id="段落标签"><a href="#段落标签" class="headerlink" title="段落标签"></a>段落标签</h1><p>示例：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>我是段落<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>我是段落<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>name：包的名字</p>
-<p>version：版本，低版本不能覆盖高版本</p>
-<p>description：描述，在你搜索这个包的时候会出现的描述</p>
-<p>main：入口主文件，当别人引用包的名字时候，其实就是用的这个文件</p>
-<p>keywords：搜索的关键词</p>
-<p>author：作者</p>
-<p>files：要上传的文件</p>
 <ul>
-<li><p>书写好根目录的RedeMe文件，它是npm包上的RedeMe文件。</p>
-</li>
-<li><p>把本地的下载源切换会官方，否则无法登录。</p>
-</li>
+<li>p标签表示段落，不能嵌套标题标签和段落标签</li>
 </ul>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm config set registry http://www.npmjs.org</span><br></pre></td></tr></table></figure>
+<h1 id="DIV标签"><a href="#DIV标签" class="headerlink" title="DIV标签"></a>DIV标签</h1><p>示例：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>盒子<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>window上如果登录失败可以在要登录的窗口上在次执行，因为我在切回官方源后，登录报错。</p>
-<p>登录命令：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm login</span><br></pre></td></tr></table></figure>
+<ul>
+<li>div是一个容器，可以放入任何标签，用来分隔页面。</li>
+</ul>
+<h1 id="无序标签"><a href="#无序标签" class="headerlink" title="无序标签"></a>无序标签</h1><p>示例:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">h3</span>&gt;</span>广东省<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">li</span>&gt;</span>广州<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">li</span>&gt;</span>潮州<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">li</span>&gt;</span>清远<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">h3</span>&gt;</span>广东省<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">li</span>&gt;</span>广州<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">li</span>&gt;</span>潮州<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">li</span>&gt;</span>清远<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>正常情况输入用户名，密码，邮箱即可登录完成。</p>
-<p>接下来使用<code>npm publish</code>上传，随后我们就可以在Npm看到自己发布的包了</p>
-<h1 id="文档站点"><a href="#文档站点" class="headerlink" title="文档站点"></a>文档站点</h1><p>一个好的UI框架，当然是需要一个文档展示，这样才方便以后的开发与维护。接下来使用VuePress来形成文档的站点。</p>
-<p>首先我们需要明白一个概念，文档和项目代码是在一起的，那么我们应该把文档的静态文件和仓库代码放一起，怎么做到呢，其实，我们只需要把文档形成的静态文件和项目代码放在仓库的不同分支即可。这样两者就不会冲突</p>
-<p>安装VuePress：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm i VuePress -D</span><br></pre></td></tr></table></figure>
+<ul>
+<li>无序标签需要搭配li标签使用,无序标签只能包含li,li能包含任何标签</li>
+<li>ul的type属性值有:<code>square</code>(实心方块)、<code>disc</code>（实心圆）、<code>circle</code>（空心圆）</li>
+</ul>
+<h1 id="有序标签"><a href="#有序标签" class="headerlink" title="有序标签"></a>有序标签</h1><p>示例：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ol</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>listitem<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>listitem<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>listitem<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ol</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>生成以下文件和文件夹：</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211003183852.png"></p>
-<p>config.js</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="attr">title</span>: <span class="string">&#x27;LinView&#x27;</span>,</span><br><span class="line">  <span class="attr">base</span>:<span class="string">&#x27;/linview/&#x27;</span>,</span><br><span class="line">  <span class="attr">description</span>: <span class="string">&#x27;Just playing around&#x27;</span>,</span><br><span class="line">  <span class="attr">themeConfig</span>: &#123;</span><br><span class="line">    <span class="comment">//导航</span></span><br><span class="line">    <span class="attr">nav</span>: [</span><br><span class="line">      &#123; <span class="attr">text</span>: <span class="string">&#x27;首页&#x27;</span>, <span class="attr">link</span>: <span class="string">&#x27;/&#x27;</span> &#125;,</span><br><span class="line">      &#123; <span class="attr">text</span>: <span class="string">&#x27;指南&#x27;</span>, <span class="attr">link</span>: <span class="string">&#x27;/componentDocs/&#x27;</span>&#125;,</span><br><span class="line">      &#123;<span class="attr">text</span>:<span class="string">&#x27;更新日志&#x27;</span>,<span class="attr">link</span>:<span class="string">&#x27;/update/index&#x27;</span>&#125;,</span><br><span class="line">      &#123; <span class="attr">text</span>: <span class="string">&#x27;GitHub&#x27;</span>, <span class="attr">link</span>: <span class="string">&#x27;https://github.com/LSFCXZ/linview&#x27;</span> &#125;,</span><br><span class="line">      &#123; <span class="attr">text</span>: <span class="string">&#x27;NPM&#x27;</span>, <span class="attr">link</span>: <span class="string">&#x27;https://www.npmjs.com/package/linview&#x27;</span> &#125;,</span><br><span class="line">    ],</span><br><span class="line">    <span class="attr">sidebar</span>: &#123;</span><br><span class="line">     <span class="string">&#x27;/componentDocs/&#x27;</span>: [</span><br><span class="line">         &#123;</span><br><span class="line">        <span class="attr">title</span>: <span class="string">&#x27;简介&#x27;</span>,</span><br><span class="line">        <span class="attr">path</span>:<span class="string">&#x27;/componentDocs/&#x27;</span></span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">title</span>: <span class="string">&#x27;快速开始&#x27;</span>,</span><br><span class="line">        <span class="attr">path</span>:<span class="string">&#x27;/componentDocs/start&#x27;</span></span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">title</span>: <span class="string">&#x27;卡片&#x27;</span>,</span><br><span class="line">        <span class="attr">path</span>:<span class="string">&#x27;/componentDocs/card&#x27;</span></span><br><span class="line">      &#125;</span><br><span class="line">      ]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>默认是数字排列，type属性值有：a、A、i、I、1</li>
+<li>有序列表有start属性，它的属性值只能阿拉伯数字，设置起始值</li>
+<li>有序列表有revered属性，没有属性值，倒序，HTML5新增</li>
+</ul>
+<h1 id="定义列表"><a href="#定义列表" class="headerlink" title="定义列表"></a>定义列表</h1><p>示例：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dl</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">dt</span>&gt;</span>北京<span class="tag">&lt;/<span class="name">dt</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">dd</span>&gt;</span>我国首都<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">dt</span>&gt;</span>上海<span class="tag">&lt;/<span class="name">dt</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">dd</span>&gt;</span>国际金融中心<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">dl</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>注意：base是你仓库的名字，如果你的站点没有后缀，那么可以不填</p>
-<p>根目录index.md</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">home: true</span><br><span class="line">heroImage: </span><br><span class="line">heroText: LinView</span><br><span class="line">tagline: 简洁、美观、开源的UI框架</span><br><span class="line">actionText: 快速上手 →</span><br><span class="line">actionLink: /componentDocs/start</span><br><span class="line">features:</span><br><span class="line">- title: 简洁至上</span><br><span class="line">  details: 以 Markdown 为中心的项目结构，以最少的配置帮助你专注于写作。</span><br><span class="line">- title: 美观</span><br><span class="line">  details: 享受 Vue + webpack 的开发体验，在 Markdown 中使用 Vue 组件，同时可以使用 Vue 来开发自定义主题。</span><br><span class="line">- title: 开源免费</span><br><span class="line">  details: VuePress 为每个页面预渲染生成静态的 HTML，同时在页面被加载的时候，将作为 SPA 运行。</span><br><span class="line">footer: MIT Licensed | Copyright © 2021-present BambooLSF</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li>dl是定义列表，dt是数据项，dd是数据定义</li>
+</ul>
+<h1 id="图片标签"><a href="#图片标签" class="headerlink" title="图片标签"></a>图片标签</h1><p>示例：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;./images/beijing/1.jpg&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;图片丢失了&quot;</span> <span class="attr">width</span>=<span class="string">&quot;2000&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>具体可以参考vuepress的官网配置：<a href="https://vuepress.vuejs.org/zh/">https://vuepress.vuejs.org/zh/</a></p>
-<p>接下来就是配置脚本：</p>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="string">&quot;docs:dev&quot;</span>: <span class="string">&quot;vuepress dev docs&quot;</span>,</span><br><span class="line"><span class="string">&quot;docs:build&quot;</span>: <span class="string">&quot;vuepress build docs&quot;</span>,</span><br><span class="line"><span class="string">&quot;depoly&quot;</span>: <span class="string">&quot;bash ./build/deploy.sh&quot;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>图片标签有src属性，用来引用资源文件，alt属性，当图片不存在时显示，width和height属性用来设置宽高</li>
+<li>支持bmp、gif、jpeg、png、svg、webp格式</li>
+</ul>
+<h1 id="超级链接"><a href="#超级链接" class="headerlink" title="超级链接"></a>超级链接</h1><p>示例：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;https://www.baidu.com&quot;</span> <span class="attr">title</span>=<span class="string">&quot;标题&quot;</span> &gt;</span>百度<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>docs:dev：运行vuepress</p>
-<p>docs:build：打包</p>
-<p>depoly：部署</p>
-<p>接下来就是部署到githubpage：</p>
-<p>build/deploy.sh</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/usr/bin/env sh</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 确保脚本抛出遇到的错误</span></span><br><span class="line"><span class="built_in">set</span> -e</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成静态文件</span></span><br><span class="line">npm run docs:build</span><br><span class="line"></span><br><span class="line"><span class="comment"># 进入生成的文件夹</span></span><br><span class="line"><span class="built_in">cd</span> docs/.vuepress/dist</span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果是发布到自定义域名</span></span><br><span class="line"><span class="comment"># echo &#x27;www.example.com&#x27; &gt; CNAME</span></span><br><span class="line"></span><br><span class="line">git init</span><br><span class="line">git add -A</span><br><span class="line">git commit -m <span class="string">&#x27;deploy&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果发布到 https://&lt;USERNAME&gt;.github.io</span></span><br><span class="line"><span class="comment"># git push -f git@github.com:&lt;USERNAME&gt;/&lt;USERNAME&gt;.github.io.git master</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果发布到 https://&lt;USERNAME&gt;.github.io/&lt;REPO&gt;</span></span><br><span class="line"> git push -f git@github.com:LSFCXZ/linview.git master:gh-pages</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> -</span><br></pre></td></tr></table></figure>
+<ul>
+<li>跳转到网页百度。</li>
+<li>在网址后面加入#id，就可以跳转到该网站的id标签处。</li>
+<li>href支持相对路径和绝对路径。</li>
+<li>title属性，设置悬停文本。</li>
+<li>target属性设置链接打开窗口，blank属性表示新窗口打开</li>
+</ul>
+<h1 id="视频标签"><a href="#视频标签" class="headerlink" title="视频标签"></a>视频标签</h1><p>示例：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">video</span> <span class="attr">src</span>=<span class="string">&quot;./video//flower.mp4&quot;</span> <span class="attr">controls</span> <span class="attr">loop</span> <span class="attr">autoplay</span>&gt;</span>不支持该标签<span class="tag">&lt;/<span class="name">video</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>注意： git push是要换成你的github地址 </p>
-<p>执行命令：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm run depoly</span><br></pre></td></tr></table></figure>
+<ul>
+<li>支持格式：mp4、ogb、avi、webm</li>
+<li>controls属性显示控件，loop循环播放，autoplay自动播放</li>
+<li>不支持该标签的时候显示标签内部文字</li>
+</ul>
+<h1 id="音频标签"><a href="#音频标签" class="headerlink" title="音频标签"></a>音频标签</h1><p>示例：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">audio</span> <span class="attr">src</span>=<span class="string">&quot;./music/hangpaibgm(mp3).mp3&quot;</span> <span class="attr">controls</span> <span class="attr">loop</span> <span class="attr">autoplay</span>&gt;</span></span><br><span class="line">  不支持该标签</span><br><span class="line"><span class="tag">&lt;/<span class="name">audio</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>如果在window上无法执行，那么使用git命令窗口即可，这样站点已经完成。</p>
-<p>再把我们的项目代码上传：git init ,git add . ,git commit -m ‘’’第一次提交’ ，git push等一把梭上传代码</p>
-<p>至此，UI框架基本完成，可以新建项目，npm install 自己的UI库进行测试。</p>
-<h1 id="版本问题"><a href="#版本问题" class="headerlink" title="版本问题"></a>版本问题</h1><p>为了避免因为版本问题引起的错误，这里列举开发时版本环境：</p>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="string">&quot;dependencies&quot;</span>: &#123;</span><br><span class="line">    <span class="attr">&quot;core-js&quot;</span>: <span class="string">&quot;^3.6.5&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;vue&quot;</span>: <span class="string">&quot;^2.6.11&quot;</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">&quot;devDependencies&quot;</span>: &#123;</span><br><span class="line">    <span class="attr">&quot;@vue/cli-plugin-babel&quot;</span>: <span class="string">&quot;~4.5.0&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;@vue/cli-plugin-eslint&quot;</span>: <span class="string">&quot;~4.5.0&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;@vue/cli-service&quot;</span>: <span class="string">&quot;~4.5.0&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;babel-eslint&quot;</span>: <span class="string">&quot;^10.1.0&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;eslint&quot;</span>: <span class="string">&quot;^6.7.2&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;eslint-plugin-vue&quot;</span>: <span class="string">&quot;^6.2.2&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;gulp&quot;</span>: <span class="string">&quot;^4.0.2&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;gulp-minify-css&quot;</span>: <span class="string">&quot;^1.2.4&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;gulp-sass&quot;</span>: <span class="string">&quot;^4.1.1&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;node-sass&quot;</span>: <span class="string">&quot;^4.14.1&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;sass-loader&quot;</span>: <span class="string">&quot;^5.0.1&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;vue-loader&quot;</span>: <span class="string">&quot;^15.9.8&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;vue-template-compiler&quot;</span>: <span class="string">&quot;^2.6.11&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;vuepress&quot;</span>: <span class="string">&quot;^1.8.2&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;webpack-cli&quot;</span>: <span class="string">&quot;^4.8.0&quot;</span></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>支持格式：mp3、ogg、wav</li>
+<li>属性与视频标签一样</li>
+</ul>
+<h1 id="区块标签"><a href="#区块标签" class="headerlink" title="区块标签"></a>区块标签</h1><p>区块标签与div一样，但是语义不同。</p>
+<ul>
+<li>section：文档区域，语义比div大</li>
+<li>article：文档，文章核心内容</li>
+<li>aside：非核心内容，比如广告</li>
+<li>nav：导航条</li>
+<li>header：页头</li>
+<li>main：网页核心</li>
+<li>footer：页脚</li>
+</ul>
+<h1 id="小语义标签"><a href="#小语义标签" class="headerlink" title="小语义标签"></a>小语义标签</h1><ul>
+<li>span：行内标签</li>
+<li>b：加粗（HTML5废弃）</li>
+<li>u：下划线（HTML5废弃）</li>
+<li>i：倾斜（HTML5废弃）</li>
+<li>strong：特别重要文字（加粗）</li>
+<li>em：强调文字（倾斜）</li>
+<li>mark：高亮文字</li>
+<li>figure代表独立内容，与说明figcaption配合使用</li>
+</ul>
+<h1 id="表单标签"><a href="#表单标签" class="headerlink" title="表单标签"></a>表单标签</h1><p>示例：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;&quot;</span> <span class="attr">method</span>=<span class="string">&quot;POST&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;text&quot;</span>&gt;</span>输入框<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">id</span>=<span class="string">&quot;text&quot;</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
+<ul>
+<li>action属性时提交到后台数据的链接，method时请求的方法</li>
+<li>表单控件有disabled、placeholder属性</li>
+<li>基础控件有text、password、radio、checkbox、（select、option）、textarea、button、submit、reset</li>
+<li>新增控件有datalist、color、date、time、email、range、search、url</li>
+</ul>
+<h1 id="表格标签"><a href="#表格标签" class="headerlink" title="表格标签"></a>表格标签</h1><p>示例：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">border</span>=<span class="string">&quot;1&quot;</span> <span class="attr">width</span>=<span class="string">&quot;600&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">caption</span>&gt;</span>我是表格的标题<span class="tag">&lt;/<span class="name">caption</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">th</span>&gt;</span>第一季度<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">th</span>&gt;</span>第二季度<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">th</span>&gt;</span>第三季度<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">th</span>&gt;</span>第四季度<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>A<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>B<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>C<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>D<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>E<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>F<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>G<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>H<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>I<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>J<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>K<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>L<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>经过已上步骤，基本已经形成一个较为完整的UI框架，唯一的缺点是按需加载有问题，接下来有待优化。</p>
-<p>Github开源地址：<a href="https://github.com/LSFCXZ/linview">https://github.com/LSFCXZ/linview</a></p>
-<p>文档站点：<a href="https://lsfcxz.github.io/linview/">https://lsfcxz.github.io/linview/</a></p>
+<ul>
+<li>table时表格意思，table row时表格行，table data表格数据</li>
+<li>rowspan时合并行，colspan时合并表格列</li>
+</ul>
+<h1 id="特殊字符"><a href="#特殊字符" class="headerlink" title="特殊字符"></a>特殊字符</h1><p><code>&amp;lt</code>：小于号</p>
+<p><code>&amp;gt</code>：大于号</p>
+<p><code>&amp;nbsp</code>：空格</p>
+<p><code>&amp;copy</code>：版权符号</p>
 ]]></content>
       <categories>
-        <category>组件库</category>
+        <category>文档(更新中)</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>变量声明提升和var、let、const的区别</title>
+    <url>/article/43391fd9.html</url>
+    <content><![CDATA[<p>本文主要介绍JavaScript变量声明提升的现象。</p>
+<p>JavaScript是一门运行时的脚本语言，也就是没有编译阶段，但是存在一个预编译阶段，预编译阶段会去预读所有变量的定义。</p>
+<p><strong>什么是变量声明提升？</strong></p>
+<p>我们可以提前使用一个稍后才声明的变量，而不会引发异常。</p>
+<p><strong>变量声明提升带来的后果：</strong></p>
+<p>变量声明提升只是提升了定义，但不会提升值，比如下面代码，输出的是undefined，这是因为var a 被提升了，但是后面的值没有被提升，一个没有赋初值的变量，输出肯定是undefined。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(a);</span><br><span class="line"><span class="keyword">var</span> a = <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<p>这其实是一种非常不好的写法，如果在其他编译语言，这是会直接报错，但是js会产生这种现象是由于语言本身的特性导致，在ES6中，新增了<code>let</code>，<code>const</code>两个声明变量，这两个就不会存在变量声明提升。</p>
+<p><strong>函数声明提升：</strong></p>
+<p>如果调用了一个未先定义的函数，结果会怎么样</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">fun(<span class="string">&#x27;Hello world&#x27;</span>)</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun</span> (<span class="params">str</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(str);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>结果输出Hello world，这是因为函数定义后就是等着被调用的，只有调用才会执行，但是如果复制给一个变量，那情况就不一样了</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">fun(<span class="string">&#x27;Hello world&#x27;</span>)</span><br><span class="line"><span class="keyword">var</span> fun = <span class="function"><span class="keyword">function</span>  (<span class="params">str</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(str);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>报错信息：<code>TypeError: fun is not a function</code>，这是因为js会理解为这是在定义一个变量，把var fun提升了，但是函数没有提升，所以去调用一个undefined，肯定报错这不是一个函数</li>
+</ul>
+<h1 id="var、let、const的区别"><a href="#var、let、const的区别" class="headerlink" title="var、let、const的区别"></a><code>var、let、const</code>的区别</h1><h2 id="var"><a href="#var" class="headerlink" title="var:"></a>var:</h2><p>var是ES5中一个初始化变量的关键字，用var声明的变量，除了在函数使用var变量以外，其他都属于全局变量，全局变量是在顶级对象能调用的一个属性值。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">  <span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">fun</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> b = <span class="number">2</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="keyword">var</span> c = <span class="number">3</span>;</span><br><span class="line">  &#125;</span><br><span class="line">fun();</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;a-&gt;&#x27;</span> + <span class="built_in">window</span>.a + <span class="string">&#x27; b-&gt;&#x27;</span> + <span class="built_in">window</span>.b + <span class="string">&#x27; c-&gt;&#x27;</span> + <span class="built_in">window</span>.c);</span><br></pre></td></tr></table></figure>
+
+<p>运行效果：</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211028185202.png"></p>
+<ul>
+<li>可以看出window对象上已经绑定了变量a和c，属于全局的一个变量。如果想给var重新赋值，可以直接a=1或者重新var a = 1,重新赋值并不会改变上面的原则。而如果在函数内不使用<code>var</code>，该变量是全局的</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">undefine      <span class="function"><span class="keyword">function</span> <span class="title">fun</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        b = <span class="number">22</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      fun();</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">&#x27; b-&gt;&#x27;</span> + <span class="built_in">window</span>.b); <span class="comment">//b-&gt;undefine</span></span><br></pre></td></tr></table></figure>
+
+<p>以上是在浏览器侧，在Node侧有小小的区别。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">global</span>.a);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>以上代码输出的其实是undefine，因为在nodejs侧，使用var一个变量，属于该js文件局部的变量，只有a = 1的时候，才能被global调用，不过一般不建议这样做，会产生全局污染，除非这个变量是全局都需要去频繁使用到</li>
+</ul>
+<h2 id="let"><a href="#let" class="headerlink" title="let:"></a>let:</h2><p><code>let</code>是<code>ES6</code>新增的命令，用来声明变量，用法类似于<code>var</code>，但是所声明的变量，<strong>只在<code>let</code>命令所在的代码块内有效</strong></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="keyword">let</span> a = <span class="number">20</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(a) <span class="comment">// ReferenceError: a is not defined.</span></span><br></pre></td></tr></table></figure>
+
+<p>同时也<strong>不存在变量提升</strong>，以下代码表示在声明它之前，变量<code>a</code>是不存在的，这时如果用到它，就会抛出一个错误</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(a) <span class="comment">// 报错ReferenceError</span></span><br><span class="line"><span class="keyword">let</span> a = <span class="number">2</span></span><br></pre></td></tr></table></figure>
+
+<p>let<strong>存在暂时性死区</strong>，也就是使用<code>let</code>声明变量前，该变量都不可用</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">123</span>;</span><br><span class="line"><span class="keyword">if</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">  a = <span class="string">&#x27;abc&#x27;</span>; <span class="comment">// ReferenceError</span></span><br><span class="line">  <span class="keyword">let</span> a;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong><code>let</code>不允许在相同作用域中重复声明</strong></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="number">20</span></span><br><span class="line"><span class="keyword">let</span> a = <span class="number">30</span></span><br><span class="line"><span class="comment">// Uncaught SyntaxError: Identifier &#x27;a&#x27; has already been declared</span></span><br></pre></td></tr></table></figure>
+
+<p>当然在不同作用域下是可以重复声明，毕竟let属于块级作用域</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="number">20</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">let</span> a = <span class="number">30</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="const"><a href="#const" class="headerlink" title="const:"></a>const:</h2><p><code>const</code>声明一个只读的常量，一旦声明，常量的值就不能改变</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> a = <span class="number">1</span></span><br><span class="line">a = <span class="number">3</span></span><br><span class="line"><span class="comment">// TypeError: Assignment to constant variable.</span></span><br></pre></td></tr></table></figure>
+
+<p><code>const</code>一旦声明变量，就必须立即初始化，不能留到以后赋值</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> a;</span><br><span class="line"><span class="comment">// SyntaxError: Missing initializer in const declaration</span></span><br></pre></td></tr></table></figure>
+
+<p>如果之前用<code>var</code>或<code>let</code>声明过变量，再用<code>const</code>声明同样会报错</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">20</span></span><br><span class="line"><span class="keyword">let</span> b = <span class="number">20</span></span><br><span class="line"><span class="keyword">const</span> a = <span class="number">30</span></span><br><span class="line"><span class="keyword">const</span> b = <span class="number">30</span></span><br><span class="line"><span class="comment">// 都会报错</span></span><br></pre></td></tr></table></figure>
+
+<p><code>const</code>实际上保证的并不是变量的值不得改动，而是变量指向的那个内存地址所保存的数据不得改动</p>
+<p>对于简单类型的数据，值就保存在变量指向的那个内存地址，因此等同于常量</p>
+<p>对于复杂类型的数据，变量指向的内存地址，保存的只是一个指向实际数据的指针，<code>const</code>只能保证这个指针是固定的，并不能确保改变量的结构不变</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> foo = &#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 为 foo 添加一个属性，可以成功</span></span><br><span class="line">foo.prop = <span class="number">123</span>;</span><br><span class="line">foo.prop <span class="comment">// 123</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 将 foo 指向另一个对象，就会报错</span></span><br><span class="line">foo = &#123;&#125;; <span class="comment">// TypeError: &quot;foo&quot; is read-only</span></span><br></pre></td></tr></table></figure>
+
+<p>其它情况，<code>const</code>与<code>let</code>一致</p>
+]]></content>
+      <categories>
+        <category>javascript</category>
       </categories>
       <tags>
-        <tag>自定义组件库</tag>
+        <tag>变量声明提升</tag>
       </tags>
   </entry>
   <entry>
@@ -1655,17 +1733,6 @@
       </tags>
   </entry>
   <entry>
-    <title>javascript的变量声明提升</title>
-    <url>/article/43391fd9.html</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>javascript</category>
-      </categories>
-      <tags>
-        <tag>变量声明提升</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>小破站正式上线</title>
     <url>/article/36e749dc.html</url>
     <content><![CDATA[<p>断断续续半年时间，使用<code>Hexo</code>已有很长一段时间，经历了不断的优化踩坑，最开始使用<code>NexT</code>做为博客主题，到后来使用了Butterfly主题，到对主题的一系列魔改，最终还是回归到<code>NexT</code>作为博客的主题。</p>
@@ -1679,24 +1746,6 @@
       <tags>
         <tag>随笔</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>布局问题</title>
-    <url>/article/9a7d9672.html</url>
-    <content><![CDATA[<p>在开发网页布局的时候，遇到浏览器正常窗口，正常显示，但是浏览器缩小，页面混乱问题，特此记录一下。</p>
-<h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>这是正常情况：</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211023105243.png"></p>
-<p>这是缩小情况，非常丑陋：</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211023105341.png"></p>
-<h1 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h1><p>通过审核元素可以看到，父盒子没有宽度，是由子盒子撑开，但是背景颜色是在父盒子，给父盒子设置宽度即可解决，但是背景颜色是铺满的，所以就需要使用min-width属性。</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/image-20211023110010817.png"></p>
-<p>第二个问题，就是轮播的问题，这里依然使用min-width属性给父盒子设置宽度即可解决。</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211023110527.png"></p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>设置width100%是有问题的，当浏览器缩小，那么会认为浏览器就是这么小，宽度就占满，那么再去拖动滚动条，后面的内容也就看不到了</p>
-]]></content>
-      <categories>
-        <category>开发问题</category>
-      </categories>
   </entry>
   <entry>
     <title>常用文本样式属性</title>
@@ -1837,6 +1886,24 @@
       </tags>
   </entry>
   <entry>
+    <title>布局问题</title>
+    <url>/article/9a7d9672.html</url>
+    <content><![CDATA[<p>在开发网页布局的时候，遇到浏览器正常窗口，正常显示，但是浏览器缩小，页面混乱问题，特此记录一下。</p>
+<h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>这是正常情况：</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211023105243.png"></p>
+<p>这是缩小情况，非常丑陋：</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211023105341.png"></p>
+<h1 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h1><p>通过审核元素可以看到，父盒子没有宽度，是由子盒子撑开，但是背景颜色是在父盒子，给父盒子设置宽度即可解决，但是背景颜色是铺满的，所以就需要使用min-width属性。</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/image-20211023110010817.png"></p>
+<p>第二个问题，就是轮播的问题，这里依然使用min-width属性给父盒子设置宽度即可解决。</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211023110527.png"></p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>设置width100%是有问题的，当浏览器缩小，那么会认为浏览器就是这么小，宽度就占满，那么再去拖动滚动条，后面的内容也就看不到了</p>
+]]></content>
+      <categories>
+        <category>开发问题</category>
+      </categories>
+  </entry>
+  <entry>
     <title>无题</title>
     <url>/article/9b44950b.html</url>
     <content><![CDATA[<p>欢乐和苦恼必然联系在一起：每一个欢乐背后都隐藏着当这个欢乐失去后的苦恼，每一个苦恼背后都隐藏着，当这个苦恼失去后的快乐。</p>
@@ -1849,12 +1916,45 @@
       </tags>
   </entry>
   <entry>
+    <title>物理像素和CSS像素</title>
+    <url>/article/158ced0d.html</url>
+    <content><![CDATA[<p>本文主要记录移动端像素知识。</p>
+<p><strong>分辨率：</strong></p>
+<p>是指屏幕的物理像素点，比如：1792 X 828像素表示纵轴有1792个像素点，横轴828个像素点。分辨率越高显示越清晰</p>
+<p><strong>物理像素（physical pixel）:</strong></p>
+<p>物理像素也是设备像素（dp：device pixel），开发中不以物理像素为准，因为设备的物理像素各不相同，如果用1像素描述一块区域，在标清屏显示更大，在高清屏显示更小，物理像素是不能被放大的，所以就导致开发一个页面，在这台设备可能设配的，在其他设备就不行</p>
+<p><strong>CSS像素:</strong></p>
+<p>CSS像素也是逻辑像素（logical pixel），也可以是设备独立像素(dip:device independent pixel)</p>
+<p>实际开发会用的像素，比如px就是。</p>
+<p>CSS像素如果在标清用2像素点描述2px，那么在高清屏就是放大到4倍</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211024180350.png"></p>
+<p><strong>设备像素比（dpr:device pixel ratio）:</strong></p>
+<p>设备像素比：dpr= 设备像素/CSS像素（缩比是1的情况下）</p>
+<p><strong>缩放：</strong></p>
+<p>缩放改变的是CSS像素大小</p>
+<p><strong>PPI:</strong></p>
+<p>PPI是pixels per inch缩写，表示为每英寸的物理像素点，也可以是dpi，理解为像素密度点</p>
+<p>计算公式：</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211024174454.png"></p>
+]]></content>
+      <categories>
+        <category>移动端Web</category>
+      </categories>
+      <tags>
+        <tag>像素</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>开发效率网站</title>
     <url>/article/b8ba1c56.html</url>
     <content><![CDATA[<p>本文主要分享学习过程中的具有学习意义或者具有参考价值的网站</p>
 <p>谷歌<code>bilibili</code>的官方视频号：<a href="https://space.bilibili.com/64169458?from=search&amp;seid=16725490532360573752&amp;spm_id_from=333.337.0.0">https://space.bilibili.com/64169458?from=search&amp;seid=16725490532360573752&amp;spm_id_from=333.337.0.0</a></p>
 <ul>
 <li>个人觉得，相比外网的视频，有着网络限制，而且对个人英文水平有很大考验，<code>bilibili</code>上面的视频有中文字幕，而且也是官方出品，所以质量是较好的</li>
+</ul>
+<p>Github trending: <a href="https://github.com/trending">https://github.com/trending</a></p>
+<ul>
+<li>可以了解到最近非常火的开源项目。</li>
 </ul>
 <table>
 <thead>
@@ -1915,35 +2015,6 @@
 ]]></content>
       <tags>
         <tag>分享</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>物理像素和CSS像素</title>
-    <url>/article/158ced0d.html</url>
-    <content><![CDATA[<p>本文主要记录移动端像素知识。</p>
-<p><strong>分辨率：</strong></p>
-<p>是指屏幕的物理像素点，比如：1792 X 828像素表示纵轴有1792个像素点，横轴828个像素点。分辨率越高显示越清晰</p>
-<p><strong>物理像素（physical pixel）:</strong></p>
-<p>物理像素也是设备像素（dp：device pixel），开发中不以物理像素为准，因为设备的物理像素各不相同，如果用1像素描述一块区域，在标清屏显示更大，在高清屏显示更小，物理像素是不能被放大的，所以就导致开发一个页面，在这台设备可能设配的，在其他设备就不行</p>
-<p><strong>CSS像素:</strong></p>
-<p>CSS像素也是逻辑像素（logical pixel），也可以是设备独立像素(dip:device independent pixel)</p>
-<p>实际开发会用的像素，比如px就是。</p>
-<p>CSS像素如果在标清用2像素点描述2px，那么在高清屏就是放大到4倍</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211024180350.png"></p>
-<p><strong>设备像素比（dpr:device pixel ratio）:</strong></p>
-<p>设备像素比：dpr= 设备像素/CSS像素（缩比是1的情况下）</p>
-<p><strong>缩放：</strong></p>
-<p>缩放改变的是CSS像素大小</p>
-<p><strong>PPI:</strong></p>
-<p>PPI是pixels per inch缩写，表示为每英寸的物理像素点，也可以是dpi，理解为像素密度点</p>
-<p>计算公式：</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211024174454.png"></p>
-]]></content>
-      <categories>
-        <category>移动端Web</category>
-      </categories>
-      <tags>
-        <tag>像素</tag>
       </tags>
   </entry>
 </search>
