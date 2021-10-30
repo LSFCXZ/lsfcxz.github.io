@@ -22,22 +22,19 @@
     var CONFIG = {"hostname":"lsfcxz.gitee.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="本文主要介绍JavaScript变量声明提升的现象。">
+  <meta name="description" content="本文主要介绍JavaScript的表达式和运算符。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="变量声明提升和var、let、const的区别">
-<meta property="og:url" content="https://lsfcxz.gitee.io/article/43391fd9.html">
+<meta property="og:title" content="JavaScript的表达式和运算符">
+<meta property="og:url" content="https://lsfcxz.gitee.io/article/f5797da9.html">
 <meta property="og:site_name" content="大前端_LSF">
-<meta property="og:description" content="本文主要介绍JavaScript变量声明提升的现象。">
+<meta property="og:description" content="本文主要介绍JavaScript的表达式和运算符。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211028185202.png">
-<meta property="article:published_time" content="2021-10-27T10:37:18.000Z">
-<meta property="article:modified_time" content="2021-10-29T01:09:33.316Z">
+<meta property="article:published_time" content="2021-10-29T13:49:12.000Z">
+<meta property="article:modified_time" content="2021-10-30T04:00:47.001Z">
 <meta property="article:author" content="const name&#x3D;&quot;LSF&quot;">
-<meta property="article:tag" content="变量声明提升">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211028185202.png">
 
-<link rel="canonical" href="https://lsfcxz.gitee.io/article/43391fd9.html">
+<link rel="canonical" href="https://lsfcxz.gitee.io/article/f5797da9.html">
 
 
 <script id="page-configurations">
@@ -50,7 +47,7 @@
   };
 </script>
 
-  <title>变量声明提升和var、let、const的区别 | 大前端_LSF</title>
+  <title>JavaScript的表达式和运算符 | 大前端_LSF</title>
   
 
 
@@ -213,7 +210,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lsfcxz.gitee.io/article/43391fd9.html">
+    <link itemprop="mainEntityOfPage" href="https://lsfcxz.gitee.io/article/f5797da9.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -226,7 +223,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          变量声明提升和var、let、const的区别
+          JavaScript的表达式和运算符
         </h1>
 
         <div class="post-meta">
@@ -236,14 +233,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-10-27 18:37:18" itemprop="dateCreated datePublished" datetime="2021-10-27T18:37:18+08:00">2021-10-27</time>
+              <time title="创建时间：2021-10-29 21:49:12" itemprop="dateCreated datePublished" datetime="2021-10-29T21:49:12+08:00">2021-10-29</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-29 09:09:33" itemprop="dateModified" datetime="2021-10-29T09:09:33+08:00">2021-10-29</time>
+                <time title="修改时间：2021-10-30 12:00:47" itemprop="dateModified" datetime="2021-10-30T12:00:47+08:00">2021-10-30</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -271,8 +268,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/article/43391fd9.html#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/article/43391fd9.html" itemprop="commentCount"></span>
+    <a title="valine" href="/article/f5797da9.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/article/f5797da9.html" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -287,77 +284,204 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>本文主要介绍JavaScript变量声明提升的现象。</p>
-<p>JavaScript是一门运行时的脚本语言，也就是没有编译阶段，但是存在一个预编译阶段，预编译阶段会去预读所有变量的定义。</p>
-<p><strong>什么是变量声明提升？</strong></p>
-<p>我们可以提前使用一个稍后才声明的变量，而不会引发异常。</p>
-<p><strong>变量声明提升带来的后果：</strong></p>
-<p>变量声明提升只是提升了定义，但不会提升值，比如下面代码，输出的是undefined，这是因为var a 被提升了，但是后面的值没有被提升，一个没有赋初值的变量，输出肯定是undefined。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(a);</span><br><span class="line"><span class="keyword">var</span> a = <span class="number">1</span></span><br></pre></td></tr></table></figure>
-
-<p>这其实是一种非常不好的写法，如果在其他编译语言，这是会直接报错，但是js会产生这种现象是由于语言本身的特性导致，在ES6中，新增了<code>let</code>，<code>const</code>两个声明变量，这两个就不会存在变量声明提升。</p>
-<p>变量声明提升<strong>只提升到当前作用域下</strong>，比如以下代码：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(a);<span class="comment">//undefine</span></span><br><span class="line">  <span class="keyword">var</span> a = <span class="number">1</span>; </span><br><span class="line">&#125;</span><br><span class="line">fun();</span><br><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">//  ReferenceError: a is not define</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>函数声明提升：</strong></p>
-<p>如果调用了一个未先定义的函数，结果会怎么样</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">fun(<span class="string">&#x27;Hello world&#x27;</span>)</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun</span> (<span class="params">str</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(str);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+        <p>本文主要介绍JavaScript的表达式和运算符。</p>
+<h1 id="什么是表达式和运算符"><a href="#什么是表达式和运算符" class="headerlink" title="什么是表达式和运算符"></a>什么是表达式和运算符</h1><p>运算符：也叫操作符，是一种符号。通过运算符可以对一个或多个值进行运算，并获取运算结果。</p>
+<p>表达式：由数字、运算符、变量的组合（组成的式子）。</p>
+<p>表达式最终都会有一个运算结果，我们将这个结果称为表达式的返回值。</p>
+<p>比如：<code>+</code>、<code>*</code>、<code>/</code>、<code>-</code> 都是运算符，而<code>（3+5）/2</code>则是表达式。</p>
+<p>比如：typeof 就是运算符，可以来获得一个值的类型。它会将该值的类型以字符串的形式返回，返回值可以是 number string boolean undefined object。</p>
+<h1 id="算术表达式"><a href="#算术表达式" class="headerlink" title="算术表达式"></a>算术表达式</h1><table>
+<thead>
+<tr>
+<th align="center">意义</th>
+<th align="center">运算符</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">加</td>
+<td align="center">+</td>
+</tr>
+<tr>
+<td align="center">减</td>
+<td align="center">-</td>
+</tr>
+<tr>
+<td align="center">乘</td>
+<td align="center">*</td>
+</tr>
+<tr>
+<td align="center">除</td>
+<td align="center">/</td>
+</tr>
+<tr>
+<td align="center">取余</td>
+<td align="center">%</td>
+</tr>
+</tbody></table>
+<p><strong>这里主要介绍取余：</strong></p>
+<p>示例：如何取到375里面的3、7、5这三个数字呢</p>
 <ul>
-<li>结果输出Hello world，这是因为函数定义后就是等着被调用的，只有调用才会执行，但是如果复制给一个变量，那情况就不一样了</li>
+<li>得到3的方法：375除以100，得到3.75然后取整，得到3。即：parseInt(375/100)</li>
+<li>得到7的方法：375除以100，余数是75，除以10，得到7.5，取整。即：parseInt((375% 100) / 10)</li>
+<li>得到5的方法：375除以10，余数就是5。即：375% 10</li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">fun(<span class="string">&#x27;Hello world&#x27;</span>)</span><br><span class="line"><span class="keyword">var</span> fun = <span class="function"><span class="keyword">function</span>  (<span class="params">str</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(str);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>隐式类型转换：</strong></p>
+<p>如果参与数学运算符的某操作数不是数字类型，那么JavaScript会自动将操作数转换为数字型</p>
+<p>本质是内部调用Number函数。</p>
+<p>示例：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">3</span>*<span class="string">&#x27;4&#x27;</span> <span class="comment">// 12</span></span><br><span class="line"><span class="number">3</span>+<span class="string">&#x27;4&#x27;</span><span class="comment">//7</span></span><br><span class="line"><span class="literal">true</span> + <span class="literal">true</span><span class="comment">//2</span></span><br><span class="line"><span class="number">3</span>* <span class="string">&#x27;2天&#x27;</span><span class="comment">//NaN</span></span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>报错信息：<code>TypeError: fun is not a function</code>，这是因为js会理解为这是在定义一个变量，把var fun提升了，但是函数没有提升，所以去调用一个undefined，肯定报错这不是一个函数</li>
-</ul>
-<h1 id="var、let、const的区别"><a href="#var、let、const的区别" class="headerlink" title="var、let、const的区别"></a><code>var、let、const</code>的区别</h1><h2 id="var"><a href="#var" class="headerlink" title="var:"></a>var:</h2><p>var是ES5中一个初始化变量的关键字，用var声明的变量，除了在函数使用var变量以外，其他都属于全局变量，全局变量是在顶级对象能调用的一个属性值。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">  <span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">fun</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> b = <span class="number">2</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="keyword">var</span> c = <span class="number">3</span>;</span><br><span class="line">  &#125;</span><br><span class="line">fun();</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;a-&gt;&#x27;</span> + <span class="built_in">window</span>.a + <span class="string">&#x27; b-&gt;&#x27;</span> + <span class="built_in">window</span>.b + <span class="string">&#x27; c-&gt;&#x27;</span> + <span class="built_in">window</span>.c);</span><br></pre></td></tr></table></figure>
+<p><strong>IEEE754原则</strong></p>
+<p>在JavaScript中，有些小数的数学运算不是很精准，这是因为JavaScript采用了IEEE754二进制浮点数算术标准，它是计算机底层编译的标准。有时候会产生误差</p>
+<p>示例：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0.1</span> + <span class="number">0.2</span> <span class="comment">//0.30000000000000004</span></span><br></pre></td></tr></table></figure>
 
-<p>运行效果：</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211028185202.png"></p>
-<ul>
-<li>可以看出window对象上已经绑定了变量a和c，属于全局的一个变量。如果想给var重新赋值，可以直接a=1或者重新var a = 1,重新赋值并不会改变上面的原则。而如果在函数内不使用<code>var</code>，该变量是全局的</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">undefine      <span class="function"><span class="keyword">function</span> <span class="title">fun</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        b = <span class="number">22</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      fun();</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">&#x27; b-&gt;&#x27;</span> + <span class="built_in">window</span>.b); <span class="comment">//b-&gt;undefine</span></span><br></pre></td></tr></table></figure>
+<p>解决办法：</p>
+<p><strong>调用数字的toFixed方法</strong>保留指定的小数位数</p>
+<p>示例：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(<span class="number">0.1</span> + <span class="number">0.2</span>).toFixed(<span class="number">2</span>)<span class="comment">//0.30</span></span><br></pre></td></tr></table></figure>
 
-<p>以上是在浏览器侧，在Node侧有小小的区别。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">global</span>.a);</span><br></pre></td></tr></table></figure>
+<p><strong>幂和开根号</strong></p>
+<p>JavaScript中没有提供幂计算、开根号的运算符。需要使用Math对象的相关方法进行计算</p>
+<p>示例：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//幂</span></span><br><span class="line"><span class="built_in">Math</span>.pow(<span class="number">2</span>,<span class="number">3</span>)<span class="comment">//8 </span></span><br><span class="line"><span class="built_in">Math</span>.pow(<span class="number">3</span>,<span class="number">2</span>)<span class="comment">//9</span></span><br><span class="line"><span class="comment">//开根号</span></span><br><span class="line"><span class="built_in">Math</span>.sqrt(<span class="number">81</span>)<span class="comment">//9</span></span><br><span class="line"><span class="built_in">Math</span>.sqry(-<span class="number">81</span>)<span class="comment">//NaN</span></span><br><span class="line"><span class="comment">//向上(大)取整</span></span><br><span class="line"><span class="built_in">Math</span>.ceil(<span class="number">2.4</span>)<span class="comment">//3</span></span><br><span class="line"><span class="comment">//向下(小)取整</span></span><br><span class="line"><span class="built_in">Math</span>.floor(<span class="number">2.4</span>)<span class="comment">//2</span></span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>以上代码输出的其实是undefine，因为在nodejs侧，使用var一个变量，属于该js文件局部的变量，只有a = 1的时候，才能被global调用，不过一般不建议这样做，会产生全局污染，除非这个变量是全局都需要去频繁使用到</li>
-</ul>
-<h2 id="let"><a href="#let" class="headerlink" title="let:"></a>let:</h2><p><code>let</code>是<code>ES6</code>新增的命令，用来声明变量，用法类似于<code>var</code>，但是所声明的变量，<strong>只在<code>let</code>命令所在的代码块内有效</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="keyword">let</span> a = <span class="number">20</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(a) <span class="comment">// ReferenceError: a is not defined.</span></span><br></pre></td></tr></table></figure>
+<p><strong>算数运算符的运算规则</strong></p>
+<ol>
+<li>先算乘除、后算加减。</li>
+<li>小括号<code>( )</code>：能够影响计算顺序，且可以嵌套。没有中括号、没有大括号，只有小括号。</li>
+<li>百分号：取余。只关心余数。</li>
+</ol>
+<h1 id="关系表达式"><a href="#关系表达式" class="headerlink" title="关系表达式"></a>关系表达式</h1><table>
+<thead>
+<tr>
+<th align="center">意义</th>
+<th align="center">运算符</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">大于</td>
+<td align="center">&gt;</td>
+</tr>
+<tr>
+<td align="center">小于</td>
+<td align="center">&lt;</td>
+</tr>
+<tr>
+<td align="center">大于等于</td>
+<td align="center">&gt;=</td>
+</tr>
+<tr>
+<td align="center">小于等于</td>
+<td align="center">&lt;=</td>
+</tr>
+<tr>
+<td align="center">等于</td>
+<td align="center">==</td>
+</tr>
+<tr>
+<td align="center">不等于</td>
+<td align="center">!=</td>
+</tr>
+<tr>
+<td align="center">全等于</td>
+<td align="center">===</td>
+</tr>
+<tr>
+<td align="center">不全等于</td>
+<td align="center">!==</td>
+</tr>
+</tbody></table>
+<p>关系运算符的结果是布尔值</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">8</span>&gt;<span class="number">5</span> <span class="comment">//true</span></span><br><span class="line"><span class="number">8</span>&gt;=<span class="number">8</span><span class="comment">//true</span></span><br><span class="line"><span class="number">8</span>&lt;=<span class="number">11</span><span class="comment">//true</span></span><br><span class="line"><span class="number">7</span>&lt;<span class="number">4</span><span class="comment">//false</span></span><br></pre></td></tr></table></figure>
 
-<p>同时也<strong>不存在变量提升</strong>，以下代码表示在声明它之前，变量<code>a</code>是不存在的，这时如果用到它，就会抛出一个错误</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(a) <span class="comment">// 报错ReferenceError</span></span><br><span class="line"><span class="keyword">let</span> a = <span class="number">2</span></span><br></pre></td></tr></table></figure>
+<p>判断一个数字是否等于使用<code>==</code>，判断数字和数字类型是否相等则使用<code>===</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">3</span> == <span class="string">&#x27;3&#x27;</span><span class="comment">//true</span></span><br><span class="line"><span class="number">3</span> === <span class="string">&#x27;3&#x27;</span><span class="comment">//false</span></span><br><span class="line"><span class="number">0</span> == <span class="literal">undefined</span> <span class="comment">//false</span></span><br><span class="line"><span class="literal">undefined</span> == <span class="literal">null</span> <span class="comment">//true</span></span><br><span class="line"><span class="literal">undefined</span> === <span class="literal">null</span> <span class="comment">//false</span></span><br><span class="line"><span class="literal">NaN</span> == <span class="literal">NaN</span> <span class="comment">//false</span></span><br><span class="line"><span class="literal">NaN</span> === <span class="literal">NaN</span><span class="comment">//false</span></span><br></pre></td></tr></table></figure>
 
-<p>let<strong>存在暂时性死区</strong>，也就是使用<code>let</code>声明变量前，该变量都不可用</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">123</span>;</span><br><span class="line"><span class="keyword">if</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">  a = <span class="string">&#x27;abc&#x27;</span>; <span class="comment">// ReferenceError</span></span><br><span class="line">  <span class="keyword">let</span> a;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>如何判断变量值为NaN?</strong></p>
+<p>使用isNaN传入变量值，会返回布尔值，但是因为其原理还是使用Number函数，所以就会出现</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">isNaN</span>(<span class="literal">undefined</span>)<span class="comment">//true</span></span><br><span class="line"><span class="built_in">Number</span>(<span class="literal">undefined</span>)<span class="comment">//0</span></span><br></pre></td></tr></table></figure>
 
-<p><strong><code>let</code>不允许在相同作用域中重复声明</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="number">20</span></span><br><span class="line"><span class="keyword">let</span> a = <span class="number">30</span></span><br><span class="line"><span class="comment">// Uncaught SyntaxError: Identifier &#x27;a&#x27; has already been declared</span></span><br></pre></td></tr></table></figure>
+<p>undefined是一个类型，<strong>它的值只有一个</strong>，就是undefined，undefined不是NaN。</p>
+<p><strong>不相等和不全等</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">5</span> != <span class="number">6</span> <span class="comment">//true</span></span><br><span class="line"><span class="number">5</span> !== <span class="number">6</span> <span class="comment">//true</span></span><br><span class="line"></span><br><span class="line"><span class="number">5</span> != <span class="string">&#x27;5&#x27;</span> <span class="comment">//false</span></span><br><span class="line"><span class="number">5</span> !==<span class="string">&#x27;5&#x27;</span> <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
 
-<p>当然在不同作用域下是可以重复声明，毕竟let属于块级作用域</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="number">20</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">let</span> a = <span class="number">30</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Javascript没有连比的，需要实现连比需要借助逻辑运算符</p>
+<h1 id="逻辑表达式"><a href="#逻辑表达式" class="headerlink" title="逻辑表达式"></a>逻辑表达式</h1><table>
+<thead>
+<tr>
+<th align="center">意义</th>
+<th align="center">运算符</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">非</td>
+<td align="center">！</td>
+</tr>
+<tr>
+<td align="center">与</td>
+<td align="center">&amp;&amp;</td>
+</tr>
+<tr>
+<td align="center">或</td>
+<td align="center">||</td>
+</tr>
+</tbody></table>
+<p>非运算也可以称为置反运算，它是一个单目运算符，只需要一个操作数，运算结果一定是布尔值</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">!<span class="literal">true</span> <span class="comment">//false</span></span><br><span class="line">!<span class="literal">false</span>  <span class="comment">//true</span></span><br><span class="line">!<span class="number">0</span> <span class="comment">//true</span></span><br><span class="line">!<span class="literal">undefined</span> <span class="comment">//true</span></span><br><span class="line">!<span class="string">&#x27;&#x27;</span> <span class="comment">//true</span></span><br><span class="line">!<span class="string">&#x27;123&#x27;</span><span class="comment">//false</span></span><br><span class="line">!!<span class="literal">true</span> <span class="comment">//true</span></span><br><span class="line">!!<span class="number">0</span> <span class="comment">//false</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="const"><a href="#const" class="headerlink" title="const:"></a>const:</h2><p><code>const</code>声明一个只读的常量，一旦声明，常量的值就不能改变</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> a = <span class="number">1</span></span><br><span class="line">a = <span class="number">3</span></span><br><span class="line"><span class="comment">// TypeError: Assignment to constant variable.</span></span><br></pre></td></tr></table></figure>
+<p>与运算是双目运算符，<strong>只有两边真才是真，否则为假</strong></p>
+<p>或运算时双目运算符，<strong>只要有一个真就为真，都假就为假</strong></p>
+<p><strong>短路计算</strong>：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">5</span> &amp;&amp; <span class="number">6</span> <span class="comment">//6</span></span><br><span class="line"><span class="literal">undefined</span> &amp;&amp; <span class="number">15</span> <span class="comment">//undefined</span></span><br><span class="line"><span class="literal">null</span> &amp;&amp; <span class="number">2</span> <span class="comment">//null</span></span><br><span class="line"><span class="string">&#x27;&#x27;</span>&amp;&amp; <span class="number">16</span> <span class="comment">//&#x27;&#x27;</span></span><br><span class="line"><span class="string">&#x27; &#x27;</span>&amp;&amp; <span class="number">16</span> <span class="comment">//16</span></span><br><span class="line"><span class="literal">NaN</span> &amp;&amp;  <span class="literal">undefined</span><span class="comment">//NaN</span></span><br></pre></td></tr></table></figure>
 
-<p><code>const</code>一旦声明变量，就必须立即初始化，不能留到以后赋值</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> a;</span><br><span class="line"><span class="comment">// SyntaxError: Missing initializer in const declaration</span></span><br></pre></td></tr></table></figure>
+<p>与运算会去看第一个数值，如果为假，那么后面就不会再去看，直接返回第一个数值，如果第一个数值为true，那么会去看第二个数值并且输出</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">5 || 6 //5</span><br><span class="line">undefined || 15 //15</span><br><span class="line">null || 2 //2</span><br><span class="line">&#x27;&#x27; || 16 //16</span><br><span class="line">&#x27; &#x27; || 16 //&#x27; &#x27;</span><br><span class="line">NaN ||  undefined //undefined</span><br></pre></td></tr></table></figure>
 
-<p>如果之前用<code>var</code>或<code>let</code>声明过变量，再用<code>const</code>声明同样会报错</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">20</span></span><br><span class="line"><span class="keyword">let</span> b = <span class="number">20</span></span><br><span class="line"><span class="keyword">const</span> a = <span class="number">30</span></span><br><span class="line"><span class="keyword">const</span> b = <span class="number">30</span></span><br><span class="line"><span class="comment">// 都会报错</span></span><br></pre></td></tr></table></figure>
-
-<p><code>const</code>实际上保证的并不是变量的值不得改动，而是变量指向的那个内存地址所保存的数据不得改动</p>
-<p>对于简单类型的数据，值就保存在变量指向的那个内存地址，因此等同于常量</p>
-<p>对于复杂类型的数据，变量指向的内存地址，保存的只是一个指向实际数据的指针，<code>const</code>只能保证这个指针是固定的，并不能确保改变量的结构不变</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> foo = &#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 为 foo 添加一个属性，可以成功</span></span><br><span class="line">foo.prop = <span class="number">123</span>;</span><br><span class="line">foo.prop <span class="comment">// 123</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 将 foo 指向另一个对象，就会报错</span></span><br><span class="line">foo = &#123;&#125;; <span class="comment">// TypeError: &quot;foo&quot; is read-only</span></span><br></pre></td></tr></table></figure>
-
-<p>其它情况，<code>const</code>与<code>let</code>一致</p>
-
+<p>或运算会去整体看，如果有一个真，那么就直接输出排在前面的真，如果都为假，那么就输出后面那个假的值</p>
+<p>小结：</p>
+<table>
+<thead>
+<tr>
+<th align="center">表达式</th>
+<th align="center">结果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">a&amp;&amp;b(真，真)</td>
+<td align="center">b</td>
+</tr>
+<tr>
+<td align="center">a&amp;&amp;b(真，假)</td>
+<td align="center">b</td>
+</tr>
+<tr>
+<td align="center">a&amp;&amp;b(假，真)</td>
+<td align="center">a</td>
+</tr>
+<tr>
+<td align="center">a&amp;&amp;b(假，假)</td>
+<td align="center">a</td>
+</tr>
+<tr>
+<td align="center">a||b（真，真）</td>
+<td align="center">a</td>
+</tr>
+<tr>
+<td align="center">a||b（真，假）</td>
+<td align="center">a</td>
+</tr>
+<tr>
+<td align="center">a||b(假，真)</td>
+<td align="center">b</td>
+</tr>
+<tr>
+<td align="center">a||b(假，假)</td>
+<td align="center">b</td>
+</tr>
+</tbody></table>
+<p><strong>逻辑运算的顺序:  非-&gt;与-&gt;或</strong></p>
+<h1 id="赋值表达式"><a href="#赋值表达式" class="headerlink" title="赋值表达式"></a>赋值表达式</h1><h1 id="综合表达式"><a href="#综合表达式" class="headerlink" title="综合表达式"></a>综合表达式</h1>
     </div>
 
     
@@ -372,7 +496,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://lsfcxz.gitee.io/article/43391fd9.html" title="变量声明提升和var、let、const的区别">https://lsfcxz.gitee.io/article/43391fd9.html</a>
+    <a href="https://lsfcxz.gitee.io/article/f5797da9.html" title="JavaScript的表达式和运算符">https://lsfcxz.gitee.io/article/f5797da9.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -411,9 +535,6 @@
 
 
       <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/%E5%8F%98%E9%87%8F%E5%A3%B0%E6%98%8E%E6%8F%90%E5%8D%87/" rel="tag"># 变量声明提升</a>
-          </div>
 
         
 
@@ -421,13 +542,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/article/c2010641.html" rel="prev" title="CSS3的过渡与动画">
-      <i class="fa fa-chevron-left"></i> CSS3的过渡与动画
+    <a href="/article/1301b218.html" rel="prev" title="FlyBlog开源项目(一)">
+      <i class="fa fa-chevron-left"></i> FlyBlog开源项目(一)
     </a></div>
-      <div class="post-nav-item">
-    <a href="/article/b8ba1c56.html" rel="next" title="开发效率网站">
-      开发效率网站 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -487,7 +605,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#var%E3%80%81let%E3%80%81const%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">1.</span> <span class="nav-text">var、let、const的区别</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#var"><span class="nav-number">1.1.</span> <span class="nav-text">var:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#let"><span class="nav-number">1.2.</span> <span class="nav-text">let:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#const"><span class="nav-number">1.3.</span> <span class="nav-text">const:</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%92%8C%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">1.</span> <span class="nav-text">什么是表达式和运算符</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AE%97%E6%9C%AF%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-number">2.</span> <span class="nav-text">算术表达式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%B3%E7%B3%BB%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-number">3.</span> <span class="nav-text">关系表达式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%80%BB%E8%BE%91%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-number">4.</span> <span class="nav-text">逻辑表达式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%B5%8B%E5%80%BC%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-number">5.</span> <span class="nav-text">赋值表达式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BB%BC%E5%90%88%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-number">6.</span> <span class="nav-text">综合表达式</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
