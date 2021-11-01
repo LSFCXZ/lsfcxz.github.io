@@ -335,10 +335,22 @@
 </ul>
 <p>选择器优先级：</p>
 <ul>
-<li>ID&gt;Classs&gt;属性选择器&gt;伪类选择器&gt;伪元素选择器&gt;标签选择器&gt;标签&gt;通配选择器</li>
+<li>!important&gt;ID&gt;Class&gt;属性选择器&gt;伪类选择器&gt;伪元素选择器&gt;标签选择器&gt;通配选择器</li>
 </ul>
 <h1 id="继承性"><a href="#继承性" class="headerlink" title="继承性"></a>继承性</h1><p>color、font-开头、list-开头、text-开头、line-开头都具有继承性，继承性是祖先元素设置后，后代元素生效</p>
-<h1 id="两个属性"><a href="#两个属性" class="headerlink" title="两个属性"></a>两个属性</h1><h2 id="important"><a href="#important" class="headerlink" title="!important"></a>!important</h2><p>!important是提升属性的权重，它影响的是该属性中的权重值，写在属性后面，该属性的权重为最大</p>
+<p>需要注意的是：继承属性是优先采用就近原则，即描述该元素的远近，后采用优先级，最后再采用书写的远近。</p>
+<p>以下文字就是blue，p的优先级是小于类的，但是具有继承性的是优先考虑就近原则</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">  <span class="selector-tag">p</span> &#123;</span></span><br><span class="line"><span class="css">    <span class="attribute">color</span>: blue;</span></span><br><span class="line"><span class="css">  &#125;</span></span><br><span class="line"><span class="css">  <span class="selector-class">.box</span> &#123;</span></span><br><span class="line"><span class="css">    <span class="attribute">color</span>: red;</span></span><br><span class="line"><span class="css">  &#125;</span></span><br><span class="line"><span class="css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>我是段落<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>以下文字是yellow，一样近，采用优先级</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">     <span class="selector-class">.p</span> &#123;</span></span><br><span class="line"><span class="css">       <span class="attribute">color</span>: yellow;</span></span><br><span class="line"><span class="css">     &#125;</span></span><br><span class="line"><span class="css">     <span class="selector-tag">p</span> &#123;</span></span><br><span class="line"><span class="css">       <span class="attribute">color</span>: blue;</span></span><br><span class="line"><span class="css">     &#125;</span></span><br><span class="line"><span class="css">     <span class="selector-class">.box</span> &#123;</span></span><br><span class="line"><span class="css">       <span class="attribute">color</span>: red;</span></span><br><span class="line"><span class="css">     &#125;</span></span><br><span class="line"><span class="css">   </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">&quot;p&quot;</span>&gt;</span>我是段落<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>以下文字是green，后写覆盖先写</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">  <span class="selector-class">.p</span> &#123;</span></span><br><span class="line"><span class="css">    <span class="attribute">color</span>: yellow;</span></span><br><span class="line"><span class="css">  &#125;</span></span><br><span class="line"><span class="css">  <span class="selector-tag">p</span> &#123;</span></span><br><span class="line"><span class="css">    <span class="attribute">color</span>: blue;</span></span><br><span class="line"><span class="css">  &#125;</span></span><br><span class="line"><span class="css">  <span class="selector-class">.box</span> &#123;</span></span><br><span class="line"><span class="css">    <span class="attribute">color</span>: red;</span></span><br><span class="line"><span class="css">  &#125;</span></span><br><span class="line"><span class="css">  <span class="selector-class">.p</span> &#123;</span></span><br><span class="line"><span class="css">    <span class="attribute">color</span>: green;</span></span><br><span class="line"><span class="css">  &#125;</span></span><br><span class="line"><span class="css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">&quot;p&quot;</span>&gt;</span>我是段落<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="两个属性"><a href="#两个属性" class="headerlink" title="两个属性"></a>两个属性</h1><h2 id="important"><a href="#important" class="headerlink" title="!important"></a>!important</h2><p>!important是提升属性的权重，它影响的是该属性中的权重值，写在属性值后面，该属性的权重为最大</p>
 <h2 id="z-index"><a href="#z-index" class="headerlink" title="z-index"></a>z-index</h2><p>z-index是影响层叠性，需要注意的是两个元素是<strong>需要设置定位属性</strong>才可以生效！</p>
 <h1 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h1><ul>
 <li>下面p段落的文字是什么颜色？</li>
@@ -744,23 +756,6 @@
       </categories>
   </entry>
   <entry>
-    <title>CSS实现正方体</title>
-    <url>/article/6ad90280.html</url>
-    <content><![CDATA[<p>本文主要使用CSS实现一个正方体。</p>
-<p>直接看代码。</p>
-<iframe height="300" style="width: 100%;" scrolling="no" title="Untitled" src="https://codepen.io/lsfcxz/embed/ZEJKPjr?default-tab=html%2Cresult&editable=true&theme-id=light" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href="https://codepen.io/lsfcxz/pen/ZEJKPjr">
-  Untitled</a> by LSFCXZ (<a href="https://codepen.io/lsfcxz">@lsfcxz</a>)
-  on <a href="https://codepen.io">CodePen</a>.
-</iframe>
-
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;X-UA-Compatible&quot;</span> <span class="attr">content</span>=<span class="string">&quot;IE=edge&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>正方体<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">      * &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">padding</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">margin</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.box</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">width</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">height</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">margin</span>: <span class="number">100px</span> auto;</span></span><br><span class="line"><span class="css">        <span class="attribute">border</span>: <span class="number">1px</span> solid black;</span></span><br><span class="line"><span class="css">        <span class="attribute">perspective</span>: <span class="number">300px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">position</span>: relative;</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-tag">p</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">width</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">height</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">position</span>: absolute;</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.box</span> <span class="selector-tag">p</span><span class="selector-pseudo">:nth-child</span>(<span class="number">1</span>) &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">background-color</span>: <span class="built_in">rgba</span>(<span class="number">255</span>, <span class="number">0</span>, <span class="number">234</span>, <span class="number">0.295</span>);</span></span><br><span class="line"><span class="css">        <span class="comment">/* 前面 */</span></span></span><br><span class="line"><span class="css">        <span class="attribute">transform</span>: <span class="built_in">translateZ</span>(<span class="number">100px</span>);</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.box</span> <span class="selector-tag">p</span><span class="selector-pseudo">:nth-child</span>(<span class="number">2</span>) &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">background-color</span>: <span class="built_in">rgba</span>(<span class="number">255</span>, <span class="number">145</span>, <span class="number">0</span>, <span class="number">0.336</span>);</span></span><br><span class="line"><span class="css">        <span class="comment">/* 顶面 */</span></span></span><br><span class="line"><span class="css">        <span class="attribute">transform</span>: <span class="built_in">rotateX</span>(<span class="number">90deg</span>) <span class="built_in">translateZ</span>(<span class="number">100px</span>);</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.box</span> <span class="selector-tag">p</span><span class="selector-pseudo">:nth-child</span>(<span class="number">3</span>) &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">background-color</span>: <span class="built_in">rgba</span>(<span class="number">179</span>, <span class="number">255</span>, <span class="number">0</span>, <span class="number">0.384</span>);</span></span><br><span class="line"><span class="css">        <span class="comment">/* 背面 */</span></span></span><br><span class="line"><span class="css">        <span class="attribute">transform</span>: <span class="built_in">rotateX</span>(<span class="number">180deg</span>) <span class="built_in">translateZ</span>(<span class="number">100px</span>);</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css"></span></span><br><span class="line"><span class="css">      <span class="selector-class">.box</span> <span class="selector-tag">p</span><span class="selector-pseudo">:nth-child</span>(<span class="number">4</span>) &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">background-color</span>: <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">26</span>, <span class="number">255</span>, <span class="number">0.37</span>);</span></span><br><span class="line"><span class="css">        <span class="comment">/* 底面 */</span></span></span><br><span class="line"><span class="css">        <span class="attribute">transform</span>: <span class="built_in">rotateX</span>(-<span class="number">90deg</span>) <span class="built_in">translateZ</span>(<span class="number">100px</span>);</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.box</span> <span class="selector-tag">p</span><span class="selector-pseudo">:nth-child</span>(<span class="number">5</span>) &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">background-color</span>: <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">255</span>, <span class="number">128</span>, <span class="number">0.485</span>);</span></span><br><span class="line"><span class="css">        <span class="comment">/* 侧面 */</span></span></span><br><span class="line"><span class="css">        <span class="attribute">transform</span>: <span class="built_in">rotateY</span>(<span class="number">90deg</span>) <span class="built_in">translateZ</span>(<span class="number">100px</span>);</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.box</span> <span class="selector-tag">p</span><span class="selector-pseudo">:nth-child</span>(<span class="number">6</span>) &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">background-color</span>: <span class="built_in">rgba</span>(<span class="number">255</span>, <span class="number">0</span>, <span class="number">106</span>, <span class="number">0.39</span>);</span></span><br><span class="line"><span class="css">        <span class="comment">/* 侧面 */</span></span></span><br><span class="line"><span class="css">        <span class="attribute">transform</span>: <span class="built_in">rotateY</span>(-<span class="number">90deg</span>) <span class="built_in">translateZ</span>(<span class="number">100px</span>);</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>效果：</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211025193759.png"></p>
-]]></content>
-  </entry>
-  <entry>
     <title>CSS浮动布局和定位</title>
     <url>/article/29b6ab94.html</url>
     <content><![CDATA[<p>本文章主要介绍CSS的浮动布局和定位属性相关。</p>
@@ -834,6 +829,116 @@
 
 <h2 id="固定定位（fixed）"><a href="#固定定位（fixed）" class="headerlink" title="固定定位（fixed）"></a>固定定位（fixed）</h2><p>不管页面如何卷动，永远固定在一个位置，相对于视口位置，脱离文档流</p>
 <h2 id="粘性定位（sticky）"><a href="#粘性定位（sticky）" class="headerlink" title="粘性定位（sticky）"></a>粘性定位（sticky）</h2><p>可以理解为相对定位和固定定位的结合，位置相对原来位置偏移，浏览器滚动不随着滚动，脱离文档流</p>
+]]></content>
+      <categories>
+        <category>CSS</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>CSS实现正方体</title>
+    <url>/article/6ad90280.html</url>
+    <content><![CDATA[<p>本文主要使用CSS实现一个正方体。</p>
+<p>直接看代码。</p>
+<iframe height="300" style="width: 100%;" scrolling="no" title="Untitled" src="https://codepen.io/lsfcxz/embed/ZEJKPjr?default-tab=html%2Cresult&editable=true&theme-id=light" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href="https://codepen.io/lsfcxz/pen/ZEJKPjr">
+  Untitled</a> by LSFCXZ (<a href="https://codepen.io/lsfcxz">@lsfcxz</a>)
+  on <a href="https://codepen.io">CodePen</a>.
+</iframe>
+
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;X-UA-Compatible&quot;</span> <span class="attr">content</span>=<span class="string">&quot;IE=edge&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>正方体<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">      * &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">padding</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">margin</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.box</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">width</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">height</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">margin</span>: <span class="number">100px</span> auto;</span></span><br><span class="line"><span class="css">        <span class="attribute">border</span>: <span class="number">1px</span> solid black;</span></span><br><span class="line"><span class="css">        <span class="attribute">perspective</span>: <span class="number">300px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">position</span>: relative;</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-tag">p</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">width</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">height</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">position</span>: absolute;</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.box</span> <span class="selector-tag">p</span><span class="selector-pseudo">:nth-child</span>(<span class="number">1</span>) &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">background-color</span>: <span class="built_in">rgba</span>(<span class="number">255</span>, <span class="number">0</span>, <span class="number">234</span>, <span class="number">0.295</span>);</span></span><br><span class="line"><span class="css">        <span class="comment">/* 前面 */</span></span></span><br><span class="line"><span class="css">        <span class="attribute">transform</span>: <span class="built_in">translateZ</span>(<span class="number">100px</span>);</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.box</span> <span class="selector-tag">p</span><span class="selector-pseudo">:nth-child</span>(<span class="number">2</span>) &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">background-color</span>: <span class="built_in">rgba</span>(<span class="number">255</span>, <span class="number">145</span>, <span class="number">0</span>, <span class="number">0.336</span>);</span></span><br><span class="line"><span class="css">        <span class="comment">/* 顶面 */</span></span></span><br><span class="line"><span class="css">        <span class="attribute">transform</span>: <span class="built_in">rotateX</span>(<span class="number">90deg</span>) <span class="built_in">translateZ</span>(<span class="number">100px</span>);</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.box</span> <span class="selector-tag">p</span><span class="selector-pseudo">:nth-child</span>(<span class="number">3</span>) &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">background-color</span>: <span class="built_in">rgba</span>(<span class="number">179</span>, <span class="number">255</span>, <span class="number">0</span>, <span class="number">0.384</span>);</span></span><br><span class="line"><span class="css">        <span class="comment">/* 背面 */</span></span></span><br><span class="line"><span class="css">        <span class="attribute">transform</span>: <span class="built_in">rotateX</span>(<span class="number">180deg</span>) <span class="built_in">translateZ</span>(<span class="number">100px</span>);</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css"></span></span><br><span class="line"><span class="css">      <span class="selector-class">.box</span> <span class="selector-tag">p</span><span class="selector-pseudo">:nth-child</span>(<span class="number">4</span>) &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">background-color</span>: <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">26</span>, <span class="number">255</span>, <span class="number">0.37</span>);</span></span><br><span class="line"><span class="css">        <span class="comment">/* 底面 */</span></span></span><br><span class="line"><span class="css">        <span class="attribute">transform</span>: <span class="built_in">rotateX</span>(-<span class="number">90deg</span>) <span class="built_in">translateZ</span>(<span class="number">100px</span>);</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.box</span> <span class="selector-tag">p</span><span class="selector-pseudo">:nth-child</span>(<span class="number">5</span>) &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">background-color</span>: <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">255</span>, <span class="number">128</span>, <span class="number">0.485</span>);</span></span><br><span class="line"><span class="css">        <span class="comment">/* 侧面 */</span></span></span><br><span class="line"><span class="css">        <span class="attribute">transform</span>: <span class="built_in">rotateY</span>(<span class="number">90deg</span>) <span class="built_in">translateZ</span>(<span class="number">100px</span>);</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.box</span> <span class="selector-tag">p</span><span class="selector-pseudo">:nth-child</span>(<span class="number">6</span>) &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">background-color</span>: <span class="built_in">rgba</span>(<span class="number">255</span>, <span class="number">0</span>, <span class="number">106</span>, <span class="number">0.39</span>);</span></span><br><span class="line"><span class="css">        <span class="comment">/* 侧面 */</span></span></span><br><span class="line"><span class="css">        <span class="attribute">transform</span>: <span class="built_in">rotateY</span>(-<span class="number">90deg</span>) <span class="built_in">translateZ</span>(<span class="number">100px</span>);</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>效果：</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211025193759.png"></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>CSS背景属性</title>
+    <url>/article/9f33a331.html</url>
+    <content><![CDATA[<p>本文章主要介绍CSS3的背景属性。</p>
+<h1 id="背景颜色-background-color"><a href="#背景颜色-background-color" class="headerlink" title="背景颜色(background-color)"></a>背景颜色(background-color)</h1><ul>
+<li>padding区域是有背景颜色</li>
+<li>支持英文、十六进制、rgb()、rgba()等表示法</li>
+</ul>
+<h1 id="背景图片（-background-image）"><a href="#背景图片（-background-image）" class="headerlink" title="背景图片（ background-image）"></a>背景图片（ background-image）</h1><ul>
+<li>背景图片默认纵轴横轴重复</li>
+</ul>
+<p><strong>重复模式</strong>：</p>
+<p>background-repeat属性可以改变背景图片的重复模式</p>
+<table>
+<thead>
+<tr>
+<th align="center">值</th>
+<th align="center">意义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">repeat</td>
+<td align="center">x,y均平铺</td>
+</tr>
+<tr>
+<td align="center">repeat-x</td>
+<td align="center">x,重复</td>
+</tr>
+<tr>
+<td align="center">repeat-y</td>
+<td align="center">y重复</td>
+</tr>
+<tr>
+<td align="center">no-repeat</td>
+<td align="center">不重复</td>
+</tr>
+</tbody></table>
+<p><strong>背景图片尺寸</strong>：</p>
+<ul>
+<li>background-size用来设置图片的尺寸。</li>
+<li>contain表示图片尺寸以容纳到盒子里，完整显示，有白边</li>
+<li>cover表示将背景图片尺寸以撑满盒子，不完整显示</li>
+</ul>
+<p><strong>背景裁剪</strong>：</p>
+<p>background-clip用来设置裁剪，背景是会覆盖到盒子边框的，使用该属性可以控制盒子背景裁剪到哪个地方</p>
+<p><strong>背景定位</strong>：</p>
+<p>background-attachment用来设置背景的定位。</p>
+<table>
+<thead>
+<tr>
+<th align="center">值</th>
+<th align="center">意义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">fixed</td>
+<td align="center">自己滚动条不动，外部滚动条不动</td>
+</tr>
+<tr>
+<td align="center">local</td>
+<td align="center">自己滚动条动，外部滚动条动</td>
+</tr>
+<tr>
+<td align="center">scroll</td>
+<td align="center">自己滚动条不动，外部滚动条动（默认）</td>
+</tr>
+</tbody></table>
+<p><strong>背景位置</strong>：</p>
+<p> background-position用来设置背景图片的起点位置。</p>
+<p>示例：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="attribute">background-position</span>:<span class="number">100px</span> <span class="number">200px</span>;</span><br></pre></td></tr></table></figure>
+
+<p>设置盒子横轴100px，纵轴200px，还可以使用四个方向的英文进行表示，CSS精灵</p>
+<p><strong>线性渐变</strong>：</p>
+<p>它是ackground-image的属性值，线型的</p>
+<p>示例：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="attribute">background-image</span>:<span class="built_in">linear-gradient</span>(to right, red,blue)</span><br></pre></td></tr></table></figure>
+
+<p>位置也可以是角度，单位deg，也可以使用百分号设置出现的位置</p>
+<p><strong>径向渐变</strong>：</p>
+<p>radial-gradient属性值</p>
+<p>background-image属性可以使用radial-gradient()创建渐性渐变</p>
+<p>示例</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="attribute">background-image</span>:<span class="built_in">radial-gradient</span>(<span class="number">50%</span> <span class="number">50%</span>,blue,red)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>50% 50%表示圆心坐标，blue表示内部颜色，red表示外部颜</li>
+</ul>
 ]]></content>
       <categories>
         <category>CSS</category>
@@ -969,99 +1074,6 @@
 ]]></content>
       <categories>
         <category>开源项目</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>CSS背景属性</title>
-    <url>/article/9f33a331.html</url>
-    <content><![CDATA[<p>本文章主要介绍CSS3的背景属性。</p>
-<h1 id="背景颜色-background-color"><a href="#背景颜色-background-color" class="headerlink" title="背景颜色(background-color)"></a>背景颜色(background-color)</h1><ul>
-<li>padding区域是有背景颜色</li>
-<li>支持英文、十六进制、rgb()、rgba()等表示法</li>
-</ul>
-<h1 id="背景图片（-background-image）"><a href="#背景图片（-background-image）" class="headerlink" title="背景图片（ background-image）"></a>背景图片（ background-image）</h1><ul>
-<li>背景图片默认纵轴横轴重复</li>
-</ul>
-<p><strong>重复模式</strong>：</p>
-<p>background-repeat属性可以改变背景图片的重复模式</p>
-<table>
-<thead>
-<tr>
-<th align="center">值</th>
-<th align="center">意义</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">repeat</td>
-<td align="center">x,y均平铺</td>
-</tr>
-<tr>
-<td align="center">repeat-x</td>
-<td align="center">x,重复</td>
-</tr>
-<tr>
-<td align="center">repeat-y</td>
-<td align="center">y重复</td>
-</tr>
-<tr>
-<td align="center">no-repeat</td>
-<td align="center">不重复</td>
-</tr>
-</tbody></table>
-<p><strong>背景图片尺寸</strong>：</p>
-<ul>
-<li>background-size用来设置图片的尺寸。</li>
-<li>contain表示图片尺寸以容纳到盒子里，完整显示，有白边</li>
-<li>cover表示将背景图片尺寸以撑满盒子，不完整显示</li>
-</ul>
-<p><strong>背景裁剪</strong>：</p>
-<p>background-clip用来设置裁剪，背景是会覆盖到盒子边框的，使用该属性可以控制盒子背景裁剪到哪个地方</p>
-<p><strong>背景定位</strong>：</p>
-<p>background-attachment用来设置背景的定位。</p>
-<table>
-<thead>
-<tr>
-<th align="center">值</th>
-<th align="center">意义</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">fixed</td>
-<td align="center">自己滚动条不动，外部滚动条不动</td>
-</tr>
-<tr>
-<td align="center">local</td>
-<td align="center">自己滚动条动，外部滚动条动</td>
-</tr>
-<tr>
-<td align="center">scroll</td>
-<td align="center">自己滚动条不动，外部滚动条动（默认）</td>
-</tr>
-</tbody></table>
-<p><strong>背景位置</strong>：</p>
-<p> background-position用来设置背景图片的起点位置。</p>
-<p>示例：</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="attribute">background-position</span>:<span class="number">100px</span> <span class="number">200px</span>;</span><br></pre></td></tr></table></figure>
-
-<p>设置盒子横轴100px，纵轴200px，还可以使用四个方向的英文进行表示，CSS精灵</p>
-<p><strong>线性渐变</strong>：</p>
-<p>它是ackground-image的属性值，线型的</p>
-<p>示例：</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="attribute">background-image</span>:<span class="built_in">linear-gradient</span>(to right, red,blue)</span><br></pre></td></tr></table></figure>
-
-<p>位置也可以是角度，单位deg，也可以使用百分号设置出现的位置</p>
-<p><strong>径向渐变</strong>：</p>
-<p>radial-gradient属性值</p>
-<p>background-image属性可以使用radial-gradient()创建渐性渐变</p>
-<p>示例</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="attribute">background-image</span>:<span class="built_in">radial-gradient</span>(<span class="number">50%</span> <span class="number">50%</span>,blue,red)</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>50% 50%表示圆心坐标，blue表示内部颜色，red表示外部颜</li>
-</ul>
-]]></content>
-      <categories>
-        <category>CSS</category>
       </categories>
   </entry>
   <entry>
@@ -1403,6 +1415,136 @@
       </categories>
   </entry>
   <entry>
+    <title>JavaScript的判断和循环语句</title>
+    <url>/article/8bd1ac6e.html</url>
+    <content><![CDATA[<p>本文主要介绍JavaScript的判断语句和循环语句。</p>
+<h1 id="if语句"><a href="#if语句" class="headerlink" title="if语句"></a>if语句</h1><p>if语句是最简单的条件语句，也称选择语句，它通常结合else一起使用，表示如果..就…否则…</p>
+<p>if…else…一定会选择一条语句执行</p>
+<p>if语句的执行块只有一条语句时，可以省略大括号，分号结尾</p>
+<p>示例：判断闰年</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> year = <span class="built_in">Number</span>(prompt(<span class="string">&#x27;请输入年份&#x27;</span>));</span><br><span class="line"><span class="comment">//能被4整除且不能被100整除</span></span><br><span class="line"><span class="comment">//能被100整除也能被400整除</span></span><br><span class="line"><span class="keyword">if</span> (</span><br><span class="line">  (year % <span class="number">4</span> == <span class="number">0</span> &amp;&amp; year % <span class="number">100</span> != <span class="number">0</span>) ||</span><br><span class="line">  (year % <span class="number">100</span> == <span class="number">0</span> &amp;&amp; year % <span class="number">400</span> != <span class="number">0</span>)</span><br><span class="line">) &#123;</span><br><span class="line">  alert(<span class="string">&#x27;是闰年&#x27;</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  alert(<span class="string">&#x27;不是闰年&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="if多条件判断语句"><a href="#if多条件判断语句" class="headerlink" title="if多条件判断语句"></a>if多条件判断语句</h1><p>else if()条件分支“暗含”了不符合之前所有条件。</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211031201209.png"></p>
+<h1 id="switch语句"><a href="#switch语句" class="headerlink" title="switch语句"></a>switch语句</h1><p>除if语句之外，JS还提供了另外一种选择语句：switch语句。</p>
+<p>用途：当一个变量被分类讨论的情况。</p>
+<p>在switch中圆括号中一般是一个变量命，这个变量被分类讨论</p>
+<p>case表示“情况”，它后面没有圆括号，直接跟一个值，程序会依次将case后面的值与switch中圆括号的值<strong>全等比对</strong>，如果相同，则执行case后面的语句，default为默认情况。需要注意的是，case后面要书写<strong>break</strong>，否则会造成语句的贯穿，后面的也会被执行。</p>
+<p>示例：要求用户输入一个1~12中的任意一个数字，显示这个月份的天数。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> n = <span class="built_in">Number</span>(prompt(<span class="string">&#x27;输入1~12月份&#x27;</span>));</span><br><span class="line">      <span class="keyword">switch</span> (n) &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line">        <span class="keyword">case</span> <span class="number">5</span>:</span><br><span class="line">        <span class="keyword">case</span> <span class="number">7</span>:</span><br><span class="line">        <span class="keyword">case</span> <span class="number">8</span>:</span><br><span class="line">        <span class="keyword">case</span> <span class="number">10</span>:</span><br><span class="line">        <span class="keyword">case</span> <span class="number">12</span>:</span><br><span class="line">          alert(<span class="string">&#x27;这个月有31天&#x27;</span>);</span><br><span class="line">          <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">4</span>:</span><br><span class="line">        <span class="keyword">case</span> <span class="number">6</span>:</span><br><span class="line">        <span class="keyword">case</span> <span class="number">9</span>:</span><br><span class="line">        <span class="keyword">case</span> <span class="number">11</span>:</span><br><span class="line">          alert(<span class="string">&#x27;这个月有30天&#x27;</span>);</span><br><span class="line">          <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">          alert(<span class="string">&#x27;这个月有28或29天&#x27;</span>);</span><br><span class="line">          <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">          alert(<span class="string">&#x27;输入正确数字&#x27;</span>);</span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="三元运算符"><a href="#三元运算符" class="headerlink" title="三元运算符"></a>三元运算符</h1><p>JavaScript中提供了一种叫做“三元运算”的语法形式，让我们可以方便地实现选择：条件表达式？表达式1：表达式2，表达式为真则执行表达式1，否则执行表达式2</p>
+<p>用途：根据条件是否成立，在两个不同值中选择变量的值</p>
+<h1 id="for循环"><a href="#for循环" class="headerlink" title="for循环"></a>for循环</h1><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">1</span>;i&lt;=<span class="number">10</span>;i++)&#123;</span><br><span class="line"><span class="built_in">console</span>.log(i)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>for循环有三个表达式，第三个表达式不能有分号。</p>
+<ul>
+<li><code>var i = 1;</code>表示定义一个“循环变量” i,并赋值为1</li>
+<li>i<code>&lt;=10;</code>，表示继续执行循环的条件，只要条件为真，则会一直执行</li>
+<li><code>i++</code>，用来更新循环变量，使循环的值越来越趋向终点</li>
+</ul>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211031202912.png"></p>
+<p>需要注意的是，var和let的区别:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">1</span>; i &lt; <span class="number">10</span>; i++) &#123;&#125;</span><br><span class="line"><span class="built_in">console</span>.log(i);<span class="comment">//ReferenceError: i is not defined</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">1</span>; i &lt; <span class="number">10</span>; i++) &#123;&#125;</span><br><span class="line"><span class="built_in">console</span>.log(i);<span class="comment">//10 </span></span><br></pre></td></tr></table></figure>
+
+<p>有一个公式：</p>
+<ul>
+<li>如果有序递增，最后的语句写法是 i+=递增的数差值</li>
+<li>如果有序递减，最后的语句写法是 i-=递减的数差值</li>
+</ul>
+<p>示例：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 18、14、10、...、-6</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">18</span>; i &gt;= -<span class="number">6</span>; i -= -<span class="number">4</span>) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(i);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//0、0.2、0.4、0.6、0.8、1</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt;= <span class="number">1</span>; i += <span class="number">0.2</span>) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">Number</span>(i.toFixed(<span class="number">1</span>)));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="while循环"><a href="#while循环" class="headerlink" title="while循环"></a>while循环</h1><p>while语句也是一种循环结构，是一种不定范围的循环，和for各有各的用处</p>
+<p>while循环没有显示定义循环变量，必须自己在while循环外先定义号循环变量，有时甚至可以没有循环变量</p>
+<p>循环体内的语句，必须使循环测试条件趋向不成立，否则会死循环</p>
+<p>示例：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"> <span class="keyword">var</span> n = <span class="number">1</span>;</span><br><span class="line"> <span class="keyword">while</span> (n &lt;= <span class="number">100</span>) &#123;</span><br><span class="line">   <span class="built_in">console</span>.log(n);</span><br><span class="line">   n++;</span><br><span class="line"> &#125;</span><br><span class="line"><span class="comment">//1+2+3...+100</span></span><br><span class="line"> <span class="keyword">var</span> sum = <span class="number">0</span>;</span><br><span class="line"> <span class="keyword">var</span> i = <span class="number">0</span>;</span><br><span class="line"> <span class="keyword">while</span> (i &lt;= <span class="number">100</span>) &#123;</span><br><span class="line">   sum += i;</span><br><span class="line">   i++;</span><br><span class="line"> &#125;</span><br><span class="line"><span class="built_in">console</span>.log(sum);</span><br></pre></td></tr></table></figure>
+
+<p>寻找满足n的平方大于456789的最大整数</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> n = <span class="number">1</span>;</span><br><span class="line"> <span class="keyword">while</span> (<span class="built_in">Math</span>.pow(n, <span class="number">2</span>) &lt;= <span class="number">456789</span>) &#123;</span><br><span class="line">   n++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(n);</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="do…while循环"><a href="#do…while循环" class="headerlink" title="do…while循环"></a>do…while循环</h1><p>do…while循环将循环执行条件写到了循环体的后面，这样一来，循环体一定会至少执行一次，然后再检测循环执行条件是否为true，再来决定是否再执行一次，即，无论是否对错都会执行一次</p>
+<p>示例：</p>
+<p>编写程序，随机生成两个变量，在[-4,4]区间，但是要求不能同时为0</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">do</span> &#123;</span><br><span class="line">  <span class="keyword">var</span> a = <span class="built_in">parseInt</span>(<span class="built_in">Math</span>.random() * <span class="number">9</span>) - <span class="number">4</span>;</span><br><span class="line">  <span class="keyword">var</span> b = <span class="built_in">parseInt</span>(<span class="built_in">Math</span>.random() * <span class="number">9</span>) - <span class="number">4</span>;</span><br><span class="line">&#125; <span class="keyword">while</span> (a == <span class="number">0</span> &amp;&amp; b == <span class="number">0</span>); <span class="comment">//只要是0就再次执行，不是0就退出</span></span><br><span class="line"><span class="built_in">console</span>.log(a, b);</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="break和continue"><a href="#break和continue" class="headerlink" title="break和continue"></a>break和continue</h1><p>共同点： break和continue都是用来控制循环结构的，主要作用是停止循环。</p>
+<p>break主要是<strong>终止</strong>整个或者这一层的循环，continue是<strong>跳过这次</strong>循环，开始下一次的循环</p>
+<p>continue <strong>只能在循环语句中使用</strong>，即只能在 for、while 和 do…while 语句中使用。</p>
+<p>break<strong>只能在循环体内和switch语句体内使用</strong></p>
+<h1 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h1><p><strong>if语句算法题</strong></p>
+<p>水仙花数：</p>
+<p>第一种，使用charAt()：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//接受一个数字</span></span><br><span class="line">   <span class="keyword">var</span> b = prompt(<span class="string">&#x27;请输入一个数字，判断是否为水仙花数&#x27;</span>);</span><br><span class="line">   <span class="comment">//这里就去判断数字是否合法</span></span><br><span class="line">   <span class="keyword">if</span> (<span class="built_in">isNaN</span>(b)!<span class="built_in">isNaN</span>(b) &amp;&amp; <span class="number">100</span> &lt;= b &amp;&amp; b &lt;= <span class="number">999</span>) &#123;</span><br><span class="line">     alert(<span class="string">&#x27;请输入合法数字&#x27;</span>);</span><br><span class="line">   &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">     <span class="comment">//因为输入的是字符串，所以直接使用charAt获取每个字符</span></span><br><span class="line">     <span class="keyword">var</span> one = b.charAt(<span class="number">0</span>);</span><br><span class="line">     <span class="keyword">var</span> two = b.charAt(<span class="number">1</span>);</span><br><span class="line">     <span class="keyword">var</span> three = b.charAt(<span class="number">2</span>);</span><br><span class="line">     <span class="comment">//获取之后记得转数字类型</span></span><br><span class="line">     <span class="keyword">var</span> c = <span class="built_in">Number</span>(one);</span><br><span class="line">     <span class="keyword">var</span> d = <span class="built_in">Number</span>(two);</span><br><span class="line">     <span class="keyword">var</span> e = <span class="built_in">Number</span>(three);</span><br><span class="line">     <span class="comment">//判断每个数的3次方相加是否等于输入数字，这里使用的是==，所以不会去判断类型</span></span><br><span class="line">     <span class="keyword">if</span> (<span class="built_in">Math</span>.pow(c, <span class="number">3</span>) + <span class="built_in">Math</span>.pow(d, <span class="number">3</span>) + <span class="built_in">Math</span>.pow(e, <span class="number">3</span>) == b) &#123;</span><br><span class="line">       alert(<span class="string">&#x27;true&#x27;</span>);</span><br><span class="line">     &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">       alert(<span class="string">&#x27;false&#x27;</span>);</span><br><span class="line">     &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<p>第二种，使用取余</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> n = prompt(<span class="string">&#x27;请输入一个数字，判断是否为水仙花数&#x27;</span>);</span><br><span class="line"><span class="keyword">if</span> (!<span class="built_in">isNaN</span>(n) &amp;&amp; <span class="number">100</span> &lt;= n &amp;&amp; n &lt;= <span class="number">999</span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> a = <span class="built_in">parseInt</span>(n / <span class="number">100</span>);</span><br><span class="line">  <span class="keyword">var</span> b = <span class="built_in">parseInt</span>((n / <span class="number">10</span>) % <span class="number">10</span>);</span><br><span class="line">  <span class="keyword">var</span> c = <span class="built_in">parseInt</span>(n % <span class="number">10</span>);</span><br><span class="line">  <span class="keyword">if</span> (<span class="built_in">Math</span>.pow(a, <span class="number">3</span>) + <span class="built_in">Math</span>.pow(b, <span class="number">3</span>) + <span class="built_in">Math</span>.pow(c, <span class="number">3</span>) == n) &#123;</span><br><span class="line">    alert(<span class="string">&#x27;true&#x27;</span>);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    alert(<span class="string">&#x27;false&#x27;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  alert(<span class="string">&#x27;请输入合法数字&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>for算法题</strong></p>
+<p>累加器1到100的和：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>, sum = <span class="number">0</span>; i &lt;= <span class="number">100</span>; i++) &#123;</span><br><span class="line">  sum += i; <span class="comment">//sum = sum+i</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(sum);</span><br></pre></td></tr></table></figure>
+
+<p>1~100中哪个数字除以3余1，除以4余2，除以5余3(穷举法)</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">1</span>; i &lt;= <span class="number">100</span>; i++) &#123;</span><br><span class="line">       <span class="keyword">if</span> (i % <span class="number">3</span> == <span class="number">1</span> &amp;&amp; i % <span class="number">4</span> == <span class="number">2</span> &amp;&amp; i % <span class="number">5</span> == <span class="number">3</span>) &#123;</span><br><span class="line">         <span class="built_in">console</span>.log(i);<span class="comment">//58</span></span><br><span class="line">       &#125;</span><br><span class="line">     &#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>while算法题</strong></p>
+<p>问题：小兔子拔萝卜，第一天拔一个，第二天拔两个，第几天可以拔完500个</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> sum = <span class="number">0</span>; <span class="comment">//累加</span></span><br><span class="line"><span class="keyword">var</span> n = <span class="number">1</span>; <span class="comment">//天数，也是每天拔的数量</span></span><br><span class="line"><span class="keyword">while</span> (sum &lt; <span class="number">500</span>) &#123;</span><br><span class="line">  sum += n; <span class="comment">//sum = sum+n -&gt; 1= 0+1、2=1+1</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;拔了&#x27;</span> + sum + <span class="string">&#x27;个&#x27;</span>);</span><br><span class="line">  n++; <span class="comment">//每天自增1</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;第&#x27;</span> + n + <span class="string">&#x27;天&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(n-<span class="number">1</span>);</span><br></pre></td></tr></table></figure>
+
+<p>问题：猜数字游戏，随机生成一个2到99的数字让用户猜测这个数字是几，用户输入自己的猜测之后提示”输入的数字太大”或”输入有的数字太小了”，不断重复这个过程直到用户准确才到这个数字。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// [2,99] -&gt; parseInt (Math.random() * (b-a+1) ) + a</span></span><br><span class="line">     <span class="keyword">var</span> n = <span class="built_in">parseInt</span>(<span class="built_in">Math</span>.random() * <span class="number">99</span> - <span class="number">2</span> + <span class="number">1</span>) + <span class="number">2</span>;</span><br><span class="line">     <span class="keyword">var</span> min = <span class="number">1</span>;</span><br><span class="line">     <span class="keyword">var</span> max = <span class="number">100</span>;</span><br><span class="line">     <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">       <span class="keyword">var</span> user = <span class="built_in">Number</span>(prompt(<span class="string">&#x27;请输入&#x27;</span> + min + <span class="string">&#x27;~&#x27;</span> + max + <span class="string">&#x27;数字&#x27;</span>));</span><br><span class="line">       <span class="keyword">if</span> (user &lt; n) &#123;</span><br><span class="line">         min = user;</span><br><span class="line">         alert(<span class="string">&#x27;输入的小了&#x27;</span>);</span><br><span class="line">       &#125; <span class="keyword">else</span> <span class="keyword">if</span> (user &gt; n) &#123;</span><br><span class="line">         max = user;</span><br><span class="line">         alert(<span class="string">&#x27;输入的大了&#x27;</span>);</span><br><span class="line">       &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">         alert(<span class="string">&#x27;对了&#x27;</span>);</span><br><span class="line">       &#125;</span><br><span class="line">     &#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>累加和累乘</strong></p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211101133126.png"></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> n = <span class="built_in">Number</span>(prompt(<span class="string">&#x27;输入数字&#x27;</span>));</span><br><span class="line"><span class="comment">//遍历分母就行</span></span><br><span class="line"><span class="keyword">var</span> sum = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">2</span>; i &lt;= n; i++) &#123;</span><br><span class="line">  sum = sum + (i + <span class="number">1</span>) / i;</span><br><span class="line">&#125;</span><br><span class="line">alert(sum.toFixed(<span class="number">2</span>));</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211101134018.png"></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> n = <span class="built_in">Number</span>(prompt(<span class="string">&#x27;输入数字&#x27;</span>)); <span class="comment">//eg:5</span></span><br><span class="line">   <span class="keyword">var</span> result = <span class="number">1</span>;</span><br><span class="line">   <span class="keyword">for</span> (<span class="keyword">var</span> i = n; i &gt;= <span class="number">1</span>; i--) &#123;</span><br><span class="line">     result = result * i; <span class="comment">//1*5、5*4、20*3、60*2、120*1</span></span><br><span class="line">   &#125;</span><br><span class="line">   <span class="built_in">console</span>.log(result);</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211101181412.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+]]></content>
+      <categories>
+        <category>javascript</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>JavaScript的数组</title>
+    <url>/article/ae208be1.html</url>
+    <content><![CDATA[<p>本文主要介绍JavaScript的数组及数组的各种方法</p>
+]]></content>
+      <categories>
+        <category>javascript</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>JavaScript随机函数的公式</title>
+    <url>/article/6556cfc2.html</url>
+    <content><![CDATA[<p>本文主要介绍JavaScript的随机函数的公式。</p>
+<p>再JavaScript中，想获取随机函数需要使用<code>Math.random()</code>，该函数会返回0~1之间的小数，但是这不符合我们一般的使用，我们一般会给出一个区间，然后在该区间随机一个数：</p>
+<p>得到[a,b]区间的整数：公式</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">parseInt</span> (<span class="built_in">Math</span>.random() * (b-a+<span class="number">1</span>) ) + a</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>javascript</category>
+      </categories>
+  </entry>
+  <entry>
     <title>JavaScript的表达式和运算符</title>
     <url>/article/f5797da9.html</url>
     <content><![CDATA[<p>本文主要介绍JavaScript的表达式和运算符。</p>
@@ -1602,7 +1744,58 @@
 </tr>
 </tbody></table>
 <p><strong>逻辑运算的顺序:  非-&gt;与-&gt;或</strong></p>
-<h1 id="赋值表达式"><a href="#赋值表达式" class="headerlink" title="赋值表达式"></a>赋值表达式</h1><h1 id="综合表达式"><a href="#综合表达式" class="headerlink" title="综合表达式"></a>综合表达式</h1>]]></content>
+<h1 id="赋值表达式"><a href="#赋值表达式" class="headerlink" title="赋值表达式"></a>赋值表达式</h1><table>
+<thead>
+<tr>
+<th align="center">意义</th>
+<th align="center">运算符</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">赋值</td>
+<td align="center">=</td>
+</tr>
+<tr>
+<td align="center">加等于（a += 5  等价于a = a +5）</td>
+<td align="center">+=</td>
+</tr>
+<tr>
+<td align="center">减等于（a -= 5  等价于a = a -5）</td>
+<td align="center">-=</td>
+</tr>
+<tr>
+<td align="center">乘等于（a *= 5  等价于a = a *5）</td>
+<td align="center">*=</td>
+</tr>
+<tr>
+<td align="center">除等于（a /= 5  等价于a = a /5）</td>
+<td align="center">/=</td>
+</tr>
+<tr>
+<td align="center">取余等于（a %= 5  等价于a = a %5）</td>
+<td align="center">%=</td>
+</tr>
+<tr>
+<td align="center">自增（在自身加1）</td>
+<td align="center">++</td>
+</tr>
+<tr>
+<td align="center">自减（在自身减1）</td>
+<td align="center">–</td>
+</tr>
+</tbody></table>
+<p>赋值运算也会产生值，也就是会返回值，这就意味着，可以连续使用赋值运算符，比如：<code>var a = b= c = 15</code></p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211030170358.png"></p>
+<h1 id="综合表达式"><a href="#综合表达式" class="headerlink" title="综合表达式"></a>综合表达式</h1><p>综合运算即把所有的运算加在一起，这就需要一个运算顺序了：非运算-&gt;数学运算-&gt;关系运算-&gt;逻辑运算</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="number">5</span> &lt; <span class="number">3</span> + <span class="number">3</span>; <span class="comment">//true</span></span><br><span class="line"><span class="number">3</span> &gt; <span class="number">2</span> &amp;&amp; <span class="number">8</span> &gt; <span class="number">3</span> + <span class="number">4</span>; <span class="comment">//true</span></span><br><span class="line"><span class="number">3</span> &gt; <span class="number">2</span> &amp;&amp; <span class="number">8</span> &gt; <span class="number">3</span> + <span class="number">5</span>; <span class="comment">//false</span></span><br><span class="line">!<span class="number">13</span> &lt; <span class="number">5</span> - <span class="number">3</span>; <span class="comment">//true</span></span><br><span class="line">!<span class="number">13</span> &lt; <span class="number">5</span> - <span class="number">5</span>; <span class="comment">//false</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>变量范围表示</strong></p>
+<p>验证a是介于5到12之间：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">a&gt;=5 &amp;&amp; a&lt;=12</span><br></pre></td></tr></table></figure>
+
+<h1 id="润年判断"><a href="#润年判断" class="headerlink" title="润年判断"></a>润年判断</h1><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> year = <span class="built_in">Number</span>(prompt(<span class="string">&#x27;请输入年份&#x27;</span>));</span><br><span class="line">     <span class="comment">//能被4整除且不能被100整除</span></span><br><span class="line">     <span class="comment">//能被100整除也能被400整除</span></span><br><span class="line">     <span class="keyword">if</span> (</span><br><span class="line">       (year % <span class="number">4</span> == <span class="number">0</span> &amp;&amp; year % <span class="number">100</span> != <span class="number">0</span>) ||</span><br><span class="line">       (year % <span class="number">100</span> == <span class="number">0</span> &amp;&amp; year % <span class="number">400</span> != <span class="number">0</span>)</span><br><span class="line">     ) &#123;</span><br><span class="line">       alert(<span class="string">&#x27;是闰年&#x27;</span>);</span><br><span class="line">     &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">       alert(<span class="string">&#x27;不是闰年&#x27;</span>);</span><br><span class="line">     &#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
       <categories>
         <category>javascript</category>
       </categories>
@@ -2004,6 +2197,74 @@
       </tags>
   </entry>
   <entry>
+    <title>小破站正式上线</title>
+    <url>/article/36e749dc.html</url>
+    <content><![CDATA[<p>断断续续半年时间，使用<code>Hexo</code>已有很长一段时间，经历了不断的优化踩坑，最开始使用<code>NexT</code>做为博客主题，到后来使用了Butterfly主题，到对主题的一系列魔改，最终还是回归到<code>NexT</code>作为博客的主题。</p>
+<p><code>NexT</code>主题相对来说较为简洁，使用Butterfly主题确实对博客有很大的美化程度，但不简约，最主要是在浏览器渲染上面，由于集成大量插件和动画特效，使得手机浏览时不是特别顺畅。</p>
+<p>最终本博客去繁化简，只留下实用功能，对博客轻美化，让网站即顺畅又优美。</p>
+<p>目前使用<code>GithubPages</code>加<code>GiteePages</code>双代码平台推送，测试下来，电信网络访问<code>githubPages</code>很大概率屏蔽，<code>GiteePages</code>需要手动更新，较为麻烦，<code>CDN</code>加速效果不明显，CI平台需要收取一定费用，介于目前情况，只能暂时如此，未来计划使用服务器搭建自己的CI平台进行自动化部署</p>
+]]></content>
+      <categories>
+        <category>Hexo框架</category>
+      </categories>
+      <tags>
+        <tag>随笔</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo图床的解决方案</title>
+    <url>/article/4c6068df.html</url>
+    <content><![CDATA[<p>网站链接嵌套得越深，越不利于SEO优化，Hexo默认链接是年月日标题，如果标题是中文，那么链接就会变成乱码，这很不利于搜索引擎的搜索，为了达到目的，我们会使用<code>hexo-abbrlink</code>插件来解决问题，但是我们需要上传图片，图片要么需要图床，不然你就只能附带博客里面，以下分析个人在遇到这个问题的取舍与想法，愿与诸君分享。</p>
+<h1 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h1><ul>
+<li>我们需要利于SEO的网址</li>
+<li>我们需要一个安全、稳定、足够、免费的图床</li>
+<li>简单、最好一劳永逸</li>
+</ul>
+<h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><p>我们知道，为了达到Hexo的链接优化，需要用到<code>hexo-abbrlink</code>这个插件，使用上传图片使用<code>hexo-asset-image</code>插件，这两个插件单独使用没有问题，但是一起使用就会出现问题，前者把路径改了，后者当然无法找到图片，网上也是一堆长篇大论，这里不在累赘，难道没有一劳永逸吗？</p>
+<p>既然两者一起使用会出现问题，（<code>hexo-asset-image</code>插件作者曾提到这是hexo的编译原理，具体可以看官方的lssues）,那么就不一起使用，此路不通，另寻它路。其实最简单的方式就是使用图床功能，把一张图片放到别人的服务器，通过URL就能看到图片，简单快捷，</p>
+<p>但是有几个问题：</p>
+<ul>
+<li><p>图片放在别人的服务器，不太安全</p>
+</li>
+<li><p>图床一般都需要收费，不可能给你白嫖</p>
+</li>
+<li><p>图床弄起来较为麻烦</p>
+</li>
+</ul>
+<p>综合以上，其实我们可以利用Gitee来作为我们的图床，有以下几个原因</p>
+<ul>
+<li>使用<code>hexo-asset-image</code>插件图片本身也是存放在<code>gitee</code>，那么我们这样其实是一样的，只不过不用<code>hexo-asset-image</code>插件</li>
+<li><code>Gitee</code>属于国内，速度更快</li>
+<li>个人免费有5G的空间，如果只是博客，这个空间还是够的</li>
+</ul>
+<h1 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h1><p>既然使用Gitee来作为图床，当然不能重复提交代码仓库来实现，这里使用picGo工具，</p>
+<p>官网：<a href="https://github.com/Molunerfinn/PicGo/releases">https://github.com/Molunerfinn/PicGo/releases</a></p>
+<p>安装好的界面</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20210926225740.png"></p>
+<p>安装插件：</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20210926230424.png"></p>
+<p>填写信息：</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20210926231011.png"></p>
+<ul>
+<li>用户名是注册时候的链接名，不是昵称！！</li>
+<li>仓库名小写，直接写就行，不需要写路径</li>
+<li>存放路径随意</li>
+<li>令牌是<code>Gitee</code>私人令牌，不要给太多权限，第一个就行</li>
+<li>图片只能1M上限，大于访问不了，需要登陆才可以有权限访问，这点可以自己测试</li>
+</ul>
+<h1 id="小工具"><a href="#小工具" class="headerlink" title="小工具"></a>小工具</h1><p>分享一个截图工具：snipaste，可以在win10商店里面下载即可。</p>
+<p>官网：<a href="https://zh.snipaste.com/">https://zh.snipaste.com/</a></p>
+<p>结合PicGo可以完美配合，复制粘贴上传，不用保存，截图大小也不是很大</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>这个办法其实是脱离插件的使用，即满足了URL的优化，又能得到一个图床应用，体验下来还是很方便的，唯一缺点就是流程可能稍加繁琐，不过使用过程非常方便！还是值得推荐的！</p>
+]]></content>
+      <categories>
+        <category>Hexo框架</category>
+      </categories>
+      <tags>
+        <tag>图床</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>变量声明提升和var、let、const的区别</title>
     <url>/article/43391fd9.html</url>
     <content><![CDATA[<p>本文主要介绍JavaScript变量声明提升的现象。</p>
@@ -2082,74 +2343,6 @@
       </categories>
       <tags>
         <tag>变量声明提升</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo图床的解决方案</title>
-    <url>/article/4c6068df.html</url>
-    <content><![CDATA[<p>网站链接嵌套得越深，越不利于SEO优化，Hexo默认链接是年月日标题，如果标题是中文，那么链接就会变成乱码，这很不利于搜索引擎的搜索，为了达到目的，我们会使用<code>hexo-abbrlink</code>插件来解决问题，但是我们需要上传图片，图片要么需要图床，不然你就只能附带博客里面，以下分析个人在遇到这个问题的取舍与想法，愿与诸君分享。</p>
-<h1 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h1><ul>
-<li>我们需要利于SEO的网址</li>
-<li>我们需要一个安全、稳定、足够、免费的图床</li>
-<li>简单、最好一劳永逸</li>
-</ul>
-<h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><p>我们知道，为了达到Hexo的链接优化，需要用到<code>hexo-abbrlink</code>这个插件，使用上传图片使用<code>hexo-asset-image</code>插件，这两个插件单独使用没有问题，但是一起使用就会出现问题，前者把路径改了，后者当然无法找到图片，网上也是一堆长篇大论，这里不在累赘，难道没有一劳永逸吗？</p>
-<p>既然两者一起使用会出现问题，（<code>hexo-asset-image</code>插件作者曾提到这是hexo的编译原理，具体可以看官方的lssues）,那么就不一起使用，此路不通，另寻它路。其实最简单的方式就是使用图床功能，把一张图片放到别人的服务器，通过URL就能看到图片，简单快捷，</p>
-<p>但是有几个问题：</p>
-<ul>
-<li><p>图片放在别人的服务器，不太安全</p>
-</li>
-<li><p>图床一般都需要收费，不可能给你白嫖</p>
-</li>
-<li><p>图床弄起来较为麻烦</p>
-</li>
-</ul>
-<p>综合以上，其实我们可以利用Gitee来作为我们的图床，有以下几个原因</p>
-<ul>
-<li>使用<code>hexo-asset-image</code>插件图片本身也是存放在<code>gitee</code>，那么我们这样其实是一样的，只不过不用<code>hexo-asset-image</code>插件</li>
-<li><code>Gitee</code>属于国内，速度更快</li>
-<li>个人免费有5G的空间，如果只是博客，这个空间还是够的</li>
-</ul>
-<h1 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h1><p>既然使用Gitee来作为图床，当然不能重复提交代码仓库来实现，这里使用picGo工具，</p>
-<p>官网：<a href="https://github.com/Molunerfinn/PicGo/releases">https://github.com/Molunerfinn/PicGo/releases</a></p>
-<p>安装好的界面</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20210926225740.png"></p>
-<p>安装插件：</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20210926230424.png"></p>
-<p>填写信息：</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20210926231011.png"></p>
-<ul>
-<li>用户名是注册时候的链接名，不是昵称！！</li>
-<li>仓库名小写，直接写就行，不需要写路径</li>
-<li>存放路径随意</li>
-<li>令牌是<code>Gitee</code>私人令牌，不要给太多权限，第一个就行</li>
-<li>图片只能1M上限，大于访问不了，需要登陆才可以有权限访问，这点可以自己测试</li>
-</ul>
-<h1 id="小工具"><a href="#小工具" class="headerlink" title="小工具"></a>小工具</h1><p>分享一个截图工具：snipaste，可以在win10商店里面下载即可。</p>
-<p>官网：<a href="https://zh.snipaste.com/">https://zh.snipaste.com/</a></p>
-<p>结合PicGo可以完美配合，复制粘贴上传，不用保存，截图大小也不是很大</p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>这个办法其实是脱离插件的使用，即满足了URL的优化，又能得到一个图床应用，体验下来还是很方便的，唯一缺点就是流程可能稍加繁琐，不过使用过程非常方便！还是值得推荐的！</p>
-]]></content>
-      <categories>
-        <category>Hexo框架</category>
-      </categories>
-      <tags>
-        <tag>图床</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>小破站正式上线</title>
-    <url>/article/36e749dc.html</url>
-    <content><![CDATA[<p>断断续续半年时间，使用<code>Hexo</code>已有很长一段时间，经历了不断的优化踩坑，最开始使用<code>NexT</code>做为博客主题，到后来使用了Butterfly主题，到对主题的一系列魔改，最终还是回归到<code>NexT</code>作为博客的主题。</p>
-<p><code>NexT</code>主题相对来说较为简洁，使用Butterfly主题确实对博客有很大的美化程度，但不简约，最主要是在浏览器渲染上面，由于集成大量插件和动画特效，使得手机浏览时不是特别顺畅。</p>
-<p>最终本博客去繁化简，只留下实用功能，对博客轻美化，让网站即顺畅又优美。</p>
-<p>目前使用<code>GithubPages</code>加<code>GiteePages</code>双代码平台推送，测试下来，电信网络访问<code>githubPages</code>很大概率屏蔽，<code>GiteePages</code>需要手动更新，较为麻烦，<code>CDN</code>加速效果不明显，CI平台需要收取一定费用，介于目前情况，只能暂时如此，未来计划使用服务器搭建自己的CI平台进行自动化部署</p>
-]]></content>
-      <categories>
-        <category>Hexo框架</category>
-      </categories>
-      <tags>
-        <tag>随笔</tag>
       </tags>
   </entry>
   <entry>
