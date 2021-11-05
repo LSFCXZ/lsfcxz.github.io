@@ -30,7 +30,7 @@
 <meta property="og:description" content="本文主要介绍数组相关的算法题目。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-11-04T09:03:21.000Z">
-<meta property="article:modified_time" content="2021-11-04T09:04:42.408Z">
+<meta property="article:modified_time" content="2021-11-04T12:46:59.625Z">
 <meta property="article:author" content="const name&#x3D;&quot;LSF&quot;">
 <meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary">
@@ -235,7 +235,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-11-04 17:03:21 / 修改时间：17:04:42" itemprop="dateCreated datePublished" datetime="2021-11-04T17:03:21+08:00">2021-11-04</time>
+              <time title="创建时间：2021-11-04 17:03:21 / 修改时间：20:46:59" itemprop="dateCreated datePublished" datetime="2021-11-04T17:03:21+08:00">2021-11-04</time>
             </span>
 
           
@@ -271,6 +271,18 @@
 
       
         <p>本文主要介绍数组相关的算法题目。</p>
+<h1 id="问题：遍历数组，求数组总和、平均数"><a href="#问题：遍历数组，求数组总和、平均数" class="headerlink" title="问题：遍历数组，求数组总和、平均数"></a>问题：遍历数组，求数组总和、平均数</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">22</span>,<span class="number">56</span>,<span class="number">45</span>,<span class="number">34</span>]</span><br><span class="line"><span class="keyword">var</span> sum = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>;i&lt;arr.lenght;i++)&#123;</span><br><span class="line">    sum = sum + arr[i]</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(sum)</span><br><span class="line"><span class="built_in">console</span>.log(sum/arr.lenght)</span><br></pre></td></tr></table></figure>
+
+<h1 id="问题：求数组的最大、最小值"><a href="#问题：求数组的最大、最小值" class="headerlink" title="问题：求数组的最大、最小值"></a>问题：求数组的最大、最小值</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> scoreArr = [<span class="number">56</span>,<span class="number">8</span>,<span class="number">98</span>,<span class="number">25</span>,<span class="number">31</span>,<span class="number">555</span>,<span class="number">26</span>]</span><br><span class="line"><span class="keyword">var</span> max = scoreArr[<span class="number">0</span>]</span><br><span class="line"><span class="keyword">var</span> min = scoreArr[<span class="number">0</span>]</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">1</span>;i&lt;scoreArr.lenght;i++)&#123;</span><br><span class="line">    <span class="keyword">if</span>(scoreArr[i]&gt;max)&#123;</span><br><span class="line">        max = scoreArr[i]</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(scoreArr[i]&lt;min)&#123;</span><br><span class="line">        min = scoreArr[i]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(max,min)</span><br></pre></td></tr></table></figure>
+
+<h1 id="问题：数组去重"><a href="#问题：数组去重" class="headerlink" title="问题：数组去重"></a>问题：数组去重</h1><p>思路：准备空数组，遍历原数组，如果遍历到的项不在结果数组中，则推入结果数组</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> result = []</span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">56</span>,<span class="number">8</span>,<span class="number">98</span>,<span class="number">25</span>,<span class="number">31</span>,<span class="number">555</span>,<span class="number">26</span>]</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>;i&lt;arr.lenght;i++)&#123;</span><br><span class="line">    <span class="keyword">if</span>(result.includes(arr[i]) === <span class="literal">false</span> )&#123;</span><br><span class="line">        result.push(arr[i])</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(result)</span><br></pre></td></tr></table></figure>
+
+<h1 id="问题：随机从原数组中取3项"><a href="#问题：随机从原数组中取3项" class="headerlink" title="问题：随机从原数组中取3项"></a>问题：随机从原数组中取3项</h1><p>思路：准备一个空结果数组，遍历原数组，随机选择一项，推入结果数组，为了不重复推入同一个项，可以将其删除，但是会改变原来数组</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> result = []</span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">56</span>,<span class="number">8</span>,<span class="number">98</span>,<span class="number">25</span>,<span class="number">31</span>,<span class="number">555</span>,<span class="number">26</span>]</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>;i&lt;<span class="number">3</span>;i++)&#123;</span><br><span class="line">    <span class="keyword">var</span> n = <span class="built_in">parseInt</span>(<span class="built_in">Math</span>.random * arr.lenght);</span><br><span class="line">    result.push(arr[n]);</span><br><span class="line">    arr.splice(n,<span class="number">1</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
 
     </div>
 
@@ -338,7 +350,10 @@
     <a href="/article/badcd860.html" rel="prev" title="JavaScript的循环判断算法">
       <i class="fa fa-chevron-left"></i> JavaScript的循环判断算法
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/article/9e8798c2.html" rel="next" title="JavaScript的冒泡排序">
+      JavaScript的冒泡排序 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -398,6 +413,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%EF%BC%9A%E9%81%8D%E5%8E%86%E6%95%B0%E7%BB%84%EF%BC%8C%E6%B1%82%E6%95%B0%E7%BB%84%E6%80%BB%E5%92%8C%E3%80%81%E5%B9%B3%E5%9D%87%E6%95%B0"><span class="nav-number">1.</span> <span class="nav-text">问题：遍历数组，求数组总和、平均数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%EF%BC%9A%E6%B1%82%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%A4%A7%E3%80%81%E6%9C%80%E5%B0%8F%E5%80%BC"><span class="nav-number">2.</span> <span class="nav-text">问题：求数组的最大、最小值</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%EF%BC%9A%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D"><span class="nav-number">3.</span> <span class="nav-text">问题：数组去重</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%EF%BC%9A%E9%9A%8F%E6%9C%BA%E4%BB%8E%E5%8E%9F%E6%95%B0%E7%BB%84%E4%B8%AD%E5%8F%963%E9%A1%B9"><span class="nav-number">4.</span> <span class="nav-text">问题：随机从原数组中取3项</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -413,7 +429,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">33</span>
+          <span class="site-state-item-count">35</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
