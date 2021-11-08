@@ -6,7 +6,7 @@
   <link href="https://www.frontblog.top/atom.xml" rel="self"/>
   
   <link href="https://www.frontblog.top/"/>
-  <updated>2021-11-07T08:53:23.468Z</updated>
+  <updated>2021-11-08T09:47:43.351Z</updated>
   <id>https://www.frontblog.top/</id>
   
   <author>
@@ -17,44 +17,80 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>博客的自动化部署</title>
-    <link href="https://www.frontblog.top/article/60e092f8.html"/>
-    <id>https://www.frontblog.top/article/60e092f8.html</id>
-    <published>2021-11-07T08:52:02.000Z</published>
-    <updated>2021-11-07T08:53:23.468Z</updated>
+    <title>JavaScript的arguments</title>
+    <link href="https://www.frontblog.top/article/a9f31fe4.html"/>
+    <id>https://www.frontblog.top/article/a9f31fe4.html</id>
+    <published>2021-11-08T09:23:29.000Z</published>
+    <updated>2021-11-08T09:47:43.351Z</updated>
     
-    <content type="html"><![CDATA[<p>本文记录自己结合CICD的知识，自动化部署的操作过程。</p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;本文记录自己结合CICD的知识，自动化部署的操作过程。&lt;/p&gt;</summary>
+    <content type="html"><![CDATA[<p>本文主要介绍javascript中的arguments类数组对象</p><p><strong><code>arguments</code></strong> 是一个对应于传递给函数的参数的类数组对象。 —MDN</p><p><code>arguments</code>对象不是一个 <code>Array</code>。它类似于<code>Array</code>，但除了length属性和索引元素之外没有任何<code>Array</code>属性。</p><p>示例：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">   <span class="built_in">arguments</span>.lenght<span class="comment">//5</span></span><br><span class="line">&#125;</span><br><span class="line">fun(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>)</span><br></pre></td></tr></table></figure><p>关于arguments类数组还有许多可以研究的，比如arguments是对象，而对象是没有长度属性，arguments在ES6中的箭头函数是无法使用的等等，这里只做记录，以后更新。</p>]]></content>
     
     
+    <summary type="html">&lt;p&gt;本文主要介绍javascript中的arguments类数组对象&lt;/p&gt;</summary>
     
-    <category term="开发技巧" scheme="https://www.frontblog.top/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E5%B7%A7/"/>
     
     
-    <category term="自动化部署" scheme="https://www.frontblog.top/tags/%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2/"/>
+    <category term="javascript" scheme="https://www.frontblog.top/categories/javascript/"/>
+    
     
   </entry>
   
   <entry>
-    <title>基于FRP实现内网穿透</title>
-    <link href="https://www.frontblog.top/article/9ba7e21b.html"/>
-    <id>https://www.frontblog.top/article/9ba7e21b.html</id>
-    <published>2021-11-06T08:52:23.000Z</published>
-    <updated>2021-11-07T04:27:59.704Z</updated>
+    <title>JavaScript的函数优先提升</title>
+    <link href="https://www.frontblog.top/article/c7b5ade2.html"/>
+    <id>https://www.frontblog.top/article/c7b5ade2.html</id>
+    <published>2021-11-08T02:18:24.000Z</published>
+    <updated>2021-11-08T02:46:19.930Z</updated>
     
-    <content type="html"><![CDATA[<p>本文主要记录自己怎么实现内网穿透及在这个过程遇到的问题。内网穿透方案适合一些小场景下使用，比如测试的api，自己的静态博客，因为测试下来发现有许多问题。</p><h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><p>官网：</p><blockquote><p><code>FRP</code>：<a href="https://gofrp.org/">https://gofrp.org/</a><br><code>acme.sh</code> :<a href="https://github.com/acmesh-official/acme.sh">https://github.com/acmesh-official/acme.sh</a><br><code>dockerHub</code>: <a href="https://registry.hub.docker.com/">https://registry.hub.docker.com/</a></p></blockquote><p>主要思路是：服务器使用Docker方式安装<code>FRP</code>，本地运行<code>frpc</code>，在服务器申请证书，下载到本地，供<code>https</code>使用</p><p><code>FPR</code>分为服务端和客户端，服务端当然是放在服务器使用，客户端当然就是放本地使用，两者之间是通过一个端口号连接通讯的，不管本地想暴露多少端口，而服务端则监听443端口，数据走向是这样的：用户-&gt;域名-&gt;DNS解析-&gt;IP地址-&gt;FRP443端口-&gt;7000通讯端口-&gt;本地-&gt;本地端口，通过这样实现内网的穿透。</p><h1 id="安装docker"><a href="#安装docker" class="headerlink" title="安装docker"></a>安装docker</h1><p>简单4步安装：</p><ol><li><p>安装所需的软件包：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install -y yum-utils \</span><br><span class="line"> device-mapper-persistent-data \</span><br><span class="line"> lvm2</span><br></pre></td></tr></table></figure></li><li><p>设置阿里云仓库</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo yum-config-manager \</span><br><span class="line">    --add-repo \</span><br><span class="line">    http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo</span><br></pre></td></tr></table></figure></li><li><p>安装 最新Docker</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install docker-ce docker-ce-cli containerd.io</span><br></pre></td></tr></table></figure></li><li><p>启动docker</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl start docker</span><br></pre></td></tr></table></figure></li></ol><p>docker换源加速</p><p>使用<code>vi /etc/docker/daemon.json</code></p><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">   <span class="attr">&quot;registry-mirrors&quot;</span>: [<span class="string">&quot;https://registry.docker-cn.com&quot;</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>docker-compose安装：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo curl -L <span class="string">&quot;https://github.com/docker/compose/releases/download/1.24.1/docker-compose-<span class="subst">$(uname -s)</span>-<span class="subst">$(uname -m)</span>&quot;</span> -o /usr/<span class="built_in">local</span>/bin/docker-compose</span><br></pre></td></tr></table></figure><p>如果下载过慢，可以使用以下命令：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -L https://get.daocloud.io/docker/compose/releases/download/1.25.0/docker-compose-`uname -s`-`uname -m` &gt; /usr/<span class="built_in">local</span>/bin/docker-compose</span><br></pre></td></tr></table></figure><p>安装好后记得给执行权限：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod +x /usr/<span class="built_in">local</span>/bin/docker-compose</span><br></pre></td></tr></table></figure><p>至此，我们docker环境就已经安装完成。</p><h1 id="配置证书acme-sh"><a href="#配置证书acme-sh" class="headerlink" title="配置证书acme.sh"></a>配置证书acme.sh</h1><p>在服务器安装：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl https://get.acme.sh | sh</span><br></pre></td></tr></table></figure><p>提示：<code>Install success!</code>，即安装成功。退出再登录服务器，输入acme.sh测试是否可用</p><p>根据DNS服务器不同生成证书，这里采用DNSAPi的方式：</p><p><a href="https://github.com/acmesh-official/acme.sh/wiki/How-to-issue-a-cert">https://github.com/acmesh-official/acme.sh/wiki/How-to-issue-a-cert</a></p><p><a href="https://github.com/acmesh-official/acme.sh/tree/master/dnsapi">https://github.com/acmesh-official/acme.sh/tree/master/dnsapi</a></p><p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211106172842.png"></p><p>参考文档：<a href="https://github.com/acmesh-official/acme.sh/wiki/dnsapi">https://github.com/acmesh-official/acme.sh/wiki/dnsapi</a></p><p>是什么DNS服务器参考上面文档即可。这里不建议使用阿里云的DNS，有时候会有莫名奇妙的问题。</p><p>这里举例腾讯的DNSPROD:</p><p>找到我的-&gt;API密钥-&gt;DNSPod Token-&gt;新建,创建后保存自己的ID和Token，</p><p>在服务器输入：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export DP_Id=&quot;ID&quot;</span><br><span class="line">export DP_Key=&quot;Token&quot;</span><br></pre></td></tr></table></figure><p>这里是特定的指令，也就是每个服务商的指令是不一样的，所以参考上面的文档连接，*代表所有子域名都去申请证书</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">acme.sh --issue --dns dns_dp -d baidu.com -d *.baidu.com</span><br></pre></td></tr></table></figure><p>如果遇到：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[Sat Nov  6 17:56:15 CST 2021] acme.sh is using ZeroSSL as default CA now.</span><br><span class="line">[Sat Nov  6 17:56:15 CST 2021] Please update your account with an email address first.</span><br><span class="line">[Sat Nov  6 17:56:15 CST 2021] acme.sh --register-account -m my@example.com</span><br><span class="line">[Sat Nov  6 17:56:15 CST 2021] See: https://github.com/acmesh-official/acme.sh/wiki/ZeroSSL.com-CA</span><br></pre></td></tr></table></figure><p>则使用该命令更新设置邮箱，具体原因不展开讲</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">acme.sh --register-account -m my@example.com</span><br></pre></td></tr></table></figure><p>至此证书申请完成。</p><h1 id="待完成…"><a href="#待完成…" class="headerlink" title="待完成…"></a>待完成…</h1>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;本文主要记录自己怎么实现内网穿透及在这个过程遇到的问题。内网穿透方案适合一些小场景下使用，比如测试的api，自己的静态博客，因为测试下来发现有许多问题。&lt;/p&gt;</summary>
+    <content type="html"><![CDATA[<p>本文主要记录JavaScript的函数优先提升特性</p><p>我们知道在JS中，有一个预先解析阶段，在这个阶段内会去先看所有的变量，然后提升到前面，但是只是提升变量，并没有提升值，例如以下：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">//undefine</span></span><br><span class="line"><span class="keyword">var</span> a = <span class="number">3</span>;</span><br></pre></td></tr></table></figure><p>而在函数中，也存在提升的现象，我们可以调用一个等会声明的函数，这里不会报错</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">fun();</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  onsole.log(<span class="string">&#x27;this is function&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>但是如果我们使用匿名函数，即赋值给变量 ，则使用的是变量声明提升的规则，后面的函数是不会被提升的</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">fun(); <span class="comment">//this is not function</span></span><br><span class="line"><span class="keyword">var</span> fun = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  onsole.log(<span class="string">&#x27;this is function&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>再看以下例子：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">fun(); <span class="comment">//2</span></span><br><span class="line"><span class="keyword">var</span> fun = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">   <span class="built_in">console</span>.log(<span class="string">&#x27;1&#x27;</span>);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">   <span class="built_in">console</span>.log(<span class="string">&#x27;2&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line">fun();<span class="comment">//1</span></span><br></pre></td></tr></table></figure><ul><li>在预解析阶段：根据函数提升和变量提升，<code>function fun()</code>和<code>var fun</code>都会被提升到前面，<strong>函数会优先被提升</strong>，变量则后提升，虽然这里同名，但是<strong>变量的提升不会覆盖函数的声明提升</strong></li><li>在执行阶段，第一个<code>fun()</code>是去执行一个函数，前面有函数的当然是<code>function fun()</code>,所以这里输出2。在预解析阶段提升了<code>var fun</code>,执行到第二条语句的时候，则给它赋值，这样<code>var fun</code>就是一个函数了，而在第二个函数体被提升后就不会再覆盖回来，相反，现在是被var fun覆盖，所以最后调用的输出结果是1</li></ul><p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211108104444.png"></p>]]></content>
     
     
+    <summary type="html">&lt;p&gt;本文主要记录JavaScript的函数优先提升特性&lt;/p&gt;</summary>
     
-    <category term="开发技巧" scheme="https://www.frontblog.top/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E5%B7%A7/"/>
     
     
-    <category term="内网穿透" scheme="https://www.frontblog.top/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/"/>
+    <category term="javascript" scheme="https://www.frontblog.top/categories/javascript/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>JavaScript的深克隆和浅克隆</title>
+    <link href="https://www.frontblog.top/article/b9182662.html"/>
+    <id>https://www.frontblog.top/article/b9182662.html</id>
+    <published>2021-11-08T01:15:30.000Z</published>
+    <updated>2021-11-08T02:06:42.730Z</updated>
+    
+    <content type="html"><![CDATA[<p>本文主要介绍引用数据类型的浅克隆和深克隆</p><p>我们知道如果把数组赋值给另外数组的话，如果其中一个改变另外一个也受其影响，所以我们就需要克隆或者说拷贝一份相同的引用类型数据，不让它们相互之间影响。</p><h1 id="浅克隆"><a href="#浅克隆" class="headerlink" title="浅克隆"></a>浅克隆</h1><p>浅克隆是指只克隆数组第一层，如果是多为数组，或者数组中的项是其他引用数据类型，则不克隆其他层</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]</span><br><span class="line"><span class="keyword">var</span> result = []</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i  = <span class="number">0</span>; i &lt;arr.lenght;i++)&#123;</span><br><span class="line">    result.push(arr[i])</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;本文主要介绍引用数据类型的浅克隆和深克隆&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="javascript" scheme="https://www.frontblog.top/categories/javascript/"/>
+    
+    
+    <category term="深克隆和浅克隆" scheme="https://www.frontblog.top/tags/%E6%B7%B1%E5%85%8B%E9%9A%86%E5%92%8C%E6%B5%85%E5%85%8B%E9%9A%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JavaScript的基本数据类型和引用数据类型</title>
+    <link href="https://www.frontblog.top/article/a509b562.html"/>
+    <id>https://www.frontblog.top/article/a509b562.html</id>
+    <published>2021-11-08T00:46:23.000Z</published>
+    <updated>2021-11-08T01:14:02.201Z</updated>
+    
+    <content type="html"><![CDATA[<p>本文主要记录JavaScript的基本数据类型和引用数据类型的不同</p><p>先看个例子：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">5</span>;</span><br><span class="line"><span class="keyword">var</span> b = a;</span><br><span class="line">a++;</span><br><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">//6</span></span><br><span class="line"><span class="built_in">console</span>.log(b); <span class="comment">//5</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">var</span> arr2 = arr;</span><br><span class="line">arr.push(<span class="number">4</span>);</span><br><span class="line"><span class="built_in">console</span>.log(arr); <span class="comment">//[1, 2, 3,4]</span></span><br><span class="line"><span class="built_in">console</span>.log(arr2); <span class="comment">//[1, 2, 3,4]</span></span><br></pre></td></tr></table></figure><p>可以看出这是变量赋值给另外一个变量，自身的改变不会影响到其他，这是因为变量存放在内存地址中，赋值给另外变量，即申请了另外的内存空间，所以一个变量改变并不会影响另外一个，而数组是引用类型，申明一个数组相当于在内存申请了一块空间，也就是堆内存，当我们把这个数组赋值给另外一个数组变量，其实只是把这个变量的指针指向了同一个内存空间，即两个变量数组公用一个空间，所以，一个改变即同时改变。</p><p>在看个例子：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> numarr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">var</span> numarr1 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="built_in">console</span>.log(numarr == numarr1); <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(numarr === numarr1); <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log([] == []); <span class="comment">//false</span></span><br><span class="line"><span class="keyword">var</span> num = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">var</span> num1 = <span class="number">1</span>;</span><br><span class="line"><span class="built_in">console</span>.log(num == num1); <span class="comment">//true</span></span><br></pre></td></tr></table></figure><p>可以看出数组相同，即使两两比对也是false，这是因为引用类型对比的是内存地址</p><p>如果像比较两个数组是否相同，可以先转字符串比较。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> numarr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">var</span> numarr1 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="built_in">console</span>.log(numarr.toString() == numarr1.toString()); <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(numarr.toString());<span class="comment">//1,2,3</span></span><br><span class="line"><span class="built_in">console</span>.log(numarr1.toString());<span class="comment">//1,2,3</span></span><br></pre></td></tr></table></figure><p>顺序不一样的对比：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> numarr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">var</span> numarr1 = [<span class="number">1</span>, <span class="number">3</span>, <span class="number">2</span>];</span><br><span class="line"><span class="built_in">console</span>.log(numarr.sort().toString() == numarr1.sort().toString()); <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(numarr.sort().toString());</span><br><span class="line"><span class="built_in">console</span>.log(numarr.sort().toString());</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;本文主要记录JavaScript的基本数据类型和引用数据类型的不同&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="javascript" scheme="https://www.frontblog.top/categories/javascript/"/>
+    
     
   </entry>
   
@@ -84,7 +120,7 @@
     <link href="https://www.frontblog.top/article/7f0bfd33.html"/>
     <id>https://www.frontblog.top/article/7f0bfd33.html</id>
     <published>2021-11-05T12:57:59.000Z</published>
-    <updated>2021-11-06T07:15:58.834Z</updated>
+    <updated>2021-11-07T08:59:13.220Z</updated>
     
     <content type="html"><![CDATA[<p>本文主要介绍JavaScript的二维数组。</p><h1 id="什么是二维数组？"><a href="#什么是二维数组？" class="headerlink" title="什么是二维数组？"></a>什么是二维数组？</h1><p>以数组作为数组元素的数组，即“数组中的数组”，eg: <code>var arr = [[12,,15,36],[56,98,45]]</code></p><h1 id="如何遍历数组？"><a href="#如何遍历数组？" class="headerlink" title="如何遍历数组？"></a>如何遍历数组？</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [</span><br><span class="line">    [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],</span><br><span class="line">    [<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>],</span><br><span class="line">          [<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>],</span><br><span class="line">    [<span class="number">10</span>,<span class="number">11</span>,<span class="number">12</span>]</span><br><span class="line">          ]</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>;i&lt;arr.lenght;i++)&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> j = <span class="number">0</span>; j&lt;<span class="number">3</span>;j++)&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(arr[i][j])</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
     
@@ -368,46 +404,6 @@
     
     
     <category term="CSS" scheme="https://www.frontblog.top/categories/CSS/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>物理像素和CSS像素</title>
-    <link href="https://www.frontblog.top/article/158ced0d.html"/>
-    <id>https://www.frontblog.top/article/158ced0d.html</id>
-    <published>2021-10-24T04:43:47.000Z</published>
-    <updated>2021-10-27T13:02:14.846Z</updated>
-    
-    <content type="html"><![CDATA[<p>本文主要记录移动端像素知识。</p><p><strong>分辨率：</strong></p><p>是指屏幕的物理像素点，比如：1792 X 828像素表示纵轴有1792个像素点，横轴828个像素点。分辨率越高显示越清晰</p><p><strong>物理像素（physical pixel）:</strong></p><p>物理像素也是设备像素（dp：device pixel），开发中不以物理像素为准，因为设备的物理像素各不相同，如果用1像素描述一块区域，在标清屏显示更大，在高清屏显示更小，物理像素是不能被放大的，所以就导致开发一个页面，在这台设备可能设配的，在其他设备就不行</p><p><strong>CSS像素:</strong></p><p>CSS像素也是逻辑像素（logical pixel），也可以是设备独立像素(dip:device independent pixel)</p><p>实际开发会用的像素，比如px就是。</p><p>CSS像素如果在标清用2像素点描述2px，那么在高清屏就是放大到4倍</p><p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211024180350.png"></p><p><strong>设备像素比（dpr:device pixel ratio）:</strong></p><p>设备像素比：dpr= 设备像素/CSS像素（缩比是1的情况下）</p><p><strong>缩放：</strong></p><p>缩放改变的是CSS像素大小</p><p><strong>PPI:</strong></p><p>PPI是pixels per inch缩写，表示为每英寸的物理像素点，也可以是dpi，理解为像素密度点</p><p>计算公式：</p><p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211024174454.png"></p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;本文主要记录移动端像素知识。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="移动端Web" scheme="https://www.frontblog.top/categories/%E7%A7%BB%E5%8A%A8%E7%AB%AFWeb/"/>
-    
-    
-    <category term="像素" scheme="https://www.frontblog.top/tags/%E5%83%8F%E7%B4%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>布局问题</title>
-    <link href="https://www.frontblog.top/article/9a7d9672.html"/>
-    <id>https://www.frontblog.top/article/9a7d9672.html</id>
-    <published>2021-10-23T02:44:08.000Z</published>
-    <updated>2021-10-23T04:05:10.932Z</updated>
-    
-    <content type="html"><![CDATA[<p>在开发网页布局的时候，遇到浏览器正常窗口，正常显示，但是浏览器缩小，页面混乱问题，特此记录一下。</p><h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>这是正常情况：</p><p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211023105243.png"></p><p>这是缩小情况，非常丑陋：</p><p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211023105341.png"></p><h1 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h1><p>通过审核元素可以看到，父盒子没有宽度，是由子盒子撑开，但是背景颜色是在父盒子，给父盒子设置宽度即可解决，但是背景颜色是铺满的，所以就需要使用min-width属性。</p><p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/image-20211023110010817.png"></p><p>第二个问题，就是轮播的问题，这里依然使用min-width属性给父盒子设置宽度即可解决。</p><p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211023110527.png"></p><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>设置width100%是有问题的，当浏览器缩小，那么会认为浏览器就是这么小，宽度就占满，那么再去拖动滚动条，后面的内容也就看不到了</p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;在开发网页布局的时候，遇到浏览器正常窗口，正常显示，但是浏览器缩小，页面混乱问题，特此记录一下。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="开发问题" scheme="https://www.frontblog.top/categories/%E5%BC%80%E5%8F%91%E9%97%AE%E9%A2%98/"/>
     
     
   </entry>
