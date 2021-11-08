@@ -671,23 +671,6 @@
       </categories>
   </entry>
   <entry>
-    <title>CSS实现正方体</title>
-    <url>/article/6ad90280.html</url>
-    <content><![CDATA[<p>本文主要使用CSS实现一个正方体。</p>
-<p>直接看代码。</p>
-<iframe height="300" style="width: 100%;" scrolling="no" title="Untitled" src="https://codepen.io/lsfcxz/embed/ZEJKPjr?default-tab=html%2Cresult&editable=true&theme-id=light" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href="https://codepen.io/lsfcxz/pen/ZEJKPjr">
-  Untitled</a> by LSFCXZ (<a href="https://codepen.io/lsfcxz">@lsfcxz</a>)
-  on <a href="https://codepen.io">CodePen</a>.
-</iframe>
-
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;X-UA-Compatible&quot;</span> <span class="attr">content</span>=<span class="string">&quot;IE=edge&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>正方体<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">      * &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">padding</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">margin</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.box</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">width</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">height</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">margin</span>: <span class="number">100px</span> auto;</span></span><br><span class="line"><span class="css">        <span class="attribute">border</span>: <span class="number">1px</span> solid black;</span></span><br><span class="line"><span class="css">        <span class="attribute">perspective</span>: <span class="number">300px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">position</span>: relative;</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-tag">p</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">width</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">height</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">position</span>: absolute;</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.box</span> <span class="selector-tag">p</span><span class="selector-pseudo">:nth-child</span>(<span class="number">1</span>) &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">background-color</span>: <span class="built_in">rgba</span>(<span class="number">255</span>, <span class="number">0</span>, <span class="number">234</span>, <span class="number">0.295</span>);</span></span><br><span class="line"><span class="css">        <span class="comment">/* 前面 */</span></span></span><br><span class="line"><span class="css">        <span class="attribute">transform</span>: <span class="built_in">translateZ</span>(<span class="number">100px</span>);</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.box</span> <span class="selector-tag">p</span><span class="selector-pseudo">:nth-child</span>(<span class="number">2</span>) &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">background-color</span>: <span class="built_in">rgba</span>(<span class="number">255</span>, <span class="number">145</span>, <span class="number">0</span>, <span class="number">0.336</span>);</span></span><br><span class="line"><span class="css">        <span class="comment">/* 顶面 */</span></span></span><br><span class="line"><span class="css">        <span class="attribute">transform</span>: <span class="built_in">rotateX</span>(<span class="number">90deg</span>) <span class="built_in">translateZ</span>(<span class="number">100px</span>);</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.box</span> <span class="selector-tag">p</span><span class="selector-pseudo">:nth-child</span>(<span class="number">3</span>) &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">background-color</span>: <span class="built_in">rgba</span>(<span class="number">179</span>, <span class="number">255</span>, <span class="number">0</span>, <span class="number">0.384</span>);</span></span><br><span class="line"><span class="css">        <span class="comment">/* 背面 */</span></span></span><br><span class="line"><span class="css">        <span class="attribute">transform</span>: <span class="built_in">rotateX</span>(<span class="number">180deg</span>) <span class="built_in">translateZ</span>(<span class="number">100px</span>);</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css"></span></span><br><span class="line"><span class="css">      <span class="selector-class">.box</span> <span class="selector-tag">p</span><span class="selector-pseudo">:nth-child</span>(<span class="number">4</span>) &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">background-color</span>: <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">26</span>, <span class="number">255</span>, <span class="number">0.37</span>);</span></span><br><span class="line"><span class="css">        <span class="comment">/* 底面 */</span></span></span><br><span class="line"><span class="css">        <span class="attribute">transform</span>: <span class="built_in">rotateX</span>(-<span class="number">90deg</span>) <span class="built_in">translateZ</span>(<span class="number">100px</span>);</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.box</span> <span class="selector-tag">p</span><span class="selector-pseudo">:nth-child</span>(<span class="number">5</span>) &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">background-color</span>: <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">255</span>, <span class="number">128</span>, <span class="number">0.485</span>);</span></span><br><span class="line"><span class="css">        <span class="comment">/* 侧面 */</span></span></span><br><span class="line"><span class="css">        <span class="attribute">transform</span>: <span class="built_in">rotateY</span>(<span class="number">90deg</span>) <span class="built_in">translateZ</span>(<span class="number">100px</span>);</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.box</span> <span class="selector-tag">p</span><span class="selector-pseudo">:nth-child</span>(<span class="number">6</span>) &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">background-color</span>: <span class="built_in">rgba</span>(<span class="number">255</span>, <span class="number">0</span>, <span class="number">106</span>, <span class="number">0.39</span>);</span></span><br><span class="line"><span class="css">        <span class="comment">/* 侧面 */</span></span></span><br><span class="line"><span class="css">        <span class="attribute">transform</span>: <span class="built_in">rotateY</span>(-<span class="number">90deg</span>) <span class="built_in">translateZ</span>(<span class="number">100px</span>);</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>效果：</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211025193759.png"></p>
-]]></content>
-  </entry>
-  <entry>
     <title>CSS圆角和边框、盒阴影</title>
     <url>/article/a00aca70.html</url>
     <content><![CDATA[<p>本文主要介绍CSS的边框属性，圆角和盒子阴影。</p>
@@ -751,6 +734,23 @@
       <categories>
         <category>CSS</category>
       </categories>
+  </entry>
+  <entry>
+    <title>CSS实现正方体</title>
+    <url>/article/6ad90280.html</url>
+    <content><![CDATA[<p>本文主要使用CSS实现一个正方体。</p>
+<p>直接看代码。</p>
+<iframe height="300" style="width: 100%;" scrolling="no" title="Untitled" src="https://codepen.io/lsfcxz/embed/ZEJKPjr?default-tab=html%2Cresult&editable=true&theme-id=light" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href="https://codepen.io/lsfcxz/pen/ZEJKPjr">
+  Untitled</a> by LSFCXZ (<a href="https://codepen.io/lsfcxz">@lsfcxz</a>)
+  on <a href="https://codepen.io">CodePen</a>.
+</iframe>
+
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;X-UA-Compatible&quot;</span> <span class="attr">content</span>=<span class="string">&quot;IE=edge&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>正方体<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">      * &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">padding</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">margin</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.box</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">width</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">height</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">margin</span>: <span class="number">100px</span> auto;</span></span><br><span class="line"><span class="css">        <span class="attribute">border</span>: <span class="number">1px</span> solid black;</span></span><br><span class="line"><span class="css">        <span class="attribute">perspective</span>: <span class="number">300px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">position</span>: relative;</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-tag">p</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">width</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">height</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">position</span>: absolute;</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.box</span> <span class="selector-tag">p</span><span class="selector-pseudo">:nth-child</span>(<span class="number">1</span>) &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">background-color</span>: <span class="built_in">rgba</span>(<span class="number">255</span>, <span class="number">0</span>, <span class="number">234</span>, <span class="number">0.295</span>);</span></span><br><span class="line"><span class="css">        <span class="comment">/* 前面 */</span></span></span><br><span class="line"><span class="css">        <span class="attribute">transform</span>: <span class="built_in">translateZ</span>(<span class="number">100px</span>);</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.box</span> <span class="selector-tag">p</span><span class="selector-pseudo">:nth-child</span>(<span class="number">2</span>) &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">background-color</span>: <span class="built_in">rgba</span>(<span class="number">255</span>, <span class="number">145</span>, <span class="number">0</span>, <span class="number">0.336</span>);</span></span><br><span class="line"><span class="css">        <span class="comment">/* 顶面 */</span></span></span><br><span class="line"><span class="css">        <span class="attribute">transform</span>: <span class="built_in">rotateX</span>(<span class="number">90deg</span>) <span class="built_in">translateZ</span>(<span class="number">100px</span>);</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.box</span> <span class="selector-tag">p</span><span class="selector-pseudo">:nth-child</span>(<span class="number">3</span>) &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">background-color</span>: <span class="built_in">rgba</span>(<span class="number">179</span>, <span class="number">255</span>, <span class="number">0</span>, <span class="number">0.384</span>);</span></span><br><span class="line"><span class="css">        <span class="comment">/* 背面 */</span></span></span><br><span class="line"><span class="css">        <span class="attribute">transform</span>: <span class="built_in">rotateX</span>(<span class="number">180deg</span>) <span class="built_in">translateZ</span>(<span class="number">100px</span>);</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css"></span></span><br><span class="line"><span class="css">      <span class="selector-class">.box</span> <span class="selector-tag">p</span><span class="selector-pseudo">:nth-child</span>(<span class="number">4</span>) &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">background-color</span>: <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">26</span>, <span class="number">255</span>, <span class="number">0.37</span>);</span></span><br><span class="line"><span class="css">        <span class="comment">/* 底面 */</span></span></span><br><span class="line"><span class="css">        <span class="attribute">transform</span>: <span class="built_in">rotateX</span>(-<span class="number">90deg</span>) <span class="built_in">translateZ</span>(<span class="number">100px</span>);</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.box</span> <span class="selector-tag">p</span><span class="selector-pseudo">:nth-child</span>(<span class="number">5</span>) &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">background-color</span>: <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">255</span>, <span class="number">128</span>, <span class="number">0.485</span>);</span></span><br><span class="line"><span class="css">        <span class="comment">/* 侧面 */</span></span></span><br><span class="line"><span class="css">        <span class="attribute">transform</span>: <span class="built_in">rotateY</span>(<span class="number">90deg</span>) <span class="built_in">translateZ</span>(<span class="number">100px</span>);</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.box</span> <span class="selector-tag">p</span><span class="selector-pseudo">:nth-child</span>(<span class="number">6</span>) &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">background-color</span>: <span class="built_in">rgba</span>(<span class="number">255</span>, <span class="number">0</span>, <span class="number">106</span>, <span class="number">0.39</span>);</span></span><br><span class="line"><span class="css">        <span class="comment">/* 侧面 */</span></span></span><br><span class="line"><span class="css">        <span class="attribute">transform</span>: <span class="built_in">rotateY</span>(-<span class="number">90deg</span>) <span class="built_in">translateZ</span>(<span class="number">100px</span>);</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>效果：</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211025193759.png"></p>
+]]></content>
   </entry>
   <entry>
     <title>CSS浮动布局和定位</title>
@@ -830,6 +830,110 @@
       <categories>
         <category>CSS</category>
       </categories>
+  </entry>
+  <entry>
+    <title>CSS篇(面试题)</title>
+    <url>/article/3b5bdfda.html</url>
+    <content><![CDATA[<p>本文主要收集CSS的面试题目。</p>
+<h1 id="position的值，relative和absolute分别是相对于谁进行定位的？"><a href="#position的值，relative和absolute分别是相对于谁进行定位的？" class="headerlink" title="position的值，relative和absolute分别是相对于谁进行定位的？"></a>position的值，relative和absolute分别是相对于谁进行定位的？</h1><ul>
+<li>absolute: 生成绝对定位的元素， 相对于最近一级的 定位不是<code>static</code>的父元素来进行定位；</li>
+<li>fixed:（老IE不支持）生成绝对定位的元素，通常相对于浏览器窗口或<code>frame</code>进行定位；</li>
+<li>relative: 生成相对定位的元素，相对于其在普通流中的位置进行定位；</li>
+<li>static: 默认值。没有定位，元素出现在正常的流中；</li>
+<li>sticky: 生成粘性定位的元素，容器的位置根据正常文档流计算得出</li>
+</ul>
+<h1 id="display-none和visibility-hidden的区别？"><a href="#display-none和visibility-hidden的区别？" class="headerlink" title="display:none和visibility:hidden的区别？"></a>display:none和visibility:hidden的区别？</h1><ul>
+<li>display:none 隐藏对应的元素，在文档布局中不再给它分配空间，它各边的元素会合拢，就当他从来不存在；</li>
+<li>visibility:hidden 隐藏对应的元素，但是在文档布局中仍保留原来的空间。</li>
+</ul>
+<h1 id="CSS中link和-import的区别是？"><a href="#CSS中link和-import的区别是？" class="headerlink" title="CSS中link和@import的区别是？"></a>CSS中link和@import的区别是？</h1><ul>
+<li>link属于<code>HTML</code>标签，而<code>@import</code>是CSS提供的；</li>
+<li>页面被加载的时，link会同时被加载，而<code>@import</code>被引用的CSS会等到引用它的CSS文件被加载完再加载；</li>
+<li>import只在<code>IE5</code>以上才能识别，而link是<code>HTML</code>标签，无兼容问题；</li>
+<li>link方式的样式的权重 高于<code>@import</code>的权重。</li>
+</ul>
+<h1 id="position-absolute和float属性的异同"><a href="#position-absolute和float属性的异同" class="headerlink" title="position:absolute和float属性的异同"></a>position:absolute和float属性的异同</h1><ul>
+<li>共同点：对内联元素设置<code>float</code>和<code>absolute</code>属性，可以让元素脱离文档流，并且可以设置其宽高。</li>
+<li>不同点：<code>float</code>仍会占据位置，<code>absolute</code>会覆盖文档流中的其他元素。</li>
+</ul>
+<h1 id="介绍一下box-sizing属性？"><a href="#介绍一下box-sizing属性？" class="headerlink" title="介绍一下box-sizing属性？"></a>介绍一下box-sizing属性？</h1><ul>
+<li>box-sizing属性主要用来控制元素的盒模型的解析模式。默认值是<code>content-box</code>；</li>
+<li>content-box：让元素维持W3C的标准盒模型。元素的宽度/高度由<code>border + padding + content</code>的<code>宽度/高度</code>决定，设置<code>width/height</code>属性指的是<code>content</code>部分的<code>宽/高</code>；</li>
+<li>border-box：让元素维持IE传统盒模型（IE6以下版本和IE6~7的怪异模式）。设置<code>width/height</code>属性指的是<code>border + padding + content</code>。</li>
+</ul>
+<p><strong>标准浏览器下，按照W3C规范对盒模型解析，一旦修改了元素的边框或内距，就会影响元素的盒子尺寸，就不得不重新计算元素的盒子尺寸，从而影响整个页面的布局。</strong></p>
+<h1 id="行内元素有哪些？块级元素有哪些？空元素有哪些？"><a href="#行内元素有哪些？块级元素有哪些？空元素有哪些？" class="headerlink" title="行内元素有哪些？块级元素有哪些？空元素有哪些？"></a>行内元素有哪些？块级元素有哪些？空元素有哪些？</h1><p>首先：CSS规范规定，每个元素都有display属性，确定该元素的类型，每个元素都有默认的display值，如div的display默认值为“block”，则为“块级”元素；span默认display属性值为“inline”，是“行内”元素。</p>
+<p>（1）行内元素有：<code>a b span img input select strong（强调的语气）</code> （2）块级元素有：<code>div ul ol li dl dt dd h1 h2 h3 h4…p</code> （3）常见的空元素：<code>&lt;br&gt;&lt;hr&gt; &lt;img&gt; &lt;input&gt; &lt;link&gt; &lt;meta&gt;</code> 鲜为人知的是：<code>&lt;area&gt; &lt;base&gt; &lt;col&gt; &lt;command&gt; &lt;embed&gt; &lt;keygen&gt; &lt;param&gt; &lt;source&gt; &lt;track&gt; &lt;wbr&gt;</code></p>
+<h1 id="对BFC规范的理解？"><a href="#对BFC规范的理解？" class="headerlink" title="对BFC规范的理解？"></a>对BFC规范的理解？</h1><p>BFC，块级格式化上下文，一个创建了新的BFC的盒子是独立布局的，盒子里面的子元素的样式不会影响到外面的元素。在同一个<code>BFC</code>中的两个毗邻的块级盒在垂直方向（和布局方向有关系）的<code>margin</code>会发生折叠。 W3C CSS 2.1 规范中的一个概念，它决定了元素如何对其内容进行布局，以及与其他元素的关系和相互作用。</p>
+<h1 id="如何清除浮动"><a href="#如何清除浮动" class="headerlink" title="如何清除浮动?"></a>如何清除浮动?</h1><ol>
+<li>额外标签<code>clear:both</code></li>
+</ol>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;X-UA-Compatible&quot;</span> <span class="attr">content</span>=<span class="string">&quot;ie=edge&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">    <span class="selector-class">.fahter</span>&#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">width</span>: <span class="number">400px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">border</span>: <span class="number">1px</span> solid deeppink;</span></span><br><span class="line"><span class="css">    &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.big</span>&#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">width</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">height</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">background</span>: darkorange;</span></span><br><span class="line"><span class="css">        <span class="attribute">float</span>: left;</span></span><br><span class="line"><span class="css">    &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.small</span>&#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">width</span>: <span class="number">120px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">height</span>: <span class="number">120px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">background</span>: darkmagenta;</span></span><br><span class="line"><span class="css">        <span class="attribute">float</span>: left;</span></span><br><span class="line"><span class="css">    &#125;</span></span><br><span class="line"><span class="css"> </span></span><br><span class="line"><span class="css">    <span class="selector-class">.clear</span>&#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">clear</span>:both;</span></span><br><span class="line"><span class="css">    &#125;</span></span><br><span class="line"><span class="css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;fahter&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;big&quot;</span>&gt;</span>big<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;small&quot;</span>&gt;</span>small<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;clear&quot;</span>&gt;</span>额外标签法<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>利用<code>BFC</code>，<code>overflow-hidden</code></li>
+</ol>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.fahter</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">400px</span>;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid deeppink;</span><br><span class="line">    <span class="attribute">overflow</span>: hidden;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>使用<code>after</code>(推荐)</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">    <span class="selector-class">.clearfix</span>:after&#123;/*伪元素是行内元素 正常浏览器清除浮动方法*/</span></span><br><span class="line"><span class="css">        content: <span class="string">&quot;&quot;</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">display</span>: block;</span></span><br><span class="line"><span class="css">        <span class="attribute">height</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">clear</span>:both;</span></span><br><span class="line"><span class="css">        <span class="attribute">visibility</span>: hidden;</span></span><br><span class="line"><span class="css">    &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.clearfix</span>&#123;</span></span><br><span class="line"><span class="css">        *zoom: <span class="number">1</span>;<span class="comment">/*ie6清除浮动的方式 *号只有IE6-IE7执行，其他浏览器不执行*/</span></span></span><br><span class="line"><span class="css">    &#125;</span></span><br><span class="line"><span class="css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;fahter clearfix&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;big&quot;</span>&gt;</span>big<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;small&quot;</span>&gt;</span>small<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--&lt;div class=&quot;clear&quot;&gt;额外标签法&lt;/div&gt;--&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="常见的行内元素和块级元素都有哪些？"><a href="#常见的行内元素和块级元素都有哪些？" class="headerlink" title="常见的行内元素和块级元素都有哪些？"></a>常见的行内元素和块级元素都有哪些？</h1><ul>
+<li>行内元素 <code>inline</code><ul>
+<li>不能设置宽高，不能自动换行。</li>
+<li>span、input、img、textarea、label、select。</li>
+</ul>
+</li>
+<li>块级元素 block<ul>
+<li>可以设置宽高，会自动换行。</li>
+<li>p、h1/h2/h3/h4/h5、div、ul、li、table。</li>
+</ul>
+</li>
+<li>inline-block<ul>
+<li>可以设置宽高，会自动换行。</li>
+</ul>
+</li>
+</ul>
+<h1 id="常见的替换元素和非替换元素？"><a href="#常见的替换元素和非替换元素？" class="headerlink" title="常见的替换元素和非替换元素？"></a>常见的替换元素和非替换元素？</h1><ul>
+<li>替换元素<ul>
+<li>是指若标签的属性可以改变标签的显示方式就是替换元素，比如<code>input</code>的<code>type</code>属性不同会有不同的展现，<code>img</code>的 <code>src</code> 等。</li>
+<li>img、input、iframe。</li>
+</ul>
+</li>
+<li>非替换元素<ul>
+<li>div、span、p。</li>
+</ul>
+</li>
+</ul>
+<h1 id="什么是-DOM-事件流？什么是事件委托？"><a href="#什么是-DOM-事件流？什么是事件委托？" class="headerlink" title="什么是 DOM 事件流？什么是事件委托？"></a>什么是 DOM 事件流？什么是事件委托？</h1><ul>
+<li>DOM 事件流<ul>
+<li>分为三个阶段<ul>
+<li>捕获阶段</li>
+<li>目标阶段</li>
+<li>冒泡阶段</li>
+</ul>
+</li>
+<li>在<code>addeventListener()</code>的第三个参数<code>useCapture</code>设为<strong>true</strong>，就会在捕获阶段运行，默认是<strong>false</strong>冒泡。</li>
+</ul>
+</li>
+<li>事件委托<ul>
+<li>利用冒泡原理(子向父一层层穿透)，把事件绑定到父元素中，以实现事件委托。</li>
+</ul>
+</li>
+</ul>
+<h1 id="什么是FOUC（无样式内容闪烁）？你如何来避免FOUC？"><a href="#什么是FOUC（无样式内容闪烁）？你如何来避免FOUC？" class="headerlink" title="什么是FOUC（无样式内容闪烁）？你如何来避免FOUC？"></a>什么是FOUC（无样式内容闪烁）？你如何来避免FOUC？</h1><p>FOUC - FlashOf Unstyled Content 文档样式闪烁</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&lt;styletype=&quot;text/css&quot;media=&quot;all&quot;&gt;@import&quot;../fouc.css&quot;;<span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>而引用CSS文件的@import就是造成这个问题的罪魁祸首。IE会先加载整个HTML文档的DOM，然后再去导入外部的CSS文件，因此，在页面DOM加载完成到CSS导入完成中间会有一段时间页面上的内容是没有样式的，这段时间的长短跟网速，电脑速度都有关系。</p>
+]]></content>
+      <categories>
+        <category>面试题</category>
+      </categories>
+      <tags>
+        <tag>面试题</tag>
+      </tags>
   </entry>
   <entry>
     <title>CSS盒模型</title>
@@ -942,138 +1046,6 @@
 ]]></content>
       <categories>
         <category>CSS</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>CSS篇(面试题)</title>
-    <url>/article/3b5bdfda.html</url>
-    <content><![CDATA[<p>本文主要收集CSS的面试题目。</p>
-<h1 id="position的值，relative和absolute分别是相对于谁进行定位的？"><a href="#position的值，relative和absolute分别是相对于谁进行定位的？" class="headerlink" title="position的值，relative和absolute分别是相对于谁进行定位的？"></a>position的值，relative和absolute分别是相对于谁进行定位的？</h1><ul>
-<li>absolute: 生成绝对定位的元素， 相对于最近一级的 定位不是<code>static</code>的父元素来进行定位；</li>
-<li>fixed:（老IE不支持）生成绝对定位的元素，通常相对于浏览器窗口或<code>frame</code>进行定位；</li>
-<li>relative: 生成相对定位的元素，相对于其在普通流中的位置进行定位；</li>
-<li>static: 默认值。没有定位，元素出现在正常的流中；</li>
-<li>sticky: 生成粘性定位的元素，容器的位置根据正常文档流计算得出</li>
-</ul>
-<h1 id="display-none和visibility-hidden的区别？"><a href="#display-none和visibility-hidden的区别？" class="headerlink" title="display:none和visibility:hidden的区别？"></a>display:none和visibility:hidden的区别？</h1><ul>
-<li>display:none 隐藏对应的元素，在文档布局中不再给它分配空间，它各边的元素会合拢，就当他从来不存在；</li>
-<li>visibility:hidden 隐藏对应的元素，但是在文档布局中仍保留原来的空间。</li>
-</ul>
-<h1 id="CSS中link和-import的区别是？"><a href="#CSS中link和-import的区别是？" class="headerlink" title="CSS中link和@import的区别是？"></a>CSS中link和@import的区别是？</h1><ul>
-<li>link属于<code>HTML</code>标签，而<code>@import</code>是CSS提供的；</li>
-<li>页面被加载的时，link会同时被加载，而<code>@import</code>被引用的CSS会等到引用它的CSS文件被加载完再加载；</li>
-<li>import只在<code>IE5</code>以上才能识别，而link是<code>HTML</code>标签，无兼容问题；</li>
-<li>link方式的样式的权重 高于<code>@import</code>的权重。</li>
-</ul>
-<h1 id="position-absolute和float属性的异同"><a href="#position-absolute和float属性的异同" class="headerlink" title="position:absolute和float属性的异同"></a>position:absolute和float属性的异同</h1><ul>
-<li>共同点：对内联元素设置<code>float</code>和<code>absolute</code>属性，可以让元素脱离文档流，并且可以设置其宽高。</li>
-<li>不同点：<code>float</code>仍会占据位置，<code>absolute</code>会覆盖文档流中的其他元素。</li>
-</ul>
-<h1 id="介绍一下box-sizing属性？"><a href="#介绍一下box-sizing属性？" class="headerlink" title="介绍一下box-sizing属性？"></a>介绍一下box-sizing属性？</h1><ul>
-<li>box-sizing属性主要用来控制元素的盒模型的解析模式。默认值是<code>content-box</code>；</li>
-<li>content-box：让元素维持W3C的标准盒模型。元素的宽度/高度由<code>border + padding + content</code>的<code>宽度/高度</code>决定，设置<code>width/height</code>属性指的是<code>content</code>部分的<code>宽/高</code>；</li>
-<li>border-box：让元素维持IE传统盒模型（IE6以下版本和IE6~7的怪异模式）。设置<code>width/height</code>属性指的是<code>border + padding + content</code>。</li>
-</ul>
-<p><strong>标准浏览器下，按照W3C规范对盒模型解析，一旦修改了元素的边框或内距，就会影响元素的盒子尺寸，就不得不重新计算元素的盒子尺寸，从而影响整个页面的布局。</strong></p>
-<h1 id="行内元素有哪些？块级元素有哪些？空元素有哪些？"><a href="#行内元素有哪些？块级元素有哪些？空元素有哪些？" class="headerlink" title="行内元素有哪些？块级元素有哪些？空元素有哪些？"></a>行内元素有哪些？块级元素有哪些？空元素有哪些？</h1><p>首先：CSS规范规定，每个元素都有display属性，确定该元素的类型，每个元素都有默认的display值，如div的display默认值为“block”，则为“块级”元素；span默认display属性值为“inline”，是“行内”元素。</p>
-<p>（1）行内元素有：<code>a b span img input select strong（强调的语气）</code> （2）块级元素有：<code>div ul ol li dl dt dd h1 h2 h3 h4…p</code> （3）常见的空元素：<code>&lt;br&gt;&lt;hr&gt; &lt;img&gt; &lt;input&gt; &lt;link&gt; &lt;meta&gt;</code> 鲜为人知的是：<code>&lt;area&gt; &lt;base&gt; &lt;col&gt; &lt;command&gt; &lt;embed&gt; &lt;keygen&gt; &lt;param&gt; &lt;source&gt; &lt;track&gt; &lt;wbr&gt;</code></p>
-<h1 id="对BFC规范的理解？"><a href="#对BFC规范的理解？" class="headerlink" title="对BFC规范的理解？"></a>对BFC规范的理解？</h1><p>BFC，块级格式化上下文，一个创建了新的BFC的盒子是独立布局的，盒子里面的子元素的样式不会影响到外面的元素。在同一个<code>BFC</code>中的两个毗邻的块级盒在垂直方向（和布局方向有关系）的<code>margin</code>会发生折叠。 W3C CSS 2.1 规范中的一个概念，它决定了元素如何对其内容进行布局，以及与其他元素的关系和相互作用。</p>
-<h1 id="如何清除浮动"><a href="#如何清除浮动" class="headerlink" title="如何清除浮动?"></a>如何清除浮动?</h1><ol>
-<li>额外标签<code>clear:both</code></li>
-</ol>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;X-UA-Compatible&quot;</span> <span class="attr">content</span>=<span class="string">&quot;ie=edge&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">    <span class="selector-class">.fahter</span>&#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">width</span>: <span class="number">400px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">border</span>: <span class="number">1px</span> solid deeppink;</span></span><br><span class="line"><span class="css">    &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.big</span>&#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">width</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">height</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">background</span>: darkorange;</span></span><br><span class="line"><span class="css">        <span class="attribute">float</span>: left;</span></span><br><span class="line"><span class="css">    &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.small</span>&#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">width</span>: <span class="number">120px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">height</span>: <span class="number">120px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">background</span>: darkmagenta;</span></span><br><span class="line"><span class="css">        <span class="attribute">float</span>: left;</span></span><br><span class="line"><span class="css">    &#125;</span></span><br><span class="line"><span class="css"> </span></span><br><span class="line"><span class="css">    <span class="selector-class">.clear</span>&#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">clear</span>:both;</span></span><br><span class="line"><span class="css">    &#125;</span></span><br><span class="line"><span class="css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;fahter&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;big&quot;</span>&gt;</span>big<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;small&quot;</span>&gt;</span>small<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;clear&quot;</span>&gt;</span>额外标签法<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<ol>
-<li>利用<code>BFC</code>，<code>overflow-hidden</code></li>
-</ol>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.fahter</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">400px</span>;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid deeppink;</span><br><span class="line">    <span class="attribute">overflow</span>: hidden;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ol>
-<li>使用<code>after</code>(推荐)</li>
-</ol>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">    <span class="selector-class">.clearfix</span>:after&#123;/*伪元素是行内元素 正常浏览器清除浮动方法*/</span></span><br><span class="line"><span class="css">        content: <span class="string">&quot;&quot;</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">display</span>: block;</span></span><br><span class="line"><span class="css">        <span class="attribute">height</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">clear</span>:both;</span></span><br><span class="line"><span class="css">        <span class="attribute">visibility</span>: hidden;</span></span><br><span class="line"><span class="css">    &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.clearfix</span>&#123;</span></span><br><span class="line"><span class="css">        *zoom: <span class="number">1</span>;<span class="comment">/*ie6清除浮动的方式 *号只有IE6-IE7执行，其他浏览器不执行*/</span></span></span><br><span class="line"><span class="css">    &#125;</span></span><br><span class="line"><span class="css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;fahter clearfix&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;big&quot;</span>&gt;</span>big<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;small&quot;</span>&gt;</span>small<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--&lt;div class=&quot;clear&quot;&gt;额外标签法&lt;/div&gt;--&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="常见的行内元素和块级元素都有哪些？"><a href="#常见的行内元素和块级元素都有哪些？" class="headerlink" title="常见的行内元素和块级元素都有哪些？"></a>常见的行内元素和块级元素都有哪些？</h1><ul>
-<li>行内元素 <code>inline</code><ul>
-<li>不能设置宽高，不能自动换行。</li>
-<li>span、input、img、textarea、label、select。</li>
-</ul>
-</li>
-<li>块级元素 block<ul>
-<li>可以设置宽高，会自动换行。</li>
-<li>p、h1/h2/h3/h4/h5、div、ul、li、table。</li>
-</ul>
-</li>
-<li>inline-block<ul>
-<li>可以设置宽高，会自动换行。</li>
-</ul>
-</li>
-</ul>
-<h1 id="常见的替换元素和非替换元素？"><a href="#常见的替换元素和非替换元素？" class="headerlink" title="常见的替换元素和非替换元素？"></a>常见的替换元素和非替换元素？</h1><ul>
-<li>替换元素<ul>
-<li>是指若标签的属性可以改变标签的显示方式就是替换元素，比如<code>input</code>的<code>type</code>属性不同会有不同的展现，<code>img</code>的 <code>src</code> 等。</li>
-<li>img、input、iframe。</li>
-</ul>
-</li>
-<li>非替换元素<ul>
-<li>div、span、p。</li>
-</ul>
-</li>
-</ul>
-<h1 id="什么是-DOM-事件流？什么是事件委托？"><a href="#什么是-DOM-事件流？什么是事件委托？" class="headerlink" title="什么是 DOM 事件流？什么是事件委托？"></a>什么是 DOM 事件流？什么是事件委托？</h1><ul>
-<li>DOM 事件流<ul>
-<li>分为三个阶段<ul>
-<li>捕获阶段</li>
-<li>目标阶段</li>
-<li>冒泡阶段</li>
-</ul>
-</li>
-<li>在<code>addeventListener()</code>的第三个参数<code>useCapture</code>设为<strong>true</strong>，就会在捕获阶段运行，默认是<strong>false</strong>冒泡。</li>
-</ul>
-</li>
-<li>事件委托<ul>
-<li>利用冒泡原理(子向父一层层穿透)，把事件绑定到父元素中，以实现事件委托。</li>
-</ul>
-</li>
-</ul>
-<h1 id="什么是FOUC（无样式内容闪烁）？你如何来避免FOUC？"><a href="#什么是FOUC（无样式内容闪烁）？你如何来避免FOUC？" class="headerlink" title="什么是FOUC（无样式内容闪烁）？你如何来避免FOUC？"></a>什么是FOUC（无样式内容闪烁）？你如何来避免FOUC？</h1><p>FOUC - FlashOf Unstyled Content 文档样式闪烁</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&lt;styletype=&quot;text/css&quot;media=&quot;all&quot;&gt;@import&quot;../fouc.css&quot;;<span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>而引用CSS文件的@import就是造成这个问题的罪魁祸首。IE会先加载整个HTML文档的DOM，然后再去导入外部的CSS文件，因此，在页面DOM加载完成到CSS导入完成中间会有一段时间页面上的内容是没有样式的，这段时间的长短跟网速，电脑速度都有关系。</p>
-]]></content>
-      <categories>
-        <category>面试题</category>
-      </categories>
-      <tags>
-        <tag>面试题</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>FlyBlog开源项目(一)</title>
-    <url>/article/1301b218.html</url>
-    <content><![CDATA[<p>本系列文章主要记录开源项目FlyBlog的开发过程以及遇到的问题。</p>
-<p>在第一篇文章主要整理一下全局的思路与所使用的技术栈</p>
-<h1 id="技术栈"><a href="#技术栈" class="headerlink" title="技术栈"></a>技术栈</h1><p>FlyBlog的模板样式都是基于LayUI的Fly社区去完成，使用Vue2.X实现逻辑交互，接口对接等，后端则使用Koa作为Web框架，数据库使用mongoDB和Redis。</p>
-<h1 id="完成的模块"><a href="#完成的模块" class="headerlink" title="完成的模块"></a>完成的模块</h1><p>登录、注册、密码找回</p>
-<ul>
-<li>登录这块主要是前端去做做一层校验后，在往服务器去校验密码，成功返回用户信息和一个Token，失败返回一个状态码。</li>
-<li>注册也同样做了表单校验，注册时把用户信息上传到服务器，成功返回状态码，并且延迟2s导航到登录页面，如果遇到同名的，那么返回状态码，并且提示</li>
-<li>密码找回时通过发送验证码到邮箱，邮箱去点击该连接重置密码，连接后面是一个具有时效性的Token，用户只需要填写新密码就可以更改成功</li>
-</ul>
-<p>签到：</p>
-<p>签到规则是连续签到的天数越多，得到积分就越多，实现主要在后端，每次登录后会往前端发送用户信息的时候携带今天有没有签到，如果签到了，那么签到的按钮为disbale，如果没有签到，那么签到按钮为可以点击的状态，当用户去点击签到后，后端会去对比该用户昨天有没有签到，那么给5积分，签到天数值为1，如果用户昨天签到了，那么给10积分，，签到天数值为+1，中断签到时一个道理，只是去查询昨天有没有签到，有就+1操作，没有就值为1</p>
-<p>发表文章：</p>
-<p>用户发表文章后会附带非常多的关系，比如评论信息、点赞信息、收藏信息，这如果在用户自己删除文章时，应该要去删除的数据，否则会引起错乱</p>
-<p>评论、点赞、收藏、采纳</p>
-<p>这一块主要时每个用户的权限看到的内容不一样，比如发帖作者能看到采纳的按钮，但是其他用户是看不到的，这涉及到用户的权限</p>
-<p>个人的信息管理：</p>
-<p>主要是对用户本身的数据进行CURD，对修改密码等较高级别会去往原来邮箱发送验证码</p>
-<h1 id="鉴权"><a href="#鉴权" class="headerlink" title="鉴权"></a>鉴权</h1><p>前端的鉴权是我觉得特别重要的一个知识，大学里最常见的就是校验登录密码就算成功了，但是没有登录鉴权，那么登录功能就如同虚设，因为登录过后，前端发起的请求，后端都不知到谁在发送，而且也无法区分哪些是合法请求，这里采用的鉴权方式是JWT的方案，通过前端发起登录请求，后端返回一个认证Token，前端登录过后每次携带Token去请求数据，这就让后端知道谁在发送请求，用户有没有操作的权限。除了这一点，前端还要做一点就是导航守卫，有些页面在没有登录时不能去访问到的，这个时候就应该使用导航守卫，导航至登录页面</p>
-<h1 id="前端数据缓存"><a href="#前端数据缓存" class="headerlink" title="前端数据缓存"></a>前端数据缓存</h1><p>后端返回来的数据除了放在VueX里面，还需要放在前端的数据缓存中，然后再有缓存信息存到Vuex中，不然就会出现刷新后状态量的丢失。</p>
-<h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><p>目前先写到这里，后期慢慢开发并写下开发记录。</p>
-]]></content>
-      <categories>
-        <category>开源项目</category>
       </categories>
   </entry>
   <entry>
@@ -1211,25 +1183,32 @@
       </categories>
   </entry>
   <entry>
-    <title>JavaScript数组相关算法</title>
-    <url>/article/d514bee5.html</url>
-    <content><![CDATA[<p>本文主要介绍数组相关的算法题目。</p>
-<h1 id="问题：遍历数组，求数组总和、平均数"><a href="#问题：遍历数组，求数组总和、平均数" class="headerlink" title="问题：遍历数组，求数组总和、平均数"></a>问题：遍历数组，求数组总和、平均数</h1><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">22</span>,<span class="number">56</span>,<span class="number">45</span>,<span class="number">34</span>]</span><br><span class="line"><span class="keyword">var</span> sum = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>;i&lt;arr.lenght;i++)&#123;</span><br><span class="line">    sum = sum + arr[i]</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(sum)</span><br><span class="line"><span class="built_in">console</span>.log(sum/arr.lenght)</span><br></pre></td></tr></table></figure>
-
-<h1 id="问题：求数组的最大、最小值"><a href="#问题：求数组的最大、最小值" class="headerlink" title="问题：求数组的最大、最小值"></a>问题：求数组的最大、最小值</h1><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> scoreArr = [<span class="number">56</span>,<span class="number">8</span>,<span class="number">98</span>,<span class="number">25</span>,<span class="number">31</span>,<span class="number">555</span>,<span class="number">26</span>]</span><br><span class="line"><span class="keyword">var</span> max = scoreArr[<span class="number">0</span>]</span><br><span class="line"><span class="keyword">var</span> min = scoreArr[<span class="number">0</span>]</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">1</span>;i&lt;scoreArr.lenght;i++)&#123;</span><br><span class="line">    <span class="keyword">if</span>(scoreArr[i]&gt;max)&#123;</span><br><span class="line">        max = scoreArr[i]</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(scoreArr[i]&lt;min)&#123;</span><br><span class="line">        min = scoreArr[i]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(max,min)</span><br></pre></td></tr></table></figure>
-
-<h1 id="问题：数组去重"><a href="#问题：数组去重" class="headerlink" title="问题：数组去重"></a>问题：数组去重</h1><p>思路：准备空数组，遍历原数组，如果遍历到的项不在结果数组中，则推入结果数组</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> result = []</span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">56</span>,<span class="number">8</span>,<span class="number">98</span>,<span class="number">25</span>,<span class="number">31</span>,<span class="number">555</span>,<span class="number">26</span>]</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>;i&lt;arr.lenght;i++)&#123;</span><br><span class="line">    <span class="keyword">if</span>(result.includes(arr[i]) === <span class="literal">false</span> )&#123;</span><br><span class="line">        result.push(arr[i])</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(result)</span><br></pre></td></tr></table></figure>
-
-<h1 id="问题：随机从原数组中取3项"><a href="#问题：随机从原数组中取3项" class="headerlink" title="问题：随机从原数组中取3项"></a>问题：随机从原数组中取3项</h1><p>思路：准备一个空结果数组，遍历原数组，随机选择一项，推入结果数组，为了不重复推入同一个项，可以将其删除，但是会改变原来数组</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> result = []</span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">56</span>,<span class="number">8</span>,<span class="number">98</span>,<span class="number">25</span>,<span class="number">31</span>,<span class="number">555</span>,<span class="number">26</span>]</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>;i&lt;<span class="number">3</span>;i++)&#123;</span><br><span class="line">    <span class="keyword">var</span> n = <span class="built_in">parseInt</span>(<span class="built_in">Math</span>.random * arr.lenght);</span><br><span class="line">    result.push(arr[n]);</span><br><span class="line">    arr.splice(n,<span class="number">1</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
+    <title>FlyBlog开源项目(一)</title>
+    <url>/article/1301b218.html</url>
+    <content><![CDATA[<p>本系列文章主要记录开源项目FlyBlog的开发过程以及遇到的问题。</p>
+<p>在第一篇文章主要整理一下全局的思路与所使用的技术栈</p>
+<h1 id="技术栈"><a href="#技术栈" class="headerlink" title="技术栈"></a>技术栈</h1><p>FlyBlog的模板样式都是基于LayUI的Fly社区去完成，使用Vue2.X实现逻辑交互，接口对接等，后端则使用Koa作为Web框架，数据库使用mongoDB和Redis。</p>
+<h1 id="完成的模块"><a href="#完成的模块" class="headerlink" title="完成的模块"></a>完成的模块</h1><p>登录、注册、密码找回</p>
+<ul>
+<li>登录这块主要是前端去做做一层校验后，在往服务器去校验密码，成功返回用户信息和一个Token，失败返回一个状态码。</li>
+<li>注册也同样做了表单校验，注册时把用户信息上传到服务器，成功返回状态码，并且延迟2s导航到登录页面，如果遇到同名的，那么返回状态码，并且提示</li>
+<li>密码找回时通过发送验证码到邮箱，邮箱去点击该连接重置密码，连接后面是一个具有时效性的Token，用户只需要填写新密码就可以更改成功</li>
+</ul>
+<p>签到：</p>
+<p>签到规则是连续签到的天数越多，得到积分就越多，实现主要在后端，每次登录后会往前端发送用户信息的时候携带今天有没有签到，如果签到了，那么签到的按钮为disbale，如果没有签到，那么签到按钮为可以点击的状态，当用户去点击签到后，后端会去对比该用户昨天有没有签到，那么给5积分，签到天数值为1，如果用户昨天签到了，那么给10积分，，签到天数值为+1，中断签到时一个道理，只是去查询昨天有没有签到，有就+1操作，没有就值为1</p>
+<p>发表文章：</p>
+<p>用户发表文章后会附带非常多的关系，比如评论信息、点赞信息、收藏信息，这如果在用户自己删除文章时，应该要去删除的数据，否则会引起错乱</p>
+<p>评论、点赞、收藏、采纳</p>
+<p>这一块主要时每个用户的权限看到的内容不一样，比如发帖作者能看到采纳的按钮，但是其他用户是看不到的，这涉及到用户的权限</p>
+<p>个人的信息管理：</p>
+<p>主要是对用户本身的数据进行CURD，对修改密码等较高级别会去往原来邮箱发送验证码</p>
+<h1 id="鉴权"><a href="#鉴权" class="headerlink" title="鉴权"></a>鉴权</h1><p>前端的鉴权是我觉得特别重要的一个知识，大学里最常见的就是校验登录密码就算成功了，但是没有登录鉴权，那么登录功能就如同虚设，因为登录过后，前端发起的请求，后端都不知到谁在发送，而且也无法区分哪些是合法请求，这里采用的鉴权方式是JWT的方案，通过前端发起登录请求，后端返回一个认证Token，前端登录过后每次携带Token去请求数据，这就让后端知道谁在发送请求，用户有没有操作的权限。除了这一点，前端还要做一点就是导航守卫，有些页面在没有登录时不能去访问到的，这个时候就应该使用导航守卫，导航至登录页面</p>
+<h1 id="前端数据缓存"><a href="#前端数据缓存" class="headerlink" title="前端数据缓存"></a>前端数据缓存</h1><p>后端返回来的数据除了放在VueX里面，还需要放在前端的数据缓存中，然后再有缓存信息存到Vuex中，不然就会出现刷新后状态量的丢失。</p>
+<h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><p>目前先写到这里，后期慢慢开发并写下开发记录。</p>
 ]]></content>
-      <tags>
-        <tag>算法</tag>
-      </tags>
+      <categories>
+        <category>开源项目</category>
+      </categories>
   </entry>
   <entry>
     <title>HTML5的十大新特性</title>
@@ -1436,6 +1415,27 @@
       </categories>
   </entry>
   <entry>
+    <title>JavaScript数组相关算法</title>
+    <url>/article/d514bee5.html</url>
+    <content><![CDATA[<p>本文主要介绍数组相关的算法题目。</p>
+<h1 id="问题：遍历数组，求数组总和、平均数"><a href="#问题：遍历数组，求数组总和、平均数" class="headerlink" title="问题：遍历数组，求数组总和、平均数"></a>问题：遍历数组，求数组总和、平均数</h1><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">22</span>,<span class="number">56</span>,<span class="number">45</span>,<span class="number">34</span>]</span><br><span class="line"><span class="keyword">var</span> sum = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>;i&lt;arr.lenght;i++)&#123;</span><br><span class="line">    sum = sum + arr[i]</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(sum)</span><br><span class="line"><span class="built_in">console</span>.log(sum/arr.lenght)</span><br></pre></td></tr></table></figure>
+
+<h1 id="问题：求数组的最大、最小值"><a href="#问题：求数组的最大、最小值" class="headerlink" title="问题：求数组的最大、最小值"></a>问题：求数组的最大、最小值</h1><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> scoreArr = [<span class="number">56</span>,<span class="number">8</span>,<span class="number">98</span>,<span class="number">25</span>,<span class="number">31</span>,<span class="number">555</span>,<span class="number">26</span>]</span><br><span class="line"><span class="keyword">var</span> max = scoreArr[<span class="number">0</span>]</span><br><span class="line"><span class="keyword">var</span> min = scoreArr[<span class="number">0</span>]</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">1</span>;i&lt;scoreArr.lenght;i++)&#123;</span><br><span class="line">    <span class="keyword">if</span>(scoreArr[i]&gt;max)&#123;</span><br><span class="line">        max = scoreArr[i]</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(scoreArr[i]&lt;min)&#123;</span><br><span class="line">        min = scoreArr[i]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(max,min)</span><br></pre></td></tr></table></figure>
+
+<h1 id="问题：数组去重"><a href="#问题：数组去重" class="headerlink" title="问题：数组去重"></a>问题：数组去重</h1><p>思路：准备空数组，遍历原数组，如果遍历到的项不在结果数组中，则推入结果数组</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> result = []</span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">56</span>,<span class="number">8</span>,<span class="number">98</span>,<span class="number">25</span>,<span class="number">31</span>,<span class="number">555</span>,<span class="number">26</span>]</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>;i&lt;arr.lenght;i++)&#123;</span><br><span class="line">    <span class="keyword">if</span>(result.includes(arr[i]) === <span class="literal">false</span> )&#123;</span><br><span class="line">        result.push(arr[i])</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(result)</span><br></pre></td></tr></table></figure>
+
+<h1 id="问题：随机从原数组中取3项"><a href="#问题：随机从原数组中取3项" class="headerlink" title="问题：随机从原数组中取3项"></a>问题：随机从原数组中取3项</h1><p>思路：准备一个空结果数组，遍历原数组，随机选择一项，推入结果数组，为了不重复推入同一个项，可以将其删除，但是会改变原来数组</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> result = []</span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">56</span>,<span class="number">8</span>,<span class="number">98</span>,<span class="number">25</span>,<span class="number">31</span>,<span class="number">555</span>,<span class="number">26</span>]</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>;i&lt;<span class="number">3</span>;i++)&#123;</span><br><span class="line">    <span class="keyword">var</span> n = <span class="built_in">parseInt</span>(<span class="built_in">Math</span>.random * arr.lenght);</span><br><span class="line">    result.push(arr[n]);</span><br><span class="line">    arr.splice(n,<span class="number">1</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+]]></content>
+      <tags>
+        <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>JavaScript的冒泡排序</title>
     <url>/article/9e8798c2.html</url>
     <content><![CDATA[<p>本文主要介绍算法排序之一的冒泡排序</p>
@@ -1477,6 +1477,32 @@
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">   <span class="built_in">arguments</span>.lenght<span class="comment">//5</span></span><br><span class="line">&#125;</span><br><span class="line">fun(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
 
 <p>关于arguments类数组还有许多可以研究的，比如arguments是对象，而对象是没有长度属性，arguments在ES6中的箭头函数是无法使用的等等，这里只做记录，以后更新。</p>
+]]></content>
+      <categories>
+        <category>javascript</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>JavaScript的函数优先提升</title>
+    <url>/article/c7b5ade2.html</url>
+    <content><![CDATA[<p>本文主要记录JavaScript的函数优先提升特性</p>
+<p>我们知道在JS中，有一个预先解析阶段，在这个阶段内会去先看所有的变量，然后提升到前面，但是只是提升变量，并没有提升值，例如以下：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">//undefine</span></span><br><span class="line"><span class="keyword">var</span> a = <span class="number">3</span>;</span><br></pre></td></tr></table></figure>
+
+<p>而在函数中，也存在提升的现象，我们可以调用一个等会声明的函数，这里不会报错</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">fun();</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  onsole.log(<span class="string">&#x27;this is function&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>但是如果我们使用匿名函数，即赋值给变量 ，则使用的是变量声明提升的规则，后面的函数是不会被提升的</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">fun(); <span class="comment">//this is not function</span></span><br><span class="line"><span class="keyword">var</span> fun = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  onsole.log(<span class="string">&#x27;this is function&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>再看以下例子：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">fun(); <span class="comment">//2</span></span><br><span class="line"><span class="keyword">var</span> fun = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">   <span class="built_in">console</span>.log(<span class="string">&#x27;1&#x27;</span>);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">   <span class="built_in">console</span>.log(<span class="string">&#x27;2&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line">fun();<span class="comment">//1</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在预解析阶段：根据函数提升和变量提升，<code>function fun()</code>和<code>var fun</code>都会被提升到前面，<strong>函数会优先被提升</strong>，变量则后提升，虽然这里同名，但是<strong>变量的提升不会覆盖函数的声明提升</strong></li>
+<li>在执行阶段，第一个<code>fun()</code>是去执行一个函数，前面有函数的当然是<code>function fun()</code>,所以这里输出2。在预解析阶段提升了<code>var fun</code>,执行到第二条语句的时候，则给它赋值，这样<code>var fun</code>就是一个函数了，而在第二个函数体被提升后就不会再覆盖回来，相反，现在是被var fun覆盖，所以最后调用的输出结果是1</li>
+</ul>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211108104444.png"></p>
 ]]></content>
       <categories>
         <category>javascript</category>
@@ -1551,32 +1577,6 @@
 <p>break主要是<strong>终止</strong>整个或者这一层的循环，continue是<strong>跳过这次</strong>循环，开始下一次的循环</p>
 <p>continue <strong>只能在循环语句中使用</strong>，即只能在 for、while 和 do…while 语句中使用。</p>
 <p>break<strong>只能在循环体内和switch语句体内使用</strong></p>
-]]></content>
-      <categories>
-        <category>javascript</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>JavaScript的函数优先提升</title>
-    <url>/article/c7b5ade2.html</url>
-    <content><![CDATA[<p>本文主要记录JavaScript的函数优先提升特性</p>
-<p>我们知道在JS中，有一个预先解析阶段，在这个阶段内会去先看所有的变量，然后提升到前面，但是只是提升变量，并没有提升值，例如以下：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">//undefine</span></span><br><span class="line"><span class="keyword">var</span> a = <span class="number">3</span>;</span><br></pre></td></tr></table></figure>
-
-<p>而在函数中，也存在提升的现象，我们可以调用一个等会声明的函数，这里不会报错</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">fun();</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  onsole.log(<span class="string">&#x27;this is function&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>但是如果我们使用匿名函数，即赋值给变量 ，则使用的是变量声明提升的规则，后面的函数是不会被提升的</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">fun(); <span class="comment">//this is not function</span></span><br><span class="line"><span class="keyword">var</span> fun = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  onsole.log(<span class="string">&#x27;this is function&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>再看以下例子：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">fun(); <span class="comment">//2</span></span><br><span class="line"><span class="keyword">var</span> fun = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">   <span class="built_in">console</span>.log(<span class="string">&#x27;1&#x27;</span>);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">   <span class="built_in">console</span>.log(<span class="string">&#x27;2&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line">fun();<span class="comment">//1</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>在预解析阶段：根据函数提升和变量提升，<code>function fun()</code>和<code>var fun</code>都会被提升到前面，<strong>函数会优先被提升</strong>，变量则后提升，虽然这里同名，但是<strong>变量的提升不会覆盖函数的声明提升</strong></li>
-<li>在执行阶段，第一个<code>fun()</code>是去执行一个函数，前面有函数的当然是<code>function fun()</code>,所以这里输出2。在预解析阶段提升了<code>var fun</code>,执行到第二条语句的时候，则给它赋值，这样<code>var fun</code>就是一个函数了，而在第二个函数体被提升后就不会再覆盖回来，相反，现在是被var fun覆盖，所以最后调用的输出结果是1</li>
-</ul>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211108104444.png"></p>
 ]]></content>
       <categories>
         <category>javascript</category>
@@ -1836,22 +1836,6 @@
       </categories>
   </entry>
   <entry>
-    <title>JavaScript的深克隆和浅克隆</title>
-    <url>/article/b9182662.html</url>
-    <content><![CDATA[<p>本文主要介绍引用数据类型的浅克隆和深克隆</p>
-<p>我们知道如果把数组赋值给另外数组的话，如果其中一个改变另外一个也受其影响，所以我们就需要克隆或者说拷贝一份相同的引用类型数据，不让它们相互之间影响。</p>
-<h1 id="浅克隆"><a href="#浅克隆" class="headerlink" title="浅克隆"></a>浅克隆</h1><p>浅克隆是指只克隆数组第一层，如果是多为数组，或者数组中的项是其他引用数据类型，则不克隆其他层</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]</span><br><span class="line"><span class="keyword">var</span> result = []</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i  = <span class="number">0</span>; i &lt;arr.lenght;i++)&#123;</span><br><span class="line">    result.push(arr[i])</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>javascript</category>
-      </categories>
-      <tags>
-        <tag>深克隆和浅克隆</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>JavaScript的表达式和运算符</title>
     <url>/article/f5797da9.html</url>
     <content><![CDATA[<p>本文主要介绍JavaScript的表达式和运算符。</p>
@@ -2106,6 +2090,22 @@
       <categories>
         <category>javascript</category>
       </categories>
+  </entry>
+  <entry>
+    <title>JavaScript的深克隆和浅克隆</title>
+    <url>/article/b9182662.html</url>
+    <content><![CDATA[<p>本文主要介绍引用数据类型的浅克隆和深克隆</p>
+<p>我们知道如果把数组赋值给另外数组的话，如果其中一个改变另外一个也受其影响，所以我们就需要克隆或者说拷贝一份相同的引用类型数据，不让它们相互之间影响。</p>
+<h1 id="浅克隆"><a href="#浅克隆" class="headerlink" title="浅克隆"></a>浅克隆</h1><p>浅克隆是指只克隆数组第一层，如果是多为数组，或者数组中的项是其他引用数据类型，则不克隆其他层</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]</span><br><span class="line"><span class="keyword">var</span> result = []</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i  = <span class="number">0</span>; i &lt;arr.lenght;i++)&#123;</span><br><span class="line">    result.push(arr[i])</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>javascript</category>
+      </categories>
+      <tags>
+        <tag>深克隆和浅克隆</tag>
+      </tags>
   </entry>
   <entry>
     <title>JavaScript随机函数的公式</title>
@@ -2534,51 +2534,6 @@
       </tags>
   </entry>
   <entry>
-    <title>WeX-UI组件库搭建</title>
-    <url>/article/c7f47550.html</url>
-    <content><![CDATA[<p>前段时间写了LinView组件库，但是由于问题太多，按需引入出错，最后参考element-ui框架和参考一些技术博文，重新编写整个组件库，因为重写，具体的不一 一例举，重点把遇到的坑点和心得记录下。</p>
-<h1 id="工程化目录"><a href="#工程化目录" class="headerlink" title="工程化目录"></a>工程化目录</h1><p>首先依然使用vue/cli形成目录，这是最后的目录结构：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">|-- WeX-UI</span><br><span class="line">    |-- .gitignore</span><br><span class="line">    |-- babel.config.js</span><br><span class="line">    |-- components.json</span><br><span class="line">    |-- deploy.sh         <span class="comment">//vuepress部署</span></span><br><span class="line">    |-- package-lock.json</span><br><span class="line">    |-- package.json</span><br><span class="line">    |-- README.md</span><br><span class="line">    |-- build          <span class="comment">//打包配置文件</span></span><br><span class="line">    |   |-- utlis.js</span><br><span class="line">    |   |-- webpack.base.js</span><br><span class="line">    |   |-- webpack.component.js</span><br><span class="line">    |   |-- webpack.prod.js</span><br><span class="line">    |-- docs           <span class="comment">//vuepress文档</span></span><br><span class="line">    |   |-- index.md</span><br><span class="line">    |   |-- .vuepress</span><br><span class="line">    |   |   |-- config.js</span><br><span class="line">    |   |   |-- enhanceApp.js</span><br><span class="line">    |   |   |-- public</span><br><span class="line">    |   |       |-- card.png</span><br><span class="line">    |   |-- componentdocs</span><br><span class="line">    |   |   |-- card.md</span><br><span class="line">    |   |   |-- index.md</span><br><span class="line">    |   |   |-- start.md</span><br><span class="line">    |   |-- update</span><br><span class="line">    |       |-- index.md</span><br><span class="line">    |-- lib            <span class="comment">//打包后的组件和样式</span></span><br><span class="line">    |   |-- card.js</span><br><span class="line">    |   |-- demo.js</span><br><span class="line">    |   |-- wex-ui.min.js</span><br><span class="line">    |   |-- styles</span><br><span class="line">    |       |-- card.css</span><br><span class="line">    |       |-- demo.css</span><br><span class="line">    |       |-- index.css</span><br><span class="line">    |-- packages         <span class="comment">//原生代码</span></span><br><span class="line">    |   |-- card</span><br><span class="line">    |   |   |-- index.js</span><br><span class="line">    |   |   |-- src</span><br><span class="line">    |   |       |-- Index.vue</span><br><span class="line">    |   |-- demo</span><br><span class="line">    |   |   |-- index.js</span><br><span class="line">    |   |   |-- src</span><br><span class="line">    |   |       |-- Index.vue</span><br><span class="line">    |   |-- theme-chalk         <span class="comment">//样式文件</span></span><br><span class="line">    |       |-- gulpfile.js</span><br><span class="line">    |       |-- src</span><br><span class="line">    |           |-- card.scss</span><br><span class="line">    |           |-- demo.scss</span><br><span class="line">    |           |-- index.scss</span><br><span class="line">    |-- public</span><br><span class="line">    |   |-- favicon.ico</span><br><span class="line">    |   |-- index.html</span><br><span class="line">    |-- src</span><br><span class="line">        |-- App.vue</span><br><span class="line">        |-- index.js        <span class="comment">//全局注册组件</span></span><br><span class="line">        |-- main.js</span><br><span class="line">        |-- assets</span><br><span class="line">        |   |-- logo.png</span><br><span class="line">        |-- components</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>整个目录结构是参考了ElementUI的写法，组件库没到一定规模，当然做了减法。</li>
-<li>为了第三方项目的按需加载，打包后的都放在lib文件夹。</li>
-<li>把gulp打包文件放在CSS的包这是参考了ElementUI，感觉上更加舒服，不会在build文件夹还存放另外的打包工具文件。</li>
-<li>components.json也是参考ElementUI，这是为了按需引入单独打包加上。</li>
-<li>webpack分成3个，一个公共打包，一个打包全部组件，一个用来单独组件打包，虽然现在一个也可以足够打包，但是为了后续的扩展，目前采取该方式。</li>
-<li>enhanceAppjs文件是用来导入全部组件的，属于应用级别，以前写法是把组件复制过来，麻烦且浪费空间，应用该文件后，开发后的组件就可以书写文档。</li>
-<li>deploy.sh拉取到最外层，让config只有webpack打包配置 ，（utils是为解决路径问题）</li>
-</ul>
-<h1 id="webpack打包"><a href="#webpack打包" class="headerlink" title="webpack打包"></a>webpack打包</h1><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// webpack.component.js 按需加载，单独组件打包</span></span><br><span class="line"><span class="keyword">const</span> &#123;VueLoaderPlugin&#125;  = <span class="built_in">require</span>(<span class="string">&#x27;vue-loader&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> components = <span class="built_in">require</span>(<span class="string">&#x27;../components.json&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> utlis = <span class="built_in">require</span>(<span class="string">&#x27;./utlis&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> list = &#123;&#125; <span class="comment">//入口文件</span></span><br><span class="line"><span class="keyword">const</span> basePath = path.resolve(__dirname, <span class="string">&#x27;../&#x27;</span>)</span><br><span class="line"><span class="built_in">Object</span>.keys(components).forEach(<span class="function"><span class="params">key</span> =&gt;</span> &#123;</span><br><span class="line">  list[key] = path.join(basePath,  components[key])</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// console.log(list);</span></span><br><span class="line"><span class="keyword">const</span> webpackconfig = &#123;</span><br><span class="line">  <span class="attr">entry</span>: list,</span><br><span class="line">  <span class="attr">mode</span>: <span class="string">&#x27;production&#x27;</span>,<span class="comment">//生产模式</span></span><br><span class="line">  <span class="attr">output</span>: &#123;</span><br><span class="line">    <span class="attr">path</span>: utlis.DIST_PATH,</span><br><span class="line">    <span class="attr">filename</span>: <span class="string">&#x27;[name].js&#x27;</span>,</span><br><span class="line">    <span class="attr">library</span>: <span class="string">&#x27;wex-ui&#x27;</span>, <span class="comment">//包名称</span></span><br><span class="line">    <span class="attr">libraryTarget</span>: <span class="string">&#x27;umd&#x27;</span>, <span class="comment">//支持的引入模式</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">module</span>: &#123;<span class="comment">//告诉webpack，什么文件使用什么rules</span></span><br><span class="line">    <span class="attr">rules</span>: [</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">test</span>: <span class="regexp">/\.vue$/</span>,</span><br><span class="line">        use: [</span><br><span class="line">          &#123;</span><br><span class="line">            <span class="attr">loader</span>: <span class="string">&#x27;vue-loader&#x27;</span>,</span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">    </span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">plugins</span>: [</span><br><span class="line">     <span class="keyword">new</span> VueLoaderPlugin()</span><br><span class="line">  ]</span><br><span class="line">  </span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">module</span>.exports = webpackconfig</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>整个打包文件主要就是对每个组件进行简单打包压缩，后续可能需要优化，尽量减少包的体积。</li>
-</ul>
-<h1 id="NPM上传"><a href="#NPM上传" class="headerlink" title="NPM上传"></a>NPM上传</h1><p>这是最没技术含量的问题，却是困惑我许久的问题：</p>
-<ul>
-<li>NPM莫名上传失败</li>
-</ul>
-<p>今天依旧想上传npm包，却发现：</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211008210126.png"></p>
-<p>这个问题网上找了很久，几乎全网没有答案，尝试了切版本，换源都没有用，最后尝试把http换成https，成功。</p>
-<ul>
-<li>NPM换源问题</li>
-</ul>
-<p>在上面问题没有解决的同时，我有进入另外别人设置好的的坑，没错就是下面的博文，</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211008210738.png"></p>
-<p>没错，这个源是错误的，正确的是：npm config set registry <a href="https://registry.npmjs.org/">https://registry.npmjs.org</a></p>
-<p>但是因为当时急于解决第一个问题，导致了失误。</p>
-<p>目前已经举报。。</p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>目前重写后可以正常使用，按需加载正常，后续包的优化，组件的增加有待研究。</p>
-]]></content>
-      <categories>
-        <category>组件库</category>
-      </categories>
-      <tags>
-        <tag>自定义组件库</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>变量声明提升和var、let、const的区别</title>
     <url>/article/43391fd9.html</url>
     <content><![CDATA[<p>本文主要介绍JavaScript变量声明提升的现象。</p>
@@ -2657,6 +2612,51 @@
       </categories>
       <tags>
         <tag>变量声明提升</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>WeX-UI组件库搭建</title>
+    <url>/article/c7f47550.html</url>
+    <content><![CDATA[<p>前段时间写了LinView组件库，但是由于问题太多，按需引入出错，最后参考element-ui框架和参考一些技术博文，重新编写整个组件库，因为重写，具体的不一 一例举，重点把遇到的坑点和心得记录下。</p>
+<h1 id="工程化目录"><a href="#工程化目录" class="headerlink" title="工程化目录"></a>工程化目录</h1><p>首先依然使用vue/cli形成目录，这是最后的目录结构：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">|-- WeX-UI</span><br><span class="line">    |-- .gitignore</span><br><span class="line">    |-- babel.config.js</span><br><span class="line">    |-- components.json</span><br><span class="line">    |-- deploy.sh         <span class="comment">//vuepress部署</span></span><br><span class="line">    |-- package-lock.json</span><br><span class="line">    |-- package.json</span><br><span class="line">    |-- README.md</span><br><span class="line">    |-- build          <span class="comment">//打包配置文件</span></span><br><span class="line">    |   |-- utlis.js</span><br><span class="line">    |   |-- webpack.base.js</span><br><span class="line">    |   |-- webpack.component.js</span><br><span class="line">    |   |-- webpack.prod.js</span><br><span class="line">    |-- docs           <span class="comment">//vuepress文档</span></span><br><span class="line">    |   |-- index.md</span><br><span class="line">    |   |-- .vuepress</span><br><span class="line">    |   |   |-- config.js</span><br><span class="line">    |   |   |-- enhanceApp.js</span><br><span class="line">    |   |   |-- public</span><br><span class="line">    |   |       |-- card.png</span><br><span class="line">    |   |-- componentdocs</span><br><span class="line">    |   |   |-- card.md</span><br><span class="line">    |   |   |-- index.md</span><br><span class="line">    |   |   |-- start.md</span><br><span class="line">    |   |-- update</span><br><span class="line">    |       |-- index.md</span><br><span class="line">    |-- lib            <span class="comment">//打包后的组件和样式</span></span><br><span class="line">    |   |-- card.js</span><br><span class="line">    |   |-- demo.js</span><br><span class="line">    |   |-- wex-ui.min.js</span><br><span class="line">    |   |-- styles</span><br><span class="line">    |       |-- card.css</span><br><span class="line">    |       |-- demo.css</span><br><span class="line">    |       |-- index.css</span><br><span class="line">    |-- packages         <span class="comment">//原生代码</span></span><br><span class="line">    |   |-- card</span><br><span class="line">    |   |   |-- index.js</span><br><span class="line">    |   |   |-- src</span><br><span class="line">    |   |       |-- Index.vue</span><br><span class="line">    |   |-- demo</span><br><span class="line">    |   |   |-- index.js</span><br><span class="line">    |   |   |-- src</span><br><span class="line">    |   |       |-- Index.vue</span><br><span class="line">    |   |-- theme-chalk         <span class="comment">//样式文件</span></span><br><span class="line">    |       |-- gulpfile.js</span><br><span class="line">    |       |-- src</span><br><span class="line">    |           |-- card.scss</span><br><span class="line">    |           |-- demo.scss</span><br><span class="line">    |           |-- index.scss</span><br><span class="line">    |-- public</span><br><span class="line">    |   |-- favicon.ico</span><br><span class="line">    |   |-- index.html</span><br><span class="line">    |-- src</span><br><span class="line">        |-- App.vue</span><br><span class="line">        |-- index.js        <span class="comment">//全局注册组件</span></span><br><span class="line">        |-- main.js</span><br><span class="line">        |-- assets</span><br><span class="line">        |   |-- logo.png</span><br><span class="line">        |-- components</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>整个目录结构是参考了ElementUI的写法，组件库没到一定规模，当然做了减法。</li>
+<li>为了第三方项目的按需加载，打包后的都放在lib文件夹。</li>
+<li>把gulp打包文件放在CSS的包这是参考了ElementUI，感觉上更加舒服，不会在build文件夹还存放另外的打包工具文件。</li>
+<li>components.json也是参考ElementUI，这是为了按需引入单独打包加上。</li>
+<li>webpack分成3个，一个公共打包，一个打包全部组件，一个用来单独组件打包，虽然现在一个也可以足够打包，但是为了后续的扩展，目前采取该方式。</li>
+<li>enhanceAppjs文件是用来导入全部组件的，属于应用级别，以前写法是把组件复制过来，麻烦且浪费空间，应用该文件后，开发后的组件就可以书写文档。</li>
+<li>deploy.sh拉取到最外层，让config只有webpack打包配置 ，（utils是为解决路径问题）</li>
+</ul>
+<h1 id="webpack打包"><a href="#webpack打包" class="headerlink" title="webpack打包"></a>webpack打包</h1><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// webpack.component.js 按需加载，单独组件打包</span></span><br><span class="line"><span class="keyword">const</span> &#123;VueLoaderPlugin&#125;  = <span class="built_in">require</span>(<span class="string">&#x27;vue-loader&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> components = <span class="built_in">require</span>(<span class="string">&#x27;../components.json&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> utlis = <span class="built_in">require</span>(<span class="string">&#x27;./utlis&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> list = &#123;&#125; <span class="comment">//入口文件</span></span><br><span class="line"><span class="keyword">const</span> basePath = path.resolve(__dirname, <span class="string">&#x27;../&#x27;</span>)</span><br><span class="line"><span class="built_in">Object</span>.keys(components).forEach(<span class="function"><span class="params">key</span> =&gt;</span> &#123;</span><br><span class="line">  list[key] = path.join(basePath,  components[key])</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// console.log(list);</span></span><br><span class="line"><span class="keyword">const</span> webpackconfig = &#123;</span><br><span class="line">  <span class="attr">entry</span>: list,</span><br><span class="line">  <span class="attr">mode</span>: <span class="string">&#x27;production&#x27;</span>,<span class="comment">//生产模式</span></span><br><span class="line">  <span class="attr">output</span>: &#123;</span><br><span class="line">    <span class="attr">path</span>: utlis.DIST_PATH,</span><br><span class="line">    <span class="attr">filename</span>: <span class="string">&#x27;[name].js&#x27;</span>,</span><br><span class="line">    <span class="attr">library</span>: <span class="string">&#x27;wex-ui&#x27;</span>, <span class="comment">//包名称</span></span><br><span class="line">    <span class="attr">libraryTarget</span>: <span class="string">&#x27;umd&#x27;</span>, <span class="comment">//支持的引入模式</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">module</span>: &#123;<span class="comment">//告诉webpack，什么文件使用什么rules</span></span><br><span class="line">    <span class="attr">rules</span>: [</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">test</span>: <span class="regexp">/\.vue$/</span>,</span><br><span class="line">        use: [</span><br><span class="line">          &#123;</span><br><span class="line">            <span class="attr">loader</span>: <span class="string">&#x27;vue-loader&#x27;</span>,</span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">    </span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">plugins</span>: [</span><br><span class="line">     <span class="keyword">new</span> VueLoaderPlugin()</span><br><span class="line">  ]</span><br><span class="line">  </span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">module</span>.exports = webpackconfig</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>整个打包文件主要就是对每个组件进行简单打包压缩，后续可能需要优化，尽量减少包的体积。</li>
+</ul>
+<h1 id="NPM上传"><a href="#NPM上传" class="headerlink" title="NPM上传"></a>NPM上传</h1><p>这是最没技术含量的问题，却是困惑我许久的问题：</p>
+<ul>
+<li>NPM莫名上传失败</li>
+</ul>
+<p>今天依旧想上传npm包，却发现：</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211008210126.png"></p>
+<p>这个问题网上找了很久，几乎全网没有答案，尝试了切版本，换源都没有用，最后尝试把http换成https，成功。</p>
+<ul>
+<li>NPM换源问题</li>
+</ul>
+<p>在上面问题没有解决的同时，我有进入另外别人设置好的的坑，没错就是下面的博文，</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211008210738.png"></p>
+<p>没错，这个源是错误的，正确的是：npm config set registry <a href="https://registry.npmjs.org/">https://registry.npmjs.org</a></p>
+<p>但是因为当时急于解决第一个问题，导致了失误。</p>
+<p>目前已经举报。。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>目前重写后可以正常使用，按需加载正常，后续包的优化，组件的增加有待研究。</p>
+]]></content>
+      <categories>
+        <category>组件库</category>
+      </categories>
+      <tags>
+        <tag>自定义组件库</tag>
       </tags>
   </entry>
   <entry>
