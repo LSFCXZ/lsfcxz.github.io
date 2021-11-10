@@ -6,7 +6,7 @@
   <link href="https://www.frontblog.top/atom.xml" rel="self"/>
   
   <link href="https://www.frontblog.top/"/>
-  <updated>2021-11-10T10:05:22.971Z</updated>
+  <updated>2021-11-10T10:07:48.205Z</updated>
   <id>https://www.frontblog.top/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://www.frontblog.top/article/f32bf739.html"/>
     <id>https://www.frontblog.top/article/f32bf739.html</id>
     <published>2021-11-10T09:45:55.000Z</published>
-    <updated>2021-11-10T10:05:22.971Z</updated>
+    <updated>2021-11-10T10:07:48.205Z</updated>
     
     <content type="html"><![CDATA[<p>本文主要总结近段时间以来的JavaScript的基础知识。</p><h1 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h1><p>JS再ES5中使用var定义变量，在ES6中新增了let和const。</p><p>var的变量可以是任何数据类型，这点是区别Java或者C等强类型语言的。</p><p>使用var变量会存在变量声明提升问题，变量的提升会提升到当前的作用域，只提升变量不会提升值。</p><p>需要注意的是，除了函数和函数参数属于局部变量，使用var定义的变量都属于全局变量。</p><h1 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h1><h1 id="表达式和运算符"><a href="#表达式和运算符" class="headerlink" title="表达式和运算符"></a>表达式和运算符</h1><h1 id="逻辑判断和循环语句"><a href="#逻辑判断和循环语句" class="headerlink" title="逻辑判断和循环语句"></a>逻辑判断和循环语句</h1><p>if:</p><p>if..else..</p><p>for：</p><p>while：</p><p>do…while</p><h1 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h1><p>定义数组：</p><p>数组方法：</p><p>二维数组：</p><h1 id="深拷贝和浅拷贝"><a href="#深拷贝和浅拷贝" class="headerlink" title="深拷贝和浅拷贝"></a>深拷贝和浅拷贝</h1><p>这里需要知道基本数据类型和引用数据类型：</p><p>基本数据类型:会存放在一个内存地址中，我们把变量赋值给另外一个，则相当于开辟了新空间，这两个变量是不会影响的</p><p>引用数据类型：</p><p>浅拷贝：</p><p>深拷贝：递归</p><h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><p>函数就像一个工厂，通过传入参数，最终计算过后的结果。</p><p>函数也存在声明提升现象，并且优先于变量提升，函数提升可以调用一个后声明的函数，而不会引发错误，但是如果赋值给一个变量，则是变量声明提升规则，函数不会被提升。</p><p>立即执行函数：</p><p>闭包：</p>]]></content>
     
