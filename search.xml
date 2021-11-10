@@ -392,6 +392,117 @@
       </categories>
   </entry>
   <entry>
+    <title>CSS3的变形属性</title>
+    <url>/article/a8e47f07.html</url>
+    <content><![CDATA[<p>本文主要介绍CSS3中的变形属性。</p>
+<p>CSS3中主要使用<code>tranform</code>属性来进行盒子的变形，变形主要分为2D和3D两大变形</p>
+<h1 id="2D变形"><a href="#2D变形" class="headerlink" title="2D变形"></a>2D变形</h1><h2 id="旋转变形"><a href="#旋转变形" class="headerlink" title="旋转变形"></a>旋转变形</h2><p>将<code>tranform</code>属性的属性值设置为rotate(),即可实现旋转变形，单位deg表示为度数，正数表示顺时针方向，负数反之。</p>
+<p>示例：<code>tranform:rotate(45deg)</code>,表示顺时针旋转45度</p>
+<p>默认旋转是绕着中心点位置旋转，如果绕着的点不是中心位置，那么就使用<code>tranform-origin</code>属性。</p>
+<p>示例：<code>tranform-origin:0 0</code>，表示绕着左上角旋转</p>
+<h2 id="缩放变形"><a href="#缩放变形" class="headerlink" title="缩放变形"></a>缩放变形</h2><p>将<code>tranform</code>属性的属性值设置为scale(),即可实现缩放变形，括号里面是缩放倍数。</p>
+<p>示例：<code>tranform:scale(3)</code>,表示放大3倍</p>
+<p>也可以 <code>transform-origin</code>属性表示从哪个点开始放大，默认中心点</p>
+<h2 id="斜切变形"><a href="#斜切变形" class="headerlink" title="斜切变形"></a>斜切变形</h2><p>将<code>tranform</code>属性的属性值设置为skew(),即可实现斜切变形，括号里面是两个数值，一个x斜切度，一个y斜切度,单位deg</p>
+<p>示例：<code>tranform:skew(10deg,20deg)</code>,</p>
+<h2 id="位移变形"><a href="#位移变形" class="headerlink" title="位移变形"></a>位移变形</h2><p>将<code>tranform</code>属性的属性值设置为translate(),即可实现位移变形，括号里面是两个数值，向右，向下两个方向,单位px。</p>
+<p>和相对定位差不多，不会放弃自己原来的位置，兼容到IE9</p>
+<p>示例:<code>transform:translate(100px,200px)</code></p>
+<h1 id="3D变形"><a href="#3D变形" class="headerlink" title="3D变形"></a>3D变形</h1><h2 id="3D旋转"><a href="#3D旋转" class="headerlink" title="3D旋转"></a>3D旋转</h2><p>将<code>transform</code>属性的属性值设置为<code>rotateX()</code>或者<code>rotateY()</code>,即可实现3D旋转。</p>
+<p><code>rotateX()</code>是绕横轴旋转，<code>rotateY()</code>是绕纵轴旋转，括号里面是度数,单位deg。</p>
+<p>perspective属性用来定义透视强度，可以理解为人眼到舞台的距离，单位是px，直白点说，设置3D旋转的父盒子必须设置perspective属性。</p>
+<p>3D旋转可以X，Y同时旋转，示例:<code>transform: rotateY(45deg) rotateX(45deg);</code></p>
+<h2 id="空间移动"><a href="#空间移动" class="headerlink" title="空间移动"></a>空间移动</h2><p>将<code>transform</code>属性的属性值设置为<code>rotateX()</code>或者<code>rotateY()</code>后成为3D旋转后可继续添加translateX、translateY或者translateZ实现空间移动，换句话说，想实现空间移动，必须3旋转后才可以，空间移动单位为px。</p>
+<p>示例：<code>transform: rotateY(128deg) rotateX(52deg) translateY(50px) translateZ(50px);</code></p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>代码示例：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;X-UA-Compatible&quot;</span> <span class="attr">content</span>=<span class="string">&quot;IE=edge&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">      * &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">padding</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">margin</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.box</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">width</span>: <span class="number">100px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">height</span>: <span class="number">100px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">background-color</span>: aqua;</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="comment">/* 透视强度 */</span></span></span><br><span class="line"><span class="css">      <span class="selector-class">.per</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">width</span>: <span class="number">100px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">height</span>: <span class="number">100px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">perspective</span>: <span class="number">179px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">margin</span>: <span class="number">10px</span> auto;</span></span><br><span class="line"><span class="css">        <span class="attribute">border</span>: <span class="number">1px</span> solid black;</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="comment">/* 旋转 */</span></span></span><br><span class="line"><span class="css">      <span class="selector-class">.box1</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">margin</span>: <span class="number">10px</span> auto;</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.box1</span><span class="selector-pseudo">:hover</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">transform</span>: <span class="built_in">rotate</span>(<span class="number">45deg</span>);</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="comment">/* 缩放 */</span></span></span><br><span class="line"><span class="css">      <span class="selector-class">.box2</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">margin</span>: <span class="number">10px</span> auto;</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.box2</span><span class="selector-pseudo">:hover</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">transform</span>: <span class="built_in">scale</span>(<span class="number">2</span>);</span></span><br><span class="line"><span class="css">        <span class="comment">/* 中心点 */</span></span></span><br><span class="line"><span class="css">        <span class="comment">/* transform-origin: 0 0; */</span></span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="comment">/* 斜切 */</span></span></span><br><span class="line"><span class="css">      <span class="selector-class">.box3</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">margin</span>: <span class="number">10px</span> auto;</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.box3</span><span class="selector-pseudo">:hover</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">transform</span>: <span class="built_in">skew</span>(<span class="number">10deg</span>, <span class="number">20deg</span>);</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="comment">/* 位移 */</span></span></span><br><span class="line"><span class="css">      <span class="selector-class">.box4</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">margin</span>: <span class="number">10px</span> auto;</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.box4</span><span class="selector-pseudo">:hover</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">transform</span>: <span class="built_in">translate</span>(<span class="number">100px</span>, <span class="number">200px</span>);</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="comment">/* 3D旋转 */</span></span></span><br><span class="line"><span class="css">      <span class="selector-class">.box5</span><span class="selector-pseudo">:hover</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">transform</span>: <span class="built_in">rotateY</span>(<span class="number">45deg</span>) <span class="built_in">rotateX</span>(<span class="number">45deg</span>);</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="comment">/* 空间移动 */</span></span></span><br><span class="line"><span class="css">      <span class="selector-class">.box6</span><span class="selector-pseudo">:hover</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">transform</span>: <span class="built_in">rotateY</span>(<span class="number">128deg</span>) <span class="built_in">rotateX</span>(<span class="number">52deg</span>) <span class="built_in">translateY</span>(<span class="number">50px</span>)</span></span><br><span class="line"><span class="css">          <span class="built_in">translateZ</span>(<span class="number">50px</span>);</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box1 box&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box2 box&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box3 box&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box4 box&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;per&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box5 box&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;per&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box6 box&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>CSS</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>CSS3的过渡与动画</title>
+    <url>/article/c2010641.html</url>
+    <content><![CDATA[<p>本文主要介绍CSS3里面的过渡与动画属性。</p>
+<h1 id="过渡"><a href="#过渡" class="headerlink" title="过渡"></a>过渡</h1><p>过渡属性使用transition，可以为一个元素在不同样式之间变化自动添加“补间动画”。</p>
+<p>主要有四要素：过渡属性，动画总时长，变化速度曲线，延迟时间</p>
+<p>兼容到IE10</p>
+<p>示例：<code>transition:width 1s linear 0s</code></p>
+<p>哪些属性可以被过渡：</p>
+<ul>
+<li>所有数值类型的属性都可以过渡，英文属性值不可以，比如浮动</li>
+<li>背景颜色和文字颜色都可以过渡</li>
+<li>所有变形（2D和3D）都可以过渡</li>
+</ul>
+<p>过渡的四个小属性：</p>
+<table>
+<thead>
+<tr>
+<th align="center">属性</th>
+<th align="center">意义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">transition-property</td>
+<td align="center">哪些属性要过渡</td>
+</tr>
+<tr>
+<td align="center">transition-duration</td>
+<td align="center">动画时间</td>
+</tr>
+<tr>
+<td align="center">transition-timing-function</td>
+<td align="center">动画变化曲线</td>
+</tr>
+<tr>
+<td align="center">transition-delay</td>
+<td align="center">延迟时间</td>
+</tr>
+</tbody></table>
+<p>缓动效果：</p>
+<p>linear 是平缓过渡，也就是变化的速度曲线，除了linear 外还有以下几种</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211026125546.png"></p>
+<p>除了以上设置方法外，还可以自定义设置过渡速度曲线，即贝塞尔曲线。</p>
+<p>通过网站 <a href="https://cubic-bezier.com/">https://cubic-bezier.com</a> 可以生成贝塞尔曲线，示例：<code>transition:width 1s cubic-bezier(.17,.67,.52,.28) 0s</code> </p>
+<h2 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;X-UA-Compatible&quot;</span> <span class="attr">content</span>=<span class="string">&quot;IE=edge&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">      * &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">padding</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">margin</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="comment">/* 过渡 width，*/</span></span></span><br><span class="line"><span class="css">      <span class="selector-class">.box</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">height</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">width</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">background-color</span>: aqua;</span></span><br><span class="line"><span class="css">        <span class="attribute">transition</span>: width <span class="number">1s</span> linear <span class="number">0s</span>;</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.box</span><span class="selector-pseudo">:hover</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">width</span>: <span class="number">1000px</span>;</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.box1</span> <span class="selector-tag">p</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">position</span>: relative;</span></span><br><span class="line"><span class="css">        <span class="attribute">left</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">width</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">height</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">background-color</span>: yellow;</span></span><br><span class="line"><span class="css">        <span class="attribute">transition</span>: left <span class="number">1s</span> linear <span class="number">0s</span>;</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.box1</span><span class="selector-pseudo">:hover</span> <span class="selector-tag">p</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">left</span>: <span class="number">1000px</span>;</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.box2</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">width</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">height</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">background-color</span>: yellow;</span></span><br><span class="line"><span class="css">        <span class="attribute">transition</span>: background-color <span class="number">1s</span> linear <span class="number">0s</span>;</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.box2</span><span class="selector-pseudo">:hover</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">background-color</span>: red;</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.box3</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">width</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">height</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">background-color</span>: yellow;</span></span><br><span class="line"><span class="css">        <span class="attribute">border-radius</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">transition</span>: all <span class="number">1s</span> linear <span class="number">0s</span>;</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.box3</span><span class="selector-pseudo">:hover</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">border-radius</span>: <span class="number">50%</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">background-color</span>: red;</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.box4</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">width</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">height</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">background-color</span>: blue;</span></span><br><span class="line"><span class="css">        <span class="attribute">transition</span>: transform <span class="number">1s</span> linear <span class="number">0s</span>;</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.box4</span><span class="selector-pseudo">:hover</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">transform</span>: <span class="built_in">scale</span>(<span class="number">1.2</span>) <span class="built_in">rotate</span>(<span class="number">360deg</span>);</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.box5</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">width</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">height</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">perspective</span>: <span class="number">300px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">border</span>: <span class="number">1px</span> solid black;</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.box5</span> <span class="selector-tag">p</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">width</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">height</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">background-color</span>: aquamarine;</span></span><br><span class="line"><span class="css">        <span class="attribute">transition</span>: transform <span class="number">1s</span> linear <span class="number">0s</span>;</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.box5</span><span class="selector-pseudo">:hover</span> <span class="selector-tag">p</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">transform</span>: <span class="built_in">rotateX</span>(<span class="number">360deg</span>) <span class="built_in">rotateY</span>(<span class="number">360deg</span>);</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box1&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box2&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box3&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box4&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box5&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="一些案例"><a href="#一些案例" class="headerlink" title="一些案例"></a>一些案例</h2><p>演示地址: <a href="https://lsfcxz.gitee.io/transit">https://lsfcxz.gitee.io/transit</a></p>
+<p>效果图：</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211026182945.png"></p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211026214536.png"></p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211027092416.png"></p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211027092451.png"></p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211027092544.png"></p>
+<h1 id="动画"><a href="#动画" class="headerlink" title="动画"></a>动画</h1><p>动画效果可以理解为过渡的一种延续，过渡动画是需要触发条件才会形成过渡，并且是在一定时间内完成，而动画则可以自动完成，并且也可以设置无限运行。</p>
+<p><strong>定义动画：</strong></p>
+<p>定义动画使用 <code>@keyframes</code>关键字定义，test为动画的名称，调用动画时候使用，可以理解为就是一个方法名， from是开始状态，to是结束状态。</p>
+<p>示例：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="keyword">@keyframes</span> test &#123;</span><br><span class="line">  <span class="selector-tag">from</span> &#123;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">rotateX</span>(<span class="number">0deg</span>) <span class="built_in">rotateY</span>(<span class="number">0deg</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="selector-tag">to</span> &#123;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">rotateX</span>(<span class="number">360deg</span>) <span class="built_in">rotateY</span>(<span class="number">360deg</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>动画定义还可以使用多关键帧，使用百分数。</p>
+<p>示例：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="keyword">@keyframes</span> test &#123;</span><br><span class="line">  <span class="number">10%</span> &#123;</span><br><span class="line">    backgroud-<span class="attribute">color</span>:red;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="number">50%</span> &#123;</span><br><span class="line">    backgroud-<span class="attribute">color</span>:blue;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="number">100%</span>&#123;</span><br><span class="line">   backgroud-<span class="attribute">color</span>:yellow;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>调用动画:</p>
+<p>定义动画使用 <code>animation</code>关键字定义，test是动画名称，3s是总时长，linear是缓动效果，0s是延迟执行时间，第五个是，动画执行次数，如果想永久运行，则使用<code>infinite</code>，如果想让动画偶次数自动逆向执行，则使用<code>animation</code>参数作为第六个参数，如果想让动画停止在最后结束状态，那么则使用<code>forwards</code>参数。</p>
+<p>示例：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="attribute">animation</span>: test <span class="number">3s</span> linear <span class="number">0s</span> infinite;</span><br></pre></td></tr></table></figure>
+
+<h2 id="一些案例-1"><a href="#一些案例-1" class="headerlink" title="一些案例"></a>一些案例</h2><p>演示地址： <a href="https://lsfcxz.gitee.io/transit">https://lsfcxz.gitee.io/transit</a></p>
+<p>效果图：</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211027120549.png"></p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211027120627.png"></p>
+]]></content>
+      <categories>
+        <category>CSS</category>
+      </categories>
+      <tags>
+        <tag>过渡与动画</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>CSS3选择器</title>
     <url>/article/1f818b1f.html</url>
     <content><![CDATA[<p>作为HTML和CSS的桥梁，CSS3拥有众多的选择器，本文主要介绍CSS的各种选择器。</p>
@@ -560,37 +671,6 @@
       </categories>
   </entry>
   <entry>
-    <title>CSS3的变形属性</title>
-    <url>/article/a8e47f07.html</url>
-    <content><![CDATA[<p>本文主要介绍CSS3中的变形属性。</p>
-<p>CSS3中主要使用<code>tranform</code>属性来进行盒子的变形，变形主要分为2D和3D两大变形</p>
-<h1 id="2D变形"><a href="#2D变形" class="headerlink" title="2D变形"></a>2D变形</h1><h2 id="旋转变形"><a href="#旋转变形" class="headerlink" title="旋转变形"></a>旋转变形</h2><p>将<code>tranform</code>属性的属性值设置为rotate(),即可实现旋转变形，单位deg表示为度数，正数表示顺时针方向，负数反之。</p>
-<p>示例：<code>tranform:rotate(45deg)</code>,表示顺时针旋转45度</p>
-<p>默认旋转是绕着中心点位置旋转，如果绕着的点不是中心位置，那么就使用<code>tranform-origin</code>属性。</p>
-<p>示例：<code>tranform-origin:0 0</code>，表示绕着左上角旋转</p>
-<h2 id="缩放变形"><a href="#缩放变形" class="headerlink" title="缩放变形"></a>缩放变形</h2><p>将<code>tranform</code>属性的属性值设置为scale(),即可实现缩放变形，括号里面是缩放倍数。</p>
-<p>示例：<code>tranform:scale(3)</code>,表示放大3倍</p>
-<p>也可以 <code>transform-origin</code>属性表示从哪个点开始放大，默认中心点</p>
-<h2 id="斜切变形"><a href="#斜切变形" class="headerlink" title="斜切变形"></a>斜切变形</h2><p>将<code>tranform</code>属性的属性值设置为skew(),即可实现斜切变形，括号里面是两个数值，一个x斜切度，一个y斜切度,单位deg</p>
-<p>示例：<code>tranform:skew(10deg,20deg)</code>,</p>
-<h2 id="位移变形"><a href="#位移变形" class="headerlink" title="位移变形"></a>位移变形</h2><p>将<code>tranform</code>属性的属性值设置为translate(),即可实现位移变形，括号里面是两个数值，向右，向下两个方向,单位px。</p>
-<p>和相对定位差不多，不会放弃自己原来的位置，兼容到IE9</p>
-<p>示例:<code>transform:translate(100px,200px)</code></p>
-<h1 id="3D变形"><a href="#3D变形" class="headerlink" title="3D变形"></a>3D变形</h1><h2 id="3D旋转"><a href="#3D旋转" class="headerlink" title="3D旋转"></a>3D旋转</h2><p>将<code>transform</code>属性的属性值设置为<code>rotateX()</code>或者<code>rotateY()</code>,即可实现3D旋转。</p>
-<p><code>rotateX()</code>是绕横轴旋转，<code>rotateY()</code>是绕纵轴旋转，括号里面是度数,单位deg。</p>
-<p>perspective属性用来定义透视强度，可以理解为人眼到舞台的距离，单位是px，直白点说，设置3D旋转的父盒子必须设置perspective属性。</p>
-<p>3D旋转可以X，Y同时旋转，示例:<code>transform: rotateY(45deg) rotateX(45deg);</code></p>
-<h2 id="空间移动"><a href="#空间移动" class="headerlink" title="空间移动"></a>空间移动</h2><p>将<code>transform</code>属性的属性值设置为<code>rotateX()</code>或者<code>rotateY()</code>后成为3D旋转后可继续添加translateX、translateY或者translateZ实现空间移动，换句话说，想实现空间移动，必须3旋转后才可以，空间移动单位为px。</p>
-<p>示例：<code>transform: rotateY(128deg) rotateX(52deg) translateY(50px) translateZ(50px);</code></p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>代码示例：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;X-UA-Compatible&quot;</span> <span class="attr">content</span>=<span class="string">&quot;IE=edge&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">      * &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">padding</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">margin</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.box</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">width</span>: <span class="number">100px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">height</span>: <span class="number">100px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">background-color</span>: aqua;</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="comment">/* 透视强度 */</span></span></span><br><span class="line"><span class="css">      <span class="selector-class">.per</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">width</span>: <span class="number">100px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">height</span>: <span class="number">100px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">perspective</span>: <span class="number">179px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">margin</span>: <span class="number">10px</span> auto;</span></span><br><span class="line"><span class="css">        <span class="attribute">border</span>: <span class="number">1px</span> solid black;</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="comment">/* 旋转 */</span></span></span><br><span class="line"><span class="css">      <span class="selector-class">.box1</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">margin</span>: <span class="number">10px</span> auto;</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.box1</span><span class="selector-pseudo">:hover</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">transform</span>: <span class="built_in">rotate</span>(<span class="number">45deg</span>);</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="comment">/* 缩放 */</span></span></span><br><span class="line"><span class="css">      <span class="selector-class">.box2</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">margin</span>: <span class="number">10px</span> auto;</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.box2</span><span class="selector-pseudo">:hover</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">transform</span>: <span class="built_in">scale</span>(<span class="number">2</span>);</span></span><br><span class="line"><span class="css">        <span class="comment">/* 中心点 */</span></span></span><br><span class="line"><span class="css">        <span class="comment">/* transform-origin: 0 0; */</span></span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="comment">/* 斜切 */</span></span></span><br><span class="line"><span class="css">      <span class="selector-class">.box3</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">margin</span>: <span class="number">10px</span> auto;</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.box3</span><span class="selector-pseudo">:hover</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">transform</span>: <span class="built_in">skew</span>(<span class="number">10deg</span>, <span class="number">20deg</span>);</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="comment">/* 位移 */</span></span></span><br><span class="line"><span class="css">      <span class="selector-class">.box4</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">margin</span>: <span class="number">10px</span> auto;</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.box4</span><span class="selector-pseudo">:hover</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">transform</span>: <span class="built_in">translate</span>(<span class="number">100px</span>, <span class="number">200px</span>);</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="comment">/* 3D旋转 */</span></span></span><br><span class="line"><span class="css">      <span class="selector-class">.box5</span><span class="selector-pseudo">:hover</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">transform</span>: <span class="built_in">rotateY</span>(<span class="number">45deg</span>) <span class="built_in">rotateX</span>(<span class="number">45deg</span>);</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="comment">/* 空间移动 */</span></span></span><br><span class="line"><span class="css">      <span class="selector-class">.box6</span><span class="selector-pseudo">:hover</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">transform</span>: <span class="built_in">rotateY</span>(<span class="number">128deg</span>) <span class="built_in">rotateX</span>(<span class="number">52deg</span>) <span class="built_in">translateY</span>(<span class="number">50px</span>)</span></span><br><span class="line"><span class="css">          <span class="built_in">translateZ</span>(<span class="number">50px</span>);</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box1 box&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box2 box&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box3 box&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box4 box&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;per&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box5 box&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;per&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box6 box&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>CSS</category>
-      </categories>
-  </entry>
-  <entry>
     <title>CSS圆角和边框、盒阴影</title>
     <url>/article/a00aca70.html</url>
     <content><![CDATA[<p>本文主要介绍CSS的边框属性，圆角和盒子阴影。</p>
@@ -656,86 +736,6 @@
       </categories>
   </entry>
   <entry>
-    <title>CSS3的过渡与动画</title>
-    <url>/article/c2010641.html</url>
-    <content><![CDATA[<p>本文主要介绍CSS3里面的过渡与动画属性。</p>
-<h1 id="过渡"><a href="#过渡" class="headerlink" title="过渡"></a>过渡</h1><p>过渡属性使用transition，可以为一个元素在不同样式之间变化自动添加“补间动画”。</p>
-<p>主要有四要素：过渡属性，动画总时长，变化速度曲线，延迟时间</p>
-<p>兼容到IE10</p>
-<p>示例：<code>transition:width 1s linear 0s</code></p>
-<p>哪些属性可以被过渡：</p>
-<ul>
-<li>所有数值类型的属性都可以过渡，英文属性值不可以，比如浮动</li>
-<li>背景颜色和文字颜色都可以过渡</li>
-<li>所有变形（2D和3D）都可以过渡</li>
-</ul>
-<p>过渡的四个小属性：</p>
-<table>
-<thead>
-<tr>
-<th align="center">属性</th>
-<th align="center">意义</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">transition-property</td>
-<td align="center">哪些属性要过渡</td>
-</tr>
-<tr>
-<td align="center">transition-duration</td>
-<td align="center">动画时间</td>
-</tr>
-<tr>
-<td align="center">transition-timing-function</td>
-<td align="center">动画变化曲线</td>
-</tr>
-<tr>
-<td align="center">transition-delay</td>
-<td align="center">延迟时间</td>
-</tr>
-</tbody></table>
-<p>缓动效果：</p>
-<p>linear 是平缓过渡，也就是变化的速度曲线，除了linear 外还有以下几种</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211026125546.png"></p>
-<p>除了以上设置方法外，还可以自定义设置过渡速度曲线，即贝塞尔曲线。</p>
-<p>通过网站 <a href="https://cubic-bezier.com/">https://cubic-bezier.com</a> 可以生成贝塞尔曲线，示例：<code>transition:width 1s cubic-bezier(.17,.67,.52,.28) 0s</code> </p>
-<h2 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;X-UA-Compatible&quot;</span> <span class="attr">content</span>=<span class="string">&quot;IE=edge&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">      * &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">padding</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">margin</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="comment">/* 过渡 width，*/</span></span></span><br><span class="line"><span class="css">      <span class="selector-class">.box</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">height</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">width</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">background-color</span>: aqua;</span></span><br><span class="line"><span class="css">        <span class="attribute">transition</span>: width <span class="number">1s</span> linear <span class="number">0s</span>;</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.box</span><span class="selector-pseudo">:hover</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">width</span>: <span class="number">1000px</span>;</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.box1</span> <span class="selector-tag">p</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">position</span>: relative;</span></span><br><span class="line"><span class="css">        <span class="attribute">left</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">width</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">height</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">background-color</span>: yellow;</span></span><br><span class="line"><span class="css">        <span class="attribute">transition</span>: left <span class="number">1s</span> linear <span class="number">0s</span>;</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.box1</span><span class="selector-pseudo">:hover</span> <span class="selector-tag">p</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">left</span>: <span class="number">1000px</span>;</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.box2</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">width</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">height</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">background-color</span>: yellow;</span></span><br><span class="line"><span class="css">        <span class="attribute">transition</span>: background-color <span class="number">1s</span> linear <span class="number">0s</span>;</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.box2</span><span class="selector-pseudo">:hover</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">background-color</span>: red;</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.box3</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">width</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">height</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">background-color</span>: yellow;</span></span><br><span class="line"><span class="css">        <span class="attribute">border-radius</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">transition</span>: all <span class="number">1s</span> linear <span class="number">0s</span>;</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.box3</span><span class="selector-pseudo">:hover</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">border-radius</span>: <span class="number">50%</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">background-color</span>: red;</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.box4</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">width</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">height</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">background-color</span>: blue;</span></span><br><span class="line"><span class="css">        <span class="attribute">transition</span>: transform <span class="number">1s</span> linear <span class="number">0s</span>;</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.box4</span><span class="selector-pseudo">:hover</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">transform</span>: <span class="built_in">scale</span>(<span class="number">1.2</span>) <span class="built_in">rotate</span>(<span class="number">360deg</span>);</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.box5</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">width</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">height</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">perspective</span>: <span class="number">300px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">border</span>: <span class="number">1px</span> solid black;</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.box5</span> <span class="selector-tag">p</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">width</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">height</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">background-color</span>: aquamarine;</span></span><br><span class="line"><span class="css">        <span class="attribute">transition</span>: transform <span class="number">1s</span> linear <span class="number">0s</span>;</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.box5</span><span class="selector-pseudo">:hover</span> <span class="selector-tag">p</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">transform</span>: <span class="built_in">rotateX</span>(<span class="number">360deg</span>) <span class="built_in">rotateY</span>(<span class="number">360deg</span>);</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box1&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box2&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box3&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box4&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box5&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="一些案例"><a href="#一些案例" class="headerlink" title="一些案例"></a>一些案例</h2><p>演示地址: <a href="https://lsfcxz.gitee.io/transit">https://lsfcxz.gitee.io/transit</a></p>
-<p>效果图：</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211026182945.png"></p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211026214536.png"></p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211027092416.png"></p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211027092451.png"></p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211027092544.png"></p>
-<h1 id="动画"><a href="#动画" class="headerlink" title="动画"></a>动画</h1><p>动画效果可以理解为过渡的一种延续，过渡动画是需要触发条件才会形成过渡，并且是在一定时间内完成，而动画则可以自动完成，并且也可以设置无限运行。</p>
-<p><strong>定义动画：</strong></p>
-<p>定义动画使用 <code>@keyframes</code>关键字定义，test为动画的名称，调用动画时候使用，可以理解为就是一个方法名， from是开始状态，to是结束状态。</p>
-<p>示例：</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="keyword">@keyframes</span> test &#123;</span><br><span class="line">  <span class="selector-tag">from</span> &#123;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">rotateX</span>(<span class="number">0deg</span>) <span class="built_in">rotateY</span>(<span class="number">0deg</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="selector-tag">to</span> &#123;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">rotateX</span>(<span class="number">360deg</span>) <span class="built_in">rotateY</span>(<span class="number">360deg</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>动画定义还可以使用多关键帧，使用百分数。</p>
-<p>示例：</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="keyword">@keyframes</span> test &#123;</span><br><span class="line">  <span class="number">10%</span> &#123;</span><br><span class="line">    backgroud-<span class="attribute">color</span>:red;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="number">50%</span> &#123;</span><br><span class="line">    backgroud-<span class="attribute">color</span>:blue;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="number">100%</span>&#123;</span><br><span class="line">   backgroud-<span class="attribute">color</span>:yellow;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>调用动画:</p>
-<p>定义动画使用 <code>animation</code>关键字定义，test是动画名称，3s是总时长，linear是缓动效果，0s是延迟执行时间，第五个是，动画执行次数，如果想永久运行，则使用<code>infinite</code>，如果想让动画偶次数自动逆向执行，则使用<code>animation</code>参数作为第六个参数，如果想让动画停止在最后结束状态，那么则使用<code>forwards</code>参数。</p>
-<p>示例：</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="attribute">animation</span>: test <span class="number">3s</span> linear <span class="number">0s</span> infinite;</span><br></pre></td></tr></table></figure>
-
-<h2 id="一些案例-1"><a href="#一些案例-1" class="headerlink" title="一些案例"></a>一些案例</h2><p>演示地址： <a href="https://lsfcxz.gitee.io/transit">https://lsfcxz.gitee.io/transit</a></p>
-<p>效果图：</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211027120549.png"></p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211027120627.png"></p>
-]]></content>
-      <categories>
-        <category>CSS</category>
-      </categories>
-      <tags>
-        <tag>过渡与动画</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>CSS实现正方体</title>
     <url>/article/6ad90280.html</url>
     <content><![CDATA[<p>本文主要使用CSS实现一个正方体。</p>
@@ -751,6 +751,26 @@
 <p>效果：</p>
 <p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211025193759.png"></p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>CSS盒模型</title>
+    <url>/article/94a1bb4e.html</url>
+    <content><![CDATA[<p>本文介绍的是CSS的盒模型，CSS的盒模型分为W3C的标准模型和IE的怪异模型。</p>
+<p>W3C的盒模型：</p>
+<p>内容宽+左右内边距+左右边框 = 盒子<strong>实际</strong>宽度</p>
+<p>内容宽+左右内边距+左右边框+左右外边距= 盒子<strong>占用</strong>宽度</p>
+<p>高度同理，也就是设置的宽高就是内容可以使用的宽高，其他设置的值都是外扩的</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/2015-10-03-css-27.jpg"></p>
+<p>IE的怪异盒模型：</p>
+<p>IE盒模型虽然包含W3C的盒模型，但是它内容宽包含了内边距、边框和外边距，也就是说，设置的宽高不一定就是内容可以使用的宽高，它属于内缩的一种。</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/2015-10-03-css-30.jpg"></p>
+<p>当然我们可以通过以下属性灵活切换模型：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="attribute">box-sizing</span>: border-box;  // 设置为IE模型</span><br><span class="line"> 	<span class="attribute">box-sizing</span>: contetn-box; // 设置为标准模型</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>CSS</category>
+      </categories>
   </entry>
   <entry>
     <title>CSS浮动布局和定位</title>
@@ -832,20 +852,93 @@
       </categories>
   </entry>
   <entry>
-    <title>CSS盒模型</title>
-    <url>/article/94a1bb4e.html</url>
-    <content><![CDATA[<p>本文介绍的是CSS的盒模型，CSS的盒模型分为W3C的标准模型和IE的怪异模型。</p>
-<p>W3C的盒模型：</p>
-<p>内容宽+左右内边距+左右边框 = 盒子<strong>实际</strong>宽度</p>
-<p>内容宽+左右内边距+左右边框+左右外边距= 盒子<strong>占用</strong>宽度</p>
-<p>高度同理，也就是设置的宽高就是内容可以使用的宽高，其他设置的值都是外扩的</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/2015-10-03-css-27.jpg"></p>
-<p>IE的怪异盒模型：</p>
-<p>IE盒模型虽然包含W3C的盒模型，但是它内容宽包含了内边距、边框和外边距，也就是说，设置的宽高不一定就是内容可以使用的宽高，它属于内缩的一种。</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/2015-10-03-css-30.jpg"></p>
-<p>当然我们可以通过以下属性灵活切换模型：</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="attribute">box-sizing</span>: border-box;  // 设置为IE模型</span><br><span class="line"> 	<span class="attribute">box-sizing</span>: contetn-box; // 设置为标准模型</span><br></pre></td></tr></table></figure>
+    <title>CSS背景属性</title>
+    <url>/article/9f33a331.html</url>
+    <content><![CDATA[<p>本文章主要介绍CSS3的背景属性。</p>
+<h1 id="背景颜色-background-color"><a href="#背景颜色-background-color" class="headerlink" title="背景颜色(background-color)"></a>背景颜色(background-color)</h1><ul>
+<li>padding区域是有背景颜色</li>
+<li>支持英文、十六进制、rgb()、rgba()等表示法</li>
+</ul>
+<h1 id="背景图片（-background-image）"><a href="#背景图片（-background-image）" class="headerlink" title="背景图片（ background-image）"></a>背景图片（ background-image）</h1><ul>
+<li>背景图片默认纵轴横轴重复</li>
+</ul>
+<p><strong>重复模式</strong>：</p>
+<p>background-repeat属性可以改变背景图片的重复模式</p>
+<table>
+<thead>
+<tr>
+<th align="center">值</th>
+<th align="center">意义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">repeat</td>
+<td align="center">x,y均平铺</td>
+</tr>
+<tr>
+<td align="center">repeat-x</td>
+<td align="center">x,重复</td>
+</tr>
+<tr>
+<td align="center">repeat-y</td>
+<td align="center">y重复</td>
+</tr>
+<tr>
+<td align="center">no-repeat</td>
+<td align="center">不重复</td>
+</tr>
+</tbody></table>
+<p><strong>背景图片尺寸</strong>：</p>
+<ul>
+<li>background-size用来设置图片的尺寸。</li>
+<li>contain表示图片尺寸以容纳到盒子里，完整显示，有白边</li>
+<li>cover表示将背景图片尺寸以撑满盒子，不完整显示</li>
+</ul>
+<p><strong>背景裁剪</strong>：</p>
+<p>background-clip用来设置裁剪，背景是会覆盖到盒子边框的，使用该属性可以控制盒子背景裁剪到哪个地方</p>
+<p><strong>背景定位</strong>：</p>
+<p>background-attachment用来设置背景的定位。</p>
+<table>
+<thead>
+<tr>
+<th align="center">值</th>
+<th align="center">意义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">fixed</td>
+<td align="center">自己滚动条不动，外部滚动条不动</td>
+</tr>
+<tr>
+<td align="center">local</td>
+<td align="center">自己滚动条动，外部滚动条动</td>
+</tr>
+<tr>
+<td align="center">scroll</td>
+<td align="center">自己滚动条不动，外部滚动条动（默认）</td>
+</tr>
+</tbody></table>
+<p><strong>背景位置</strong>：</p>
+<p> background-position用来设置背景图片的起点位置。</p>
+<p>示例：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="attribute">background-position</span>:<span class="number">100px</span> <span class="number">200px</span>;</span><br></pre></td></tr></table></figure>
 
+<p>设置盒子横轴100px，纵轴200px，还可以使用四个方向的英文进行表示，CSS精灵</p>
+<p><strong>线性渐变</strong>：</p>
+<p>它是ackground-image的属性值，线型的</p>
+<p>示例：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="attribute">background-image</span>:<span class="built_in">linear-gradient</span>(to right, red,blue)</span><br></pre></td></tr></table></figure>
+
+<p>位置也可以是角度，单位deg，也可以使用百分号设置出现的位置</p>
+<p><strong>径向渐变</strong>：</p>
+<p>radial-gradient属性值</p>
+<p>background-image属性可以使用radial-gradient()创建渐性渐变</p>
+<p>示例</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="attribute">background-image</span>:<span class="built_in">radial-gradient</span>(<span class="number">50%</span> <span class="number">50%</span>,blue,red)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>50% 50%表示圆心坐标，blue表示内部颜色，red表示外部颜</li>
+</ul>
 ]]></content>
       <categories>
         <category>CSS</category>
@@ -954,99 +1047,6 @@
       <tags>
         <tag>面试题</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>CSS背景属性</title>
-    <url>/article/9f33a331.html</url>
-    <content><![CDATA[<p>本文章主要介绍CSS3的背景属性。</p>
-<h1 id="背景颜色-background-color"><a href="#背景颜色-background-color" class="headerlink" title="背景颜色(background-color)"></a>背景颜色(background-color)</h1><ul>
-<li>padding区域是有背景颜色</li>
-<li>支持英文、十六进制、rgb()、rgba()等表示法</li>
-</ul>
-<h1 id="背景图片（-background-image）"><a href="#背景图片（-background-image）" class="headerlink" title="背景图片（ background-image）"></a>背景图片（ background-image）</h1><ul>
-<li>背景图片默认纵轴横轴重复</li>
-</ul>
-<p><strong>重复模式</strong>：</p>
-<p>background-repeat属性可以改变背景图片的重复模式</p>
-<table>
-<thead>
-<tr>
-<th align="center">值</th>
-<th align="center">意义</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">repeat</td>
-<td align="center">x,y均平铺</td>
-</tr>
-<tr>
-<td align="center">repeat-x</td>
-<td align="center">x,重复</td>
-</tr>
-<tr>
-<td align="center">repeat-y</td>
-<td align="center">y重复</td>
-</tr>
-<tr>
-<td align="center">no-repeat</td>
-<td align="center">不重复</td>
-</tr>
-</tbody></table>
-<p><strong>背景图片尺寸</strong>：</p>
-<ul>
-<li>background-size用来设置图片的尺寸。</li>
-<li>contain表示图片尺寸以容纳到盒子里，完整显示，有白边</li>
-<li>cover表示将背景图片尺寸以撑满盒子，不完整显示</li>
-</ul>
-<p><strong>背景裁剪</strong>：</p>
-<p>background-clip用来设置裁剪，背景是会覆盖到盒子边框的，使用该属性可以控制盒子背景裁剪到哪个地方</p>
-<p><strong>背景定位</strong>：</p>
-<p>background-attachment用来设置背景的定位。</p>
-<table>
-<thead>
-<tr>
-<th align="center">值</th>
-<th align="center">意义</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">fixed</td>
-<td align="center">自己滚动条不动，外部滚动条不动</td>
-</tr>
-<tr>
-<td align="center">local</td>
-<td align="center">自己滚动条动，外部滚动条动</td>
-</tr>
-<tr>
-<td align="center">scroll</td>
-<td align="center">自己滚动条不动，外部滚动条动（默认）</td>
-</tr>
-</tbody></table>
-<p><strong>背景位置</strong>：</p>
-<p> background-position用来设置背景图片的起点位置。</p>
-<p>示例：</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="attribute">background-position</span>:<span class="number">100px</span> <span class="number">200px</span>;</span><br></pre></td></tr></table></figure>
-
-<p>设置盒子横轴100px，纵轴200px，还可以使用四个方向的英文进行表示，CSS精灵</p>
-<p><strong>线性渐变</strong>：</p>
-<p>它是ackground-image的属性值，线型的</p>
-<p>示例：</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="attribute">background-image</span>:<span class="built_in">linear-gradient</span>(to right, red,blue)</span><br></pre></td></tr></table></figure>
-
-<p>位置也可以是角度，单位deg，也可以使用百分号设置出现的位置</p>
-<p><strong>径向渐变</strong>：</p>
-<p>radial-gradient属性值</p>
-<p>background-image属性可以使用radial-gradient()创建渐性渐变</p>
-<p>示例</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="attribute">background-image</span>:<span class="built_in">radial-gradient</span>(<span class="number">50%</span> <span class="number">50%</span>,blue,red)</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>50% 50%表示圆心坐标，blue表示内部颜色，red表示外部颜</li>
-</ul>
-]]></content>
-      <categories>
-        <category>CSS</category>
-      </categories>
   </entry>
   <entry>
     <title>HTML5文档</title>
@@ -1415,6 +1415,18 @@
       </categories>
   </entry>
   <entry>
+    <title>JavaScript的二维数组</title>
+    <url>/article/7f0bfd33.html</url>
+    <content><![CDATA[<p>本文主要介绍JavaScript的二维数组。</p>
+<h1 id="什么是二维数组？"><a href="#什么是二维数组？" class="headerlink" title="什么是二维数组？"></a>什么是二维数组？</h1><p>以数组作为数组元素的数组，即“数组中的数组”，eg: <code>var arr = [[12,,15,36],[56,98,45]]</code></p>
+<h1 id="如何遍历数组？"><a href="#如何遍历数组？" class="headerlink" title="如何遍历数组？"></a>如何遍历数组？</h1><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [</span><br><span class="line">    		[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],</span><br><span class="line">    		[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>],</span><br><span class="line">          	[<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>],</span><br><span class="line">    		[<span class="number">10</span>,<span class="number">11</span>,<span class="number">12</span>]</span><br><span class="line">          ]</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>;i&lt;arr.lenght;i++)&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> j = <span class="number">0</span>; j&lt;<span class="number">3</span>;j++)&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(arr[i][j])</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>javascript</category>
+      </categories>
+  </entry>
+  <entry>
     <title>JavaScript数组相关算法</title>
     <url>/article/d514bee5.html</url>
     <content><![CDATA[<p>本文主要介绍数组相关的算法题目。</p>
@@ -1431,36 +1443,45 @@
 
 
 ]]></content>
+      <categories>
+        <category>javascript</category>
+      </categories>
       <tags>
         <tag>算法</tag>
       </tags>
   </entry>
   <entry>
-    <title>JavaScript的arguments</title>
-    <url>/article/a9f31fe4.html</url>
-    <content><![CDATA[<p>本文主要介绍javascript中的arguments类数组对象</p>
-<p><strong><code>arguments</code></strong> 是一个对应于传递给函数的参数的类数组对象。 —MDN</p>
-<p><code>arguments</code>对象不是一个 <code>Array</code>。它类似于<code>Array</code>，但除了length属性和索引元素之外没有任何<code>Array</code>属性。</p>
-<p>示例：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">   <span class="built_in">arguments</span>.lenght<span class="comment">//5</span></span><br><span class="line">&#125;</span><br><span class="line">fun(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
-
-<p>关于arguments类数组还有许多可以研究的，比如arguments是对象，而对象是没有长度属性，arguments在ES6中的箭头函数是无法使用的等等，这里只做记录，以后更新。</p>
+    <title>JavaScript基础知识总结</title>
+    <url>/article/f32bf739.html</url>
+    <content><![CDATA[<p>本文主要总结近段时间以来的JavaScript的基础知识。</p>
+<h1 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h1><p>JS再ES5中使用var定义变量，在ES6中新增了let和const。</p>
+<p>var的变量可以是任何数据类型，这点是区别Java或者C等强类型语言的。</p>
+<p>使用var变量会存在变量声明提升问题，变量的提升会提升到当前的作用域，只提升变量不会提升值。</p>
+<p>需要注意的是，除了函数和函数参数属于局部变量，使用var定义的变量都属于全局变量。</p>
+<h1 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h1><h1 id="表达式和运算符"><a href="#表达式和运算符" class="headerlink" title="表达式和运算符"></a>表达式和运算符</h1><h1 id="逻辑判断和循环语句"><a href="#逻辑判断和循环语句" class="headerlink" title="逻辑判断和循环语句"></a>逻辑判断和循环语句</h1><p>if:</p>
+<p>if..else..</p>
+<p>for：</p>
+<p>while：</p>
+<p>do…while</p>
+<h1 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h1><p>定义数组：</p>
+<p>数组方法：</p>
+<p>二维数组：</p>
+<h1 id="深拷贝和浅拷贝"><a href="#深拷贝和浅拷贝" class="headerlink" title="深拷贝和浅拷贝"></a>深拷贝和浅拷贝</h1><p>这里需要知道基本数据类型和引用数据类型：</p>
+<p>基本数据类型:会存放在一个内存地址中，我们把变量赋值给另外一个，则相当于开辟了新空间，这两个变量是不会影响的</p>
+<p>引用数据类型：</p>
+<p>浅拷贝：</p>
+<p>深拷贝：递归</p>
+<h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><p>函数就像一个工厂，通过传入参数，最终计算过后的结果。</p>
+<p>函数也存在声明提升现象，并且优先于变量提升，函数提升可以调用一个后声明的函数，而不会引发错误，但是如果赋值给一个变量，则是变量声明提升规则，函数不会被提升。</p>
+<p>立即执行函数：</p>
+<p>闭包：</p>
 ]]></content>
       <categories>
         <category>javascript</category>
       </categories>
-  </entry>
-  <entry>
-    <title>JavaScript的二维数组</title>
-    <url>/article/7f0bfd33.html</url>
-    <content><![CDATA[<p>本文主要介绍JavaScript的二维数组。</p>
-<h1 id="什么是二维数组？"><a href="#什么是二维数组？" class="headerlink" title="什么是二维数组？"></a>什么是二维数组？</h1><p>以数组作为数组元素的数组，即“数组中的数组”，eg: <code>var arr = [[12,,15,36],[56,98,45]]</code></p>
-<h1 id="如何遍历数组？"><a href="#如何遍历数组？" class="headerlink" title="如何遍历数组？"></a>如何遍历数组？</h1><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [</span><br><span class="line">    		[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],</span><br><span class="line">    		[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>],</span><br><span class="line">          	[<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>],</span><br><span class="line">    		[<span class="number">10</span>,<span class="number">11</span>,<span class="number">12</span>]</span><br><span class="line">          ]</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>;i&lt;arr.lenght;i++)&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> j = <span class="number">0</span>; j&lt;<span class="number">3</span>;j++)&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(arr[i][j])</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>javascript</category>
-      </categories>
+      <tags>
+        <tag>总结</tag>
+      </tags>
   </entry>
   <entry>
     <title>JavaScript的全局变量和局部变量</title>
@@ -1515,6 +1536,21 @@
       </categories>
   </entry>
   <entry>
+    <title>JavaScript的arguments</title>
+    <url>/article/a9f31fe4.html</url>
+    <content><![CDATA[<p>本文主要介绍javascript中的arguments类数组对象</p>
+<p><strong><code>arguments</code></strong> 是一个对应于传递给函数的参数的类数组对象。 —MDN</p>
+<p><code>arguments</code>对象不是一个 <code>Array</code>。它类似于<code>Array</code>，但除了length属性和索引元素之外没有任何<code>Array</code>属性。</p>
+<p>示例：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">   <span class="built_in">arguments</span>.lenght<span class="comment">//5</span></span><br><span class="line">&#125;</span><br><span class="line">fun(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
+
+<p>关于arguments类数组还有许多可以研究的，比如arguments是对象，而对象是没有长度属性，arguments在ES6中的箭头函数是无法使用的等等，这里只做记录，以后更新。</p>
+]]></content>
+      <categories>
+        <category>javascript</category>
+      </categories>
+  </entry>
+  <entry>
     <title>JavaScript的冒泡排序</title>
     <url>/article/9e8798c2.html</url>
     <content><![CDATA[<p>本文主要介绍算法排序之一的冒泡排序</p>
@@ -1533,6 +1569,32 @@
       <tags>
         <tag>算法</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>JavaScript的函数优先提升</title>
+    <url>/article/c7b5ade2.html</url>
+    <content><![CDATA[<p>本文主要记录JavaScript的函数优先提升特性</p>
+<p>我们知道在JS中，有一个预先解析阶段，在这个阶段内会去先看所有的变量，然后提升到前面，但是只是提升变量，并没有提升值，例如以下：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">//undefine</span></span><br><span class="line"><span class="keyword">var</span> a = <span class="number">3</span>;</span><br></pre></td></tr></table></figure>
+
+<p>而在函数中，也存在提升的现象，我们可以调用一个等会声明的函数，这里不会报错</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">fun();</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  onsole.log(<span class="string">&#x27;this is function&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>但是如果我们使用匿名函数，即赋值给变量 ，则使用的是变量声明提升的规则，后面的函数是不会被提升的</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">fun(); <span class="comment">//this is not function</span></span><br><span class="line"><span class="keyword">var</span> fun = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  onsole.log(<span class="string">&#x27;this is function&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>再看以下例子：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">fun(); <span class="comment">//2</span></span><br><span class="line"><span class="keyword">var</span> fun = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">   <span class="built_in">console</span>.log(<span class="string">&#x27;1&#x27;</span>);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">   <span class="built_in">console</span>.log(<span class="string">&#x27;2&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line">fun();<span class="comment">//1</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在预解析阶段：根据函数提升和变量提升，<code>function fun()</code>和<code>var fun</code>都会被提升到前面，<strong>函数会优先被提升</strong>，变量则后提升，虽然这里同名，但是<strong>变量的提升不会覆盖函数的声明提升</strong></li>
+<li>在执行阶段，第一个<code>fun()</code>是去执行一个函数，前面有函数的当然是<code>function fun()</code>,所以这里输出2。在预解析阶段提升了<code>var fun</code>,执行到第二条语句的时候，则给它赋值，这样<code>var fun</code>就是一个函数了，而在第二个函数体被提升后就不会再覆盖回来，相反，现在是被var fun覆盖，所以最后调用的输出结果是1</li>
+</ul>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211108104444.png"></p>
+]]></content>
+      <categories>
+        <category>javascript</category>
+      </categories>
   </entry>
   <entry>
     <title>JavaScript的判断和循环语句</title>
@@ -1603,55 +1665,6 @@
 <p>break主要是<strong>终止</strong>整个或者这一层的循环，continue是<strong>跳过这次</strong>循环，开始下一次的循环</p>
 <p>continue <strong>只能在循环语句中使用</strong>，即只能在 for、while 和 do…while 语句中使用。</p>
 <p>break<strong>只能在循环体内和switch语句体内使用</strong></p>
-]]></content>
-      <categories>
-        <category>javascript</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>JavaScript的基本数据类型和引用数据类型</title>
-    <url>/article/a509b562.html</url>
-    <content><![CDATA[<p>本文主要记录JavaScript的基本数据类型和引用数据类型的不同</p>
-<p>先看个例子：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">5</span>;</span><br><span class="line"><span class="keyword">var</span> b = a;</span><br><span class="line">a++;</span><br><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">//6</span></span><br><span class="line"><span class="built_in">console</span>.log(b); <span class="comment">//5</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">var</span> arr2 = arr;</span><br><span class="line">arr.push(<span class="number">4</span>);</span><br><span class="line"><span class="built_in">console</span>.log(arr); <span class="comment">//[1, 2, 3,4]</span></span><br><span class="line"><span class="built_in">console</span>.log(arr2); <span class="comment">//[1, 2, 3,4]</span></span><br></pre></td></tr></table></figure>
-
-<p>可以看出这是变量赋值给另外一个变量，自身的改变不会影响到其他，这是因为变量存放在内存地址中，赋值给另外变量，即申请了另外的内存空间，所以一个变量改变并不会影响另外一个，而数组是引用类型，申明一个数组相当于在内存申请了一块空间，也就是堆内存，当我们把这个数组赋值给另外一个数组变量，其实只是把这个变量的指针指向了同一个内存空间，即两个变量数组公用一个空间，所以，一个改变即同时改变。</p>
-<p>在看个例子：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> numarr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">var</span> numarr1 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="built_in">console</span>.log(numarr == numarr1); <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(numarr === numarr1); <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log([] == []); <span class="comment">//false</span></span><br><span class="line"><span class="keyword">var</span> num = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">var</span> num1 = <span class="number">1</span>;</span><br><span class="line"><span class="built_in">console</span>.log(num == num1); <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
-
-<p>可以看出数组相同，即使两两比对也是false，这是因为引用类型对比的是内存地址</p>
-<p>如果像比较两个数组是否相同，可以先转字符串比较。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> numarr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">var</span> numarr1 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="built_in">console</span>.log(numarr.toString() == numarr1.toString()); <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(numarr.toString());<span class="comment">//1,2,3</span></span><br><span class="line"><span class="built_in">console</span>.log(numarr1.toString());<span class="comment">//1,2,3</span></span><br></pre></td></tr></table></figure>
-
-<p>顺序不一样的对比：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> numarr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">var</span> numarr1 = [<span class="number">1</span>, <span class="number">3</span>, <span class="number">2</span>];</span><br><span class="line"><span class="built_in">console</span>.log(numarr.sort().toString() == numarr1.sort().toString()); <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(numarr.sort().toString());</span><br><span class="line"><span class="built_in">console</span>.log(numarr.sort().toString());</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>javascript</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>JavaScript的函数优先提升</title>
-    <url>/article/c7b5ade2.html</url>
-    <content><![CDATA[<p>本文主要记录JavaScript的函数优先提升特性</p>
-<p>我们知道在JS中，有一个预先解析阶段，在这个阶段内会去先看所有的变量，然后提升到前面，但是只是提升变量，并没有提升值，例如以下：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">//undefine</span></span><br><span class="line"><span class="keyword">var</span> a = <span class="number">3</span>;</span><br></pre></td></tr></table></figure>
-
-<p>而在函数中，也存在提升的现象，我们可以调用一个等会声明的函数，这里不会报错</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">fun();</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  onsole.log(<span class="string">&#x27;this is function&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>但是如果我们使用匿名函数，即赋值给变量 ，则使用的是变量声明提升的规则，后面的函数是不会被提升的</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">fun(); <span class="comment">//this is not function</span></span><br><span class="line"><span class="keyword">var</span> fun = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  onsole.log(<span class="string">&#x27;this is function&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>再看以下例子：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">fun(); <span class="comment">//2</span></span><br><span class="line"><span class="keyword">var</span> fun = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">   <span class="built_in">console</span>.log(<span class="string">&#x27;1&#x27;</span>);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">   <span class="built_in">console</span>.log(<span class="string">&#x27;2&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line">fun();<span class="comment">//1</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>在预解析阶段：根据函数提升和变量提升，<code>function fun()</code>和<code>var fun</code>都会被提升到前面，<strong>函数会优先被提升</strong>，变量则后提升，虽然这里同名，但是<strong>变量的提升不会覆盖函数的声明提升</strong></li>
-<li>在执行阶段，第一个<code>fun()</code>是去执行一个函数，前面有函数的当然是<code>function fun()</code>,所以这里输出2。在预解析阶段提升了<code>var fun</code>,执行到第二条语句的时候，则给它赋值，这样<code>var fun</code>就是一个函数了，而在第二个函数体被提升后就不会再覆盖回来，相反，现在是被var fun覆盖，所以最后调用的输出结果是1</li>
-</ul>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211108104444.png"></p>
 ]]></content>
       <categories>
         <category>javascript</category>
@@ -1754,22 +1767,27 @@
       </tags>
   </entry>
   <entry>
-    <title>JavaScript的深克隆和浅克隆</title>
-    <url>/article/b9182662.html</url>
-    <content><![CDATA[<p>本文主要介绍引用数据类型的浅克隆和深克隆</p>
-<p>我们知道如果把数组赋值给另外数组的话，如果其中一个改变另外一个也受其影响，所以我们就需要克隆或者说拷贝一份相同的引用类型数据，不让它们相互之间影响。</p>
-<h1 id="浅克隆"><a href="#浅克隆" class="headerlink" title="浅克隆"></a>浅克隆</h1><p>浅克隆是指只克隆数组第一层，如果是多为数组，或者数组中的项是其他引用数据类型，则不克隆其他层</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]</span><br><span class="line"><span class="keyword">var</span> result = []</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i  = <span class="number">0</span>; i &lt;arr.lenght;i++)&#123;</span><br><span class="line">    result.push(arr[i])</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    <title>JavaScript的基本数据类型和引用数据类型</title>
+    <url>/article/a509b562.html</url>
+    <content><![CDATA[<p>本文主要记录JavaScript的基本数据类型和引用数据类型的不同</p>
+<p>先看个例子：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">5</span>;</span><br><span class="line"><span class="keyword">var</span> b = a;</span><br><span class="line">a++;</span><br><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">//6</span></span><br><span class="line"><span class="built_in">console</span>.log(b); <span class="comment">//5</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">var</span> arr2 = arr;</span><br><span class="line">arr.push(<span class="number">4</span>);</span><br><span class="line"><span class="built_in">console</span>.log(arr); <span class="comment">//[1, 2, 3,4]</span></span><br><span class="line"><span class="built_in">console</span>.log(arr2); <span class="comment">//[1, 2, 3,4]</span></span><br></pre></td></tr></table></figure>
 
-<h1 id="深克隆"><a href="#深克隆" class="headerlink" title="深克隆"></a>深克隆</h1><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]];</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">deepclone</span>(<span class="params">arr</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> result = [];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>;i&lt;arr.lenght;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">Array</span>.isArray(arr[i]))&#123;</span><br><span class="line">            <span class="comment">//递归</span></span><br><span class="line">            result.push(deepclone(arr[i]))</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            result.push(arr[i])</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> arr2 = deepclone(arr)</span><br><span class="line"><span class="built_in">console</span>.log(arr2)</span><br></pre></td></tr></table></figure>
+<p>可以看出这是变量赋值给另外一个变量，自身的改变不会影响到其他，这是因为变量存放在内存地址中，赋值给另外变量，即申请了另外的内存空间，所以一个变量改变并不会影响另外一个，而数组是引用类型，申明一个数组相当于在内存申请了一块空间，也就是堆内存，当我们把这个数组赋值给另外一个数组变量，其实只是把这个变量的指针指向了同一个内存空间，即两个变量数组公用一个空间，所以，一个改变即同时改变。</p>
+<p>在看个例子：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> numarr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">var</span> numarr1 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="built_in">console</span>.log(numarr == numarr1); <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(numarr === numarr1); <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log([] == []); <span class="comment">//false</span></span><br><span class="line"><span class="keyword">var</span> num = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">var</span> num1 = <span class="number">1</span>;</span><br><span class="line"><span class="built_in">console</span>.log(num == num1); <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+
+<p>可以看出数组相同，即使两两比对也是false，这是因为引用类型对比的是内存地址</p>
+<p>如果像比较两个数组是否相同，可以先转字符串比较。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> numarr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">var</span> numarr1 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="built_in">console</span>.log(numarr.toString() == numarr1.toString()); <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(numarr.toString());<span class="comment">//1,2,3</span></span><br><span class="line"><span class="built_in">console</span>.log(numarr1.toString());<span class="comment">//1,2,3</span></span><br></pre></td></tr></table></figure>
+
+<p>顺序不一样的对比：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> numarr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">var</span> numarr1 = [<span class="number">1</span>, <span class="number">3</span>, <span class="number">2</span>];</span><br><span class="line"><span class="built_in">console</span>.log(numarr.sort().toString() == numarr1.sort().toString()); <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(numarr.sort().toString());</span><br><span class="line"><span class="built_in">console</span>.log(numarr.sort().toString());</span><br></pre></td></tr></table></figure>
 
 ]]></content>
       <categories>
         <category>javascript</category>
       </categories>
-      <tags>
-        <tag>深克隆和浅克隆</tag>
-      </tags>
   </entry>
   <entry>
     <title>JavaScript的数组</title>
@@ -1904,6 +1922,59 @@
       <categories>
         <category>javascript</category>
       </categories>
+  </entry>
+  <entry>
+    <title>JavaScript的深克隆和浅克隆</title>
+    <url>/article/b9182662.html</url>
+    <content><![CDATA[<p>本文主要介绍引用数据类型的浅克隆和深克隆</p>
+<p>我们知道如果把数组赋值给另外数组的话，如果其中一个改变另外一个也受其影响，所以我们就需要克隆或者说拷贝一份相同的引用类型数据，不让它们相互之间影响。</p>
+<h1 id="浅克隆"><a href="#浅克隆" class="headerlink" title="浅克隆"></a>浅克隆</h1><p>浅克隆是指只克隆数组第一层，如果是多为数组，或者数组中的项是其他引用数据类型，则不克隆其他层</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]</span><br><span class="line"><span class="keyword">var</span> result = []</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i  = <span class="number">0</span>; i &lt;arr.lenght;i++)&#123;</span><br><span class="line">    result.push(arr[i])</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="深克隆"><a href="#深克隆" class="headerlink" title="深克隆"></a>深克隆</h1><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]];</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">deepclone</span>(<span class="params">arr</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> result = [];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>;i&lt;arr.lenght;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">Array</span>.isArray(arr[i]))&#123;</span><br><span class="line">            <span class="comment">//递归</span></span><br><span class="line">            result.push(deepclone(arr[i]))</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            result.push(arr[i])</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> arr2 = deepclone(arr)</span><br><span class="line"><span class="built_in">console</span>.log(arr2)</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>javascript</category>
+      </categories>
+      <tags>
+        <tag>深克隆和浅克隆</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JavaScript的递归算法</title>
+    <url>/article/d5117ec1.html</url>
+    <content><![CDATA[<p>本文主要记录JavaScript的递归算法</p>
+<h1 id="什么是递归？"><a href="#什么是递归？" class="headerlink" title="什么是递归？"></a>什么是递归？</h1><p>函数的内部语句<strong>可以调用这个函数自身</strong>，从而<strong>发起对函数的一次迭代</strong>，在新的迭代中，又会执行调用函数自身的语句，从而又产生一次迭代，当函数执行到某一次时，不再执行新的迭代，函数被一层一层返回，函数被递归</p>
+<h1 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h1><p>下面是1+2+3+4和是多少的例子：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun</span> (<span class="params">num</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (num == <span class="number">1</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> num + fun(num-<span class="number">1</span>)</span><br><span class="line">&#125;</span><br><span class="line">fun(<span class="number">4</span>)</span><br></pre></td></tr></table></figure>
+
+<p>分析：</p>
+<p>首先我们来分析数据的走向：</p>
+<ul>
+<li>参数是4，判断条件不成立，即执行 <code>return num + fun(num-1)</code>语句，这里就调用了函数自身，num是4，<code>fun(num-1)</code>传入的参数是3，完成了第一次调用。</li>
+<li>这个3不等于1，再次执行<code>return num + fun(num-1)</code>语句，num是3，<code>fun(num-1)</code>传入的参数是2，完成了第二次调用。</li>
+<li>这个2不等于1，再次执行<code>return num + fun(num-1)</code>语句，num是2，<code>fun(num-1)</code>传入的参数是1,完成了第三次调用</li>
+<li>参数为1，判断条件成立，返回1。</li>
+</ul>
+<p>然后分析函数递归走向：</p>
+<ul>
+<li>第三次调用<code>fun(num-1</code>)返回的是1，num是2，相加就是3，返回的就是3</li>
+<li>第二次调用<code>fun(num-1</code>)返回的是3，也就是刚才返回过来的数值，num是3，相加就是6，返回的就是6</li>
+<li>第一次调用<code>fun(num-1</code>)返回的是6，也就是刚才返回过来的数值，num是4，相加就是10，返回的就是10</li>
+</ul>
+<p>这就是递归的思路，一层一层的调用，然后再一层一层返回，递归不能无消止的调用，其中是有一个条件不断趋向于等于这个判断，这个判断成立之后返回一个东西，然后函数就会一层一层递归出去。</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/digui.jpg"></p>
+<h1 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h1><p>递归非常简单的几句代码就可以实现，但是缺点也不同小视，那就是损耗内存，函数调用会使用栈来保存临时变量。每调用一个函数，都会将临时变量封装为栈帧压入内存栈，等函数执行完成返回时，才出栈。</p>
+<h1 id="规避递归堆栈溢出"><a href="#规避递归堆栈溢出" class="headerlink" title="规避递归堆栈溢出"></a>规避递归堆栈溢出</h1><p>规避递归堆栈溢出就是设置最大的递归次数，超过这个次数，我们就手动报错，当然这个数字事先无法估算，只适合一些最大深度比较低的递归调用，并非最佳实践。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> count = <span class="number">0</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun</span> (<span class="params">num</span>)</span>&#123;</span><br><span class="line">    count++;</span><br><span class="line">    <span class="keyword">if</span> (count &gt; <span class="number">2</span>) &#123;</span><br><span class="line">       <span class="built_in">console</span>.error(<span class="string">&#x27;超过最大递归&#x27;</span>);</span><br><span class="line">       <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (num == <span class="number">1</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> num + fun(num-<span class="number">1</span>)</span><br><span class="line">&#125;</span><br><span class="line">fun(<span class="number">4</span>)</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>javascript</category>
+      </categories>
+      <tags>
+        <tag>递归</tag>
+      </tags>
   </entry>
   <entry>
     <title>JavaScript的表达式和运算符</title>
@@ -2162,41 +2233,6 @@
       </categories>
   </entry>
   <entry>
-    <title>JavaScript的递归算法</title>
-    <url>/article/d5117ec1.html</url>
-    <content><![CDATA[<p>本文主要记录JavaScript的递归算法</p>
-<h1 id="什么是递归？"><a href="#什么是递归？" class="headerlink" title="什么是递归？"></a>什么是递归？</h1><p>函数的内部语句<strong>可以调用这个函数自身</strong>，从而<strong>发起对函数的一次迭代</strong>，在新的迭代中，又会执行调用函数自身的语句，从而又产生一次迭代，当函数执行到某一次时，不再执行新的迭代，函数被一层一层返回，函数被递归</p>
-<h1 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h1><p>下面是1+2+3+4和是多少的例子：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun</span> (<span class="params">num</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (num == <span class="number">1</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> num + fun(num-<span class="number">1</span>)</span><br><span class="line">&#125;</span><br><span class="line">fun(<span class="number">4</span>)</span><br></pre></td></tr></table></figure>
-
-<p>分析：</p>
-<p>首先我们来分析数据的走向：</p>
-<ul>
-<li>参数是4，判断条件不成立，即执行 <code>return num + fun(num-1)</code>语句，这里就调用了函数自身，num是4，<code>fun(num-1)</code>传入的参数是3，完成了第一次调用。</li>
-<li>这个3不等于1，再次执行<code>return num + fun(num-1)</code>语句，num是3，<code>fun(num-1)</code>传入的参数是2，完成了第二次调用。</li>
-<li>这个2不等于1，再次执行<code>return num + fun(num-1)</code>语句，num是2，<code>fun(num-1)</code>传入的参数是1,完成了第三次调用</li>
-<li>参数为1，判断条件成立，返回1。</li>
-</ul>
-<p>然后分析函数递归走向：</p>
-<ul>
-<li>第三次调用<code>fun(num-1</code>)返回的是1，num是2，相加就是3，返回的就是3</li>
-<li>第二次调用<code>fun(num-1</code>)返回的是3，也就是刚才返回过来的数值，num是3，相加就是6，返回的就是6</li>
-<li>第一次调用<code>fun(num-1</code>)返回的是6，也就是刚才返回过来的数值，num是4，相加就是10，返回的就是10</li>
-</ul>
-<p>这就是递归的思路，一层一层的调用，然后再一层一层返回，递归不能无消止的调用，其中是有一个条件不断趋向于等于这个判断，这个判断成立之后返回一个东西，然后函数就会一层一层递归出去。</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/digui.jpg"></p>
-<h1 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h1><p>递归非常简单的几句代码就可以实现，但是缺点也不同小视，那就是损耗内存，函数调用会使用栈来保存临时变量。每调用一个函数，都会将临时变量封装为栈帧压入内存栈，等函数执行完成返回时，才出栈。</p>
-<h1 id="规避递归堆栈溢出"><a href="#规避递归堆栈溢出" class="headerlink" title="规避递归堆栈溢出"></a>规避递归堆栈溢出</h1><p>规避递归堆栈溢出就是设置最大的递归次数，超过这个次数，我们就手动报错，当然这个数字事先无法估算，只适合一些最大深度比较低的递归调用，并非最佳实践。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> count = <span class="number">0</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun</span> (<span class="params">num</span>)</span>&#123;</span><br><span class="line">    count++;</span><br><span class="line">    <span class="keyword">if</span> (count &gt; <span class="number">2</span>) &#123;</span><br><span class="line">       <span class="built_in">console</span>.error(<span class="string">&#x27;超过最大递归&#x27;</span>);</span><br><span class="line">       <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (num == <span class="number">1</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> num + fun(num-<span class="number">1</span>)</span><br><span class="line">&#125;</span><br><span class="line">fun(<span class="number">4</span>)</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>javascript</category>
-      </categories>
-      <tags>
-        <tag>递归</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>JavaScript的闭包</title>
     <url>/article/6341a1da.html</url>
     <content><![CDATA[<p>本文主要记录闭包的基本概念</p>
@@ -2238,6 +2274,237 @@
       <categories>
         <category>javascript</category>
       </categories>
+  </entry>
+  <entry>
+    <title>Javascript的数据类型和包装对象</title>
+    <url>/article/a7f01692.html</url>
+    <content><![CDATA[<p>本文主要介绍<code>javaScript</code>的数据类型、数据类型如何转换以及包装对象。</p>
+<h1 id="Number类型"><a href="#Number类型" class="headerlink" title="Number类型"></a>Number类型</h1><p>在<code>JS</code>中，所有数字不分大小，不分整浮，不分正负，都是数字类型，在数字类型中，小数0是可以省略的。</p>
+<p>数字类型还可以使用科学计数法、二进制、八进制、十六进制</p>
+<p>数字类型中还有一个特别的值：<code>NaN</code>，使用<code>typeof</code>检测是Number，它是一个不自等的值，往往在数学当中算不出来的值就是<code>NaN</code>,比如：0/0就是<code>NaN</code>，<code>&#39;Str&#39; * 5</code>也是<code>NaN</code></p>
+<h1 id="String类型"><a href="#String类型" class="headerlink" title="String类型"></a>String类型</h1><p>使用引号包裹的字符就是字符串，字符串就是“人类的自然语言”，即可以在里面书写任何东西</p>
+<p>字符串的拼接使用+号进行拼接，字符串也可以和变量连接</p>
+<p>字符串拥有<code>lenght</code>属性，空格也算是一个长度。</p>
+<p><strong>常用方法：</strong></p>
+<ul>
+<li><code>charAt(a)</code></li>
+</ul>
+<p>会返回一个<strong>指定位置的字符</strong>，参数是字符的位置，位置从0开始。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">&#x27;Hello&#x27;</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str.charAt(<span class="number">1</span>));<span class="comment">//e</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>substring(a,b)</code></li>
+</ul>
+<p>会返回<strong>从a开始到b结束（不包括b）</strong>的子串，如果省略后面参数，则会一直选择到字符串结尾</p>
+<p>如果书写了a大于b，则会自动调换位置，所以都会从位置小的开始</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">&#x27;Hello&#x27;</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str.substring(<span class="number">0</span>, <span class="number">3</span>)); <span class="comment">//Hel</span></span><br><span class="line"><span class="built_in">console</span>.log(str.substring(<span class="number">3</span>, <span class="number">0</span>)); <span class="comment">//Hel</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>substr(a,b)</code></li>
+</ul>
+<p>会返回<strong>从a开始，b作为长度的子串，如果b省略，则会一直选择到字符串结尾</strong></p>
+<p>a还可以是负数，表示倒数</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">&#x27;Hello&#x27;</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str.substr(<span class="number">3</span>, <span class="number">1</span>)); <span class="comment">//l</span></span><br><span class="line"><span class="built_in">console</span>.log(str.substr(<span class="number">3</span>)); <span class="comment">//lo</span></span><br><span class="line"><span class="built_in">console</span>.log(str.substr(-<span class="number">1</span>, <span class="number">2</span>)); <span class="comment">//o,倒数后往右边数</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>slice(a,b)</code></li>
+</ul>
+<p>会返回<strong>从a开始，b结束（不包括b）的子串，a，b可以是负数，表示倒数第几位，a必须小于b</strong></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">&#x27;Hello&#x27;</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str.slice(<span class="number">1</span>, <span class="number">2</span>)); <span class="comment">//e</span></span><br><span class="line"><span class="built_in">console</span>.log(str.slice(-<span class="number">2</span>, -<span class="number">1</span>)); <span class="comment">//l</span></span><br><span class="line"><span class="built_in">console</span>.log(str.slice(-<span class="number">1</span>)); <span class="comment">//o</span></span><br><span class="line"><span class="built_in">console</span>.log(str.slice(-<span class="number">1</span>, -<span class="number">2</span>)); <span class="comment">//空，a必须小于b</span></span><br><span class="line"><span class="built_in">console</span>.log(str.slice(<span class="number">4</span>, <span class="number">1</span>)); <span class="comment">//空，a必须小于b</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>touppercase()</code></li>
+</ul>
+<p>返回字符串的小写形式</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">&#x27;Hello&#x27;</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str.toLowerCase());<span class="comment">//hello</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>toLowercase()</code></li>
+</ul>
+<p>返回字符串大写形式，这在验证码忽略大小写有用到</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">&#x27;Hello&#x27;</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str.toUpperCase());<span class="comment">//HELLO</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>indexOf()</code></li>
+</ul>
+<p>返回字符串首次出现位置，没有返回-1</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">&#x27;Hello&#x27;</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str.indexOf(<span class="string">&#x27;e&#x27;</span>));<span class="comment">//1</span></span><br></pre></td></tr></table></figure>
+
+<p>小结：</p>
+<p>substring(a,b)和slice(a,b)功能基本一样，都是得到从a开始到b结束，不包括b的子串，区别有两个：</p>
+<ul>
+<li>substring可以自动交换位置，slice不行</li>
+<li>slice的参数可以是负数，substring不行</li>
+</ul>
+<p><code>substr(a,b</code>)中b是长度而不是编号</p>
+<h1 id="Boolean类型"><a href="#Boolean类型" class="headerlink" title="Boolean类型"></a>Boolean类型</h1><p>表示真假的数据类型，布尔类型值只有<code>true</code>和<code>false</code>，在判断条件中，除了以下六种情况都为真</p>
+<p>1、undefined（未定义，找不到值时出现）</p>
+<p>2、null（代表空值）</p>
+<p>3、false（布尔值的false，字符串”false”布尔值为true）</p>
+<p>4、0（数字0，字符串”0”布尔值为true）</p>
+<p>5、<code>NaN</code>（无法计算结果时出现，表示”非数值”；但是typeof NaN===”number”）</p>
+<p>6、””（双引号）或’’（单引号） （<strong>空字符串，中间有空格时也是true</strong>）</p>
+<p>小错误：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="string">&#x27; &#x27;</span>) &#123;</span><br><span class="line">       <span class="built_in">console</span>.log(<span class="string">&#x27;true&#x27;</span>);</span><br><span class="line">       <span class="keyword">return</span>; <span class="comment">//SyntaxError: Illegal return statement</span></span><br><span class="line">     &#125;</span><br><span class="line">     <span class="built_in">console</span>.log(<span class="string">&#x27;false&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>这是写测试的时候报的错误，原因如下：</li>
+<li>在js中return 语句只能放在function中，如果不是在一个function中弹出如上错误。，解决方法只要把这个if语句放到一个函数中即可</li>
+</ul>
+<h1 id="undefined类型"><a href="#undefined类型" class="headerlink" title="undefined类型"></a>undefined类型</h1><p>变量的默认值，它既是类型也是值，它的类型只有一个值，就是它本身，在变量声明中，提升的默认就是undefined</p>
+<h1 id="Null类型"><a href="#Null类型" class="headerlink" title="Null类型"></a>Null类型</h1><p>null表示’空‘，它是空对象</p>
+<p>当我们需要将对象销毁，数组销毁或者删除时间监听，通常将它们设置为null</p>
+<p>使用typeof检测null是object</p>
+<h1 id="数据类型检测"><a href="#数据类型检测" class="headerlink" title="数据类型检测"></a>数据类型检测</h1><p>数据类型分为基本数据类型、复杂数据类型，想要检测数据类型，就需要使用<code>typeof</code>进行数据类型检测，会返回一个数据类型</p>
+<p>下面是5种数据类型的typeof检测结果</p>
+<table>
+<thead>
+<tr>
+<th align="center">类型名</th>
+<th align="center">typeof检测结果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">数字类型</td>
+<td align="center">number</td>
+</tr>
+<tr>
+<td align="center">字符串类型</td>
+<td align="center">string</td>
+</tr>
+<tr>
+<td align="center">布尔类型</td>
+<td align="center">boolean</td>
+</tr>
+<tr>
+<td align="center">undefined类型</td>
+<td align="center">undefined</td>
+</tr>
+<tr>
+<td align="center">null类型</td>
+<td align="center">null</td>
+</tr>
+</tbody></table>
+<h1 id="数据类型转换"><a href="#数据类型转换" class="headerlink" title="数据类型转换"></a>数据类型转换</h1><p><strong>其他数-&gt;数字：</strong></p>
+<p>使用Number函数</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>(<span class="string">&#x27;123&#x27;</span>)); <span class="comment">//123</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>(<span class="string">&#x27;123.4&#x27;</span>)); <span class="comment">//123.4</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>(<span class="string">&#x27;123年&#x27;</span>)); <span class="comment">//NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>(<span class="string">&#x27;2e3&#x27;</span>)); <span class="comment">//2000</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>(<span class="string">&#x27; &#x27;</span>)); <span class="comment">//0</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>(<span class="literal">true</span>)); <span class="comment">//1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>(<span class="literal">false</span>)); <span class="comment">//0</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>(<span class="literal">undefined</span>)); <span class="comment">//NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>(<span class="literal">null</span>)); <span class="comment">//0</span></span><br></pre></td></tr></table></figure>
+
+<p>除了使用Number函数，还可以使用<code>parseInt</code>函数，将字符串转为整数，需要注意的是，这<strong>不是 四舍五入的函数</strong>，它会截取到小数点位置的数字</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseInt</span>(<span class="string">&#x27;3.14159&#x27;</span>)); <span class="comment">//3</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseInt</span>(<span class="string">&#x27;3.14是圆周率&#x27;</span>)); <span class="comment">//3，这是区别Number函数的</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseInt</span>(<span class="string">&#x27;圆周率是3.14&#x27;</span>)); <span class="comment">//NaN,不是数字开头</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseInt</span>(<span class="string">&#x27;3.9999&#x27;</span>)); <span class="comment">//3</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseInt</span>(<span class="literal">true</span>)); <span class="comment">//NaN,true-&gt;&#x27;true&#x27;-&gt;NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseInt</span>(<span class="literal">true</span>)); <span class="comment">//NaN,true-&gt;&#x27;true&#x27;-&gt;NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseInt</span>(<span class="literal">null</span>)); <span class="comment">//NaN,null-&gt;&#x27;null&#x27;-&gt;NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseInt</span>(<span class="literal">undefined</span>)); <span class="comment">//NaN,undefined-&gt;&#x27;undefined&#x27;-&gt;NaN</span></span><br></pre></td></tr></table></figure>
+
+<p>还可以使用<code>parseFloat</code>函数，<code>parseFloat</code>函数是将字符串转为浮点数</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseFloat</span>(<span class="string">&#x27;3.14159&#x27;</span>)); <span class="comment">//3.14159</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseFloat</span>(<span class="string">&#x27;3.14是圆周率&#x27;</span>)); <span class="comment">//3.14</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseFloat</span>(<span class="string">&#x27;圆周率是3.14&#x27;</span>)); <span class="comment">//NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseFloat</span>(<span class="string">&#x27;3.9999&#x27;</span>)); <span class="comment">//3.9999</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseFloat</span>(<span class="literal">true</span>)); <span class="comment">//NaN,true-&gt;&#x27;true&#x27;-&gt;NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseFloat</span>(<span class="literal">null</span>)); <span class="comment">//NaN,null-&gt;&#x27;null&#x27;-&gt;NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseFloat</span>(<span class="literal">undefined</span>)); <span class="comment">//NaN,undefined-&gt;&#x27;undefined&#x27;-&gt;NaN</span></span><br></pre></td></tr></table></figure>
+
+<p>需要注意：<code>parseInt</code>和<code>parseFloat</code>去**对布尔、null和undefined类型转换会变成<code>NaN</code>**，因为会被隐式转换为字符串，字符串转数字得到结果就是<code>NaN</code></p>
+<p><strong>其他数-&gt;字符串：</strong></p>
+<p>使用String函数</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">String</span>(<span class="string">&#x27;3.14159&#x27;</span>)); <span class="comment">//3.14159</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">String</span>(<span class="string">&#x27;3.14是圆周率&#x27;</span>)); <span class="comment">//3.14是圆周率</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">String</span>(<span class="string">&#x27;圆周率是3.14&#x27;</span>)); <span class="comment">//圆周率是3.14</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">String</span>(<span class="string">&#x27;3.9999&#x27;</span>)); <span class="comment">//3.9999</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">String</span>(<span class="literal">true</span>)); <span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">String</span>(<span class="literal">null</span>)); <span class="comment">//null</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">String</span>(<span class="literal">undefined</span>)); <span class="comment">//undefined</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">String</span>(<span class="number">0xf</span>)); <span class="comment">//15 //转为10进制-&gt;字符串</span></span><br></pre></td></tr></table></figure>
+
+<p>使用toString()方法</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">7</span>;</span><br><span class="line"><span class="built_in">console</span>.log(a.toString()); <span class="comment">//7</span></span><br><span class="line"><span class="built_in">console</span>.log((<span class="number">6</span>).toString()); <span class="comment">//6</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="literal">true</span>.toString()); <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>其他数-&gt;布尔值：</strong></p>
+<p>使用Boolean函数</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Boolean</span>(<span class="number">123</span>)); <span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Boolean</span>(<span class="number">0</span>)); <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Boolean</span>(<span class="literal">NaN</span>)); <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Boolean</span>(<span class="literal">Infinity</span>)); <span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Boolean</span>(-<span class="literal">Infinity</span>)); <span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Boolean</span>(<span class="string">&#x27;&#x27;</span>)); <span class="comment">//false,单引号为false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Boolean</span>(<span class="string">&#x27; &#x27;</span>)); <span class="comment">//true,空字符串也是true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Boolean</span>(<span class="string">&#x27;abc&#x27;</span>)); <span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Boolean</span>(<span class="string">&#x27;false&#x27;</span>)); <span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Boolean</span>(<span class="literal">undefined</span>)); <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Boolean</span>(<span class="literal">null</span>)); <span class="comment">//false</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="包装对象"><a href="#包装对象" class="headerlink" title="包装对象"></a>包装对象</h1><p>我们都知道在js中普通类型的变量是没有属性和方法的，然后有时却并不是这样。</p>
+<p>有时候我们可能会这样去写：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">&#x27;Hello&#x27;</span>;</span><br><span class="line"><span class="keyword">var</span> len = str.length;</span><br><span class="line"><span class="built_in">console</span>.log(len);</span><br></pre></td></tr></table></figure>
+
+<p>思考一个问题，为什么变量可以去调用lenght属性呢?</p>
+<ul>
+<li><p>这是因为我们去调用lenght属性时，js会去创建包装对象，这个对象会有一个lenght属性。其他基本数据类型也是这样，换句话说，一旦我们在普通类型的变量中使用了属性或者方法，js就会自动new一个对应的对象</p>
+<p>什么是包装对象？</p>
+</li>
+<li><p><strong>存取</strong>字符串、数字或布尔值的属性时，<strong>创建的临时对象</strong>称为包装对象</p>
+</li>
+</ul>
+<p>怎么论证上面的两个回答？</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">&#x27;努力，奋斗&#x27;</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str.length);<span class="comment">//5</span></span><br><span class="line"><span class="built_in">console</span>.log((<span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">&#x27;努力，奋斗&#x27;</span>).length));<span class="comment">//5</span></span><br></pre></td></tr></table></figure>
+
+<p>这就说明了字符串在去调用lenght属性时候，是会去创建一个临时对象。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">&#x27;Hello&#x27;</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str.length);</span><br><span class="line"><span class="comment">//  转换为：</span></span><br><span class="line"><span class="comment">// var str1 = new String(&#x27;Hello&#x27;);</span></span><br><span class="line"><span class="comment">// console.log(str1.length);</span></span><br><span class="line"><span class="comment">// str1.len = 10</span></span><br><span class="line"><span class="comment">//这里的str是手动创建，所以可以去往里面添加新的属性</span></span><br><span class="line"><span class="comment">//console.log(str1.len);//10</span></span><br><span class="line"><span class="comment">//console.log(str1.length);//5</span></span><br><span class="line">str.len = <span class="number">5</span>;</span><br><span class="line"><span class="comment">// 一旦属性的引用和操作执行完毕后便会被回收，也就是说在 str.len = 5;执行完毕后，str便被回收，不可再次访问,结果就是undefine</span></span><br><span class="line"><span class="built_in">console</span>.log(str.len); <span class="comment">//undefine</span></span><br><span class="line"><span class="built_in">console</span>.log(str.lenght); <span class="comment">//5</span></span><br></pre></td></tr></table></figure>
+
+<p>需要注意的是：</p>
+<ul>
+<li>null和undefined没有包装对象，尝试使用“.”访问它们的属性会报错。</li>
+<li>包装对象和基础类型使用双等号<code>==</code>判断返回true，但是恒等号<code>===</code>返回false。这是因为包装对象已经是一个object了，可以使用typeof检测，开发过程中需要注意。</li>
+</ul>
+<p>参考文章：</p>
+<ul>
+<li><a href="https://www.cnblogs.com/ihardcoder/p/4936179.html">https://www.cnblogs.com/ihardcoder/p/4936179.html</a></li>
+<li><a href="https://www.cnblogs.com/f6056/p/10874954.html">https://www.cnblogs.com/f6056/p/10874954.html</a></li>
+<li><a href="https://www.cnblogs.com/pssp/p/5229320.html">https://www.cnblogs.com/pssp/p/5229320.html</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>javascript</category>
+      </categories>
+      <tags>
+        <tag>数据类型</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SSH免密钥连接服务器</title>
+    <url>/article/f85a2d78.html</url>
+    <content><![CDATA[<p>一般登录服务器通过SSH方式，每次都是需要密码，非常繁琐，本文介绍一种只需要<code>ssh+别名</code>就能连接服务器的方法。</p>
+<h1 id="什么是SSH"><a href="#什么是SSH" class="headerlink" title="什么是SSH"></a>什么是SSH</h1><p>SSH是一种网络协议，用于计算机之间的加密登录。如果一个用户从本地计算机，使用SSH协议登录另一台远程计算机，我们就可以认为，这种登录是安全的，即使被中途截获，密码也不会泄露，默认的端口是22</p>
+<h1 id="怎么连接"><a href="#怎么连接" class="headerlink" title="怎么连接"></a>怎么连接</h1><p>通过<code>ssh root@IP</code>回车，输入密码就可以连接到，如果默认端口修改了就需要加-p参数，这在后面修改端口号讲。</p>
+<h1 id="修改主机名字"><a href="#修改主机名字" class="headerlink" title="修改主机名字"></a>修改主机名字</h1><p>查询：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cat /etc/hostname</span><br></pre></td></tr></table></figure>
+
+<p>修改：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vi /etc/hostname</span><br></pre></td></tr></table></figure>
+
+<p>修改按<code>i</code>进入编辑，按<code>esc</code>退出编辑，<code>:wq</code>退出并保存</p>
+<h1 id="修改端口"><a href="#修改端口" class="headerlink" title="修改端口"></a>修改端口</h1><p>查询默认监听的端口：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">netstat -anlp |grep sshd</span><br></pre></td></tr></table></figure>
+
+<p>修改：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vi /etc/ssh/sshd_config</span><br></pre></td></tr></table></figure>
+
+<p>按<code>i</code>进入编辑，打开prot的注释，修改你想要的端口，我们可以看到上面的一段话，如果你修改端口号，需要执行：<code>semanage port -a -t ssh_port_t -p tcp #PORTNUMBER</code>  </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># If you want to change the port on a SELinux system, you have to tell</span><br><span class="line"># SELinux about this change.</span><br><span class="line"># semanage port -a -t ssh_port_t -p tcp #PORTNUMBER</span><br></pre></td></tr></table></figure>
+
+<p>执行：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">semanage port -a -t ssh_port_t -p tcp #你修改的端口</span><br></pre></td></tr></table></figure>
+
+<p>如果提示<code>-bash: semanage: command not found</code>，则执行:</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">yum whatprovides semanage</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">yum install -y policycoreutils-python</span><br></pre></td></tr></table></figure>
+
+<p>再次执行刚才的命令，没有返回任何信息，通过以下命令查找是否添加成功：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">semanage port -l | grep ssh</span><br></pre></td></tr></table></figure>
+
+<p>最后就是重启一下ssh:</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">service sshd restart</span><br></pre></td></tr></table></figure>
+
+<p>返回<code>Redirecting to /bin/systemctl restart sshd.service</code>即是成功，</p>
+<p>通过查找默认端口，或者重新连接服务器确认是否成功：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ssh -p 你修改端口号 root@IP</span><br></pre></td></tr></table></figure>
+
+<p>需要注意的是，在服务云商店那里是需要 开放端口的，否则连接不上。</p>
+<h1 id="免密登陆"><a href="#免密登陆" class="headerlink" title="免密登陆"></a>免密登陆</h1><p>首先需要在本地生成ssh证书，在本地计算机，命令如下</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ssh-keygen</span><br></pre></td></tr></table></figure>
+
+<p>一直回车即可，在win10上，找到目录：<code>C:\Users\自己用户名\.ssh</code></p>
+<p>打开，没有则新建config文件，不要有后缀名：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Host #别名</span><br><span class="line">  Port #你修改后的端口</span><br><span class="line">  HostName #IP</span><br><span class="line">  User root#用户名</span><br><span class="line">  IdentityFile #密钥地址，要包含文件名</span><br><span class="line">  IdentitiesOnly yes</span><br></pre></td></tr></table></figure>
+
+<p>在服务器上通过<code>cd ~/.ssh</code>，<code>ls</code>,查看有没有<code>authorized_keys</code>文件，有则编辑，没有则新建。</p>
+<p>新建：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mkdir -p ~/.ssh</span><br><span class="line">vi authorized_keys</span><br></pre></td></tr></table></figure>
+
+<p>把本地计算机的pub文件复制进去，再次通过<code>ssh 别名</code>连接服务器成功。</p>
+<p>至此，已经完成服务器的免密登录</p>
+]]></content>
+      <categories>
+        <category>开发技巧</category>
+      </categories>
+      <tags>
+        <tag>效率</tag>
+      </tags>
   </entry>
   <entry>
     <title>搭建属于自己的UI组件库一</title>
@@ -2422,282 +2689,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Javascript的数据类型和包装对象</title>
-    <url>/article/a7f01692.html</url>
-    <content><![CDATA[<p>本文主要介绍<code>javaScript</code>的数据类型、数据类型如何转换以及包装对象。</p>
-<h1 id="Number类型"><a href="#Number类型" class="headerlink" title="Number类型"></a>Number类型</h1><p>在<code>JS</code>中，所有数字不分大小，不分整浮，不分正负，都是数字类型，在数字类型中，小数0是可以省略的。</p>
-<p>数字类型还可以使用科学计数法、二进制、八进制、十六进制</p>
-<p>数字类型中还有一个特别的值：<code>NaN</code>，使用<code>typeof</code>检测是Number，它是一个不自等的值，往往在数学当中算不出来的值就是<code>NaN</code>,比如：0/0就是<code>NaN</code>，<code>&#39;Str&#39; * 5</code>也是<code>NaN</code></p>
-<h1 id="String类型"><a href="#String类型" class="headerlink" title="String类型"></a>String类型</h1><p>使用引号包裹的字符就是字符串，字符串就是“人类的自然语言”，即可以在里面书写任何东西</p>
-<p>字符串的拼接使用+号进行拼接，字符串也可以和变量连接</p>
-<p>字符串拥有<code>lenght</code>属性，空格也算是一个长度。</p>
-<p><strong>常用方法：</strong></p>
-<ul>
-<li><code>charAt(a)</code></li>
-</ul>
-<p>会返回一个<strong>指定位置的字符</strong>，参数是字符的位置，位置从0开始。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">&#x27;Hello&#x27;</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str.charAt(<span class="number">1</span>));<span class="comment">//e</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><code>substring(a,b)</code></li>
-</ul>
-<p>会返回<strong>从a开始到b结束（不包括b）</strong>的子串，如果省略后面参数，则会一直选择到字符串结尾</p>
-<p>如果书写了a大于b，则会自动调换位置，所以都会从位置小的开始</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">&#x27;Hello&#x27;</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str.substring(<span class="number">0</span>, <span class="number">3</span>)); <span class="comment">//Hel</span></span><br><span class="line"><span class="built_in">console</span>.log(str.substring(<span class="number">3</span>, <span class="number">0</span>)); <span class="comment">//Hel</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><code>substr(a,b)</code></li>
-</ul>
-<p>会返回<strong>从a开始，b作为长度的子串，如果b省略，则会一直选择到字符串结尾</strong></p>
-<p>a还可以是负数，表示倒数</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">&#x27;Hello&#x27;</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str.substr(<span class="number">3</span>, <span class="number">1</span>)); <span class="comment">//l</span></span><br><span class="line"><span class="built_in">console</span>.log(str.substr(<span class="number">3</span>)); <span class="comment">//lo</span></span><br><span class="line"><span class="built_in">console</span>.log(str.substr(-<span class="number">1</span>, <span class="number">2</span>)); <span class="comment">//o,倒数后往右边数</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><code>slice(a,b)</code></li>
-</ul>
-<p>会返回<strong>从a开始，b结束（不包括b）的子串，a，b可以是负数，表示倒数第几位，a必须小于b</strong></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">&#x27;Hello&#x27;</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str.slice(<span class="number">1</span>, <span class="number">2</span>)); <span class="comment">//e</span></span><br><span class="line"><span class="built_in">console</span>.log(str.slice(-<span class="number">2</span>, -<span class="number">1</span>)); <span class="comment">//l</span></span><br><span class="line"><span class="built_in">console</span>.log(str.slice(-<span class="number">1</span>)); <span class="comment">//o</span></span><br><span class="line"><span class="built_in">console</span>.log(str.slice(-<span class="number">1</span>, -<span class="number">2</span>)); <span class="comment">//空，a必须小于b</span></span><br><span class="line"><span class="built_in">console</span>.log(str.slice(<span class="number">4</span>, <span class="number">1</span>)); <span class="comment">//空，a必须小于b</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><code>touppercase()</code></li>
-</ul>
-<p>返回字符串的小写形式</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">&#x27;Hello&#x27;</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str.toLowerCase());<span class="comment">//hello</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><code>toLowercase()</code></li>
-</ul>
-<p>返回字符串大写形式，这在验证码忽略大小写有用到</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">&#x27;Hello&#x27;</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str.toUpperCase());<span class="comment">//HELLO</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><code>indexOf()</code></li>
-</ul>
-<p>返回字符串首次出现位置，没有返回-1</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">&#x27;Hello&#x27;</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str.indexOf(<span class="string">&#x27;e&#x27;</span>));<span class="comment">//1</span></span><br></pre></td></tr></table></figure>
-
-<p>小结：</p>
-<p>substring(a,b)和slice(a,b)功能基本一样，都是得到从a开始到b结束，不包括b的子串，区别有两个：</p>
-<ul>
-<li>substring可以自动交换位置，slice不行</li>
-<li>slice的参数可以是负数，substring不行</li>
-</ul>
-<p><code>substr(a,b</code>)中b是长度而不是编号</p>
-<h1 id="Boolean类型"><a href="#Boolean类型" class="headerlink" title="Boolean类型"></a>Boolean类型</h1><p>表示真假的数据类型，布尔类型值只有<code>true</code>和<code>false</code>，在判断条件中，除了以下六种情况都为真</p>
-<p>1、undefined（未定义，找不到值时出现）</p>
-<p>2、null（代表空值）</p>
-<p>3、false（布尔值的false，字符串”false”布尔值为true）</p>
-<p>4、0（数字0，字符串”0”布尔值为true）</p>
-<p>5、<code>NaN</code>（无法计算结果时出现，表示”非数值”；但是typeof NaN===”number”）</p>
-<p>6、””（双引号）或’’（单引号） （<strong>空字符串，中间有空格时也是true</strong>）</p>
-<p>小错误：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="string">&#x27; &#x27;</span>) &#123;</span><br><span class="line">       <span class="built_in">console</span>.log(<span class="string">&#x27;true&#x27;</span>);</span><br><span class="line">       <span class="keyword">return</span>; <span class="comment">//SyntaxError: Illegal return statement</span></span><br><span class="line">     &#125;</span><br><span class="line">     <span class="built_in">console</span>.log(<span class="string">&#x27;false&#x27;</span>);</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>这是写测试的时候报的错误，原因如下：</li>
-<li>在js中return 语句只能放在function中，如果不是在一个function中弹出如上错误。，解决方法只要把这个if语句放到一个函数中即可</li>
-</ul>
-<h1 id="undefined类型"><a href="#undefined类型" class="headerlink" title="undefined类型"></a>undefined类型</h1><p>变量的默认值，它既是类型也是值，它的类型只有一个值，就是它本身，在变量声明中，提升的默认就是undefined</p>
-<h1 id="Null类型"><a href="#Null类型" class="headerlink" title="Null类型"></a>Null类型</h1><p>null表示’空‘，它是空对象</p>
-<p>当我们需要将对象销毁，数组销毁或者删除时间监听，通常将它们设置为null</p>
-<p>使用typeof检测null是object</p>
-<h1 id="数据类型检测"><a href="#数据类型检测" class="headerlink" title="数据类型检测"></a>数据类型检测</h1><p>数据类型分为基本数据类型、复杂数据类型，想要检测数据类型，就需要使用<code>typeof</code>进行数据类型检测，会返回一个数据类型</p>
-<p>下面是5种数据类型的typeof检测结果</p>
-<table>
-<thead>
-<tr>
-<th align="center">类型名</th>
-<th align="center">typeof检测结果</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">数字类型</td>
-<td align="center">number</td>
-</tr>
-<tr>
-<td align="center">字符串类型</td>
-<td align="center">string</td>
-</tr>
-<tr>
-<td align="center">布尔类型</td>
-<td align="center">boolean</td>
-</tr>
-<tr>
-<td align="center">undefined类型</td>
-<td align="center">undefined</td>
-</tr>
-<tr>
-<td align="center">null类型</td>
-<td align="center">null</td>
-</tr>
-</tbody></table>
-<h1 id="数据类型转换"><a href="#数据类型转换" class="headerlink" title="数据类型转换"></a>数据类型转换</h1><p><strong>其他数-&gt;数字：</strong></p>
-<p>使用Number函数</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>(<span class="string">&#x27;123&#x27;</span>)); <span class="comment">//123</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>(<span class="string">&#x27;123.4&#x27;</span>)); <span class="comment">//123.4</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>(<span class="string">&#x27;123年&#x27;</span>)); <span class="comment">//NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>(<span class="string">&#x27;2e3&#x27;</span>)); <span class="comment">//2000</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>(<span class="string">&#x27; &#x27;</span>)); <span class="comment">//0</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>(<span class="literal">true</span>)); <span class="comment">//1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>(<span class="literal">false</span>)); <span class="comment">//0</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>(<span class="literal">undefined</span>)); <span class="comment">//NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>(<span class="literal">null</span>)); <span class="comment">//0</span></span><br></pre></td></tr></table></figure>
-
-<p>除了使用Number函数，还可以使用<code>parseInt</code>函数，将字符串转为整数，需要注意的是，这<strong>不是 四舍五入的函数</strong>，它会截取到小数点位置的数字</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseInt</span>(<span class="string">&#x27;3.14159&#x27;</span>)); <span class="comment">//3</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseInt</span>(<span class="string">&#x27;3.14是圆周率&#x27;</span>)); <span class="comment">//3，这是区别Number函数的</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseInt</span>(<span class="string">&#x27;圆周率是3.14&#x27;</span>)); <span class="comment">//NaN,不是数字开头</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseInt</span>(<span class="string">&#x27;3.9999&#x27;</span>)); <span class="comment">//3</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseInt</span>(<span class="literal">true</span>)); <span class="comment">//NaN,true-&gt;&#x27;true&#x27;-&gt;NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseInt</span>(<span class="literal">true</span>)); <span class="comment">//NaN,true-&gt;&#x27;true&#x27;-&gt;NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseInt</span>(<span class="literal">null</span>)); <span class="comment">//NaN,null-&gt;&#x27;null&#x27;-&gt;NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseInt</span>(<span class="literal">undefined</span>)); <span class="comment">//NaN,undefined-&gt;&#x27;undefined&#x27;-&gt;NaN</span></span><br></pre></td></tr></table></figure>
-
-<p>还可以使用<code>parseFloat</code>函数，<code>parseFloat</code>函数是将字符串转为浮点数</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseFloat</span>(<span class="string">&#x27;3.14159&#x27;</span>)); <span class="comment">//3.14159</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseFloat</span>(<span class="string">&#x27;3.14是圆周率&#x27;</span>)); <span class="comment">//3.14</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseFloat</span>(<span class="string">&#x27;圆周率是3.14&#x27;</span>)); <span class="comment">//NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseFloat</span>(<span class="string">&#x27;3.9999&#x27;</span>)); <span class="comment">//3.9999</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseFloat</span>(<span class="literal">true</span>)); <span class="comment">//NaN,true-&gt;&#x27;true&#x27;-&gt;NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseFloat</span>(<span class="literal">null</span>)); <span class="comment">//NaN,null-&gt;&#x27;null&#x27;-&gt;NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseFloat</span>(<span class="literal">undefined</span>)); <span class="comment">//NaN,undefined-&gt;&#x27;undefined&#x27;-&gt;NaN</span></span><br></pre></td></tr></table></figure>
-
-<p>需要注意：<code>parseInt</code>和<code>parseFloat</code>去**对布尔、null和undefined类型转换会变成<code>NaN</code>**，因为会被隐式转换为字符串，字符串转数字得到结果就是<code>NaN</code></p>
-<p><strong>其他数-&gt;字符串：</strong></p>
-<p>使用String函数</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">String</span>(<span class="string">&#x27;3.14159&#x27;</span>)); <span class="comment">//3.14159</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">String</span>(<span class="string">&#x27;3.14是圆周率&#x27;</span>)); <span class="comment">//3.14是圆周率</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">String</span>(<span class="string">&#x27;圆周率是3.14&#x27;</span>)); <span class="comment">//圆周率是3.14</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">String</span>(<span class="string">&#x27;3.9999&#x27;</span>)); <span class="comment">//3.9999</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">String</span>(<span class="literal">true</span>)); <span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">String</span>(<span class="literal">null</span>)); <span class="comment">//null</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">String</span>(<span class="literal">undefined</span>)); <span class="comment">//undefined</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">String</span>(<span class="number">0xf</span>)); <span class="comment">//15 //转为10进制-&gt;字符串</span></span><br></pre></td></tr></table></figure>
-
-<p>使用toString()方法</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">7</span>;</span><br><span class="line"><span class="built_in">console</span>.log(a.toString()); <span class="comment">//7</span></span><br><span class="line"><span class="built_in">console</span>.log((<span class="number">6</span>).toString()); <span class="comment">//6</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="literal">true</span>.toString()); <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>其他数-&gt;布尔值：</strong></p>
-<p>使用Boolean函数</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Boolean</span>(<span class="number">123</span>)); <span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Boolean</span>(<span class="number">0</span>)); <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Boolean</span>(<span class="literal">NaN</span>)); <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Boolean</span>(<span class="literal">Infinity</span>)); <span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Boolean</span>(-<span class="literal">Infinity</span>)); <span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Boolean</span>(<span class="string">&#x27;&#x27;</span>)); <span class="comment">//false,单引号为false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Boolean</span>(<span class="string">&#x27; &#x27;</span>)); <span class="comment">//true,空字符串也是true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Boolean</span>(<span class="string">&#x27;abc&#x27;</span>)); <span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Boolean</span>(<span class="string">&#x27;false&#x27;</span>)); <span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Boolean</span>(<span class="literal">undefined</span>)); <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Boolean</span>(<span class="literal">null</span>)); <span class="comment">//false</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="包装对象"><a href="#包装对象" class="headerlink" title="包装对象"></a>包装对象</h1><p>我们都知道在js中普通类型的变量是没有属性和方法的，然后有时却并不是这样。</p>
-<p>有时候我们可能会这样去写：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">&#x27;Hello&#x27;</span>;</span><br><span class="line"><span class="keyword">var</span> len = str.length;</span><br><span class="line"><span class="built_in">console</span>.log(len);</span><br></pre></td></tr></table></figure>
-
-<p>思考一个问题，为什么变量可以去调用lenght属性呢?</p>
-<ul>
-<li><p>这是因为我们去调用lenght属性时，js会去创建包装对象，这个对象会有一个lenght属性。其他基本数据类型也是这样，换句话说，一旦我们在普通类型的变量中使用了属性或者方法，js就会自动new一个对应的对象</p>
-<p>什么是包装对象？</p>
-</li>
-<li><p><strong>存取</strong>字符串、数字或布尔值的属性时，<strong>创建的临时对象</strong>称为包装对象</p>
-</li>
-</ul>
-<p>怎么论证上面的两个回答？</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">&#x27;努力，奋斗&#x27;</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str.length);<span class="comment">//5</span></span><br><span class="line"><span class="built_in">console</span>.log((<span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">&#x27;努力，奋斗&#x27;</span>).length));<span class="comment">//5</span></span><br></pre></td></tr></table></figure>
-
-<p>这就说明了字符串在去调用lenght属性时候，是会去创建一个临时对象。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">&#x27;Hello&#x27;</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str.length);</span><br><span class="line"><span class="comment">//  转换为：</span></span><br><span class="line"><span class="comment">// var str1 = new String(&#x27;Hello&#x27;);</span></span><br><span class="line"><span class="comment">// console.log(str1.length);</span></span><br><span class="line"><span class="comment">// str1.len = 10</span></span><br><span class="line"><span class="comment">//这里的str是手动创建，所以可以去往里面添加新的属性</span></span><br><span class="line"><span class="comment">//console.log(str1.len);//10</span></span><br><span class="line"><span class="comment">//console.log(str1.length);//5</span></span><br><span class="line">str.len = <span class="number">5</span>;</span><br><span class="line"><span class="comment">// 一旦属性的引用和操作执行完毕后便会被回收，也就是说在 str.len = 5;执行完毕后，str便被回收，不可再次访问,结果就是undefine</span></span><br><span class="line"><span class="built_in">console</span>.log(str.len); <span class="comment">//undefine</span></span><br><span class="line"><span class="built_in">console</span>.log(str.lenght); <span class="comment">//5</span></span><br></pre></td></tr></table></figure>
-
-<p>需要注意的是：</p>
-<ul>
-<li>null和undefined没有包装对象，尝试使用“.”访问它们的属性会报错。</li>
-<li>包装对象和基础类型使用双等号<code>==</code>判断返回true，但是恒等号<code>===</code>返回false。这是因为包装对象已经是一个object了，可以使用typeof检测，开发过程中需要注意。</li>
-</ul>
-<p>参考文章：</p>
-<ul>
-<li><a href="https://www.cnblogs.com/ihardcoder/p/4936179.html">https://www.cnblogs.com/ihardcoder/p/4936179.html</a></li>
-<li><a href="https://www.cnblogs.com/f6056/p/10874954.html">https://www.cnblogs.com/f6056/p/10874954.html</a></li>
-<li><a href="https://www.cnblogs.com/pssp/p/5229320.html">https://www.cnblogs.com/pssp/p/5229320.html</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>javascript</category>
-      </categories>
-      <tags>
-        <tag>数据类型</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>搭建属于自己的UI组件库二</title>
-    <url>/article/c7f47550.html</url>
-    <content><![CDATA[<p>前段时间写了LinView组件库，但是由于问题太多，按需引入出错，最后参考element-ui框架和参考一些技术博文，重新编写整个组件库，因为重写，具体的不一 一例举，重点把遇到的坑点和心得记录下。</p>
-<h1 id="工程化目录"><a href="#工程化目录" class="headerlink" title="工程化目录"></a>工程化目录</h1><p>首先依然使用vue/cli形成目录，这是最后的目录结构：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">|-- WeX-UI</span><br><span class="line">    |-- .gitignore</span><br><span class="line">    |-- babel.config.js</span><br><span class="line">    |-- components.json</span><br><span class="line">    |-- deploy.sh         <span class="comment">//vuepress部署</span></span><br><span class="line">    |-- package-lock.json</span><br><span class="line">    |-- package.json</span><br><span class="line">    |-- README.md</span><br><span class="line">    |-- build          <span class="comment">//打包配置文件</span></span><br><span class="line">    |   |-- utlis.js</span><br><span class="line">    |   |-- webpack.base.js</span><br><span class="line">    |   |-- webpack.component.js</span><br><span class="line">    |   |-- webpack.prod.js</span><br><span class="line">    |-- docs           <span class="comment">//vuepress文档</span></span><br><span class="line">    |   |-- index.md</span><br><span class="line">    |   |-- .vuepress</span><br><span class="line">    |   |   |-- config.js</span><br><span class="line">    |   |   |-- enhanceApp.js</span><br><span class="line">    |   |   |-- public</span><br><span class="line">    |   |       |-- card.png</span><br><span class="line">    |   |-- componentdocs</span><br><span class="line">    |   |   |-- card.md</span><br><span class="line">    |   |   |-- index.md</span><br><span class="line">    |   |   |-- start.md</span><br><span class="line">    |   |-- update</span><br><span class="line">    |       |-- index.md</span><br><span class="line">    |-- lib            <span class="comment">//打包后的组件和样式</span></span><br><span class="line">    |   |-- card.js</span><br><span class="line">    |   |-- demo.js</span><br><span class="line">    |   |-- wex-ui.min.js</span><br><span class="line">    |   |-- styles</span><br><span class="line">    |       |-- card.css</span><br><span class="line">    |       |-- demo.css</span><br><span class="line">    |       |-- index.css</span><br><span class="line">    |-- packages         <span class="comment">//原生代码</span></span><br><span class="line">    |   |-- card</span><br><span class="line">    |   |   |-- index.js</span><br><span class="line">    |   |   |-- src</span><br><span class="line">    |   |       |-- Index.vue</span><br><span class="line">    |   |-- demo</span><br><span class="line">    |   |   |-- index.js</span><br><span class="line">    |   |   |-- src</span><br><span class="line">    |   |       |-- Index.vue</span><br><span class="line">    |   |-- theme-chalk         <span class="comment">//样式文件</span></span><br><span class="line">    |       |-- gulpfile.js</span><br><span class="line">    |       |-- src</span><br><span class="line">    |           |-- card.scss</span><br><span class="line">    |           |-- demo.scss</span><br><span class="line">    |           |-- index.scss</span><br><span class="line">    |-- public</span><br><span class="line">    |   |-- favicon.ico</span><br><span class="line">    |   |-- index.html</span><br><span class="line">    |-- src</span><br><span class="line">        |-- App.vue</span><br><span class="line">        |-- index.js        <span class="comment">//全局注册组件</span></span><br><span class="line">        |-- main.js</span><br><span class="line">        |-- assets</span><br><span class="line">        |   |-- logo.png</span><br><span class="line">        |-- components</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>整个目录结构是参考了ElementUI的写法，组件库没到一定规模，当然做了减法。</li>
-<li>为了第三方项目的按需加载，打包后的都放在lib文件夹。</li>
-<li>把gulp打包文件放在CSS的包这是参考了ElementUI，感觉上更加舒服，不会在build文件夹还存放另外的打包工具文件。</li>
-<li>components.json也是参考ElementUI，这是为了按需引入单独打包加上。</li>
-<li>webpack分成3个，一个公共打包，一个打包全部组件，一个用来单独组件打包，虽然现在一个也可以足够打包，但是为了后续的扩展，目前采取该方式。</li>
-<li>enhanceAppjs文件是用来导入全部组件的，属于应用级别，以前写法是把组件复制过来，麻烦且浪费空间，应用该文件后，开发后的组件就可以书写文档。</li>
-<li>deploy.sh拉取到最外层，让config只有webpack打包配置 ，（utils是为解决路径问题）</li>
-</ul>
-<h1 id="webpack打包"><a href="#webpack打包" class="headerlink" title="webpack打包"></a>webpack打包</h1><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// webpack.component.js 按需加载，单独组件打包</span></span><br><span class="line"><span class="keyword">const</span> &#123;VueLoaderPlugin&#125;  = <span class="built_in">require</span>(<span class="string">&#x27;vue-loader&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> components = <span class="built_in">require</span>(<span class="string">&#x27;../components.json&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> utlis = <span class="built_in">require</span>(<span class="string">&#x27;./utlis&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> list = &#123;&#125; <span class="comment">//入口文件</span></span><br><span class="line"><span class="keyword">const</span> basePath = path.resolve(__dirname, <span class="string">&#x27;../&#x27;</span>)</span><br><span class="line"><span class="built_in">Object</span>.keys(components).forEach(<span class="function"><span class="params">key</span> =&gt;</span> &#123;</span><br><span class="line">  list[key] = path.join(basePath,  components[key])</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// console.log(list);</span></span><br><span class="line"><span class="keyword">const</span> webpackconfig = &#123;</span><br><span class="line">  <span class="attr">entry</span>: list,</span><br><span class="line">  <span class="attr">mode</span>: <span class="string">&#x27;production&#x27;</span>,<span class="comment">//生产模式</span></span><br><span class="line">  <span class="attr">output</span>: &#123;</span><br><span class="line">    <span class="attr">path</span>: utlis.DIST_PATH,</span><br><span class="line">    <span class="attr">filename</span>: <span class="string">&#x27;[name].js&#x27;</span>,</span><br><span class="line">    <span class="attr">library</span>: <span class="string">&#x27;wex-ui&#x27;</span>, <span class="comment">//包名称</span></span><br><span class="line">    <span class="attr">libraryTarget</span>: <span class="string">&#x27;umd&#x27;</span>, <span class="comment">//支持的引入模式</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">module</span>: &#123;<span class="comment">//告诉webpack，什么文件使用什么rules</span></span><br><span class="line">    <span class="attr">rules</span>: [</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">test</span>: <span class="regexp">/\.vue$/</span>,</span><br><span class="line">        use: [</span><br><span class="line">          &#123;</span><br><span class="line">            <span class="attr">loader</span>: <span class="string">&#x27;vue-loader&#x27;</span>,</span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">    </span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">plugins</span>: [</span><br><span class="line">     <span class="keyword">new</span> VueLoaderPlugin()</span><br><span class="line">  ]</span><br><span class="line">  </span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">module</span>.exports = webpackconfig</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>整个打包文件主要就是对每个组件进行简单打包压缩，后续可能需要优化，尽量减少包的体积。</li>
-</ul>
-<h1 id="NPM上传"><a href="#NPM上传" class="headerlink" title="NPM上传"></a>NPM上传</h1><p>这是最没技术含量的问题，却是困惑我许久的问题：</p>
-<ul>
-<li>NPM莫名上传失败</li>
-</ul>
-<p>今天依旧想上传npm包，却发现：</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211008210126.png"></p>
-<p>这个问题网上找了很久，几乎全网没有答案，尝试了切版本，换源都没有用，最后尝试把http换成https，成功。</p>
-<ul>
-<li>NPM换源问题</li>
-</ul>
-<p>在上面问题没有解决的同时，我有进入另外别人设置好的的坑，没错就是下面的博文，</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211008210738.png"></p>
-<p>没错，这个源是错误的，正确的是：npm config set registry <a href="https://registry.npmjs.org/">https://registry.npmjs.org</a></p>
-<p>但是因为当时急于解决第一个问题，导致了失误。</p>
-<p>目前已经举报。。</p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>目前重写后可以正常使用，按需加载正常，后续包的优化，组件的增加有待研究。</p>
-]]></content>
-      <categories>
-        <category>组件库</category>
-      </categories>
-      <tags>
-        <tag>自定义组件库</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SSH免密钥连接服务器</title>
-    <url>/article/f85a2d78.html</url>
-    <content><![CDATA[<p>一般登录服务器通过SSH方式，每次都是需要密码，非常繁琐，本文介绍一种只需要<code>ssh+别名</code>就能连接服务器的方法。</p>
-<h1 id="什么是SSH"><a href="#什么是SSH" class="headerlink" title="什么是SSH"></a>什么是SSH</h1><p>SSH是一种网络协议，用于计算机之间的加密登录。如果一个用户从本地计算机，使用SSH协议登录另一台远程计算机，我们就可以认为，这种登录是安全的，即使被中途截获，密码也不会泄露，默认的端口是22</p>
-<h1 id="怎么连接"><a href="#怎么连接" class="headerlink" title="怎么连接"></a>怎么连接</h1><p>通过<code>ssh root@IP</code>回车，输入密码就可以连接到，如果默认端口修改了就需要加-p参数，这在后面修改端口号讲。</p>
-<h1 id="修改主机名字"><a href="#修改主机名字" class="headerlink" title="修改主机名字"></a>修改主机名字</h1><p>查询：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cat /etc/hostname</span><br></pre></td></tr></table></figure>
-
-<p>修改：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vi /etc/hostname</span><br></pre></td></tr></table></figure>
-
-<p>修改按<code>i</code>进入编辑，按<code>esc</code>退出编辑，<code>:wq</code>退出并保存</p>
-<h1 id="修改端口"><a href="#修改端口" class="headerlink" title="修改端口"></a>修改端口</h1><p>查询默认监听的端口：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">netstat -anlp |grep sshd</span><br></pre></td></tr></table></figure>
-
-<p>修改：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vi /etc/ssh/sshd_config</span><br></pre></td></tr></table></figure>
-
-<p>按<code>i</code>进入编辑，打开prot的注释，修改你想要的端口，我们可以看到上面的一段话，如果你修改端口号，需要执行：<code>semanage port -a -t ssh_port_t -p tcp #PORTNUMBER</code>  </p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># If you want to change the port on a SELinux system, you have to tell</span><br><span class="line"># SELinux about this change.</span><br><span class="line"># semanage port -a -t ssh_port_t -p tcp #PORTNUMBER</span><br></pre></td></tr></table></figure>
-
-<p>执行：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">semanage port -a -t ssh_port_t -p tcp #你修改的端口</span><br></pre></td></tr></table></figure>
-
-<p>如果提示<code>-bash: semanage: command not found</code>，则执行:</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">yum whatprovides semanage</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">yum install -y policycoreutils-python</span><br></pre></td></tr></table></figure>
-
-<p>再次执行刚才的命令，没有返回任何信息，通过以下命令查找是否添加成功：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">semanage port -l | grep ssh</span><br></pre></td></tr></table></figure>
-
-<p>最后就是重启一下ssh:</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">service sshd restart</span><br></pre></td></tr></table></figure>
-
-<p>返回<code>Redirecting to /bin/systemctl restart sshd.service</code>即是成功，</p>
-<p>通过查找默认端口，或者重新连接服务器确认是否成功：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ssh -p 你修改端口号 root@IP</span><br></pre></td></tr></table></figure>
-
-<p>需要注意的是，在服务云商店那里是需要 开放端口的，否则连接不上。</p>
-<h1 id="免密登陆"><a href="#免密登陆" class="headerlink" title="免密登陆"></a>免密登陆</h1><p>首先需要在本地生成ssh证书，在本地计算机，命令如下</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ssh-keygen</span><br></pre></td></tr></table></figure>
-
-<p>一直回车即可，在win10上，找到目录：<code>C:\Users\自己用户名\.ssh</code></p>
-<p>打开，没有则新建config文件，不要有后缀名：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Host #别名</span><br><span class="line">  Port #你修改后的端口</span><br><span class="line">  HostName #IP</span><br><span class="line">  User root#用户名</span><br><span class="line">  IdentityFile #密钥地址，要包含文件名</span><br><span class="line">  IdentitiesOnly yes</span><br></pre></td></tr></table></figure>
-
-<p>在服务器上通过<code>cd ~/.ssh</code>，<code>ls</code>,查看有没有<code>authorized_keys</code>文件，有则编辑，没有则新建。</p>
-<p>新建：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mkdir -p ~/.ssh</span><br><span class="line">vi authorized_keys</span><br></pre></td></tr></table></figure>
-
-<p>把本地计算机的pub文件复制进去，再次通过<code>ssh 别名</code>连接服务器成功。</p>
-<p>至此，已经完成服务器的免密登录</p>
-]]></content>
-      <categories>
-        <category>开发技巧</category>
-      </categories>
-      <tags>
-        <tag>效率</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>变量声明提升和var、let、const的区别</title>
     <url>/article/43391fd9.html</url>
     <content><![CDATA[<p>本文主要介绍JavaScript变量声明提升的现象。</p>
@@ -2788,6 +2779,51 @@
       </tags>
   </entry>
   <entry>
+    <title>搭建属于自己的UI组件库二</title>
+    <url>/article/c7f47550.html</url>
+    <content><![CDATA[<p>前段时间写了LinView组件库，但是由于问题太多，按需引入出错，最后参考element-ui框架和参考一些技术博文，重新编写整个组件库，因为重写，具体的不一 一例举，重点把遇到的坑点和心得记录下。</p>
+<h1 id="工程化目录"><a href="#工程化目录" class="headerlink" title="工程化目录"></a>工程化目录</h1><p>首先依然使用vue/cli形成目录，这是最后的目录结构：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">|-- WeX-UI</span><br><span class="line">    |-- .gitignore</span><br><span class="line">    |-- babel.config.js</span><br><span class="line">    |-- components.json</span><br><span class="line">    |-- deploy.sh         <span class="comment">//vuepress部署</span></span><br><span class="line">    |-- package-lock.json</span><br><span class="line">    |-- package.json</span><br><span class="line">    |-- README.md</span><br><span class="line">    |-- build          <span class="comment">//打包配置文件</span></span><br><span class="line">    |   |-- utlis.js</span><br><span class="line">    |   |-- webpack.base.js</span><br><span class="line">    |   |-- webpack.component.js</span><br><span class="line">    |   |-- webpack.prod.js</span><br><span class="line">    |-- docs           <span class="comment">//vuepress文档</span></span><br><span class="line">    |   |-- index.md</span><br><span class="line">    |   |-- .vuepress</span><br><span class="line">    |   |   |-- config.js</span><br><span class="line">    |   |   |-- enhanceApp.js</span><br><span class="line">    |   |   |-- public</span><br><span class="line">    |   |       |-- card.png</span><br><span class="line">    |   |-- componentdocs</span><br><span class="line">    |   |   |-- card.md</span><br><span class="line">    |   |   |-- index.md</span><br><span class="line">    |   |   |-- start.md</span><br><span class="line">    |   |-- update</span><br><span class="line">    |       |-- index.md</span><br><span class="line">    |-- lib            <span class="comment">//打包后的组件和样式</span></span><br><span class="line">    |   |-- card.js</span><br><span class="line">    |   |-- demo.js</span><br><span class="line">    |   |-- wex-ui.min.js</span><br><span class="line">    |   |-- styles</span><br><span class="line">    |       |-- card.css</span><br><span class="line">    |       |-- demo.css</span><br><span class="line">    |       |-- index.css</span><br><span class="line">    |-- packages         <span class="comment">//原生代码</span></span><br><span class="line">    |   |-- card</span><br><span class="line">    |   |   |-- index.js</span><br><span class="line">    |   |   |-- src</span><br><span class="line">    |   |       |-- Index.vue</span><br><span class="line">    |   |-- demo</span><br><span class="line">    |   |   |-- index.js</span><br><span class="line">    |   |   |-- src</span><br><span class="line">    |   |       |-- Index.vue</span><br><span class="line">    |   |-- theme-chalk         <span class="comment">//样式文件</span></span><br><span class="line">    |       |-- gulpfile.js</span><br><span class="line">    |       |-- src</span><br><span class="line">    |           |-- card.scss</span><br><span class="line">    |           |-- demo.scss</span><br><span class="line">    |           |-- index.scss</span><br><span class="line">    |-- public</span><br><span class="line">    |   |-- favicon.ico</span><br><span class="line">    |   |-- index.html</span><br><span class="line">    |-- src</span><br><span class="line">        |-- App.vue</span><br><span class="line">        |-- index.js        <span class="comment">//全局注册组件</span></span><br><span class="line">        |-- main.js</span><br><span class="line">        |-- assets</span><br><span class="line">        |   |-- logo.png</span><br><span class="line">        |-- components</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>整个目录结构是参考了ElementUI的写法，组件库没到一定规模，当然做了减法。</li>
+<li>为了第三方项目的按需加载，打包后的都放在lib文件夹。</li>
+<li>把gulp打包文件放在CSS的包这是参考了ElementUI，感觉上更加舒服，不会在build文件夹还存放另外的打包工具文件。</li>
+<li>components.json也是参考ElementUI，这是为了按需引入单独打包加上。</li>
+<li>webpack分成3个，一个公共打包，一个打包全部组件，一个用来单独组件打包，虽然现在一个也可以足够打包，但是为了后续的扩展，目前采取该方式。</li>
+<li>enhanceAppjs文件是用来导入全部组件的，属于应用级别，以前写法是把组件复制过来，麻烦且浪费空间，应用该文件后，开发后的组件就可以书写文档。</li>
+<li>deploy.sh拉取到最外层，让config只有webpack打包配置 ，（utils是为解决路径问题）</li>
+</ul>
+<h1 id="webpack打包"><a href="#webpack打包" class="headerlink" title="webpack打包"></a>webpack打包</h1><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// webpack.component.js 按需加载，单独组件打包</span></span><br><span class="line"><span class="keyword">const</span> &#123;VueLoaderPlugin&#125;  = <span class="built_in">require</span>(<span class="string">&#x27;vue-loader&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> components = <span class="built_in">require</span>(<span class="string">&#x27;../components.json&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> utlis = <span class="built_in">require</span>(<span class="string">&#x27;./utlis&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> list = &#123;&#125; <span class="comment">//入口文件</span></span><br><span class="line"><span class="keyword">const</span> basePath = path.resolve(__dirname, <span class="string">&#x27;../&#x27;</span>)</span><br><span class="line"><span class="built_in">Object</span>.keys(components).forEach(<span class="function"><span class="params">key</span> =&gt;</span> &#123;</span><br><span class="line">  list[key] = path.join(basePath,  components[key])</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// console.log(list);</span></span><br><span class="line"><span class="keyword">const</span> webpackconfig = &#123;</span><br><span class="line">  <span class="attr">entry</span>: list,</span><br><span class="line">  <span class="attr">mode</span>: <span class="string">&#x27;production&#x27;</span>,<span class="comment">//生产模式</span></span><br><span class="line">  <span class="attr">output</span>: &#123;</span><br><span class="line">    <span class="attr">path</span>: utlis.DIST_PATH,</span><br><span class="line">    <span class="attr">filename</span>: <span class="string">&#x27;[name].js&#x27;</span>,</span><br><span class="line">    <span class="attr">library</span>: <span class="string">&#x27;wex-ui&#x27;</span>, <span class="comment">//包名称</span></span><br><span class="line">    <span class="attr">libraryTarget</span>: <span class="string">&#x27;umd&#x27;</span>, <span class="comment">//支持的引入模式</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">module</span>: &#123;<span class="comment">//告诉webpack，什么文件使用什么rules</span></span><br><span class="line">    <span class="attr">rules</span>: [</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">test</span>: <span class="regexp">/\.vue$/</span>,</span><br><span class="line">        use: [</span><br><span class="line">          &#123;</span><br><span class="line">            <span class="attr">loader</span>: <span class="string">&#x27;vue-loader&#x27;</span>,</span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">    </span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">plugins</span>: [</span><br><span class="line">     <span class="keyword">new</span> VueLoaderPlugin()</span><br><span class="line">  ]</span><br><span class="line">  </span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">module</span>.exports = webpackconfig</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>整个打包文件主要就是对每个组件进行简单打包压缩，后续可能需要优化，尽量减少包的体积。</li>
+</ul>
+<h1 id="NPM上传"><a href="#NPM上传" class="headerlink" title="NPM上传"></a>NPM上传</h1><p>这是最没技术含量的问题，却是困惑我许久的问题：</p>
+<ul>
+<li>NPM莫名上传失败</li>
+</ul>
+<p>今天依旧想上传npm包，却发现：</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211008210126.png"></p>
+<p>这个问题网上找了很久，几乎全网没有答案，尝试了切版本，换源都没有用，最后尝试把http换成https，成功。</p>
+<ul>
+<li>NPM换源问题</li>
+</ul>
+<p>在上面问题没有解决的同时，我有进入另外别人设置好的的坑，没错就是下面的博文，</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211008210738.png"></p>
+<p>没错，这个源是错误的，正确的是：npm config set registry <a href="https://registry.npmjs.org/">https://registry.npmjs.org</a></p>
+<p>但是因为当时急于解决第一个问题，导致了失误。</p>
+<p>目前已经举报。。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>目前重写后可以正常使用，按需加载正常，后续包的优化，组件的增加有待研究。</p>
+]]></content>
+      <categories>
+        <category>组件库</category>
+      </categories>
+      <tags>
+        <tag>自定义组件库</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo图床的解决方案</title>
     <url>/article/4c6068df.html</url>
     <content><![CDATA[<p>网站链接嵌套得越深，越不利于SEO优化，Hexo默认链接是年月日标题，如果标题是中文，那么链接就会变成乱码，这很不利于搜索引擎的搜索，为了达到目的，我们会使用<code>hexo-abbrlink</code>插件来解决问题，但是我们需要上传图片，图片要么需要图床，不然你就只能附带博客里面，以下分析个人在遇到这个问题的取舍与想法，愿与诸君分享。</p>
@@ -2856,16 +2892,22 @@
       </tags>
   </entry>
   <entry>
-    <title>无题</title>
-    <url>/article/9b44950b.html</url>
-    <content><![CDATA[<p>欢乐和苦恼必然联系在一起：每一个欢乐背后都隐藏着当这个欢乐失去后的苦恼，每一个苦恼背后都隐藏着，当这个苦恼失去后的快乐。</p>
+    <title>布局问题</title>
+    <url>/article/9a7d9672.html</url>
+    <content><![CDATA[<p>在开发网页布局的时候，遇到浏览器正常窗口，正常显示，但是浏览器缩小，页面混乱问题，特此记录一下。</p>
+<h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>这是正常情况：</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211023105243.png"></p>
+<p>这是缩小情况，非常丑陋：</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211023105341.png"></p>
+<h1 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h1><p>通过审核元素可以看到，父盒子没有宽度，是由子盒子撑开，但是背景颜色是在父盒子，给父盒子设置宽度即可解决，但是背景颜色是铺满的，所以就需要使用min-width属性。</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/image-20211023110010817.png"></p>
+<p>第二个问题，就是轮播的问题，这里依然使用min-width属性给父盒子设置宽度即可解决。</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211023110527.png"></p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>设置width100%是有问题的，当浏览器缩小，那么会认为浏览器就是这么小，宽度就占满，那么再去拖动滚动条，后面的内容也就看不到了</p>
 ]]></content>
       <categories>
-        <category>随笔</category>
+        <category>开发问题</category>
       </categories>
-      <tags>
-        <tag>随笔</tag>
-      </tags>
   </entry>
   <entry>
     <title>文章锚点失效问题</title>
@@ -3079,22 +3121,16 @@
       </tags>
   </entry>
   <entry>
-    <title>布局问题</title>
-    <url>/article/9a7d9672.html</url>
-    <content><![CDATA[<p>在开发网页布局的时候，遇到浏览器正常窗口，正常显示，但是浏览器缩小，页面混乱问题，特此记录一下。</p>
-<h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>这是正常情况：</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211023105243.png"></p>
-<p>这是缩小情况，非常丑陋：</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211023105341.png"></p>
-<h1 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h1><p>通过审核元素可以看到，父盒子没有宽度，是由子盒子撑开，但是背景颜色是在父盒子，给父盒子设置宽度即可解决，但是背景颜色是铺满的，所以就需要使用min-width属性。</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/image-20211023110010817.png"></p>
-<p>第二个问题，就是轮播的问题，这里依然使用min-width属性给父盒子设置宽度即可解决。</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211023110527.png"></p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>设置width100%是有问题的，当浏览器缩小，那么会认为浏览器就是这么小，宽度就占满，那么再去拖动滚动条，后面的内容也就看不到了</p>
+    <title>无题</title>
+    <url>/article/9b44950b.html</url>
+    <content><![CDATA[<p>欢乐和苦恼必然联系在一起：每一个欢乐背后都隐藏着当这个欢乐失去后的苦恼，每一个苦恼背后都隐藏着，当这个苦恼失去后的快乐。</p>
 ]]></content>
       <categories>
-        <category>开发问题</category>
+        <category>随笔</category>
       </categories>
+      <tags>
+        <tag>随笔</tag>
+      </tags>
   </entry>
   <entry>
     <title>物理像素和CSS像素</title>
