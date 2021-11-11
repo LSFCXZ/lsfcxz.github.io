@@ -29,10 +29,12 @@
 <meta property="og:site_name" content="大前端_LSF">
 <meta property="og:description" content="本文意在通过例子的方式总结全局变量和局部变量的区别。">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211110224238.png">
 <meta property="article:published_time" content="2021-11-09T08:13:24.000Z">
-<meta property="article:modified_time" content="2021-11-09T13:53:06.269Z">
+<meta property="article:modified_time" content="2021-11-11T02:45:51.322Z">
 <meta property="article:author" content="const name&#x3D;&quot;LSF&quot;">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211110224238.png">
 
 <link rel="canonical" href="https://www.frontblog.top/article/998c8364.html">
 
@@ -241,10 +243,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-11-09 16:13:24 / 修改时间：21:53:06" itemprop="dateCreated datePublished" datetime="2021-11-09T16:13:24+08:00">2021-11-09</time>
+              <time title="创建时间：2021-11-09 16:13:24" itemprop="dateCreated datePublished" datetime="2021-11-09T16:13:24+08:00">2021-11-09</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-11-11 10:45:51" itemprop="dateModified" datetime="2021-11-11T10:45:51+08:00">2021-11-11</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -301,10 +309,10 @@
 <ul>
 <li>函数的参数属于局部变量，不能通过window调用</li>
 </ul>
-<h1 id="例子三"><a href="#例子三" class="headerlink" title="例子三"></a>例子三</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [];</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>;i&lt;<span class="number">5</span>;i++)&#123;</span><br><span class="line">    arr.push(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(i)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line">arr[<span class="number">2</span>]()<span class="comment">//5</span></span><br></pre></td></tr></table></figure>
+<h1 id="例子三-重点"><a href="#例子三-重点" class="headerlink" title="例子三(重点)"></a>例子三(重点)</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [];</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>;i&lt;<span class="number">5</span>;i++)&#123;</span><br><span class="line">    arr.push(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(i)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line">arr[<span class="number">2</span>]()<span class="comment">//5</span></span><br></pre></td></tr></table></figure>
 
 <ul>
-<li>这个例子中无论哪个下标执行都会输出5，因为，i属于全局变量，函数输出的值时全局的，如果先要输出不同值，就需要设置成局部的变量，有两种方法，一种使用立即执行函数，另外一种就是使用let,</li>
+<li>这个例子中无论哪个下标执行都会输出5，因为，i属于全局变量，函数输出的值是全局的，如果先要输出不同值，就需要设置成局部的变量，有两种方法，一种使用立即执行函数，另外一种就是使用let,</li>
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var arr = [];</span><br><span class="line">for(var i = 0;i&lt;5;i++)&#123;</span><br><span class="line">    arr.push((function(i)&#123;//形参i属于局部变量</span><br><span class="line">        console.log(i)</span><br><span class="line">    &#125;)(i))//实参</span><br><span class="line">&#125;</span><br><span class="line">arr[2]()//2</span><br></pre></td></tr></table></figure>
 
@@ -316,6 +324,14 @@
 <ul>
 <li>let不会被提升，所以也就完整的保留再函数里面</li>
 </ul>
+<h1 id="例子三-一"><a href="#例子三-一" class="headerlink" title="例子三.一"></a>例子三.一</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> num = []</span><br><span class="line">    <span class="keyword">var</span> i</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">        num[i] = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(i)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> num[<span class="number">9</span>]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">test()()</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>这题目和前面的差不多，num[9]输出都是10，因为匿名函数输出这个i是上层的i，而这个i是不断变化的，我们输出的i的最终值。</li>
+<li>在循环中将函数赋给数组，却并没有执行，也就是程序并不知道函数内部是个啥。等执行的时候，i已经变成了10，数组每一项的运行结果都是10</li>
+<li>很套路的题目。。</li>
+</ul>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211110224238.png"></p>
 <h1 id="例子四"><a href="#例子四" class="headerlink" title="例子四"></a>例子四</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">10</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">    a++;</span><br><span class="line">    <span class="keyword">var</span> a = <span class="number">5</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(a)<span class="comment">//5</span></span><br><span class="line">&#125;</span><br><span class="line">fun()</span><br><span class="line"> <span class="built_in">console</span>.log(a)<span class="comment">//10</span></span><br></pre></td></tr></table></figure>
 
 <ul>
@@ -458,7 +474,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BE%8B%E5%AD%90%E4%B8%80"><span class="nav-number">1.</span> <span class="nav-text">例子一</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BE%8B%E5%AD%90%E4%BA%8C"><span class="nav-number">2.</span> <span class="nav-text">例子二</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BE%8B%E5%AD%90%E4%B8%89"><span class="nav-number">3.</span> <span class="nav-text">例子三</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BE%8B%E5%AD%90%E5%9B%9B"><span class="nav-number">4.</span> <span class="nav-text">例子四</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BE%8B%E5%AD%90%E4%BA%94"><span class="nav-number">5.</span> <span class="nav-text">例子五</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BE%8B%E5%AD%90%E4%B8%80"><span class="nav-number">1.</span> <span class="nav-text">例子一</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BE%8B%E5%AD%90%E4%BA%8C"><span class="nav-number">2.</span> <span class="nav-text">例子二</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BE%8B%E5%AD%90%E4%B8%89-%E9%87%8D%E7%82%B9"><span class="nav-number">3.</span> <span class="nav-text">例子三(重点)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BE%8B%E5%AD%90%E4%B8%89-%E4%B8%80"><span class="nav-number">4.</span> <span class="nav-text">例子三.一</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BE%8B%E5%AD%90%E5%9B%9B"><span class="nav-number">5.</span> <span class="nav-text">例子四</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BE%8B%E5%AD%90%E4%BA%94"><span class="nav-number">6.</span> <span class="nav-text">例子五</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -474,7 +490,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">44</span>
+          <span class="site-state-item-count">45</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

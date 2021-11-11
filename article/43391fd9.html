@@ -22,16 +22,16 @@
     var CONFIG = {"hostname":"www.frontblog.top","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="本文主要介绍JavaScript变量声明提升的现象。">
+  <meta name="description" content="本文主要介绍JavaScript变量声明提升。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="变量声明提升和var、let、const的区别">
 <meta property="og:url" content="https://www.frontblog.top/article/43391fd9.html">
 <meta property="og:site_name" content="大前端_LSF">
-<meta property="og:description" content="本文主要介绍JavaScript变量声明提升的现象。">
+<meta property="og:description" content="本文主要介绍JavaScript变量声明提升。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211028185202.png">
 <meta property="article:published_time" content="2021-10-27T10:37:18.000Z">
-<meta property="article:modified_time" content="2021-11-09T07:43:11.078Z">
+<meta property="article:modified_time" content="2021-11-10T11:21:17.869Z">
 <meta property="article:author" content="const name&#x3D;&quot;LSF&quot;">
 <meta property="article:tag" content="变量声明提升">
 <meta name="twitter:card" content="summary">
@@ -252,7 +252,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-09 15:43:11" itemprop="dateModified" datetime="2021-11-09T15:43:11+08:00">2021-11-09</time>
+                <time title="修改时间：2021-11-10 19:21:17" itemprop="dateModified" datetime="2021-11-10T19:21:17+08:00">2021-11-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -296,7 +296,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>本文主要介绍JavaScript变量声明提升的现象。</p>
+        <p>本文主要介绍JavaScript变量声明提升。</p>
 <p>JavaScript是一门运行时的脚本语言，也就是没有编译阶段，但是存在一个预编译阶段，预编译阶段会去预读所有变量的定义。</p>
 <h1 id="什么是变量声明提升？"><a href="#什么是变量声明提升？" class="headerlink" title="什么是变量声明提升？"></a><strong>什么是变量声明提升？</strong></h1><p>我们可以提前使用一个稍后才声明的变量，而不会引发异常。</p>
 <h1 id="变量声明提升带来的后果："><a href="#变量声明提升带来的后果：" class="headerlink" title="变量声明提升带来的后果："></a><strong>变量声明提升带来的后果：</strong></h1><p>变量声明提升只是提升了定义，但不会提升值，比如下面代码，输出的是undefined，这是因为var a 被提升了，但是后面的值没有被提升，一个没有赋初值的变量，输出肯定是undefined。</p>
@@ -337,13 +337,13 @@
 <ul>
 <li>可以看出window对象上已经绑定了变量a和c，属于全局的一个变量。如果想给var重新赋值，可以直接a=1或者重新var a = 1,重新赋值并不会改变上面的原则。而如果在函数内不使用<code>var</code>，该变量是全局的</li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">undefine      <span class="function"><span class="keyword">function</span> <span class="title">fun</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        b = <span class="number">22</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      fun();</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">&#x27; b-&gt;&#x27;</span> + <span class="built_in">window</span>.b); <span class="comment">//b-&gt;undefine</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    b = <span class="number">22</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  fun();</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27; b-&gt;&#x27;</span> + <span class="built_in">window</span>.b); <span class="comment">//b-&gt;22</span></span><br></pre></td></tr></table></figure>
 
 <p>以上是在浏览器侧，在Node侧有小小的区别。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">global</span>.a);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span></span><br><span class="line">b = <span class="number">2</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">global</span>.a);<span class="comment">//undefine</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">global</span>.b);<span class="comment">//2</span></span><br></pre></td></tr></table></figure>
 
 <ul>
-<li>以上代码输出的其实是undefine，因为在nodejs侧，使用var一个变量，属于该js文件局部的变量，只有a = 1的时候，才能被global调用，不过一般不建议这样做，会产生全局污染，除非这个变量是全局都需要去频繁使用到</li>
+<li>以上代码输出的其实是<code>undefine</code>，因为在<code>nodejs</code>侧，使用var一个变量，属于该JS文件局部的变量，只有a = 1的时候，才能被global调用，不过一般不建议这样做，会产生全局污染，除非这个变量是全局都需要去频繁使用到</li>
 </ul>
 <h2 id="let"><a href="#let" class="headerlink" title="let:"></a>let:</h2><p><code>let</code>是<code>ES6</code>新增的命令，用来声明变量，用法类似于<code>var</code>，但是所声明的变量，<strong>只在<code>let</code>命令所在的代码块内有效</strong></p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="keyword">let</span> a = <span class="number">20</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(a) <span class="comment">// ReferenceError: a is not defined.</span></span><br></pre></td></tr></table></figure>
@@ -351,8 +351,8 @@
 <p>同时也<strong>不存在变量提升</strong>，以下代码表示在声明它之前，变量<code>a</code>是不存在的，这时如果用到它，就会抛出一个错误</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(a) <span class="comment">// 报错ReferenceError</span></span><br><span class="line"><span class="keyword">let</span> a = <span class="number">2</span></span><br></pre></td></tr></table></figure>
 
-<p>let<strong>存在暂时性死区</strong>，也就是使用<code>let</code>声明变量前，该变量都不可用</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">123</span>;</span><br><span class="line"><span class="keyword">if</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">  a = <span class="string">&#x27;abc&#x27;</span>; <span class="comment">// ReferenceError</span></span><br><span class="line">  <span class="keyword">let</span> a;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>let<strong>存在暂时性死区</strong>，也就是使用<code>let</code>声明变量前，该变量都不可用，原因在于let不存在变量提升，但JS的作用域链会往上面一层去找这个变量，这里就出现矛盾了，既然不提升，那就是这个区域没有这个变量，那我往上找不就可以，但是JS就是会在这里报错，这种情况就是暂时性死区，不给你往上找这个变量，const也是这种情况。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">60</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(a);</span><br><span class="line">  <span class="keyword">let</span> a = <span class="number">50</span>;</span><br><span class="line">&#125;</span><br><span class="line">fun();</span><br></pre></td></tr></table></figure>
 
 <p><strong><code>let</code>不允许在相同作用域中重复声明</strong></p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="number">20</span></span><br><span class="line"><span class="keyword">let</span> a = <span class="number">30</span></span><br><span class="line"><span class="comment">// Uncaught SyntaxError: Identifier &#x27;a&#x27; has already been declared</span></span><br></pre></td></tr></table></figure>
@@ -521,7 +521,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">44</span>
+          <span class="site-state-item-count">45</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
