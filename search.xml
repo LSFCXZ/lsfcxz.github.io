@@ -21,79 +21,6 @@
       </categories>
   </entry>
   <entry>
-    <title>CSS3层叠性、继承性、优先级</title>
-    <url>/article/96691857.html</url>
-    <content><![CDATA[<p>在CSS3中如果同时多个选择器都在描述同一个元素，那么CSS3会把一层一层的样式刷上去，这就是他的层叠性，但是，如果多个选择器都在描述这个元素的同个属性，CSS3会采取权重计算后采用那个样式，如果属性是具有继承性，则优先采用就近原则，当一样近的时候，才选择权重计算。这些计算只能是在同一个引用方式生效，否则，行内式是最高权重，然后才是内嵌，最后是外链。</p>
-<h1 id="层叠性"><a href="#层叠性" class="headerlink" title="层叠性"></a>层叠性</h1><p>首先CSS全称叫CascadingStyleSheets，中文名为层叠性样式表，CSS根据选择器，属性，属性值为HTML标签刷上一层一层样式。</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">  <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">    <span class="selector-tag">p</span> &#123;</span></span><br><span class="line"><span class="css">      <span class="attribute">color</span>: aqua;</span></span><br><span class="line"><span class="css">    &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.spec</span> &#123;</span></span><br><span class="line"><span class="css">      <span class="attribute">text-decoration</span>: underline;</span></span><br><span class="line"><span class="css">    &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-id">#paragraph</span> &#123;</span></span><br><span class="line"><span class="css">      <span class="attribute">font-size</span>: <span class="number">25px</span>;</span></span><br><span class="line"><span class="css">    &#125;</span></span><br><span class="line"><span class="css">  </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">&quot;spec&quot;</span> <span class="attr">id</span>=<span class="string">&quot;paragraph&quot;</span>&gt;</span>我是段落<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>最终效果：</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211001202944.png"></p>
-<p>可以看到，每个选择器的样式都是一层一层刷上去的，但是如果每个选择器都在描述同一个属性呢，这需要后面的优先级，权重计算来衡量。</p>
-<h1 id="优先级"><a href="#优先级" class="headerlink" title="优先级"></a>优先级</h1><p>CSS的优先级可以分为文件的引入方式和选择器的优先级</p>
-<p>文件的引入方式，优先级又高到低：</p>
-<ul>
-<li>行内样式&gt;内嵌式&gt;链接式&gt;@import导入式</li>
-</ul>
-<p>选择器优先级：</p>
-<ul>
-<li>!important&gt;ID&gt;Class&gt;属性选择器&gt;伪类选择器&gt;伪元素选择器&gt;标签选择器&gt;通配选择器</li>
-</ul>
-<h1 id="继承性"><a href="#继承性" class="headerlink" title="继承性"></a>继承性</h1><p>color、font-开头、list-开头、text-开头、line-开头都具有继承性，继承性是祖先元素设置后，后代元素生效</p>
-<p>需要注意的是：继承属性是优先采用就近原则，即描述该元素的远近，后采用优先级，最后再采用书写的远近。</p>
-<p>以下文字就是blue，p的优先级是小于类的，但是具有继承性的是优先考虑就近原则</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">  <span class="selector-tag">p</span> &#123;</span></span><br><span class="line"><span class="css">    <span class="attribute">color</span>: blue;</span></span><br><span class="line"><span class="css">  &#125;</span></span><br><span class="line"><span class="css">  <span class="selector-class">.box</span> &#123;</span></span><br><span class="line"><span class="css">    <span class="attribute">color</span>: red;</span></span><br><span class="line"><span class="css">  &#125;</span></span><br><span class="line"><span class="css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>我是段落<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>以下文字是yellow，一样近，采用优先级</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">     <span class="selector-class">.p</span> &#123;</span></span><br><span class="line"><span class="css">       <span class="attribute">color</span>: yellow;</span></span><br><span class="line"><span class="css">     &#125;</span></span><br><span class="line"><span class="css">     <span class="selector-tag">p</span> &#123;</span></span><br><span class="line"><span class="css">       <span class="attribute">color</span>: blue;</span></span><br><span class="line"><span class="css">     &#125;</span></span><br><span class="line"><span class="css">     <span class="selector-class">.box</span> &#123;</span></span><br><span class="line"><span class="css">       <span class="attribute">color</span>: red;</span></span><br><span class="line"><span class="css">     &#125;</span></span><br><span class="line"><span class="css">   </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">&quot;p&quot;</span>&gt;</span>我是段落<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>以下文字是green，后写覆盖先写</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">  <span class="selector-class">.p</span> &#123;</span></span><br><span class="line"><span class="css">    <span class="attribute">color</span>: yellow;</span></span><br><span class="line"><span class="css">  &#125;</span></span><br><span class="line"><span class="css">  <span class="selector-tag">p</span> &#123;</span></span><br><span class="line"><span class="css">    <span class="attribute">color</span>: blue;</span></span><br><span class="line"><span class="css">  &#125;</span></span><br><span class="line"><span class="css">  <span class="selector-class">.box</span> &#123;</span></span><br><span class="line"><span class="css">    <span class="attribute">color</span>: red;</span></span><br><span class="line"><span class="css">  &#125;</span></span><br><span class="line"><span class="css">  <span class="selector-class">.p</span> &#123;</span></span><br><span class="line"><span class="css">    <span class="attribute">color</span>: green;</span></span><br><span class="line"><span class="css">  &#125;</span></span><br><span class="line"><span class="css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">&quot;p&quot;</span>&gt;</span>我是段落<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="两个属性"><a href="#两个属性" class="headerlink" title="两个属性"></a>两个属性</h1><h2 id="important"><a href="#important" class="headerlink" title="!important"></a>!important</h2><p>!important是提升属性的权重，它影响的是该属性中的权重值，写在属性值后面，该属性的权重为最大</p>
-<h2 id="z-index"><a href="#z-index" class="headerlink" title="z-index"></a>z-index</h2><p>z-index是影响层叠性，需要注意的是两个元素是<strong>需要设置定位属性</strong>才可以生效！</p>
-<h1 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h1><ul>
-<li>下面p段落的文字是什么颜色？</li>
-</ul>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">     <span class="selector-tag">p</span> &#123;</span></span><br><span class="line"><span class="css">       <span class="attribute">color</span>: aqua;</span></span><br><span class="line"><span class="css">     &#125;</span></span><br><span class="line"><span class="css">     <span class="selector-class">.box</span> <span class="selector-class">.box1</span> &#123;</span></span><br><span class="line"><span class="css">       <span class="attribute">color</span>: red;</span></span><br><span class="line"><span class="css">     &#125;</span></span><br><span class="line"><span class="css">     <span class="selector-id">#box2</span> &#123;</span></span><br><span class="line"><span class="css">       <span class="attribute">color</span>: blue;</span></span><br><span class="line"><span class="css">     &#125;</span></span><br><span class="line"><span class="css">   </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span>   </span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box1&quot;</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;box2&quot;</span> <span class="attr">style</span>=<span class="string">&quot;color: yellow&quot;</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">p</span>&gt;</span>我是段落<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>正确答案是：aqua颜色</p>
-<p>小结：</p>
-<ul>
-<li>首先color是继承属性，所以优先采用就近原则</li>
-<li>就近原则在于描述的是否接近，如果一样近，权重又是一样，就看书写的远近。</li>
-</ul>
-<hr>
-<ul>
-<li>下面代码中会出现什么颜色？</li>
-</ul>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">  <span class="selector-class">.box</span> &#123;</span></span><br><span class="line"><span class="css">    <span class="attribute">width</span>: <span class="number">120px</span>;</span></span><br><span class="line"><span class="css">    <span class="attribute">height</span>: <span class="number">120px</span>;</span></span><br><span class="line"><span class="css">    <span class="attribute">background-color</span>: blue;</span></span><br><span class="line"><span class="css">  &#125;</span></span><br><span class="line"><span class="css">  <span class="selector-class">.box1</span> &#123;</span></span><br><span class="line"><span class="css">    <span class="attribute">width</span>: <span class="number">120px</span>;</span></span><br><span class="line"><span class="css">    <span class="attribute">height</span>: <span class="number">120px</span>;</span></span><br><span class="line"><span class="css">    <span class="attribute">background-color</span>: red;</span></span><br><span class="line"><span class="css">  &#125;</span></span><br><span class="line"><span class="css">  <span class="selector-id">#box2</span> <span class="selector-tag">p</span>&#123;</span></span><br><span class="line"><span class="css">    <span class="attribute">width</span>: <span class="number">120px</span>;</span></span><br><span class="line"><span class="css">    <span class="attribute">height</span>: <span class="number">120px</span>;</span></span><br><span class="line"><span class="css">    <span class="attribute">background-color</span>: aqua;</span></span><br><span class="line"><span class="css">  &#125;</span></span><br><span class="line"><span class="css">  <span class="selector-class">.box3</span> &#123;</span></span><br><span class="line"><span class="css">    <span class="attribute">width</span>: <span class="number">120px</span>;</span></span><br><span class="line"><span class="css">    <span class="attribute">height</span>: <span class="number">120px</span>;</span></span><br><span class="line"><span class="css">    <span class="attribute">background-color</span>: yellow;</span></span><br><span class="line"><span class="css">  &#125;</span></span><br><span class="line"><span class="css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box1&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;box2&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box3&quot;</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">p</span>&gt;</span>我是段落<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>正确答案：aqua</p>
-<p>小结：</p>
-<ul>
-<li>background-color属性没有继承性，优先使用权重</li>
-</ul>
-<hr>
-<ul>
-<li>下面p段落的文字是什么颜色？</li>
-</ul>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">       <span class="selector-id">#box2</span> <span class="selector-class">.box3</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">color</span>: red;</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-id">#box4</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">color</span>: blue;</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box1&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;box2&quot;</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box3&quot;</span> <span class="attr">id</span>=<span class="string">&quot;box4&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">p</span>&gt;</span>我是段落<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>正确答案：red</p>
-<p>小结：</p>
-<ul>
-<li>color属性具有继承性，所以使用就近原则</li>
-<li>两个选择器一样远近，使用权重计算</li>
-</ul>
-]]></content>
-      <categories>
-        <category>CSS</category>
-      </categories>
-  </entry>
-  <entry>
     <title>CSS3文档</title>
     <url>/article/248395c9.html</url>
     <content><![CDATA[<p>本文主要介绍CSS3的属性和属性，以属性+属性值+注释的形式。</p>
@@ -389,6 +316,79 @@
 ]]></content>
       <categories>
         <category>文档(更新中)</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>CSS3层叠性、继承性、优先级</title>
+    <url>/article/96691857.html</url>
+    <content><![CDATA[<p>在CSS3中如果同时多个选择器都在描述同一个元素，那么CSS3会把一层一层的样式刷上去，这就是他的层叠性，但是，如果多个选择器都在描述这个元素的同个属性，CSS3会采取权重计算后采用那个样式，如果属性是具有继承性，则优先采用就近原则，当一样近的时候，才选择权重计算。这些计算只能是在同一个引用方式生效，否则，行内式是最高权重，然后才是内嵌，最后是外链。</p>
+<h1 id="层叠性"><a href="#层叠性" class="headerlink" title="层叠性"></a>层叠性</h1><p>首先CSS全称叫CascadingStyleSheets，中文名为层叠性样式表，CSS根据选择器，属性，属性值为HTML标签刷上一层一层样式。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">  <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">    <span class="selector-tag">p</span> &#123;</span></span><br><span class="line"><span class="css">      <span class="attribute">color</span>: aqua;</span></span><br><span class="line"><span class="css">    &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.spec</span> &#123;</span></span><br><span class="line"><span class="css">      <span class="attribute">text-decoration</span>: underline;</span></span><br><span class="line"><span class="css">    &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-id">#paragraph</span> &#123;</span></span><br><span class="line"><span class="css">      <span class="attribute">font-size</span>: <span class="number">25px</span>;</span></span><br><span class="line"><span class="css">    &#125;</span></span><br><span class="line"><span class="css">  </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">&quot;spec&quot;</span> <span class="attr">id</span>=<span class="string">&quot;paragraph&quot;</span>&gt;</span>我是段落<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>最终效果：</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211001202944.png"></p>
+<p>可以看到，每个选择器的样式都是一层一层刷上去的，但是如果每个选择器都在描述同一个属性呢，这需要后面的优先级，权重计算来衡量。</p>
+<h1 id="优先级"><a href="#优先级" class="headerlink" title="优先级"></a>优先级</h1><p>CSS的优先级可以分为文件的引入方式和选择器的优先级</p>
+<p>文件的引入方式，优先级又高到低：</p>
+<ul>
+<li>行内样式&gt;内嵌式&gt;链接式&gt;@import导入式</li>
+</ul>
+<p>选择器优先级：</p>
+<ul>
+<li>!important&gt;ID&gt;Class&gt;属性选择器&gt;伪类选择器&gt;伪元素选择器&gt;标签选择器&gt;通配选择器</li>
+</ul>
+<h1 id="继承性"><a href="#继承性" class="headerlink" title="继承性"></a>继承性</h1><p>color、font-开头、list-开头、text-开头、line-开头都具有继承性，继承性是祖先元素设置后，后代元素生效</p>
+<p>需要注意的是：继承属性是优先采用就近原则，即描述该元素的远近，后采用优先级，最后再采用书写的远近。</p>
+<p>以下文字就是blue，p的优先级是小于类的，但是具有继承性的是优先考虑就近原则</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">  <span class="selector-tag">p</span> &#123;</span></span><br><span class="line"><span class="css">    <span class="attribute">color</span>: blue;</span></span><br><span class="line"><span class="css">  &#125;</span></span><br><span class="line"><span class="css">  <span class="selector-class">.box</span> &#123;</span></span><br><span class="line"><span class="css">    <span class="attribute">color</span>: red;</span></span><br><span class="line"><span class="css">  &#125;</span></span><br><span class="line"><span class="css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>我是段落<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>以下文字是yellow，一样近，采用优先级</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">     <span class="selector-class">.p</span> &#123;</span></span><br><span class="line"><span class="css">       <span class="attribute">color</span>: yellow;</span></span><br><span class="line"><span class="css">     &#125;</span></span><br><span class="line"><span class="css">     <span class="selector-tag">p</span> &#123;</span></span><br><span class="line"><span class="css">       <span class="attribute">color</span>: blue;</span></span><br><span class="line"><span class="css">     &#125;</span></span><br><span class="line"><span class="css">     <span class="selector-class">.box</span> &#123;</span></span><br><span class="line"><span class="css">       <span class="attribute">color</span>: red;</span></span><br><span class="line"><span class="css">     &#125;</span></span><br><span class="line"><span class="css">   </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">&quot;p&quot;</span>&gt;</span>我是段落<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>以下文字是green，后写覆盖先写</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">  <span class="selector-class">.p</span> &#123;</span></span><br><span class="line"><span class="css">    <span class="attribute">color</span>: yellow;</span></span><br><span class="line"><span class="css">  &#125;</span></span><br><span class="line"><span class="css">  <span class="selector-tag">p</span> &#123;</span></span><br><span class="line"><span class="css">    <span class="attribute">color</span>: blue;</span></span><br><span class="line"><span class="css">  &#125;</span></span><br><span class="line"><span class="css">  <span class="selector-class">.box</span> &#123;</span></span><br><span class="line"><span class="css">    <span class="attribute">color</span>: red;</span></span><br><span class="line"><span class="css">  &#125;</span></span><br><span class="line"><span class="css">  <span class="selector-class">.p</span> &#123;</span></span><br><span class="line"><span class="css">    <span class="attribute">color</span>: green;</span></span><br><span class="line"><span class="css">  &#125;</span></span><br><span class="line"><span class="css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">&quot;p&quot;</span>&gt;</span>我是段落<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="两个属性"><a href="#两个属性" class="headerlink" title="两个属性"></a>两个属性</h1><h2 id="important"><a href="#important" class="headerlink" title="!important"></a>!important</h2><p>!important是提升属性的权重，它影响的是该属性中的权重值，写在属性值后面，该属性的权重为最大</p>
+<h2 id="z-index"><a href="#z-index" class="headerlink" title="z-index"></a>z-index</h2><p>z-index是影响层叠性，需要注意的是两个元素是<strong>需要设置定位属性</strong>才可以生效！</p>
+<h1 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h1><ul>
+<li>下面p段落的文字是什么颜色？</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">     <span class="selector-tag">p</span> &#123;</span></span><br><span class="line"><span class="css">       <span class="attribute">color</span>: aqua;</span></span><br><span class="line"><span class="css">     &#125;</span></span><br><span class="line"><span class="css">     <span class="selector-class">.box</span> <span class="selector-class">.box1</span> &#123;</span></span><br><span class="line"><span class="css">       <span class="attribute">color</span>: red;</span></span><br><span class="line"><span class="css">     &#125;</span></span><br><span class="line"><span class="css">     <span class="selector-id">#box2</span> &#123;</span></span><br><span class="line"><span class="css">       <span class="attribute">color</span>: blue;</span></span><br><span class="line"><span class="css">     &#125;</span></span><br><span class="line"><span class="css">   </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span>   </span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box1&quot;</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;box2&quot;</span> <span class="attr">style</span>=<span class="string">&quot;color: yellow&quot;</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">p</span>&gt;</span>我是段落<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>正确答案是：aqua颜色</p>
+<p>小结：</p>
+<ul>
+<li>首先color是继承属性，所以优先采用就近原则</li>
+<li>就近原则在于描述的是否接近，如果一样近，权重又是一样，就看书写的远近。</li>
+</ul>
+<hr>
+<ul>
+<li>下面代码中会出现什么颜色？</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">  <span class="selector-class">.box</span> &#123;</span></span><br><span class="line"><span class="css">    <span class="attribute">width</span>: <span class="number">120px</span>;</span></span><br><span class="line"><span class="css">    <span class="attribute">height</span>: <span class="number">120px</span>;</span></span><br><span class="line"><span class="css">    <span class="attribute">background-color</span>: blue;</span></span><br><span class="line"><span class="css">  &#125;</span></span><br><span class="line"><span class="css">  <span class="selector-class">.box1</span> &#123;</span></span><br><span class="line"><span class="css">    <span class="attribute">width</span>: <span class="number">120px</span>;</span></span><br><span class="line"><span class="css">    <span class="attribute">height</span>: <span class="number">120px</span>;</span></span><br><span class="line"><span class="css">    <span class="attribute">background-color</span>: red;</span></span><br><span class="line"><span class="css">  &#125;</span></span><br><span class="line"><span class="css">  <span class="selector-id">#box2</span> <span class="selector-tag">p</span>&#123;</span></span><br><span class="line"><span class="css">    <span class="attribute">width</span>: <span class="number">120px</span>;</span></span><br><span class="line"><span class="css">    <span class="attribute">height</span>: <span class="number">120px</span>;</span></span><br><span class="line"><span class="css">    <span class="attribute">background-color</span>: aqua;</span></span><br><span class="line"><span class="css">  &#125;</span></span><br><span class="line"><span class="css">  <span class="selector-class">.box3</span> &#123;</span></span><br><span class="line"><span class="css">    <span class="attribute">width</span>: <span class="number">120px</span>;</span></span><br><span class="line"><span class="css">    <span class="attribute">height</span>: <span class="number">120px</span>;</span></span><br><span class="line"><span class="css">    <span class="attribute">background-color</span>: yellow;</span></span><br><span class="line"><span class="css">  &#125;</span></span><br><span class="line"><span class="css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box1&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;box2&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box3&quot;</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">p</span>&gt;</span>我是段落<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>正确答案：aqua</p>
+<p>小结：</p>
+<ul>
+<li>background-color属性没有继承性，优先使用权重</li>
+</ul>
+<hr>
+<ul>
+<li>下面p段落的文字是什么颜色？</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">       <span class="selector-id">#box2</span> <span class="selector-class">.box3</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">color</span>: red;</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-id">#box4</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">color</span>: blue;</span></span><br><span class="line"><span class="css">      &#125;</span></span><br><span class="line"><span class="css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box1&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;box2&quot;</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box3&quot;</span> <span class="attr">id</span>=<span class="string">&quot;box4&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">p</span>&gt;</span>我是段落<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>正确答案：red</p>
+<p>小结：</p>
+<ul>
+<li>color属性具有继承性，所以使用就近原则</li>
+<li>两个选择器一样远近，使用权重计算</li>
+</ul>
+]]></content>
+      <categories>
+        <category>CSS</category>
       </categories>
   </entry>
   <entry>
@@ -753,6 +753,26 @@
 ]]></content>
   </entry>
   <entry>
+    <title>CSS盒模型</title>
+    <url>/article/94a1bb4e.html</url>
+    <content><![CDATA[<p>本文介绍的是CSS的盒模型，CSS的盒模型分为W3C的标准模型和IE的怪异模型。</p>
+<p>W3C的盒模型：</p>
+<p>内容宽+左右内边距+左右边框 = 盒子<strong>实际</strong>宽度</p>
+<p>内容宽+左右内边距+左右边框+左右外边距= 盒子<strong>占用</strong>宽度</p>
+<p>高度同理，也就是设置的宽高就是内容可以使用的宽高，其他设置的值都是外扩的</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/2015-10-03-css-27.jpg"></p>
+<p>IE的怪异盒模型：</p>
+<p>IE盒模型虽然包含W3C的盒模型，但是它内容宽包含了内边距、边框和外边距，也就是说，设置的宽高不一定就是内容可以使用的宽高，它属于内缩的一种。</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/2015-10-03-css-30.jpg"></p>
+<p>当然我们可以通过以下属性灵活切换模型：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="attribute">box-sizing</span>: border-box;  // 设置为IE模型</span><br><span class="line"> 	<span class="attribute">box-sizing</span>: contetn-box; // 设置为标准模型</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>CSS</category>
+      </categories>
+  </entry>
+  <entry>
     <title>CSS浮动布局和定位</title>
     <url>/article/29b6ab94.html</url>
     <content><![CDATA[<p>本文章主要介绍CSS的浮动布局和定位属性相关。</p>
@@ -826,26 +846,6 @@
 
 <h2 id="固定定位（fixed）"><a href="#固定定位（fixed）" class="headerlink" title="固定定位（fixed）"></a>固定定位（fixed）</h2><p>不管页面如何卷动，永远固定在一个位置，相对于视口位置，脱离文档流</p>
 <h2 id="粘性定位（sticky）"><a href="#粘性定位（sticky）" class="headerlink" title="粘性定位（sticky）"></a>粘性定位（sticky）</h2><p>可以理解为相对定位和固定定位的结合，位置相对原来位置偏移，浏览器滚动不随着滚动，脱离文档流</p>
-]]></content>
-      <categories>
-        <category>CSS</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>CSS盒模型</title>
-    <url>/article/94a1bb4e.html</url>
-    <content><![CDATA[<p>本文介绍的是CSS的盒模型，CSS的盒模型分为W3C的标准模型和IE的怪异模型。</p>
-<p>W3C的盒模型：</p>
-<p>内容宽+左右内边距+左右边框 = 盒子<strong>实际</strong>宽度</p>
-<p>内容宽+左右内边距+左右边框+左右外边距= 盒子<strong>占用</strong>宽度</p>
-<p>高度同理，也就是设置的宽高就是内容可以使用的宽高，其他设置的值都是外扩的</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/2015-10-03-css-27.jpg"></p>
-<p>IE的怪异盒模型：</p>
-<p>IE盒模型虽然包含W3C的盒模型，但是它内容宽包含了内边距、边框和外边距，也就是说，设置的宽高不一定就是内容可以使用的宽高，它属于内缩的一种。</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/2015-10-03-css-30.jpg"></p>
-<p>当然我们可以通过以下属性灵活切换模型：</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="attribute">box-sizing</span>: border-box;  // 设置为IE模型</span><br><span class="line"> 	<span class="attribute">box-sizing</span>: contetn-box; // 设置为标准模型</span><br></pre></td></tr></table></figure>
-
 ]]></content>
       <categories>
         <category>CSS</category>
@@ -1415,88 +1415,6 @@
       </categories>
   </entry>
   <entry>
-    <title>JavaScript基础知识总结</title>
-    <url>/article/f32bf739.html</url>
-    <content><![CDATA[<p>本文主要总结近段时间以来的JavaScript的基础知识。</p>
-<h1 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h1><p>JS在ES5中使用var定义变量，在ES6中新增了let和const。</p>
-<p>var的变量可以是任何数据类型，这点是区别Java或者C等强类型语言的。</p>
-<p>使用var变量会存在变量声明提升问题，变量的提升会提升到当前的作用域，只提升变量不会提升值。</p>
-<p>需要注意的是，除了函数和函数参数属于局部变量，使用var定义的变量都属于全局变量。</p>
-<h1 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h1><p><strong>Number类型：</strong></p>
-<p>在JS中，所有的数字都属于Number类型，科学计数法也属于，<strong>数字类型中一个特别的值：NaN，它是一个不自等的值</strong></p>
-<p><strong>String类型：</strong></p>
-<p>字符串是使用引号包裹的一串字符。</p>
-<p>常用的7个方法：</p>
-<ul>
-<li>charAt(a)：返回指定位置的字符，位置从0开始</li>
-<li>substring(a,b)：返回<strong>a开始到b结束，不包括b</strong>的子串 ，<strong>b不写则会一直截取到结束，不接受负的参数</strong>，自动调换位置。从小到大的形式</li>
-<li>substr(a,b)：返回<strong>从a开始，b作为长度的子串，如果b省略，则会一直选择到字符串结尾</strong>，a还可以是负数，表示倒数，<strong>b不可以是负数</strong>，<strong>倒数后是往后边选的</strong></li>
-<li>slice(a,b)：返回<strong>从a开始，b结束（不包括b）的子串，a，b可以是负数，表示倒数第几位，a必须小于b</strong>，<strong>不会自动调换位置</strong></li>
-<li>toUpperCase()：返回字符串的小写形式</li>
-<li>toLowerCase()：返回字符串大写形式</li>
-<li>indexOf()：返回字符串首次出现位置，没有返回-1</li>
-</ul>
-<p><strong>Boolean类型:</strong></p>
-<p>表示真假的数据类型，布尔类型值只有<code>true</code>和<code>false</code>，在判断条件中，除了以下六种情况都为真</p>
-<p>1、undefined（未定义，找不到值时出现）</p>
-<p>2、null（代表空值）</p>
-<p>3、false（布尔值的false，字符串”false”布尔值为true）</p>
-<p>4、0（数字0，字符串”0”布尔值为true）</p>
-<p>5、<code>NaN</code>（无法计算结果时出现，表示”非数值”；但是typeof NaN===”number”）</p>
-<p>6、””（双引号）或’’（单引号） （<strong>空字符串，中间有空格时也是true</strong>）</p>
-<p><strong>Undefine类型：</strong></p>
-<p>变量的默认值，它既是类型也是值，它的类型只有一个值，就是它本身，在变量声明中，提升的默认就是undefined</p>
-<p><strong>Null类型:</strong></p>
-<p>null表示’空‘，它是空对象</p>
-<p><strong>数据类型检测：</strong></p>
-<p>使用typeof可以对数据类型检测</p>
-<p><strong>类型转换：</strong></p>
-<ul>
-<li><p>其他数-&gt;数字：使用Number函数，除了使用Number函数，还可以使用<code>parseInt</code>函数，将字符串转为整数，还可以使用<code>parseFloat</code>函数，<code>parseFloat</code>函数是将字符串转为浮点数，<code>parseInt</code>和<code>parseFloat</code>去**对布尔、null和undefined类型转换会变成<code>NaN</code>**，因为会被隐式转换为字符串，字符串转数字得到结果就是<code>NaN</code></p>
-</li>
-<li><p>其他数-&gt;字符串：使用String函数，还可以使用使用toString()方法</p>
-</li>
-<li><p>其他数-&gt;布尔值：使用Boolean函数</p>
-</li>
-</ul>
-<p><strong>包装对象：</strong></p>
-<p><strong>存取</strong>字符串、数字或布尔值的属性时，<strong>创建的临时对象</strong>称为包装对象，null和undefined没有包装对象，尝试使用“.”访问它们的属性会报错。</p>
-<h1 id="表达式和运算符"><a href="#表达式和运算符" class="headerlink" title="表达式和运算符"></a>表达式和运算符</h1><p><strong>运算符</strong>：也叫操作符，是一种符号。通过运算符可以对一个或多个值进行运算，并获取运算结果。</p>
-<p><strong>表达式</strong>：由数字、运算符、变量的组合（组成的式子）。</p>
-<p>运算符主要分为：</p>
-<p>算术运算符:</p>
-<p>关系运算符:</p>
-<p>逻辑运算符：</p>
-<p>赋值运算符：</p>
-<p>优先级：</p>
-<p>隐式转换：</p>
-<p>IEEE754：小数结算可能会出现不准，使用tofix()保留小数点后几位</p>
-<h1 id="逻辑判断和循环语句"><a href="#逻辑判断和循环语句" class="headerlink" title="逻辑判断和循环语句"></a>逻辑判断和循环语句</h1><p>if:</p>
-<p>if..else..</p>
-<p>for：</p>
-<p>while：</p>
-<p>do…while</p>
-<h1 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h1><p>定义数组：</p>
-<p>数组方法：</p>
-<p>二维数组：</p>
-<h1 id="深拷贝和浅拷贝"><a href="#深拷贝和浅拷贝" class="headerlink" title="深拷贝和浅拷贝"></a>深拷贝和浅拷贝</h1><p>这里需要知道基本数据类型和引用数据类型：</p>
-<p>基本数据类型:会存放在一个内存地址中，我们把变量赋值给另外一个，则相当于开辟了新空间，这两个变量是不会影响的</p>
-<p>引用数据类型：</p>
-<p>浅拷贝：</p>
-<p>深拷贝：递归</p>
-<h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><p>函数就像一个工厂，通过传入参数，最终计算过后的结果。</p>
-<p>函数也存在声明提升现象，并且优先于变量提升，函数提升可以调用一个后声明的函数，而不会引发错误，但是如果赋值给一个变量，则是变量声明提升规则，函数不会被提升。</p>
-<p>立即执行函数：</p>
-<p>闭包：</p>
-]]></content>
-      <categories>
-        <category>javascript</category>
-      </categories>
-      <tags>
-        <tag>总结</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>JavaScript全局作用和局部作用闭包相关面试题</title>
     <url>/article/634c77b2.html</url>
     <content><![CDATA[<p>近段时间看了许多JS基础的面试题，特此记录一下，本文主要通过例子和分析的形式记录。</p>
@@ -1534,7 +1452,7 @@
 <p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211111151132.png"></p>
 <ul>
 <li><p>这题目可以分为三种写法</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;a——&gt;&#x27;</span> + a);</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;b——&gt;&#x27;</span> + b);</span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">          <span class="attr">foo</span>: <span class="function"><span class="keyword">function</span> (<span class="params">c</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> foo(c, a);</span><br><span class="line">          &#125;,</span><br><span class="line">        &#125;;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> func1 = foo(<span class="number">0</span>); <span class="comment">//0,undefined</span></span><br><span class="line">func1.foo(<span class="number">1</span>); <span class="comment">//1,0</span></span><br><span class="line">func1.foo(<span class="number">2</span>); <span class="comment">//2,0</span></span><br><span class="line">func1.foo(<span class="number">3</span>); <span class="comment">//3,0</span></span><br></pre></td></tr></table></figure></li>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;a——&gt;&#x27;</span> + a);</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;b——&gt;&#x27;</span> + b);</span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">          <span class="attr">foo</span>: <span class="function"><span class="keyword">function</span> (<span class="params">c</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> foo(c, a);</span><br><span class="line">          &#125;,</span><br><span class="line">        &#125;;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> func1 = foo(<span class="number">0</span>); <span class="comment">//0,undefined</span></span><br><span class="line">func1.foo(<span class="number">1</span>); <span class="comment">//1,0</span></span><br><span class="line">func1.foo(<span class="number">2</span>); <span class="comment">//2,0</span></span><br><span class="line">func1.foo(<span class="number">3</span>); <span class="comment">//3,0</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//等同于：</span></span><br><span class="line"><span class="comment">//foo(0).foo(1)</span></span><br><span class="line"><span class="comment">//foo(0).foo(2)</span></span><br><span class="line"><span class="comment">//foo(0).foo(3)</span></span><br></pre></td></tr></table></figure></li>
 </ul>
 <p><code>var func1 = foo(0)</code>：这段代码传入了一个参数为0，那么这里a就是0，b为undefined，输出0，undefined，这一点不难理解。</p>
 <p><code>func1.foo(1)</code>foo函数返回了一个对象，这个对象的属性又是一个函数，这个函数返回foo函数，这里千万不能被绕晕了，这段代码给了一个1的数字，其实就是传给了变量c，调用foo函数，传入的c就是给了a，这里a就输出了1，再回来看foo对象里面的函数里面的a，它会往外找，这是JS的作用域链，我们闭包的变量是存放在内存中不会被回收的，所以这里的a就是上面的0</p>
@@ -1567,6 +1485,113 @@
       </categories>
       <tags>
         <tag>面试题</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JavaScript基础知识总结</title>
+    <url>/article/f32bf739.html</url>
+    <content><![CDATA[<p>本文主要总结近段时间以来的JavaScript的基础知识。</p>
+<h1 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h1><p>JS在ES5中使用var定义变量，在ES6中新增了let和const。</p>
+<p>var的变量可以是任何数据类型，这点是区别Java或者C等强类型语言的。</p>
+<p>使用var变量会存在变量声明提升问题，变量的提升会提升到当前的作用域，只提升变量不会提升值。</p>
+<p>需要注意的是，除了函数和函数参数属于局部变量，使用var定义的变量都属于全局变量。</p>
+<h1 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h1><p><strong>Number类型：</strong></p>
+<p>在JS中，所有的数字都属于Number类型，科学计数法也属于，<strong>数字类型中一个特别的值：NaN，它是一个不自等的值</strong></p>
+<p><strong>String类型：</strong></p>
+<p>字符串是使用引号包裹的一串字符。</p>
+<p>常用的7个方法：</p>
+<ul>
+<li>charAt(a)：返回指定位置的字符，位置从0开始</li>
+<li>substring(a,b)：返回<strong>a开始到b结束，不包括b</strong>的子串 ，<strong>b不写则会一直截取到结束，不接受负的参数</strong>，自动调换位置。从小到大的形式</li>
+<li>substr(a,b)：返回<strong>从a开始，b作为长度的子串，如果b省略，则会一直选择到字符串结尾</strong>，a还可以是负数，表示倒数，<strong>b不可以是负数</strong>，<strong>倒数后是往后边选的</strong></li>
+<li>slice(a,b)：返回<strong>从a开始，b结束（不包括b）的子串，a，b可以是负数，表示倒数第几位，a必须小于b</strong>，<strong>不会自动调换位置</strong></li>
+<li>toUpperCase()：返回字符串的小写形式</li>
+<li>toLowerCase()：返回字符串大写形式</li>
+<li>indexOf()：返回字符串首次出现位置，没有返回-1</li>
+</ul>
+<p><strong>Boolean类型:</strong></p>
+<p>表示真假的数据类型，布尔类型值只有<code>true</code>和<code>false</code>，在判断条件中，除了以下六种情况都为真</p>
+<p>1、undefined（未定义，找不到值时出现）</p>
+<p>2、null（代表空值）</p>
+<p>3、false（布尔值的false，字符串”false”布尔值为true）</p>
+<p>4、0（数字0，字符串”0”布尔值为true）</p>
+<p>5、<code>NaN</code>（无法计算结果时出现，表示”非数值”；但是typeof NaN===”number”）</p>
+<p>6、””（双引号）或’’（单引号） （<strong>空字符串，中间有空格时也是true</strong>）</p>
+<p><strong>Undefine类型：</strong></p>
+<p>变量的默认值，它既是类型也是值，它的类型只有一个值，就是它本身，在变量声明中，提升的默认就是undefined</p>
+<p><strong>Null类型:</strong></p>
+<p>null表示’空‘，它是空对象</p>
+<p><strong>数据类型检测：</strong></p>
+<p>使用typeof可以对数据类型检测。</p>
+<p><strong>如何判断变量值为NaN?</strong></p>
+<p>使用isNaN传入变量值，会返回布尔值，但是因为其原理还是使用Number函数</p>
+<p><strong>类型转换：</strong></p>
+<ul>
+<li><p>其他数-&gt;数字：使用Number函数，除了使用Number函数，还可以使用<code>parseInt</code>函数，将字符串转为整数，还可以使用<code>parseFloat</code>函数，<code>parseFloat</code>函数是将字符串转为浮点数，<code>parseInt</code>和<code>parseFloat</code>去**对布尔、null和undefined类型转换会变成<code>NaN</code>**，因为会被隐式转换为字符串，字符串转数字得到结果就是<code>NaN</code></p>
+</li>
+<li><p>其他数-&gt;字符串：使用String函数，还可以使用使用toString()方法</p>
+</li>
+<li><p>其他数-&gt;布尔值：使用Boolean函数</p>
+</li>
+</ul>
+<p><strong>包装对象：</strong></p>
+<p><strong>存取</strong>字符串、数字或布尔值的属性时，<strong>创建的临时对象</strong>称为包装对象，null和undefined没有包装对象，尝试使用“.”访问它们的属性会报错。</p>
+<h1 id="表达式和运算符"><a href="#表达式和运算符" class="headerlink" title="表达式和运算符"></a>表达式和运算符</h1><p><strong>运算符</strong>：也叫操作符，是一种符号。通过运算符可以对一个或多个值进行运算，并获取运算结果。</p>
+<p><strong>表达式</strong>：由数字、运算符、变量的组合（组成的式子）。</p>
+<p>运算符主要分为：</p>
+<p>算术运算符:+、-、*、/、%</p>
+<p>关系运算符:&gt;、&lt;、&gt;=、&lt;=、==、!=、===、!==</p>
+<p>逻辑运算符：！、&amp;&amp;、||</p>
+<p>赋值运算符：=、+=、-=、*=、/=、%=、++、–</p>
+<p>优先级：非运算-&gt;数学运算-&gt;关系运算-&gt;逻辑运算</p>
+<p>隐式转换：如果参与数学运算符的某操作数不是数字类型，那么JavaScript会自动将操作数转换为数字型，本质是内部调用Number函数。如果是加号，其中有字符串，那么就不是进行计算而是进行拼接</p>
+<p>IEEE754：小数结算可能会出现不准，使用tofix()保留小数点后几位</p>
+<h1 id="逻辑判断和循环语句"><a href="#逻辑判断和循环语句" class="headerlink" title="逻辑判断和循环语句"></a>逻辑判断和循环语句</h1><p>if语句：if语句是最简单的条件语句，也称选择语句，它通常结合else一起使用，表示如果..就…否则…，if…else…一定会选择一条语句执行</p>
+<p>if…elseif…语句：else if()条件分支“暗含”了不符合之前所有条件。</p>
+<p>switch语句:在switch中圆括号中一般是一个变量命，这个变量被分类讨论，case表示“情况”，它后面没有圆括号，直接跟一个值，程序会依次将case后面的值与switch中圆括号的值<strong>全等比对</strong></p>
+<p>三元运算符：条件表达式？表达式1：表达式2，表达式为真则执行表达式1，否则执行表达式2</p>
+<p>for语句：适合一些规定范围</p>
+<p>while语句：适合不定范围</p>
+<p>do…while语句:至少会执行一次</p>
+<h1 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h1><p>定义数组的三种方式：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> ary = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]</span><br><span class="line"><span class="keyword">var</span> arr = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>)<span class="comment">//这样写有个缺点,既我想输入一个数字，其实只是去定义长度</span></span><br><span class="line"><span class="keyword">var</span> arr = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">4</span>)<span class="comment">//定义数组长度为4，值为undefined</span></span><br></pre></td></tr></table></figure>
+
+<p>数组方法：</p>
+<p>push()方法：在数组尾部插入新项：参数就是要插入的项，如果要插入多项，可以用逗号隔开，使用push()方法后，数组会立即改变</p>
+<p>pop()方法：在数组尾部删除一项：没有参数，只能删除一项,返回的值是被删除的项。</p>
+<p>unshift()方法:在数组头部插入新项：参数就是要插入的项，如果要插入多项，可以用逗号隔开，使用unshift()方法后，数组会立即改变</p>
+<p>shift()方法:在数组头部删除一项：没有参数，只能删除一项</p>
+<p><strong>splice()方法</strong>：可以对数组的<strong>增删改</strong>，它的本质就是去改变数组，参数第一和第二位必须是整数。</p>
+<p>slice()方法:用来得到子数组，类似于字符串的slice方法，会返回<strong>从a下标开始，b下标结束（不包括b下标）的子串，a,b可以是负数，a，b必须是同时都是负数，否则得到空数组，表示倒数第几位数组项，a必须小于b，不会改变数组</strong></p>
+<p>join()方法：使数组转为字符串，<strong>参数表示以什么字符作为连接符，如果留空则默认以逗号分隔</strong></p>
+<p>split()方法:使字符串转为数组，参数表示以什么字符拆分字符串，一般不留空，只留空字符</p>
+<p>concat()方法：合并多个数组。不会改变原数组</p>
+<p>reverse()方法：将数组的全部项顺序置反，立即更改原来数组</p>
+<p>indexof()方法:搜索数组中的元素，并返回该元素首次出现的下标，如果元素不存在，返回-1，参数是和数组的项是全等关系</p>
+<p>includes()方法：判断数组中是否存在一个指定的值，返回的是布尔值，参数也是和数组项时全等关系。</p>
+<p>二维数组：数组中的数组。</p>
+<h1 id="深拷贝和浅拷贝"><a href="#深拷贝和浅拷贝" class="headerlink" title="深拷贝和浅拷贝"></a>深拷贝和浅拷贝</h1><p>这里需要知道基本数据类型和引用数据类型：</p>
+<p>基本数据类型:会存放在一个内存地址中，我们把变量赋值给另外一个，则相当于开辟了新空间，这两个变量是不会影响的</p>
+<p>引用数据类型：会存放在一块内存地址中，我们把一个对象或者数组赋值给另外一个变量，指向的内存地址是一样的，这就好比两个人住一个房间，其中一个对其修改，那么另外一个也受其影响。</p>
+<p>浅拷贝：浅克隆是指只克隆数组第一层，如果是多为数组，或者数组中的项是其他引用数据类型，则不克隆其他层</p>
+<p>深拷贝：通过递归方式进行深克隆：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">var arr = [[1,2,3],[3,4,5]];</span><br><span class="line">function deepclone(arr)&#123;</span><br><span class="line">    var result = [];</span><br><span class="line">    for(var i = 0;i&lt;arr.lenght;i++)&#123;</span><br><span class="line">        if(Array.isArray(arr[i]))&#123;</span><br><span class="line">            //递归</span><br><span class="line">            result.push(deepclone(arr[i]))</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            result.push(arr[i])</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return result;</span><br><span class="line">&#125;</span><br><span class="line">var arr2 = deepclone(arr)</span><br><span class="line">console.log(arr2)</span><br></pre></td></tr></table></figure>
+
+<h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><p>函数就像一个工厂，通过传入参数，最终计算过后的结果。</p>
+<p>函数也存在声明提升现象，并且优先于变量提升，函数提升可以调用一个后声明的函数，而不会引发错误，但是如果赋值给一个变量，则是变量声明提升规则，函数不会被提升。</p>
+<p>立即执行函数：定义函数后立即被执行。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span> <span class="title">fun</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;立即执行函数&#x27;</span>)</span><br><span class="line">&#125;())</span><br></pre></td></tr></table></figure>
+
+<p>闭包：函数和函数自身能访问到的变量;记忆性、私有变量</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> n = <span class="number">1</span>;</span><br><span class="line">    add = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; n++ &#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">f2</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(n)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> f2</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> f = fun()</span><br><span class="line">f()<span class="comment">//1</span></span><br><span class="line">add()</span><br><span class="line">f()<span class="comment">//2</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>JS的基础部分知识和其他语言基本相似，但是需要特别注意变量的声明提升，作用域链，JS中比较难的知识点：闭包、递归；比较杂多的知识点：数组方法。</p>
+]]></content>
+      <categories>
+        <category>javascript</category>
+      </categories>
+      <tags>
+        <tag>总结</tag>
       </tags>
   </entry>
   <entry>
@@ -1727,6 +1752,29 @@
       </categories>
   </entry>
   <entry>
+    <title>JavaScript的基本数据类型和引用数据类型</title>
+    <url>/article/a509b562.html</url>
+    <content><![CDATA[<p>本文主要记录JavaScript的基本数据类型和引用数据类型的不同</p>
+<p>先看个例子：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">5</span>;</span><br><span class="line"><span class="keyword">var</span> b = a;</span><br><span class="line">a++;</span><br><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">//6</span></span><br><span class="line"><span class="built_in">console</span>.log(b); <span class="comment">//5</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">var</span> arr2 = arr;</span><br><span class="line">arr.push(<span class="number">4</span>);</span><br><span class="line"><span class="built_in">console</span>.log(arr); <span class="comment">//[1, 2, 3,4]</span></span><br><span class="line"><span class="built_in">console</span>.log(arr2); <span class="comment">//[1, 2, 3,4]</span></span><br></pre></td></tr></table></figure>
+
+<p>可以看出这是变量赋值给另外一个变量，自身的改变不会影响到其他，这是因为变量存放在内存地址中，赋值给另外变量，即申请了另外的内存空间，所以一个变量改变并不会影响另外一个，而数组是引用类型，申明一个数组相当于在内存申请了一块空间，也就是堆内存，当我们把这个数组赋值给另外一个数组变量，其实只是把这个变量的指针指向了同一个内存空间，即两个变量数组公用一个空间，所以，一个改变即同时改变。</p>
+<p>在看个例子：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> numarr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">var</span> numarr1 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="built_in">console</span>.log(numarr == numarr1); <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(numarr === numarr1); <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log([] == []); <span class="comment">//false</span></span><br><span class="line"><span class="keyword">var</span> num = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">var</span> num1 = <span class="number">1</span>;</span><br><span class="line"><span class="built_in">console</span>.log(num == num1); <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+
+<p>可以看出数组相同，即使两两比对也是false，这是因为引用类型对比的是内存地址</p>
+<p>如果像比较两个数组是否相同，可以先转字符串比较。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> numarr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">var</span> numarr1 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="built_in">console</span>.log(numarr.toString() == numarr1.toString()); <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(numarr.toString());<span class="comment">//1,2,3</span></span><br><span class="line"><span class="built_in">console</span>.log(numarr1.toString());<span class="comment">//1,2,3</span></span><br></pre></td></tr></table></figure>
+
+<p>顺序不一样的对比：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> numarr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">var</span> numarr1 = [<span class="number">1</span>, <span class="number">3</span>, <span class="number">2</span>];</span><br><span class="line"><span class="built_in">console</span>.log(numarr.sort().toString() == numarr1.sort().toString()); <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(numarr.sort().toString());</span><br><span class="line"><span class="built_in">console</span>.log(numarr.sort().toString());</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>javascript</category>
+      </categories>
+  </entry>
+  <entry>
     <title>JavaScript的判断和循环语句</title>
     <url>/article/8bd1ac6e.html</url>
     <content><![CDATA[<p>本文主要介绍JavaScript的判断语句和循环语句。</p>
@@ -1799,125 +1847,6 @@
       <categories>
         <category>javascript</category>
       </categories>
-  </entry>
-  <entry>
-    <title>JavaScript的基本数据类型和引用数据类型</title>
-    <url>/article/a509b562.html</url>
-    <content><![CDATA[<p>本文主要记录JavaScript的基本数据类型和引用数据类型的不同</p>
-<p>先看个例子：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">5</span>;</span><br><span class="line"><span class="keyword">var</span> b = a;</span><br><span class="line">a++;</span><br><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">//6</span></span><br><span class="line"><span class="built_in">console</span>.log(b); <span class="comment">//5</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">var</span> arr2 = arr;</span><br><span class="line">arr.push(<span class="number">4</span>);</span><br><span class="line"><span class="built_in">console</span>.log(arr); <span class="comment">//[1, 2, 3,4]</span></span><br><span class="line"><span class="built_in">console</span>.log(arr2); <span class="comment">//[1, 2, 3,4]</span></span><br></pre></td></tr></table></figure>
-
-<p>可以看出这是变量赋值给另外一个变量，自身的改变不会影响到其他，这是因为变量存放在内存地址中，赋值给另外变量，即申请了另外的内存空间，所以一个变量改变并不会影响另外一个，而数组是引用类型，申明一个数组相当于在内存申请了一块空间，也就是堆内存，当我们把这个数组赋值给另外一个数组变量，其实只是把这个变量的指针指向了同一个内存空间，即两个变量数组公用一个空间，所以，一个改变即同时改变。</p>
-<p>在看个例子：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> numarr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">var</span> numarr1 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="built_in">console</span>.log(numarr == numarr1); <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(numarr === numarr1); <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log([] == []); <span class="comment">//false</span></span><br><span class="line"><span class="keyword">var</span> num = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">var</span> num1 = <span class="number">1</span>;</span><br><span class="line"><span class="built_in">console</span>.log(num == num1); <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
-
-<p>可以看出数组相同，即使两两比对也是false，这是因为引用类型对比的是内存地址</p>
-<p>如果像比较两个数组是否相同，可以先转字符串比较。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> numarr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">var</span> numarr1 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="built_in">console</span>.log(numarr.toString() == numarr1.toString()); <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(numarr.toString());<span class="comment">//1,2,3</span></span><br><span class="line"><span class="built_in">console</span>.log(numarr1.toString());<span class="comment">//1,2,3</span></span><br></pre></td></tr></table></figure>
-
-<p>顺序不一样的对比：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> numarr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">var</span> numarr1 = [<span class="number">1</span>, <span class="number">3</span>, <span class="number">2</span>];</span><br><span class="line"><span class="built_in">console</span>.log(numarr.sort().toString() == numarr1.sort().toString()); <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(numarr.sort().toString());</span><br><span class="line"><span class="built_in">console</span>.log(numarr.sort().toString());</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>javascript</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>JavaScript的循环判断算法</title>
-    <url>/article/badcd860.html</url>
-    <content><![CDATA[<p>算法算是在编程语言中较为独立出来的知识，一个问题可能有好几种解法，本文主要是循环语句的算法。通过问题-&gt;分析-&gt;代码的方式书写。</p>
-<h1 id="问题：判断用户输入的数字是否为水仙花数？"><a href="#问题：判断用户输入的数字是否为水仙花数？" class="headerlink" title="问题：判断用户输入的数字是否为水仙花数？"></a>问题：判断用户输入的数字是否为水仙花数？</h1><p>水仙花数：是指一个 3 位数，它的每个位上的数字的立方之和等于它本身。例如：1^3 + 5^3+ 3^3 = 153</p>
-<p><strong>分析</strong>：</p>
-<p>既然是每个数位的立方和相加等于本身，那么重点是怎么得到这3位数的每一位数，然后让每个数的立方相加起来，那么就能判断它是否等于本身，是的话那他就是水仙花数，否则不是。</p>
-<p><strong>解法一：</strong>既然是拆位，我们可以使用字符串的方法去获取每个数值</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> n = prompt(<span class="string">&#x27;请输入一个3位数&#x27;</span>)</span><br><span class="line"><span class="keyword">var</span> a = n.charAt(<span class="number">0</span>)</span><br><span class="line"><span class="keyword">var</span> b = n.charAt(<span class="number">1</span>)</span><br><span class="line"><span class="keyword">var</span> c = n.charAt(<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>prompt输入的是字符串，所以可以直接使用<code>charAt()</code>方法获取值</li>
-<li>接下来，就是去将每个数乘以3，然后相加，然后判断是否等于本身</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="built_in">Math</span>.pow(a,<span class="number">3</span>)+<span class="built_in">Math</span>.pow(b,<span class="number">3</span>)+<span class="built_in">Math</span>.pow(c,<span class="number">3</span>) == n)&#123;</span><br><span class="line">    alert(<span class="string">&#x27;是水仙花数&#x27;</span>)</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">     alert(<span class="string">&#x27;不是水仙花数&#x27;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>程序到这里已经基本完成，但是有一点需要注意和改进的地方，需要注意的是：<code>Math.pow(a,3)</code>这个语句中，a是去做了隐式的转换，也就是它的类型是Number，而此时n是String，两个是弱对比，使用全等那么这个程序将永远为false，改进的是对用户输入的数字进行非法的数字进行拦截，因为我们规定是3位数，用户可不一定输入3位数，综合以上，下面是改进代码。</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> n = prompt(<span class="string">&#x27;请输入一个3位数&#x27;</span>)</span><br><span class="line"><span class="keyword">if</span>(!<span class="built_in">isNaN</span>(n) &amp;&amp; n&gt;=<span class="number">100</span> &amp;&amp; n&lt;= <span class="number">999</span>)&#123;</span><br><span class="line">    <span class="keyword">var</span> a = n.charAt(<span class="number">0</span>)</span><br><span class="line">	<span class="keyword">var</span> b = n.charAt(<span class="number">1</span>)</span><br><span class="line">	<span class="keyword">var</span> c = n.charAt(<span class="number">2</span>)</span><br><span class="line">    <span class="keyword">var</span> d = <span class="built_in">Number</span>(n)</span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">Math</span>.pow(a,<span class="number">3</span>)+<span class="built_in">Math</span>.pow(b,<span class="number">3</span>)+<span class="built_in">Math</span>.pow(c,<span class="number">3</span>) === d)&#123;</span><br><span class="line">    alert(<span class="string">&#x27;是水仙花数&#x27;</span>)</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">     alert(<span class="string">&#x27;不是水仙花数&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    alert(<span class="string">&#x27;请输入合法数字&#x27;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>上面的代码嵌套了一层判断，主要是去拦截用户的非法请求，减少程序的出错率，但是还有继续优化的地方，比如：用户输入错误后应该可以让它继续输入其他，输入正确则退出程序，下面是优化后的代码。</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">while</span>(<span class="literal">true</span>)&#123;</span><br><span class="line"><span class="keyword">var</span> n = prompt(<span class="string">&#x27;请输入一个3位数&#x27;</span>)</span><br><span class="line"><span class="keyword">if</span>(!<span class="built_in">isNaN</span>(n) &amp;&amp; n&gt;=<span class="number">100</span> &amp;&amp; n&lt;= <span class="number">999</span>)&#123;</span><br><span class="line">    <span class="keyword">var</span> a = n.charAt(<span class="number">0</span>)</span><br><span class="line">	<span class="keyword">var</span> b = n.charAt(<span class="number">1</span>)</span><br><span class="line">	<span class="keyword">var</span> c = n.charAt(<span class="number">2</span>)</span><br><span class="line">    <span class="keyword">var</span> d = <span class="built_in">Number</span>(n)</span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">Math</span>.pow(a,<span class="number">3</span>)+<span class="built_in">Math</span>.pow(b,<span class="number">3</span>)+<span class="built_in">Math</span>.pow(c,<span class="number">3</span>) === d)&#123;</span><br><span class="line">    alert(<span class="string">&#x27;是水仙花数&#x27;</span>)</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">     alert(<span class="string">&#x27;不是水仙花数&#x27;</span>)</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    alert(<span class="string">&#x27;请输入合法数字&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>这样一来，当用户输入非法数值时候可以重新输入，而输入正确，则显示结果并且结束程序。</li>
-</ul>
-<p><strong>解法二：</strong>我们可以使用数学的方式得到这三位数</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="built_in">parseInt</span>(n / <span class="number">100</span>); <span class="comment">//得到百位数</span></span><br><span class="line"><span class="keyword">var</span> b = <span class="built_in">parseInt</span>((n / <span class="number">10</span>) % <span class="number">10</span>); <span class="comment">//得到十位数</span></span><br><span class="line"><span class="keyword">var</span> c = <span class="built_in">parseInt</span>(n % <span class="number">10</span>); <span class="comment">//得到个位数</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>这个是结合了取余的方法，在结合解法一，最终代码如下：</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">while</span>(<span class="literal">true</span>)&#123;</span><br><span class="line"><span class="keyword">var</span> n = <span class="built_in">Number</span>(prompt(<span class="string">&#x27;请输入一个3位数&#x27;</span>))</span><br><span class="line"><span class="keyword">if</span>(!<span class="built_in">isNaN</span>(n) &amp;&amp; n&gt;=<span class="number">100</span> &amp;&amp; n&lt;= <span class="number">999</span>)&#123;</span><br><span class="line">	<span class="keyword">var</span> a = <span class="built_in">parseInt</span>(n / <span class="number">100</span>); <span class="comment">//得到百位数</span></span><br><span class="line">	<span class="keyword">var</span> b = <span class="built_in">parseInt</span>((n / <span class="number">10</span>) % <span class="number">10</span>); <span class="comment">//得到十位数</span></span><br><span class="line">	<span class="keyword">var</span> c = <span class="built_in">parseInt</span>(n % <span class="number">10</span>); <span class="comment">//得到个位数</span></span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">Math</span>.pow(a,<span class="number">3</span>)+<span class="built_in">Math</span>.pow(b,<span class="number">3</span>)+<span class="built_in">Math</span>.pow(c,<span class="number">3</span>) === n)&#123;</span><br><span class="line">    alert(<span class="string">&#x27;是水仙花数&#x27;</span>)</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">     alert(<span class="string">&#x27;不是水仙花数&#x27;</span>)</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    alert(<span class="string">&#x27;请输入合法数字&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="问题：计算1-2-3-……-99-100的和"><a href="#问题：计算1-2-3-……-99-100的和" class="headerlink" title="问题：计算1+2+3+……+99+100的和"></a>问题：计算1+2+3+……+99+100的和</h1><p>分析：每次相加都是在原来基础上加1，这个时候我们需要一个变量来存储他们的和。思路是：第一个是1，那么把1存起来，然后第二个数是2，再和之前的存起来，这就达到一个不断累加的效果</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> sum = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">1</span>;i&lt;=<span class="number">100</span>;i++)&#123;</span><br><span class="line">    sum = sum +i;<span class="comment">//0+1、1+2、3+3...</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(sum)<span class="comment">//5050</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>以上涉及到的是一个累加的变量，我们去定义了一个变量，把和不断的累加起来，得到最终的结果，除了使用for，我们还可以使用while循环</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> sum = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">var</span> i = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">while</span>(i&lt;=<span class="number">100</span>)&#123;</span><br><span class="line">	sum = sum+i;</span><br><span class="line">	i++</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(sum)<span class="comment">//5050</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="问题：1-100中哪个数字除以3余1、除以4余2，除以5余3？"><a href="#问题：1-100中哪个数字除以3余1、除以4余2，除以5余3？" class="headerlink" title="问题：1~100中哪个数字除以3余1、除以4余2，除以5余3？"></a>问题：1~100中哪个数字除以3余1、除以4余2，除以5余3？</h1><p>分析：这个题目应该想到的是穷举法，我把每个数去判断一下，不就找出来了吗</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">1</span>;i&lt;=<span class="number">100</span>;i++)&#123;</span><br><span class="line">  <span class="keyword">if</span> (i % <span class="number">3</span> == <span class="number">1</span> &amp;&amp; i % <span class="number">4</span> == <span class="number">2</span> &amp;&amp; i % <span class="number">5</span> == <span class="number">3</span>)&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(i)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="问题：寻找最小的满足n²-gt-456789的整数n"><a href="#问题：寻找最小的满足n²-gt-456789的整数n" class="headerlink" title="问题：寻找最小的满足n²&gt;456789的整数n"></a>问题：寻找最小的满足n²&gt;456789的整数n</h1><p>分析：这里需要注意的是最小满足，即找到n²大于456789的最小数，比如：1²是否大于456789，2²是否大于456789，以此类推。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> n = <span class="number">1</span></span><br><span class="line"><span class="keyword">while</span>(n*n&lt;=<span class="number">456789</span>)&#123;</span><br><span class="line">    n++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(n)<span class="comment">//676</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="问题：小兔子拔萝卜，第一天拔一个，第二天拔两个，第几天可以拔完500个"><a href="#问题：小兔子拔萝卜，第一天拔一个，第二天拔两个，第几天可以拔完500个" class="headerlink" title="问题：小兔子拔萝卜，第一天拔一个，第二天拔两个，第几天可以拔完500个"></a>问题：小兔子拔萝卜，第一天拔一个，第二天拔两个，第几天可以拔完500个</h1><p>分析:这其实还是一个自增问题，什么时候拔完500个，也就是<strong>累计超过500</strong>，那么判断条件就出来了，接下来这个天数是自增一，而且天数对应着当天拔萝卜的数量，所以自增一，思路是这样：第一天拔一个，好，现在存起来，第二天拔两个，存起来，直到这个存起来的数大于等于500的时候，我们就知道是第几天了，也就得到这个问题的解，另外，这题目<strong>和上面的1加到100有类似地方</strong>，只不过判断的条件换了，换成了<strong>对比累加的变量</strong></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> sum = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">var</span> i = <span class="number">1</span>;<span class="comment">//这里的i有连层代表，一个是天数，一个是当天拔萝卜大的数量</span></span><br><span class="line"><span class="keyword">while</span>(sum &lt;=<span class="number">500</span>)&#123;</span><br><span class="line">    sum = sum +i;</span><br><span class="line">    i++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(i)<span class="comment">//33</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>但是以上代码是存在问题的，我们i++是先使用后加一，所以导致后面输出的会再次加一，导致多了一次的天数解决办法就是去减一，这种出一情况往往就是要输出那个自增的值</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> sum = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">var</span> i = <span class="number">1</span>;<span class="comment">//这里的i有连层代表，一个是天数，一个是当天拔萝卜大的数量</span></span><br><span class="line"><span class="keyword">while</span>(sum &lt;=<span class="number">500</span>)&#123;</span><br><span class="line">    sum = sum +i;</span><br><span class="line">    i++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(i - <span class="number">1</span>)<span class="comment">//32</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="问题：有由用户输入数字n，求算术的值"><a href="#问题：有由用户输入数字n，求算术的值" class="headerlink" title="问题：有由用户输入数字n，求算术的值"></a>问题：有由用户输入数字n，求算术的值</h1><p>这个算式如下：</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211101133126.png"></p>
-<p>分析：我们需要知道这题目是要干什么，这题目其实是把这些分数相加在一起，规律就是，分母是从2开始，每次自增1，直到n结束，分子则是比分母+1,</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> zi = <span class="number">2</span>;<span class="comment">//定义分子的初值</span></span><br><span class="line"><span class="keyword">var</span> sum = <span class="number">0</span>;<span class="comment">//定义累加数值</span></span><br><span class="line"><span class="keyword">var</span> n = <span class="number">5</span></span><br><span class="line"><span class="comment">//只要用户输入的数字大于分子，那么就循环累加</span></span><br><span class="line"><span class="keyword">while</span>(zi &lt;= n)&#123;</span><br><span class="line">    sum = sum + (zi+<span class="number">1</span>)/ zi;</span><br><span class="line">    zi++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(sum)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>题目写到这里算是基本完成，但是我们需要注意一点，分数得到的数值往往会是小数，而JavaScript采用了IEEE754二进制浮点数算术标准,存在精度丢失情况，我们使用toFix()解决，保留小数点几位。除了使用while的方式，其实还可以使用for循环</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> zi = <span class="number">2</span>;<span class="comment">//定义分子的初值</span></span><br><span class="line"><span class="keyword">var</span> sum = <span class="number">0</span>;<span class="comment">//定义累加数值</span></span><br><span class="line"><span class="keyword">var</span> n = <span class="number">5</span></span><br><span class="line"><span class="comment">//只要用户输入的数字大于分子，那么就循环累加</span></span><br><span class="line"><span class="keyword">while</span>(zi &lt;= n)&#123;</span><br><span class="line">    sum = sum + (zi+<span class="number">1</span>)/ zi;</span><br><span class="line">    zi++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(sum.toFix(<span class="number">2</span>))</span><br></pre></td></tr></table></figure>
-
-<p>for循环解法：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> sum = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">var</span> n = <span class="number">2</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">2</span>; i &lt;= n; i++) &#123;</span><br><span class="line">	sum = (i + <span class="number">1</span>) / i;</span><br><span class="line">	i++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(sum.toFixed(<span class="number">2</span>));</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>for这种解法看着更加清爽一些和易于理解。</li>
-</ul>
-<h1 id="问题：求n的阶乘"><a href="#问题：求n的阶乘" class="headerlink" title="问题：求n的阶乘"></a>问题：求n的阶乘</h1><p>分析：阶乘是什么？3的阶乘是<code>1*2*3</code>，那么就是每次递增1，只要是小于等于就去循环累乘。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> result = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">var</span> n = <span class="number">5</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = n;i&lt;=n;i++)&#123;</span><br><span class="line">    result = result *i;</span><br><span class="line">    i++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(result);</span><br></pre></td></tr></table></figure>
-
-<h1 id="问题：圆周率可以由下面的莱布尼次级数公式计算出来，请由用户输入参数n计算圆周率"><a href="#问题：圆周率可以由下面的莱布尼次级数公式计算出来，请由用户输入参数n计算圆周率" class="headerlink" title="问题：圆周率可以由下面的莱布尼次级数公式计算出来，请由用户输入参数n计算圆周率"></a>问题：圆周率可以由下面的莱布尼次级数公式计算出来，请由用户输入参数n计算圆周率</h1><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> sum = <span class="number">0</span>;</span><br><span class="line">   <span class="keyword">var</span> item = <span class="number">1</span>;</span><br><span class="line">   <span class="keyword">var</span> n = <span class="built_in">Number</span>(prompt(<span class="string">&#x27;请输入数字&#x27;</span>));</span><br><span class="line">   <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">     item *= i / (<span class="number">2</span> * i + <span class="number">1</span>);</span><br><span class="line">     sum += item;</span><br><span class="line">   &#125;</span><br><span class="line">   alert((<span class="number">1</span> + sum) * <span class="number">2</span>);</span><br></pre></td></tr></table></figure>
-
-<h1 id="问题：寻找1-100的所有质数"><a href="#问题：寻找1-100的所有质数" class="headerlink" title="问题：寻找1~100的所有质数"></a>问题：寻找1~100的所有质数</h1><p>分析：只能够被1和它本身整除，最小质数2，</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">outer:<span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">1</span>;i&lt;=<span class="number">100</span>;i++)&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> j = <span class="number">2</span>;j&lt;i;j++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(i%j == <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">continue</span> outer;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">console</span>.log(i)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>outer是for的别名，continue是跳到指定的for循环。</li>
-</ul>
-]]></content>
-      <categories>
-        <category>javascript</category>
-      </categories>
-      <tags>
-        <tag>算法</tag>
-      </tags>
   </entry>
   <entry>
     <title>JavaScript的数组</title>
@@ -2054,6 +1983,102 @@
       </categories>
   </entry>
   <entry>
+    <title>JavaScript的循环判断算法</title>
+    <url>/article/badcd860.html</url>
+    <content><![CDATA[<p>算法算是在编程语言中较为独立出来的知识，一个问题可能有好几种解法，本文主要是循环语句的算法。通过问题-&gt;分析-&gt;代码的方式书写。</p>
+<h1 id="问题：判断用户输入的数字是否为水仙花数？"><a href="#问题：判断用户输入的数字是否为水仙花数？" class="headerlink" title="问题：判断用户输入的数字是否为水仙花数？"></a>问题：判断用户输入的数字是否为水仙花数？</h1><p>水仙花数：是指一个 3 位数，它的每个位上的数字的立方之和等于它本身。例如：1^3 + 5^3+ 3^3 = 153</p>
+<p><strong>分析</strong>：</p>
+<p>既然是每个数位的立方和相加等于本身，那么重点是怎么得到这3位数的每一位数，然后让每个数的立方相加起来，那么就能判断它是否等于本身，是的话那他就是水仙花数，否则不是。</p>
+<p><strong>解法一：</strong>既然是拆位，我们可以使用字符串的方法去获取每个数值</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> n = prompt(<span class="string">&#x27;请输入一个3位数&#x27;</span>)</span><br><span class="line"><span class="keyword">var</span> a = n.charAt(<span class="number">0</span>)</span><br><span class="line"><span class="keyword">var</span> b = n.charAt(<span class="number">1</span>)</span><br><span class="line"><span class="keyword">var</span> c = n.charAt(<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>prompt输入的是字符串，所以可以直接使用<code>charAt()</code>方法获取值</li>
+<li>接下来，就是去将每个数乘以3，然后相加，然后判断是否等于本身</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="built_in">Math</span>.pow(a,<span class="number">3</span>)+<span class="built_in">Math</span>.pow(b,<span class="number">3</span>)+<span class="built_in">Math</span>.pow(c,<span class="number">3</span>) == n)&#123;</span><br><span class="line">    alert(<span class="string">&#x27;是水仙花数&#x27;</span>)</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">     alert(<span class="string">&#x27;不是水仙花数&#x27;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>程序到这里已经基本完成，但是有一点需要注意和改进的地方，需要注意的是：<code>Math.pow(a,3)</code>这个语句中，a是去做了隐式的转换，也就是它的类型是Number，而此时n是String，两个是弱对比，使用全等那么这个程序将永远为false，改进的是对用户输入的数字进行非法的数字进行拦截，因为我们规定是3位数，用户可不一定输入3位数，综合以上，下面是改进代码。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> n = prompt(<span class="string">&#x27;请输入一个3位数&#x27;</span>)</span><br><span class="line"><span class="keyword">if</span>(!<span class="built_in">isNaN</span>(n) &amp;&amp; n&gt;=<span class="number">100</span> &amp;&amp; n&lt;= <span class="number">999</span>)&#123;</span><br><span class="line">    <span class="keyword">var</span> a = n.charAt(<span class="number">0</span>)</span><br><span class="line">	<span class="keyword">var</span> b = n.charAt(<span class="number">1</span>)</span><br><span class="line">	<span class="keyword">var</span> c = n.charAt(<span class="number">2</span>)</span><br><span class="line">    <span class="keyword">var</span> d = <span class="built_in">Number</span>(n)</span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">Math</span>.pow(a,<span class="number">3</span>)+<span class="built_in">Math</span>.pow(b,<span class="number">3</span>)+<span class="built_in">Math</span>.pow(c,<span class="number">3</span>) === d)&#123;</span><br><span class="line">    alert(<span class="string">&#x27;是水仙花数&#x27;</span>)</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">     alert(<span class="string">&#x27;不是水仙花数&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    alert(<span class="string">&#x27;请输入合法数字&#x27;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>上面的代码嵌套了一层判断，主要是去拦截用户的非法请求，减少程序的出错率，但是还有继续优化的地方，比如：用户输入错误后应该可以让它继续输入其他，输入正确则退出程序，下面是优化后的代码。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">while</span>(<span class="literal">true</span>)&#123;</span><br><span class="line"><span class="keyword">var</span> n = prompt(<span class="string">&#x27;请输入一个3位数&#x27;</span>)</span><br><span class="line"><span class="keyword">if</span>(!<span class="built_in">isNaN</span>(n) &amp;&amp; n&gt;=<span class="number">100</span> &amp;&amp; n&lt;= <span class="number">999</span>)&#123;</span><br><span class="line">    <span class="keyword">var</span> a = n.charAt(<span class="number">0</span>)</span><br><span class="line">	<span class="keyword">var</span> b = n.charAt(<span class="number">1</span>)</span><br><span class="line">	<span class="keyword">var</span> c = n.charAt(<span class="number">2</span>)</span><br><span class="line">    <span class="keyword">var</span> d = <span class="built_in">Number</span>(n)</span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">Math</span>.pow(a,<span class="number">3</span>)+<span class="built_in">Math</span>.pow(b,<span class="number">3</span>)+<span class="built_in">Math</span>.pow(c,<span class="number">3</span>) === d)&#123;</span><br><span class="line">    alert(<span class="string">&#x27;是水仙花数&#x27;</span>)</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">     alert(<span class="string">&#x27;不是水仙花数&#x27;</span>)</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    alert(<span class="string">&#x27;请输入合法数字&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>这样一来，当用户输入非法数值时候可以重新输入，而输入正确，则显示结果并且结束程序。</li>
+</ul>
+<p><strong>解法二：</strong>我们可以使用数学的方式得到这三位数</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="built_in">parseInt</span>(n / <span class="number">100</span>); <span class="comment">//得到百位数</span></span><br><span class="line"><span class="keyword">var</span> b = <span class="built_in">parseInt</span>((n / <span class="number">10</span>) % <span class="number">10</span>); <span class="comment">//得到十位数</span></span><br><span class="line"><span class="keyword">var</span> c = <span class="built_in">parseInt</span>(n % <span class="number">10</span>); <span class="comment">//得到个位数</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>这个是结合了取余的方法，在结合解法一，最终代码如下：</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">while</span>(<span class="literal">true</span>)&#123;</span><br><span class="line"><span class="keyword">var</span> n = <span class="built_in">Number</span>(prompt(<span class="string">&#x27;请输入一个3位数&#x27;</span>))</span><br><span class="line"><span class="keyword">if</span>(!<span class="built_in">isNaN</span>(n) &amp;&amp; n&gt;=<span class="number">100</span> &amp;&amp; n&lt;= <span class="number">999</span>)&#123;</span><br><span class="line">	<span class="keyword">var</span> a = <span class="built_in">parseInt</span>(n / <span class="number">100</span>); <span class="comment">//得到百位数</span></span><br><span class="line">	<span class="keyword">var</span> b = <span class="built_in">parseInt</span>((n / <span class="number">10</span>) % <span class="number">10</span>); <span class="comment">//得到十位数</span></span><br><span class="line">	<span class="keyword">var</span> c = <span class="built_in">parseInt</span>(n % <span class="number">10</span>); <span class="comment">//得到个位数</span></span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">Math</span>.pow(a,<span class="number">3</span>)+<span class="built_in">Math</span>.pow(b,<span class="number">3</span>)+<span class="built_in">Math</span>.pow(c,<span class="number">3</span>) === n)&#123;</span><br><span class="line">    alert(<span class="string">&#x27;是水仙花数&#x27;</span>)</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">     alert(<span class="string">&#x27;不是水仙花数&#x27;</span>)</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    alert(<span class="string">&#x27;请输入合法数字&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="问题：计算1-2-3-……-99-100的和"><a href="#问题：计算1-2-3-……-99-100的和" class="headerlink" title="问题：计算1+2+3+……+99+100的和"></a>问题：计算1+2+3+……+99+100的和</h1><p>分析：每次相加都是在原来基础上加1，这个时候我们需要一个变量来存储他们的和。思路是：第一个是1，那么把1存起来，然后第二个数是2，再和之前的存起来，这就达到一个不断累加的效果</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> sum = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">1</span>;i&lt;=<span class="number">100</span>;i++)&#123;</span><br><span class="line">    sum = sum +i;<span class="comment">//0+1、1+2、3+3...</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(sum)<span class="comment">//5050</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>以上涉及到的是一个累加的变量，我们去定义了一个变量，把和不断的累加起来，得到最终的结果，除了使用for，我们还可以使用while循环</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> sum = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">var</span> i = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">while</span>(i&lt;=<span class="number">100</span>)&#123;</span><br><span class="line">	sum = sum+i;</span><br><span class="line">	i++</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(sum)<span class="comment">//5050</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="问题：1-100中哪个数字除以3余1、除以4余2，除以5余3？"><a href="#问题：1-100中哪个数字除以3余1、除以4余2，除以5余3？" class="headerlink" title="问题：1~100中哪个数字除以3余1、除以4余2，除以5余3？"></a>问题：1~100中哪个数字除以3余1、除以4余2，除以5余3？</h1><p>分析：这个题目应该想到的是穷举法，我把每个数去判断一下，不就找出来了吗</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">1</span>;i&lt;=<span class="number">100</span>;i++)&#123;</span><br><span class="line">  <span class="keyword">if</span> (i % <span class="number">3</span> == <span class="number">1</span> &amp;&amp; i % <span class="number">4</span> == <span class="number">2</span> &amp;&amp; i % <span class="number">5</span> == <span class="number">3</span>)&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(i)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="问题：寻找最小的满足n²-gt-456789的整数n"><a href="#问题：寻找最小的满足n²-gt-456789的整数n" class="headerlink" title="问题：寻找最小的满足n²&gt;456789的整数n"></a>问题：寻找最小的满足n²&gt;456789的整数n</h1><p>分析：这里需要注意的是最小满足，即找到n²大于456789的最小数，比如：1²是否大于456789，2²是否大于456789，以此类推。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> n = <span class="number">1</span></span><br><span class="line"><span class="keyword">while</span>(n*n&lt;=<span class="number">456789</span>)&#123;</span><br><span class="line">    n++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(n)<span class="comment">//676</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="问题：小兔子拔萝卜，第一天拔一个，第二天拔两个，第几天可以拔完500个"><a href="#问题：小兔子拔萝卜，第一天拔一个，第二天拔两个，第几天可以拔完500个" class="headerlink" title="问题：小兔子拔萝卜，第一天拔一个，第二天拔两个，第几天可以拔完500个"></a>问题：小兔子拔萝卜，第一天拔一个，第二天拔两个，第几天可以拔完500个</h1><p>分析:这其实还是一个自增问题，什么时候拔完500个，也就是<strong>累计超过500</strong>，那么判断条件就出来了，接下来这个天数是自增一，而且天数对应着当天拔萝卜的数量，所以自增一，思路是这样：第一天拔一个，好，现在存起来，第二天拔两个，存起来，直到这个存起来的数大于等于500的时候，我们就知道是第几天了，也就得到这个问题的解，另外，这题目<strong>和上面的1加到100有类似地方</strong>，只不过判断的条件换了，换成了<strong>对比累加的变量</strong></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> sum = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">var</span> i = <span class="number">1</span>;<span class="comment">//这里的i有连层代表，一个是天数，一个是当天拔萝卜大的数量</span></span><br><span class="line"><span class="keyword">while</span>(sum &lt;=<span class="number">500</span>)&#123;</span><br><span class="line">    sum = sum +i;</span><br><span class="line">    i++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(i)<span class="comment">//33</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>但是以上代码是存在问题的，我们i++是先使用后加一，所以导致后面输出的会再次加一，导致多了一次的天数解决办法就是去减一，这种出一情况往往就是要输出那个自增的值</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> sum = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">var</span> i = <span class="number">1</span>;<span class="comment">//这里的i有连层代表，一个是天数，一个是当天拔萝卜大的数量</span></span><br><span class="line"><span class="keyword">while</span>(sum &lt;=<span class="number">500</span>)&#123;</span><br><span class="line">    sum = sum +i;</span><br><span class="line">    i++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(i - <span class="number">1</span>)<span class="comment">//32</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="问题：有由用户输入数字n，求算术的值"><a href="#问题：有由用户输入数字n，求算术的值" class="headerlink" title="问题：有由用户输入数字n，求算术的值"></a>问题：有由用户输入数字n，求算术的值</h1><p>这个算式如下：</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211101133126.png"></p>
+<p>分析：我们需要知道这题目是要干什么，这题目其实是把这些分数相加在一起，规律就是，分母是从2开始，每次自增1，直到n结束，分子则是比分母+1,</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> zi = <span class="number">2</span>;<span class="comment">//定义分子的初值</span></span><br><span class="line"><span class="keyword">var</span> sum = <span class="number">0</span>;<span class="comment">//定义累加数值</span></span><br><span class="line"><span class="keyword">var</span> n = <span class="number">5</span></span><br><span class="line"><span class="comment">//只要用户输入的数字大于分子，那么就循环累加</span></span><br><span class="line"><span class="keyword">while</span>(zi &lt;= n)&#123;</span><br><span class="line">    sum = sum + (zi+<span class="number">1</span>)/ zi;</span><br><span class="line">    zi++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(sum)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>题目写到这里算是基本完成，但是我们需要注意一点，分数得到的数值往往会是小数，而JavaScript采用了IEEE754二进制浮点数算术标准,存在精度丢失情况，我们使用toFix()解决，保留小数点几位。除了使用while的方式，其实还可以使用for循环</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> zi = <span class="number">2</span>;<span class="comment">//定义分子的初值</span></span><br><span class="line"><span class="keyword">var</span> sum = <span class="number">0</span>;<span class="comment">//定义累加数值</span></span><br><span class="line"><span class="keyword">var</span> n = <span class="number">5</span></span><br><span class="line"><span class="comment">//只要用户输入的数字大于分子，那么就循环累加</span></span><br><span class="line"><span class="keyword">while</span>(zi &lt;= n)&#123;</span><br><span class="line">    sum = sum + (zi+<span class="number">1</span>)/ zi;</span><br><span class="line">    zi++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(sum.toFix(<span class="number">2</span>))</span><br></pre></td></tr></table></figure>
+
+<p>for循环解法：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> sum = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">var</span> n = <span class="number">2</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">2</span>; i &lt;= n; i++) &#123;</span><br><span class="line">	sum = (i + <span class="number">1</span>) / i;</span><br><span class="line">	i++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(sum.toFixed(<span class="number">2</span>));</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>for这种解法看着更加清爽一些和易于理解。</li>
+</ul>
+<h1 id="问题：求n的阶乘"><a href="#问题：求n的阶乘" class="headerlink" title="问题：求n的阶乘"></a>问题：求n的阶乘</h1><p>分析：阶乘是什么？3的阶乘是<code>1*2*3</code>，那么就是每次递增1，只要是小于等于就去循环累乘。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> result = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">var</span> n = <span class="number">5</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = n;i&lt;=n;i++)&#123;</span><br><span class="line">    result = result *i;</span><br><span class="line">    i++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(result);</span><br></pre></td></tr></table></figure>
+
+<h1 id="问题：圆周率可以由下面的莱布尼次级数公式计算出来，请由用户输入参数n计算圆周率"><a href="#问题：圆周率可以由下面的莱布尼次级数公式计算出来，请由用户输入参数n计算圆周率" class="headerlink" title="问题：圆周率可以由下面的莱布尼次级数公式计算出来，请由用户输入参数n计算圆周率"></a>问题：圆周率可以由下面的莱布尼次级数公式计算出来，请由用户输入参数n计算圆周率</h1><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> sum = <span class="number">0</span>;</span><br><span class="line">   <span class="keyword">var</span> item = <span class="number">1</span>;</span><br><span class="line">   <span class="keyword">var</span> n = <span class="built_in">Number</span>(prompt(<span class="string">&#x27;请输入数字&#x27;</span>));</span><br><span class="line">   <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">     item *= i / (<span class="number">2</span> * i + <span class="number">1</span>);</span><br><span class="line">     sum += item;</span><br><span class="line">   &#125;</span><br><span class="line">   alert((<span class="number">1</span> + sum) * <span class="number">2</span>);</span><br></pre></td></tr></table></figure>
+
+<h1 id="问题：寻找1-100的所有质数"><a href="#问题：寻找1-100的所有质数" class="headerlink" title="问题：寻找1~100的所有质数"></a>问题：寻找1~100的所有质数</h1><p>分析：只能够被1和它本身整除，最小质数2，</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">outer:<span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">1</span>;i&lt;=<span class="number">100</span>;i++)&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> j = <span class="number">2</span>;j&lt;i;j++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(i%j == <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">continue</span> outer;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">console</span>.log(i)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>outer是for的别名，continue是跳到指定的for循环。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>javascript</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>JavaScript的深克隆和浅克隆</title>
     <url>/article/b9182662.html</url>
     <content><![CDATA[<p>本文主要介绍引用数据类型的浅克隆和深克隆</p>
@@ -2116,10 +2141,10 @@
 <li>得到5的方法：375除以10，余数就是5。即：375% 10</li>
 </ul>
 <p><strong>隐式类型转换：</strong></p>
-<p>如果参与数学运算符的某操作数不是数字类型，那么JavaScript会自动将操作数转换为数字型</p>
+<p>如果参与数学运算符的某操作数不是数字类型，那么JavaScript会自动将操作数转换为数字型其中有字符串，那么就不是进行计算而是进行拼接</p>
 <p>本质是内部调用Number函数。</p>
 <p>示例：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="number">3</span>*<span class="string">&#x27;4&#x27;</span> <span class="comment">// 12</span></span><br><span class="line"><span class="number">3</span>+<span class="string">&#x27;4&#x27;</span><span class="comment">//7</span></span><br><span class="line"><span class="literal">true</span> + <span class="literal">true</span><span class="comment">//2</span></span><br><span class="line"><span class="number">3</span>* <span class="string">&#x27;2天&#x27;</span><span class="comment">//NaN</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="number">3</span>*<span class="string">&#x27;4&#x27;</span> <span class="comment">// 12</span></span><br><span class="line"><span class="literal">true</span> + <span class="literal">true</span><span class="comment">//2</span></span><br><span class="line"><span class="number">3</span>* <span class="string">&#x27;2天&#x27;</span><span class="comment">//NaN</span></span><br></pre></td></tr></table></figure>
 
 <p><strong>IEEE754原则</strong></p>
 <p>在JavaScript中，有些小数的数学运算不是很精准，这是因为JavaScript采用了IEEE754二进制浮点数算术标准，它是计算机底层编译的标准。有时候会产生误差</p>
@@ -2958,21 +2983,6 @@
       </tags>
   </entry>
   <entry>
-    <title>小破站正式上线</title>
-    <url>/article/36e749dc.html</url>
-    <content><![CDATA[<p>断断续续半年时间，使用<code>Hexo</code>已有很长一段时间，经历了不断的优化踩坑，最开始使用<code>NexT</code>做为博客主题，到后来使用了Butterfly主题，到对主题的一系列魔改，最终还是回归到<code>NexT</code>作为博客的主题。</p>
-<p><code>NexT</code>主题相对来说较为简洁，使用Butterfly主题确实对博客有很大的美化程度，但不简约，最主要是在浏览器渲染上面，由于集成大量插件和动画特效，使得手机浏览时不是特别顺畅。</p>
-<p>最终本博客去繁化简，只留下实用功能，对博客轻美化，让网站即顺畅又优美。</p>
-<p>目前使用<code>GithubPages</code>加<code>GiteePages</code>双代码平台推送，测试下来，电信网络访问<code>githubPages</code>很大概率屏蔽，<code>GiteePages</code>需要手动更新，较为麻烦，<code>CDN</code>加速效果不明显，CI平台需要收取一定费用，介于目前情况，只能暂时如此，未来计划使用服务器搭建自己的CI平台进行自动化部署</p>
-]]></content>
-      <categories>
-        <category>Hexo框架</category>
-      </categories>
-      <tags>
-        <tag>随笔</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hexo图床的解决方案</title>
     <url>/article/4c6068df.html</url>
     <content><![CDATA[<p>网站链接嵌套得越深，越不利于SEO优化，Hexo默认链接是年月日标题，如果标题是中文，那么链接就会变成乱码，这很不利于搜索引擎的搜索，为了达到目的，我们会使用<code>hexo-abbrlink</code>插件来解决问题，但是我们需要上传图片，图片要么需要图床，不然你就只能附带博客里面，以下分析个人在遇到这个问题的取舍与想法，愿与诸君分享。</p>
@@ -3023,6 +3033,21 @@
       </categories>
       <tags>
         <tag>图床</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>小破站正式上线</title>
+    <url>/article/36e749dc.html</url>
+    <content><![CDATA[<p>断断续续半年时间，使用<code>Hexo</code>已有很长一段时间，经历了不断的优化踩坑，最开始使用<code>NexT</code>做为博客主题，到后来使用了Butterfly主题，到对主题的一系列魔改，最终还是回归到<code>NexT</code>作为博客的主题。</p>
+<p><code>NexT</code>主题相对来说较为简洁，使用Butterfly主题确实对博客有很大的美化程度，但不简约，最主要是在浏览器渲染上面，由于集成大量插件和动画特效，使得手机浏览时不是特别顺畅。</p>
+<p>最终本博客去繁化简，只留下实用功能，对博客轻美化，让网站即顺畅又优美。</p>
+<p>目前使用<code>GithubPages</code>加<code>GiteePages</code>双代码平台推送，测试下来，电信网络访问<code>githubPages</code>很大概率屏蔽，<code>GiteePages</code>需要手动更新，较为麻烦，<code>CDN</code>加速效果不明显，CI平台需要收取一定费用，介于目前情况，只能暂时如此，未来计划使用服务器搭建自己的CI平台进行自动化部署</p>
+]]></content>
+      <categories>
+        <category>Hexo框架</category>
+      </categories>
+      <tags>
+        <tag>随笔</tag>
       </tags>
   </entry>
   <entry>
@@ -3194,35 +3219,6 @@
       </tags>
   </entry>
   <entry>
-    <title>物理像素和CSS像素</title>
-    <url>/article/158ced0d.html</url>
-    <content><![CDATA[<p>本文主要记录移动端像素知识。</p>
-<p><strong>分辨率：</strong></p>
-<p>是指屏幕的物理像素点，比如：1792 X 828像素表示纵轴有1792个像素点，横轴828个像素点。分辨率越高显示越清晰</p>
-<p><strong>物理像素（physical pixel）:</strong></p>
-<p>物理像素也是设备像素（dp：device pixel），开发中不以物理像素为准，因为设备的物理像素各不相同，如果用1像素描述一块区域，在标清屏显示更大，在高清屏显示更小，物理像素是不能被放大的，所以就导致开发一个页面，在这台设备可能设配的，在其他设备就不行</p>
-<p><strong>CSS像素:</strong></p>
-<p>CSS像素也是逻辑像素（logical pixel），也可以是设备独立像素(dip:device independent pixel)</p>
-<p>实际开发会用的像素，比如px就是。</p>
-<p>CSS像素如果在标清用2像素点描述2px，那么在高清屏就是放大到4倍</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211024180350.png"></p>
-<p><strong>设备像素比（dpr:device pixel ratio）:</strong></p>
-<p>设备像素比：dpr= 设备像素/CSS像素（缩比是1的情况下）</p>
-<p><strong>缩放：</strong></p>
-<p>缩放改变的是CSS像素大小</p>
-<p><strong>PPI:</strong></p>
-<p>PPI是pixels per inch缩写，表示为每英寸的物理像素点，也可以是dpi，理解为像素密度点</p>
-<p>计算公式：</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211024174454.png"></p>
-]]></content>
-      <categories>
-        <category>移动端Web</category>
-      </categories>
-      <tags>
-        <tag>像素</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>开发效率网站</title>
     <url>/article/b8ba1c56.html</url>
     <content><![CDATA[<p>本文主要分享学习过程中的具有学习意义或者具有参考价值的网站</p>
@@ -3293,6 +3289,35 @@
 ]]></content>
       <tags>
         <tag>分享</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>物理像素和CSS像素</title>
+    <url>/article/158ced0d.html</url>
+    <content><![CDATA[<p>本文主要记录移动端像素知识。</p>
+<p><strong>分辨率：</strong></p>
+<p>是指屏幕的物理像素点，比如：1792 X 828像素表示纵轴有1792个像素点，横轴828个像素点。分辨率越高显示越清晰</p>
+<p><strong>物理像素（physical pixel）:</strong></p>
+<p>物理像素也是设备像素（dp：device pixel），开发中不以物理像素为准，因为设备的物理像素各不相同，如果用1像素描述一块区域，在标清屏显示更大，在高清屏显示更小，物理像素是不能被放大的，所以就导致开发一个页面，在这台设备可能设配的，在其他设备就不行</p>
+<p><strong>CSS像素:</strong></p>
+<p>CSS像素也是逻辑像素（logical pixel），也可以是设备独立像素(dip:device independent pixel)</p>
+<p>实际开发会用的像素，比如px就是。</p>
+<p>CSS像素如果在标清用2像素点描述2px，那么在高清屏就是放大到4倍</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211024180350.png"></p>
+<p><strong>设备像素比（dpr:device pixel ratio）:</strong></p>
+<p>设备像素比：dpr= 设备像素/CSS像素（缩比是1的情况下）</p>
+<p><strong>缩放：</strong></p>
+<p>缩放改变的是CSS像素大小</p>
+<p><strong>PPI:</strong></p>
+<p>PPI是pixels per inch缩写，表示为每英寸的物理像素点，也可以是dpi，理解为像素密度点</p>
+<p>计算公式：</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211024174454.png"></p>
+]]></content>
+      <categories>
+        <category>移动端Web</category>
+      </categories>
+      <tags>
+        <tag>像素</tag>
       </tags>
   </entry>
 </search>
