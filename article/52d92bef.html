@@ -22,20 +22,19 @@
     var CONFIG = {"hostname":"www.frontblog.top","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="本文主要介绍引用数据类型的浅克隆和深克隆">
+  <meta name="description" content="本文主要记录new一个函数后发生了什么">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript的深克隆和浅克隆">
-<meta property="og:url" content="https://www.frontblog.top/article/b9182662.html">
+<meta property="og:title" content="JS中new四步走">
+<meta property="og:url" content="https://www.frontblog.top/article/52d92bef.html">
 <meta property="og:site_name" content="大前端_LSF">
-<meta property="og:description" content="本文主要介绍引用数据类型的浅克隆和深克隆">
+<meta property="og:description" content="本文主要记录new一个函数后发生了什么">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-11-08T01:15:30.000Z">
-<meta property="article:modified_time" content="2021-11-09T07:10:09.480Z">
+<meta property="article:published_time" content="2021-11-15T07:29:52.000Z">
+<meta property="article:modified_time" content="2021-11-16T11:11:08.350Z">
 <meta property="article:author" content="const name&#x3D;&quot;LSF&quot;">
-<meta property="article:tag" content="深克隆和浅克隆">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://www.frontblog.top/article/b9182662.html">
+<link rel="canonical" href="https://www.frontblog.top/article/52d92bef.html">
 
 
 <script id="page-configurations">
@@ -48,7 +47,7 @@
   };
 </script>
 
-  <title>JavaScript的深克隆和浅克隆 | 大前端_LSF</title>
+  <title>JS中new四步走 | 大前端_LSF</title>
   
 
 
@@ -220,7 +219,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.frontblog.top/article/b9182662.html">
+    <link itemprop="mainEntityOfPage" href="https://www.frontblog.top/article/52d92bef.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -233,7 +232,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          JavaScript的深克隆和浅克隆
+          JS中new四步走
         </h1>
 
         <div class="post-meta">
@@ -243,14 +242,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-11-08 09:15:30" itemprop="dateCreated datePublished" datetime="2021-11-08T09:15:30+08:00">2021-11-08</time>
+              <time title="创建时间：2021-11-15 15:29:52" itemprop="dateCreated datePublished" datetime="2021-11-15T15:29:52+08:00">2021-11-15</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-09 15:10:09" itemprop="dateModified" datetime="2021-11-09T15:10:09+08:00">2021-11-09</time>
+                <time title="修改时间：2021-11-16 19:11:08" itemprop="dateModified" datetime="2021-11-16T19:11:08+08:00">2021-11-16</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -278,8 +277,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/article/b9182662.html#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/article/b9182662.html" itemprop="commentCount"></span>
+    <a title="valine" href="/article/52d92bef.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/article/52d92bef.html" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -294,12 +293,41 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>本文主要介绍引用数据类型的浅克隆和深克隆</p>
-<p>我们知道如果把数组赋值给另外数组的话，如果其中一个改变另外一个也受其影响，所以我们就需要克隆或者说拷贝一份相同的引用类型数据，不让它们相互之间影响。</p>
-<h1 id="浅克隆"><a href="#浅克隆" class="headerlink" title="浅克隆"></a>浅克隆</h1><p>浅克隆是指只克隆数组第一层，如果是多为数组，或者数组中的项是其他引用数据类型，则不克隆其他层</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]</span><br><span class="line"><span class="keyword">var</span> result = []</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i  = <span class="number">0</span>; i &lt;arr.lenght;i++)&#123;</span><br><span class="line">    result.push(arr[i])</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p>本文主要记录new一个函数后发生了什么</p>
+<h1 id="关于自己的理解"><a href="#关于自己的理解" class="headerlink" title="关于自己的理解"></a>关于自己的理解</h1><p>在学到这里的时候，网上很多都会说JS去new一个对象，我总觉得不是很准确，new后面跟着的是一个函数，这个函数被new调用就是构造函数，它会默认返回一个对象。在JS中，类是一个类似类的类，换句话说就是类不是真正意义上的类，还是一个函数，包括ES6里面关键字新增的class也是语法糖，本质上就是一个构造函数，而函数是不是构造函数取决于它是不是通过new调用。</p>
+<h1 id="new关键字的this指向"><a href="#new关键字的this指向" class="headerlink" title="new关键字的this指向"></a>new关键字的this指向</h1><p>先看一段代码：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">fun</span>(<span class="params">a</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">      <span class="built_in">this</span>.a = a;</span></span><br><span class="line"><span class="javascript">    &#125;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> obj1 = <span class="keyword">new</span> fun(<span class="number">5</span>);</span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(obj1);</span></span><br><span class="line"><span class="javascript">  </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h1 id="深克隆"><a href="#深克隆" class="headerlink" title="深克隆"></a>深克隆</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]];</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">deepclone</span>(<span class="params">arr</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> result = [];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>;i&lt;arr.lenght;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">Array</span>.isArray(arr[i]))&#123;</span><br><span class="line">            <span class="comment">//递归</span></span><br><span class="line">            result.push(deepclone(arr[i]))</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            result.push(arr[i])</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> arr2 = deepclone(arr)</span><br><span class="line"><span class="built_in">console</span>.log(arr2)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>这里的this会指向谁呢</li>
+</ul>
+<p>关于new操作符调用函数的四步走：</p>
+<ol>
+<li>函数 内自身自动创建空对象</li>
+<li>函数上下文会指向这个对象</li>
+<li>函数内语句执行</li>
+<li>函数会自动返回上下文对象，即使函数没有return语句</li>
+</ol>
+<p>看完这4个步骤：</p>
+<p>首先，函数内会创建一个空对象，就是这样</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">  &lt;script&gt;</span><br><span class="line">    function fun(a) &#123;</span><br><span class="line">      &#123;&#125;;</span><br><span class="line">      this.a = a;</span><br><span class="line">    &#125;</span><br><span class="line">    var obj1 = new fun(5);</span><br><span class="line">    console.log(obj1);</span><br><span class="line">  &lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
+
+<p>第二步，就是this里面指向的是这个对象，即此时this即使刚才的空对象</p>
+<p>第三步，执行函数语句，new fun(5)是不是就执行了，this.a = a就相当于参数赋值给了这个对象，此时对象里面的内容就是{a:5}</p>
+<p>第四步，返回上下文对象，是不是就是那个创建的空对象，我们使用了obj1去接受它，所以输出obj1就是一个对象，{a:5}。</p>
+<h1 id="模拟私有变量"><a href="#模拟私有变量" class="headerlink" title="模拟私有变量"></a>模拟私有变量</h1><p>在<a href="https://www.frontblog.top/article/6341a1da.html">JS闭包</a>这篇文章中实现了模拟私有变量，下面是另外的一种形式的实现。结合闭包、IIFE立即执行函数、构造函数实现。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Fun = (<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> _a;</span><br><span class="line">  <span class="class"><span class="keyword">class</span> <span class="title">Fun</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="title">constructor</span>(<span class="params">a</span>)</span> &#123;</span><br><span class="line">      _a = a;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="title">say</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">&#x27;a是：&#x27;</span> + _a);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> Fun;</span><br><span class="line">&#125;)();</span><br><span class="line"><span class="keyword">var</span> v = <span class="keyword">new</span> Fun(<span class="number">1</span>);</span><br><span class="line">v.say();</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>首先定义了常量const，立即执行了一个函数，这个函数返回了一个类，我们使用new Fun()调用函数，返回的其实是这个类的 示例，就是一个对象，现在这个对象上只有say这个方法。</li>
+<li>我们需要知道一个：constructor是构造函数，say是原型上的方法。</li>
+<li></li>
+</ul>
+<p>有个问题：</p>
+<ul>
+<li>如果我示例化两个对象，后面的会覆盖掉原先的私有变量。不信可以运行下面代码：</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Fun = (<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> _a;</span><br><span class="line">  <span class="class"><span class="keyword">class</span> <span class="title">Fun</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="title">constructor</span>(<span class="params">a</span>)</span> &#123;</span><br><span class="line">      _a = a;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="title">say</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">&#x27;a是：&#x27;</span> + _a);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> Fun;</span><br><span class="line">&#125;)();</span><br><span class="line"><span class="keyword">var</span> v = <span class="keyword">new</span> Fun(<span class="number">1</span>);</span><br><span class="line">v.say();<span class="comment">//1</span></span><br><span class="line"><span class="keyword">var</span> vv = <span class="keyword">new</span> Fun(<span class="number">50</span>);</span><br><span class="line">vv.say();<span class="comment">//50</span></span><br><span class="line">v.say();<span class="comment">//50，被覆盖</span></span><br></pre></td></tr></table></figure>
 
 
     </div>
@@ -316,7 +344,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://www.frontblog.top/article/b9182662.html" title="JavaScript的深克隆和浅克隆">https://www.frontblog.top/article/b9182662.html</a>
+    <a href="https://www.frontblog.top/article/52d92bef.html" title="JS中new四步走">https://www.frontblog.top/article/52d92bef.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -355,9 +383,6 @@
 
 
       <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/%E6%B7%B1%E5%85%8B%E9%9A%86%E5%92%8C%E6%B5%85%E5%85%8B%E9%9A%86/" rel="tag"># 深克隆和浅克隆</a>
-          </div>
 
         
 
@@ -365,12 +390,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/article/a509b562.html" rel="prev" title="JavaScript的基本数据类型和引用数据类型">
-      <i class="fa fa-chevron-left"></i> JavaScript的基本数据类型和引用数据类型
+    <a href="/article/7be86ae8.html" rel="prev" title="JS的this指针">
+      <i class="fa fa-chevron-left"></i> JS的this指针
     </a></div>
       <div class="post-nav-item">
-    <a href="/article/c7b5ade2.html" rel="next" title="JavaScript的函数优先提升">
-      JavaScript的函数优先提升 <i class="fa fa-chevron-right"></i>
+    <a href="/article/6c46e40.html" rel="next" title="JS的构造函数">
+      JS的构造函数 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -431,7 +456,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B5%85%E5%85%8B%E9%9A%86"><span class="nav-number">1.</span> <span class="nav-text">浅克隆</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B7%B1%E5%85%8B%E9%9A%86"><span class="nav-number">2.</span> <span class="nav-text">深克隆</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84%E7%90%86%E8%A7%A3"><span class="nav-number">1.</span> <span class="nav-text">关于自己的理解</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#new%E5%85%B3%E9%94%AE%E5%AD%97%E7%9A%84this%E6%8C%87%E5%90%91"><span class="nav-number">2.</span> <span class="nav-text">new关键字的this指向</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A8%A1%E6%8B%9F%E7%A7%81%E6%9C%89%E5%8F%98%E9%87%8F"><span class="nav-number">3.</span> <span class="nav-text">模拟私有变量</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
