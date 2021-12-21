@@ -1419,7 +1419,40 @@
   <entry>
     <title>ES6的Promise</title>
     <url>/article/b0c5fd63.html</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[<p>本文主要记录ES6中的Promise对象。</p>
+<h1 id="Promise解决的问题"><a href="#Promise解决的问题" class="headerlink" title="Promise解决的问题"></a>Promise解决的问题</h1><p>Promise一般用来解决了传统开发中回调函数层层调用的问题，也是异步编程的一种方案。</p>
+<p>下面是一个回调地狱的例子：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">* &#123;</span><br><span class="line">      <span class="attribute">padding</span>: <span class="number">0</span>;</span><br><span class="line">      <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-id">#box</span> &#123;</span><br><span class="line">      <span class="attribute">width</span>: <span class="number">300px</span>;</span><br><span class="line">      <span class="attribute">height</span>: <span class="number">300px</span>;</span><br><span class="line">      <span class="attribute">background-color</span>: red;</span><br><span class="line">      <span class="attribute">transition</span>: all <span class="number">0.5s</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;box&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// el-&gt;Element;x,y-&gt;横轴纵轴;end-&gt;回调函数</span></span><br><span class="line"><span class="keyword">const</span> move = <span class="function">(<span class="params">el, &#123; x = <span class="number">0</span>, y = <span class="number">0</span> &#125; = &#123;&#125;, end = () =&gt; &#123; &#125;</span>) =&gt;</span> &#123;</span><br><span class="line">  el.style.transform = <span class="string">`translate3d(<span class="subst">$&#123;x&#125;</span>px,<span class="subst">$&#123;y&#125;</span>px,0)`</span>;</span><br><span class="line">  el.addEventListener(<span class="string">&#x27;transitionend&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    end()</span><br><span class="line">  &#125;,</span><br><span class="line">    <span class="literal">false</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> box = <span class="built_in">document</span>.getElementById(<span class="string">&#x27;box&#x27;</span>)</span><br><span class="line"><span class="built_in">document</span>.addEventListener(<span class="string">&#x27;click&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  move(box, &#123; <span class="attr">x</span>: <span class="number">150</span>, <span class="attr">y</span>: <span class="number">0</span> &#125;, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    move(box, &#123; <span class="attr">x</span>: <span class="number">150</span>, <span class="attr">y</span>: <span class="number">150</span> &#125;, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">      move(box, &#123; <span class="attr">x</span>: <span class="number">0</span>, <span class="attr">y</span>: <span class="number">150</span> &#125;, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">        move(box, &#123; <span class="attr">x</span>: <span class="number">0</span>, <span class="attr">y</span>: <span class="number">0</span> &#125;)</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;, <span class="literal">false</span>)</span><br></pre></td></tr></table></figure>
+
+<p>上面是一个盒子移动的例子，当移动某个位置后再进行下一步的操作，这里就出现层层嵌套的问题，如果需要改变某一个运动轨迹，就需要改动很多代码。</p>
+<h1 id="Promise含义"><a href="#Promise含义" class="headerlink" title="Promise含义"></a>Promise含义</h1><p>Promise简单说就是一个容器，在里面书写异步操作，当这个异步成功，或者失败，返回结果。</p>
+<p>两个特点：</p>
+<ul>
+<li>对象不受外界影响。Promise有三种状态，分别是：Pending(进行中)、Fulfilled(成功)、Rejected(失败)，只有异步操作才能影响是哪一种状态。</li>
+<li>状态之间是不可逆的，只有Pending到Fulfilled，或者是Pending到Rejected。</li>
+</ul>
+<p>存在的缺点：</p>
+<ul>
+<li>无法取消Promise，一旦新建就会立即执行Promise</li>
+<li>不设置回调函数，Promise内部的错误不会反应到外部。</li>
+<li>当处于Pending状态时，无法得知是在哪个阶段。</li>
+</ul>
+<h1 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h1><p>一般使用的格式：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> p = <span class="keyword">new</span> promise(<span class="function">(<span class="params">resolved,rejected</span>)=&gt;</span>&#123;</span><br><span class="line">    resolved(<span class="string">&#x27;succen&#x27;</span>)</span><br><span class="line">    rejected(<span class="string">&#x27;error&#x27;</span>)</span><br><span class="line">&#125;)</span><br><span class="line">p.then(<span class="function">(<span class="params">data</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(data)</span><br><span class="line">&#125;,<span class="function">(<span class="params">err</span>)=&gt;</span>&#123;</span><br><span class="line">     <span class="built_in">console</span>.log(err)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="Promise解决回调地狱问题"><a href="#Promise解决回调地狱问题" class="headerlink" title="Promise解决回调地狱问题"></a>Promise解决回调地狱问题</h1><h1 id="then方法"><a href="#then方法" class="headerlink" title="then方法"></a>then方法</h1><h1 id="catch方法"><a href="#catch方法" class="headerlink" title="catch方法"></a>catch方法</h1><h1 id="all方法"><a href="#all方法" class="headerlink" title="all方法"></a>all方法</h1><h1 id="race方法"><a href="#race方法" class="headerlink" title="race方法"></a>race方法</h1><h1 id="resolve方法"><a href="#resolve方法" class="headerlink" title="resolve方法"></a>resolve方法</h1><h1 id="reject方法"><a href="#reject方法" class="headerlink" title="reject方法"></a>reject方法</h1><h1 id="done方法"><a href="#done方法" class="headerlink" title="done方法"></a>done方法</h1><h1 id="finally方法"><a href="#finally方法" class="headerlink" title="finally方法"></a>finally方法</h1><h1 id="手写Promise"><a href="#手写Promise" class="headerlink" title="手写Promise"></a>手写Promise</h1>]]></content>
+      <categories>
+        <category>javascript</category>
+      </categories>
+      <tags>
+        <tag>Promise</tag>
+      </tags>
   </entry>
   <entry>
     <title>ES6的let和const</title>
@@ -4807,6 +4840,133 @@
       </categories>
       <tags>
         <tag>Koa</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>HTML5总结</title>
+    <url>/article/6555244d.html</url>
+    <content><![CDATA[<p>本文主要用来总结HTML5相关知识。</p>
+<h1 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h1><p>HTML 不是一门编程语言，而是一种用于定义内容结构的<em>标记语言</em>。你可以使用其完成网页开发，HTML运行在浏览器，由浏览器解析。</p>
+<h1 id="W3C标准"><a href="#W3C标准" class="headerlink" title="W3C标准"></a>W3C标准</h1><p><code>W3C</code>指万维网联盟（World Wide Web Consortium）， <code>W3C</code>组织是对网络标准制定的一个非赢利组织，像HTML、XHTML、CSS、XML的标准就是由<code>W3C</code>来定制。</p>
+<p>应该遵循的一些标准：</p>
+<ul>
+<li>DTD:文档类型声明。</li>
+<li>标签需要闭合。</li>
+<li>定义语言编码：meta-&gt;charset-&gt;utf-8、GBK</li>
+<li>定义Script标签类型</li>
+<li>CSS定义：使用style type=”text/css”</li>
+<li>所有标签的元素和属性的名字都必须使用小写</li>
+</ul>
+<h1 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h1><p>HTML的结构首先是DTD文档类型声明，这是告诉浏览器执行哪个版本的HTML</p>
+<p>这是在HTML5声明的文档：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>接下来就是html标签，它是网页的根节点，也就是所有的html标签都包括在里面。再然后就是head标签，里面包裹大都是配置项：title,网页标题，meta，定义关于 HTML 文档的元信息；之后就是body，也就是网页的主体内容。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">title</span>&gt;</span>Title<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h1</span>&gt;</span></span><br><span class="line">            Hello,World</span><br><span class="line">        <span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="语义化"><a href="#语义化" class="headerlink" title="语义化"></a>语义化</h1><p>HTML主要是在结构上的呈现，好的语义化有利于维护开发，也有利于搜索引擎的爬取，保持页面结构清晰，标题整洁，不要发生标题级别跳跃，</p>
+<h1 id="新增的特性"><a href="#新增的特性" class="headerlink" title="新增的特性"></a>新增的特性</h1><p>video、auio</p>
+<h1 id="标签元素"><a href="#标签元素" class="headerlink" title="标签元素"></a>标签元素</h1><h2 id="根元素："><a href="#根元素：" class="headerlink" title="根元素："></a>根元素：</h2><table>
+<thead>
+<tr>
+<th align="center">元素</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h1 id="标签属性"><a href="#标签属性" class="headerlink" title="标签属性"></a>标签属性</h1>]]></content>
+      <tags>
+        <tag>总结</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>flex布局</title>
+    <url>/article/e43580c1.html</url>
+    <content><![CDATA[<p>本文主要记录flex相关知识。</p>
+<h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><p>flex是一种弹性布局，在父盒子设置flex称为flex容器，里面的子元素称为flex项，主要分为容器属性和项目属性。</p>
+<h1 id="容器属性"><a href="#容器属性" class="headerlink" title="容器属性"></a>容器属性</h1><ul>
+<li><h2 id="flex-direction"><a href="#flex-direction" class="headerlink" title="flex-direction"></a>flex-direction</h2></li>
+</ul>
+<p>属性值：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">box &#123;</span><br><span class="line">  <span class="attribute">flex-direction</span>: row | row-reverse | column | column-reverse;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>row：默认主轴（靠左）</li>
+<li>row-reverse：主轴倒序（靠右）</li>
+<li>column：纵向</li>
+<li>column-reverse:纵向倒序</li>
+</ol>
+<ul>
+<li><h2 id="flex-wrap"><a href="#flex-wrap" class="headerlink" title="flex-wrap"></a>flex-wrap</h2></li>
+</ul>
+<p>属性值：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">box &#123;</span><br><span class="line">  <span class="attribute">flex-wrap</span>: nowrap | wrap | wrap-reverse</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>no-wrap：不换行（默认,会压缩）</li>
+<li>wrap：换行</li>
+<li>wrap-reverse:换行，相反换行，顺序没有换。</li>
+</ol>
+<ul>
+<li><h2 id="flex-flow-flex-direction和flex-wrap的组合"><a href="#flex-flow-flex-direction和flex-wrap的组合" class="headerlink" title="flex-flow (flex-direction和flex-wrap的组合)"></a>flex-flow (flex-direction和flex-wrap的组合)</h2></li>
+</ul>
+<p>属性值：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">box &#123;</span><br><span class="line">  <span class="attribute">flex-flow</span>: row nowarp | row-reverse nowarp |</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>row nowarp (默认)</li>
+<li>row wrap</li>
+<li>row  wrap-reverse</li>
+<li>row-reverse nowarp </li>
+<li>row-reverse </li>
+<li>row-reverse</li>
+<li>column</li>
+<li>column</li>
+<li>column</li>
+<li>column-reverse</li>
+<li>column-reverse</li>
+<li>column-reverse</li>
+</ol>
+<ul>
+<li><h2 id="justify-content"><a href="#justify-content" class="headerlink" title="justify-content"></a>justify-content</h2></li>
+</ul>
+<p>属性值：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">box &#123;</span><br><span class="line">  <span class="attribute">justify-content</span>: flex-start | flex-end | center | space-between | space-around </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>flex-start：主轴开始（左对齐）</li>
+<li>flex-end：主轴结束（右对齐）</li>
+<li>center：居中对齐</li>
+<li>space-between：两端对齐(两端)</li>
+<li>space-around：两侧对齐（项目两侧是相等间隔）</li>
+</ol>
+<ul>
+<li><h2 id="align-items"><a href="#align-items" class="headerlink" title="align-items"></a>align-items</h2></li>
+</ul>
+<p>属性值：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">box &#123;</span><br><span class="line">  <span class="attribute">align-items</span>: flex-start | flex-end | center | baseline | stretch</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>stretch:默认值（在项目没有设置高度的情况，会占满高度）</li>
+<li>flex-start：纵轴开始</li>
+</ol>
+<ul>
+<li><h2 id="align-content"><a href="#align-content" class="headerlink" title="align-content"></a>align-content</h2></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>CSS</category>
+      </categories>
+      <tags>
+        <tag>flex</tag>
       </tags>
   </entry>
 </search>
