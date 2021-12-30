@@ -1,58 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>HTML5的语义化</title>
-    <url>/article/1519e493.html</url>
-    <content><![CDATA[<p>HTML是前端必须会的一门语言，最近在面试过程中会问到一些标签的语义，在此做下记录。通过本文可以了解到<code>HTML5</code>的语义化标签</p>
-<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>HTML是一门超文本标记语言，由浏览器解析执行，<code>HTML5</code>是第五代版本，由<code>W3C</code>制定标准。<code>HTML5</code>新增特性之一就是语义化，语义化最大的好处就是利于<code>SEO</code>，利于搜索引擎的收录，也利于开发维护，所以知道语义是有必要的。</p>
-<p><code>HTML5</code>的标签按功能划分可分为<strong>11组</strong>，总计<strong>104个</strong>标签。本章主要介绍具有语义的标签。</p>
-<h1 id="内容区块（八个）"><a href="#内容区块（八个）" class="headerlink" title="内容区块（八个）"></a>内容区块（八个）</h1><p>在<code>HTML5</code>之前，我们可以使用<code>div</code>来包裹容器，现在新增了以下区块标签。</p>
-<ul>
-<li><p><code>&lt;header&gt;&lt;/header&gt;</code></p>
-<p>语义：头部；通常用在网页的头部内容。</p>
-</li>
-<li><p><code>&lt;footer&gt;&lt;/footer&gt;</code></p>
-<p>语义：尾部；通常包含该章节<strong>作者、版权数据或者与文档相关的链接</strong>等信息</p>
-</li>
-<li><p><code>&lt;nav&gt;&lt;/nav&gt;</code></p>
-<p>语义：导航栏；通常用在网页的<strong>菜单，目录和索引</strong></p>
-</li>
-<li><p><code>&lt;address&gt;&lt;/address&gt;</code></p>
-<p>语义：地址、通讯处；通常用在网页的<strong>联系方式</strong>，语义要比footer小</p>
-</li>
-<li><p><code>&lt;article&gt;&lt;/article&gt;</code></p>
-<p>语义：文章；表示文档、页面、应用或网站中的独立结构，其意在成为<strong>可独立分配的或可复用的结构</strong>，如在发布中，它可能是论坛帖子、杂志或新闻文章、博客、用户提交的评论、交互式组件，或者其他独立的内容项目</p>
-</li>
-<li><p><code>&lt;aside&gt;&lt;/aside&gt;</code></p>
-<p>语义：在一边、到旁边;表示一个<strong>和其余页面内容几乎无关的部分</strong>，被认为是独立于该内容的一部分并且可以被单独的拆分出来而不会使整体受影响。其通常<strong>表现为侧边栏或者标注框</strong>。</p>
-</li>
-<li><p><code>&lt;main&gt;&lt;/main&gt;</code></p>
-<p>语义：主要的、最重要的；<strong>主体部分</strong>由与文档直接相关，或者扩展于文档的中心主题、应用的主要功能部分的内容组成</p>
-</li>
-<li><p><code>&lt;section&gt;&lt;/section&gt;</code></p>
-<p>语义：部分、部门；表示一个包含在HTML文档中的<strong>独立部分</strong>，它没有更具体的语义元素来表示，一般来说会有<strong>包含一个标题</strong>。</p>
-</li>
-</ul>
-<p>图例：</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211223132137.png"></p>
-<h1 id="内联语义"><a href="#内联语义" class="headerlink" title="内联语义"></a>内联语义</h1><ul>
-<li><p><code>&lt;abbr&gt;&lt;/abbr&gt;</code></p>
-<p>语义：缩写；用于<strong>代表缩写</strong>，并且可以通过可选的 <code>title</code> 属性提供完整的描述</p>
-</li>
-<li><p><code>b、u、i、s</code></p>
-<p>语义：加粗、下划线、倾斜、删除；这四个标签在<code>HTML5</code>中是不建议使用的，建议使用<code>CSS</code>来改变。</p>
-<p>加粗使用 <code>font-weight: bold;</code>，下划线使用<code>text-decoration: underline;</code>，倾斜使用<code>font-style:italic;</code>，删除线使用<code>text-decoration: line-through;</code></p>
-<p>替代方案是：<code>strong</code>、<code>ins</code>、<code>em</code>、<code>del</code></p>
-</li>
-<li><p><code>strong</code>、<code>ins</code>、<code>em</code>、<code>del</code></p>
-</li>
-</ul>
+    <title>autojs教程</title>
+    <url>/article/e2e5156.html</url>
+    <content><![CDATA[<p>本文主要记录<code>Autojs</code>脚本的开发。</p>
+<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p><strong>不需要Root权限</strong>的JavaScript自动化软件，这是<code>AutoJS</code>的官方的宣传语，它主要就是实现手机屏幕的自动点击。学习<code>AutoJS</code>有必要了解它的历史，现在<code>AutoJS</code>分为两个版本，一个为开源版本（已经停更），一个就是Pro版本，这个是闭源并且收费的，至于为什么，这是作者的回答：</p>
+<blockquote>
+<p>这些功能我都不需要，想继续使用免费版，免费版仍然会更新吗？<br>答：免费版已更新至<code>4.1.1Beta</code>并且不再更新。一方面，<code>Auto.js</code>从2017年1月免费提供<code>Auto.js</code>至今，已经花费了大量精力，无法同时维持两个版本，而如果只维持免费版则没有继续更新的足够动力；另一方面，有不少人对<code>Auto.js</code>的开源代码进行修改，增加某些功能后做成费用高昂的收费版出售，没有取得任何授权，也违背了开源协议中的【非商业性使用】条款；甚至用以群控、刷单等灰色、非法用途。这让本人感到十分心寒，这也是免费/开源版停更的重要原因。</p>
+</blockquote>
+<p>这两个版本的 差异还是挺明显，开源版本是比较强大些的，但是存在一些Bug，一些功能也没用那么完善，文档也不是很全，当然也可以拉取项目后自己维护。Pro版本就砍掉一些功能，砍掉这些功能就是为了防止别人进行一些非法用途。</p>
+<h1 id="开发环境"><a href="#开发环境" class="headerlink" title="开发环境"></a>开发环境</h1><p>现在官网只有<code>AutoJSPro</code>的软件，这里是4.1.1的软件和打包插件：</p>
+<p>在手机安装好后打开软件，点开连接电脑，输入电脑的<code>IP</code>地址。</p>
+<p>电脑安装<code>VSCode</code>，点击扩展，搜索<code>Auto.js-VSCodeExt</code>，安装，查看，命令面板，<code>auto js new project</code>,会看到<code>mainjs</code>和一个<code>json</code>文件，main就是程序要运行的，<code>json</code>文件是打包需要的配置</p>
+<p>然后就是<code>auto js start serve</code>开启服务，run就是运行项目，看到屏幕有弹窗就是成功了。</p>
+<h1 id="如何开发"><a href="#如何开发" class="headerlink" title="如何开发"></a>如何开发</h1><p>完成了项目环境基本也就没啥问题，想实现什么功能基本就是看文档自行发挥，这里需要注意的是，<code>AutoJS</code>的文档是<a href="https://hyb1996.github.io/AutoJs-Docs/#/">https://hyb1996.github.io/AutoJs-Docs/#/</a> 这个，不要写着<code>AutoJs</code>的代码，看着Pro版本的文档。</p>
+<h2 id="调起应用"><a href="#调起应用" class="headerlink" title="调起应用"></a>调起应用</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//启动微信</span></span><br><span class="line"><span class="keyword">var</span> wx = getPackageName(<span class="string">&quot;微信&quot;</span>);</span><br><span class="line">app.launch(wx);</span><br><span class="line"><span class="built_in">console</span>.show()</span><br><span class="line"><span class="built_in">console</span>.log(wx);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">app.launch(<span class="string">&#x27;com.tencent.mm&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>上面两个其实都一样，第一个去显示控制台，打印微信这个程序的包名，第二个就是直接调起微信，有些时候我们是不知道包名的，所以第一种方法就有用处了。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p><code>AutoJS</code>算是非常容易学的，所见即所得，基本都是全局函数，想实现什么功能，直接调用<code>Api</code>即可，开发的难度在于页面的点击逻辑，程序点击时间是立即生效的，而页面时需要响应的，所以中间需要预留时间进行点击才能确保点击成功。AutoJS的调试一般就是显示控制台，在控制台打印消息，去跟踪错误的信息并调整代码。做好代码功能划分也是十分必要的，如果十几个页面功能堆叠一起，查起Bug也是十分痛苦，<code>AutoJS</code>本身代码就在于客户端，想破解理论是可以的，想真正防止被破解，除非代码放在服务器，但是代价就是你需要花时间搞定后端的东西，另外就是设置卡密，卡密只是一个障眼法，通过反编译后依然可以得到源代码。</p>
 ]]></content>
-      <categories>
-        <category>HTML</category>
-      </categories>
       <tags>
-        <tag>语义话</tag>
+        <tag>autojs</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>在线视频播放实现</title>
+    <url>/article/bff5c62c.html</url>
+    <content><![CDATA[<p>最近想开发一个在线教育类的移动Web，涉及到一个问题就是在线视频播放问题，起初以为一个video标签不就搞定，但是后来考虑到网络带宽，视频地址，文件的加密，就不得做进一步处理。</p>
+<h1 id="技术栈"><a href="#技术栈" class="headerlink" title="技术栈"></a>技术栈</h1><p>由于涉及到前后端，这里后端是采用nede的Koa框架，其实原理大都一样。前端使用HTML结构，播放器使用腾讯播放器的<code>SDK</code>。</p>
+<p>腾讯播放器官方文档：<a href="https://cloud.tencent.com/document/product/881">https://cloud.tencent.com/document/product/881</a></p>
+<h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1><h2 id="后端"><a href="#后端" class="headerlink" title="后端"></a>后端</h2><p>可以到仓库直接克隆一个工程化项目做基本：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> git@gitee.com:lsfcxz/koa_start.git</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm i </span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm run start</span><br></pre></td></tr></table></figure>
+
+<p>准备工作：</p>
+<p>需要把<code>mp4</code>转成<code>hls</code>格式，即一个<code>m3u8</code>文件和多个ts文件。这里推荐一个在线转换网站：<a href="https://mp4.to/hls">https://mp4.to/hls</a></p>
+<p>把文件放在项目的public目录下，项目集成了<code>koa-static</code>这个中间件，所以访问：<a href="http://localhost:3000:/test/test.m3u8">http://localhost:3000:/test/test.m3u8</a> 的时候是可以去访问到文件</p>
+<p>注意：test是文件夹，个人喜欢把文件归到一个文件夹下面，<code>test.m3u8</code>当然就是文件名字。<code>m3u8</code>和<code>ts</code>要放在同一级目录，不放在一起就需要改<code>#EXTINF:</code>下面的ts文件路径。</p>
+<h2 id="前端"><a href="#前端" class="headerlink" title="前端"></a>前端</h2><p>代码：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;X-UA-Compatible&quot;</span> <span class="attr">content</span>=<span class="string">&quot;IE=edge&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>在线视频<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 视频容器 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;id_test_video&quot;</span> <span class="attr">style</span>=<span class="string">&quot;width:100%; height:auto;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 腾讯播放器SDK  --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://web.sdk.qcloud.com/player/tcplayerlite/release/v2.4.1/TcPlayer-2.4.1.js&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span>;</span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> player = <span class="keyword">new</span> TcPlayer(<span class="string">&#x27;id_test_video&#x27;</span>, &#123;</span></span><br><span class="line"><span class="javascript">      <span class="string">&quot;m3u8&quot;</span>: <span class="string">&#x27;http://192.168.0.105:3000/test/test.m3u8&#x27;</span>, <span class="comment">//请替换成实际可用的播放地址</span></span></span><br><span class="line"><span class="javascript">      <span class="string">&quot;autoplay&quot;</span>: <span class="literal">true</span>,      <span class="comment">//iOS 下 safari 浏览器，以及大部分移动端浏览器是不开放视频自动播放这个能力的</span></span></span><br><span class="line"><span class="javascript">      <span class="string">&quot;poster&quot;</span>: <span class="string">&quot;&quot;</span>,</span></span><br><span class="line"><span class="javascript">      <span class="string">&quot;width&quot;</span>: <span class="string">&#x27;480&#x27;</span>,<span class="comment">//视频的显示宽度，请尽量使用视频分辨率宽度</span></span></span><br><span class="line"><span class="javascript">      <span class="string">&quot;height&quot;</span>: <span class="string">&#x27;320&#x27;</span><span class="comment">//视频的显示高度，请尽量使用视频分辨率高度</span></span></span><br><span class="line"><span class="javascript">    &#125;);</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">  </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>如果前端能够正常播放视频，说明已经成功。</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211230104623.png"></p>
+<p>这里的URL是不能被直接访问的：</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211230104740.png"></p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211230104836.png"></p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>以上虽然一定程度加大了视频盗取成本，但是破解的方式也很简单，只要把ts文件和<code>m3u8</code>文件下载下来，然后再转回来就可以得到视频文件，再者<code>hls</code>这个东西适合做这种录播，点播，不适合做直播这种实时的，延时大，因为其原理就是把文件分片传输，分片大小也决定了传输的效率。</p>
+]]></content>
+      <tags>
+        <tag>流媒体</tag>
       </tags>
   </entry>
   <entry>
