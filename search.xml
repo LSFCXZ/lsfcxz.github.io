@@ -1,7 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>autojs教程</title>
+    <title>HTML标签(功能划分)</title>
+    <url>/article/a73ea136.html</url>
+    <content><![CDATA[<p> 本文主要记录HTML的每个标签属性的功能和语义。部分参考MDN文档。</p>
+<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>一个HTML文档是由元素去组成，标签是元素的组成部分，这么说是因为在HTML中元素是这样：<code>&lt;p class=&quot;nice”&gt;Hello,HTML&lt;/p&gt;</code>，</p>
+<p>而标签只是：<code>&lt;p&gt;&lt;/p&gt;</code>,元素是由标签，标签属性和属性值组成。HTML有效标签共计114个，废弃过时28个。</p>
+<h1 id="主根元素（1）"><a href="#主根元素（1）" class="headerlink" title="主根元素（1）"></a>主根元素（1）</h1><p><code>html</code></p>
+<ul>
+<li>表示一个HTML<strong>文档的根</strong>（顶级元素），所以它也被称为<em>根元素</em>。所有<strong>其他元素必须是此元素的后代</strong>。</li>
+</ul>
+<h1 id="文档元数据（6）"><a href="#文档元数据（6）" class="headerlink" title="文档元数据（6）"></a>文档元数据（6）</h1><p><code>head</code></p>
+<ul>
+<li>规定<strong>文档相关的配置信息</strong>（元数据），包括文档的标题，引用的文档样式和脚本等</li>
+</ul>
+<p><code>meta</code></p>
+<ul>
+<li>表示那些不能由其它 HTML 元相关（meta-related）元素表示的任何元数据信息。简单说就是描述文档的内容。</li>
+</ul>
+<p><code>link</code></p>
+<ul>
+<li>规定了当前文档与外部资源的关系。</li>
+</ul>
+<h1 id="分区根元素（1）"><a href="#分区根元素（1）" class="headerlink" title="分区根元素（1）"></a>分区根元素（1）</h1><h1 id="内容分区（9-14）"><a href="#内容分区（9-14）" class="headerlink" title="内容分区（9~14）"></a>内容分区（9~14）</h1><h1 id="文本内容（13）"><a href="#文本内容（13）" class="headerlink" title="文本内容（13）"></a>文本内容（13）</h1><h1 id="内联文本语义（29）"><a href="#内联文本语义（29）" class="headerlink" title="内联文本语义（29）"></a>内联文本语义（29）</h1><h1 id="图片和多媒体（6）"><a href="#图片和多媒体（6）" class="headerlink" title="图片和多媒体（6）"></a>图片和多媒体（6）</h1><h1 id="内嵌内容（7）"><a href="#内嵌内容（7）" class="headerlink" title="内嵌内容（7）"></a>内嵌内容（7）</h1><h1 id="脚本（3）"><a href="#脚本（3）" class="headerlink" title="脚本（3）"></a>脚本（3）</h1><h1 id="标记标识（2）"><a href="#标记标识（2）" class="headerlink" title="标记标识（2）"></a>标记标识（2）</h1><h1 id="表格内容（10）"><a href="#表格内容（10）" class="headerlink" title="表格内容（10）"></a>表格内容（10）</h1><h1 id="表单（14）"><a href="#表单（14）" class="headerlink" title="表单（14）"></a>表单（14）</h1><h1 id="交互元素（4）"><a href="#交互元素（4）" class="headerlink" title="交互元素（4）"></a>交互元素（4）</h1><h1 id="Web组件（4）"><a href="#Web组件（4）" class="headerlink" title="Web组件（4）"></a>Web组件（4）</h1><h1 id="过时和弃用元素（28）"><a href="#过时和弃用元素（28）" class="headerlink" title="过时和弃用元素（28）"></a>过时和弃用元素（28）</h1>]]></content>
+      <categories>
+        <category>HTML</category>
+      </categories>
+      <tags>
+        <tag>HTML</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Autojs记录</title>
     <url>/article/e2e5156.html</url>
     <content><![CDATA[<p>本文主要记录<code>Autojs</code>脚本的开发。</p>
 <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p><strong>不需要Root权限</strong>的JavaScript自动化软件，这是<code>AutoJS</code>的官方的宣传语，它主要就是实现手机屏幕的自动点击。学习<code>AutoJS</code>有必要了解它的历史，现在<code>AutoJS</code>分为两个版本，一个为开源版本（已经停更），一个就是Pro版本，这个是闭源并且收费的，至于为什么，这是作者的回答：</p>
@@ -9,7 +39,7 @@
 <p>这些功能我都不需要，想继续使用免费版，免费版仍然会更新吗？<br>答：免费版已更新至<code>4.1.1Beta</code>并且不再更新。一方面，<code>Auto.js</code>从2017年1月免费提供<code>Auto.js</code>至今，已经花费了大量精力，无法同时维持两个版本，而如果只维持免费版则没有继续更新的足够动力；另一方面，有不少人对<code>Auto.js</code>的开源代码进行修改，增加某些功能后做成费用高昂的收费版出售，没有取得任何授权，也违背了开源协议中的【非商业性使用】条款；甚至用以群控、刷单等灰色、非法用途。这让本人感到十分心寒，这也是免费/开源版停更的重要原因。</p>
 </blockquote>
 <p>这两个版本的 差异还是挺明显，开源版本是比较强大些的，但是存在一些Bug，一些功能也没用那么完善，文档也不是很全，当然也可以拉取项目后自己维护。Pro版本就砍掉一些功能，砍掉这些功能就是为了防止别人进行一些非法用途。</p>
-<h1 id="开发环境"><a href="#开发环境" class="headerlink" title="开发环境"></a>开发环境</h1><p>现在官网只有<code>AutoJSPro</code>的软件，这里是4.1.1的软件和打包插件：</p>
+<h1 id="开发环境"><a href="#开发环境" class="headerlink" title="开发环境"></a>开发环境</h1><p>现在官网只有<code>AutoJSPro</code>的软件，这里是4.1.1的软件和打包插件：链接：<a href="https://pan.baidu.com/s/1LqlkACcsw558zNc4w8MjIw">https://pan.baidu.com/s/1LqlkACcsw558zNc4w8MjIw</a><br>提取码：6666</p>
 <p>在手机安装好后打开软件，点开连接电脑，输入电脑的<code>IP</code>地址。</p>
 <p>电脑安装<code>VSCode</code>，点击扩展，搜索<code>Auto.js-VSCodeExt</code>，安装，查看，命令面板，<code>auto js new project</code>,会看到<code>mainjs</code>和一个<code>json</code>文件，main就是程序要运行的，<code>json</code>文件是打包需要的配置</p>
 <p>然后就是<code>auto js start serve</code>开启服务，run就是运行项目，看到屏幕有弹窗就是成功了。</p>
@@ -19,10 +49,22 @@
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">app.launch(<span class="string">&#x27;com.tencent.mm&#x27;</span>)</span><br></pre></td></tr></table></figure>
 
 <p>上面两个其实都一样，第一个去显示控制台，打印微信这个程序的包名，第二个就是直接调起微信，有些时候我们是不知道包名的，所以第一种方法就有用处了。</p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p><code>AutoJS</code>算是非常容易学的，所见即所得，基本都是全局函数，想实现什么功能，直接调用<code>Api</code>即可，开发的难度在于页面的点击逻辑，程序点击时间是立即生效的，而页面时需要响应的，所以中间需要预留时间进行点击才能确保点击成功。AutoJS的调试一般就是显示控制台，在控制台打印消息，去跟踪错误的信息并调整代码。做好代码功能划分也是十分必要的，如果十几个页面功能堆叠一起，查起Bug也是十分痛苦，<code>AutoJS</code>本身代码就在于客户端，想破解理论是可以的，想真正防止被破解，除非代码放在服务器，但是代价就是你需要花时间搞定后端的东西，另外就是设置卡密，卡密只是一个障眼法，通过反编译后依然可以得到源代码。</p>
+<h2 id="坐标点击"><a href="#坐标点击" class="headerlink" title="坐标点击"></a>坐标点击</h2><p>坐标点击算是比较直接的 方法，但是只能适合自己的手机，比较每个手机的屏幕是不一样的，可以打开手机开发者模式，打开输入模式里面的指针，显示指针位置就可以看到点击的坐标，有了坐标以后就可以让<code>Autojs</code>自己点击了</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">click(x,y)</span><br></pre></td></tr></table></figure>
+
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><ul>
+<li><code>AutoJS</code>算是容易学习的，所见即所得，基本都是全局函数，想实现什么功能，直接调用<code>Api</code>即可实现功能;</li>
+<li>开发的难度在于页面的点击逻辑，程序点击时间是立即生效的，而页面时需要时间响应的，所以中间需要停留一段时间再去执行程序才能确保点击成功。</li>
+<li><code>AutoJS</code>的调试一般就是显示控制台，在控制台打印消息，然后去跟踪错误的信息并调整代码。</li>
+<li>做好代码功能划分也是十分必要的，如果十几个页面功能堆叠一起，查起Bug十分痛苦，也不利于维护。</li>
+<li><code>AutoJS</code>本身代码就在于客户端，想破解理论是可以的，想真正防止被破解，除非代码放在服务器，但是代价就是你需要花时间搞定后端的东西，另外就是设置卡密，卡密只能限制恶意传播，通过反编译后依然可以得到源代码。</li>
+</ul>
 ]]></content>
+      <categories>
+        <category>AutoJS</category>
+      </categories>
       <tags>
-        <tag>autojs</tag>
+        <tag>Autojs</tag>
       </tags>
   </entry>
   <entry>
@@ -52,6 +94,9 @@
 <p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211230104836.png"></p>
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>以上虽然一定程度加大了视频盗取成本，但是破解的方式也很简单，只要把ts文件和<code>m3u8</code>文件下载下来，然后再转回来就可以得到视频文件，再者<code>hls</code>这个东西适合做这种录播，点播，不适合做直播这种实时的，延时大，因为其原理就是把文件分片传输，分片大小也决定了传输的效率。</p>
 ]]></content>
+      <categories>
+        <category>总结</category>
+      </categories>
       <tags>
         <tag>流媒体</tag>
       </tags>

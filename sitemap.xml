@@ -4,14 +4,21 @@
   <url>
     <loc>https://www.frontblog.top/article/e2e5156.html</loc>
     
-    <lastmod>2021-12-30</lastmod>
+    <lastmod>2022-01-01</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.frontblog.top/article/a73ea136.html</loc>
+    
+    <lastmod>2022-01-01</lastmod>
     
   </url>
   
   <url>
     <loc>https://www.frontblog.top/article/bff5c62c.html</loc>
     
-    <lastmod>2021-12-30</lastmod>
+    <lastmod>2022-01-01</lastmod>
     
   </url>
   
@@ -67,29 +74,36 @@
 
   <url>
     <loc>https://www.frontblog.top/</loc>
-    <lastmod>2021-12-30</lastmod>
+    <lastmod>2022-01-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
   
   <url>
-    <loc>https://www.frontblog.top/tags/autojs/</loc>
-    <lastmod>2021-12-30</lastmod>
+    <loc>https://www.frontblog.top/tags/HTML/</loc>
+    <lastmod>2022-01-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.frontblog.top/tags/Autojs/</loc>
+    <lastmod>2022-01-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.frontblog.top/tags/%E6%B5%81%E5%AA%92%E4%BD%93/</loc>
-    <lastmod>2021-12-30</lastmod>
+    <lastmod>2022-01-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.frontblog.top/tags/%E9%9A%8F%E7%AC%94/</loc>
-    <lastmod>2021-12-30</lastmod>
+    <lastmod>2022-01-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -97,8 +111,29 @@
 
   
   <url>
+    <loc>https://www.frontblog.top/categories/HTML/</loc>
+    <lastmod>2022-01-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.frontblog.top/categories/AutoJS/</loc>
+    <lastmod>2022-01-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.frontblog.top/categories/%E6%80%BB%E7%BB%93/</loc>
+    <lastmod>2022-01-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.frontblog.top/categories/Hexo%E6%A1%86%E6%9E%B6/</loc>
-    <lastmod>2021-12-30</lastmod>
+    <lastmod>2022-01-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
