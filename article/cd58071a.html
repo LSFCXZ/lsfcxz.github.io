@@ -47,7 +47,7 @@
 <meta property="og:image" content="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220103185135.png">
 <meta property="og:image" content="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220103191210.png">
 <meta property="article:published_time" content="2022-01-03T03:34:05.000Z">
-<meta property="article:modified_time" content="2022-01-03T11:13:53.626Z">
+<meta property="article:modified_time" content="2022-01-03T11:28:20.898Z">
 <meta property="article:author" content="const name&#x3D;&quot;LSF&quot;">
 <meta property="article:tag" content="unity">
 <meta property="article:tag" content="2D">
@@ -263,7 +263,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2022-01-03 11:34:05 / 修改时间：19:13:53" itemprop="dateCreated datePublished" datetime="2022-01-03T11:34:05+08:00">2022-01-03</time>
+              <time title="创建时间：2022-01-03 11:34:05 / 修改时间：19:28:20" itemprop="dateCreated datePublished" datetime="2022-01-03T11:34:05+08:00">2022-01-03</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -311,7 +311,7 @@
 <h1 id="回顾"><a href="#回顾" class="headerlink" title="回顾"></a>回顾</h1><p>在前面的一小节中已经安装好软件和导入素材，这一节主要是地图的 绘制和素材切图。</p>
 <h1 id="游戏背景"><a href="#游戏背景" class="headerlink" title="游戏背景"></a>游戏背景</h1><p>查看素材包，如下图，就是主要要使用的文件，<code>back</code>文件就是游戏的背景，<code>tilest</code>文件是游戏等会用的地图，</p>
 <p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220103172334.png"></p>
-<p>在导入背景之前，需要知道一件事情，点击图片，看到图片可以设置的一些属性，Pixels Per Unit这个属性，中文翻译就是每单位像素数，默认就是一格子就是100个像素，如果直接导入会变得非常小，所以这里需要修改统一修改成16，点击apply。</p>
+<p>在导入背景之前，需要知道一件事情，点击图片，看到图片可以设置的一些属性，Pixels Per Unit这个属性，中文翻译就是每单位像素数，默认就是一格子就是100个像素，如果直接导入会变得非常小，所以这里需要修改统一修改成16，点击Apply。</p>
 <p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220103172829.png"></p>
 <p>点击图片拖拽到左边窗口Hierarchy。这样就实现了背景图片的导入。滚动鼠标滚轮可以缩放，点击game可以查看游戏时画面是怎样的，但是就是一个普通背景。</p>
 <p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220103173318.png"></p>
@@ -351,9 +351,16 @@
 <p>我们回过来点击：window-&gt;2D-&gt;Tile Palette，把图片拖拽进去，选择map文件夹，导入，最终就变成这样：</p>
 <p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220103185135.png"></p>
 <p>最后我们就可以绘制地图了：点击地图素材，在此点击想要绘制的位置，就可以。</p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>地图要控制在相机的范围内，游戏可以正常看到地图，可以在game中预览效果。</p>
+<p>地图要控制在相机的范围内，游戏可以正常看到地图，可以在game中预览效果。</p>
 <p>最终绘制的地图效果：（看个人设计）</p>
 <p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220103191210.png"></p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><ul>
+<li>设置背景：我们需要先调整Pixels Per Unit这个属性，变成16*16像素。</li>
+<li>创建<code>Tilemap</code>，可以理解为瓦片地图，我们需要在每一个格子画地图。</li>
+<li>切图：<code>prit Mode-</code>&gt;<code>Multiple</code></li>
+<li>Tile Palette：这个是画板，我们需要把切图好后的素材拖到里面，然后我们就可以绘制地图了.</li>
+<li>流程是：创建<code>Tilemap</code>-&gt;点击需要切图的图片<code>prit Mode</code>-&gt;画板Tile Palette-&gt;绘制地图</li>
+</ul>
 
     </div>
 
