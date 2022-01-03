@@ -31,6 +31,81 @@
       </tags>
   </entry>
   <entry>
+    <title>Hexo图床</title>
+    <url>/article/dbc4c63e.html</url>
+    <content><![CDATA[<p>本文主要介绍在写<code>Hexo</code>博客用到的两个工具，和解决图床问题。</p>
+<h1 id="图床"><a href="#图床" class="headerlink" title="图床"></a>图床</h1><p>要想<code>Hexo</code>支持图片显示，大都会想到一个插件<code>hexo-asset-image</code>，但是如果想利于SEO，链接的优化，那会使用到<code>hexo-abbrlink</code>这个插件，但是会遇到问题就是图片失效了。这里主要是<code>hexo-abbrlink</code>这个插件改变了文章的地址，导致图片找不到，所以我们干脆直接把图片放到公网，直接访问即可。这里采用<code>gitee</code>作为图床，<code>github</code>也可以，但是访问速度慢</p>
+<h1 id="PicGo"><a href="#PicGo" class="headerlink" title="PicGo"></a>PicGo</h1><p>这里使用该工具作为上传图片的工具，这是一款开源的工具，地址：<a href="https://github.com/Molunerfinn/PicGo/releases">https://github.com/Molunerfinn/PicGo/releases</a></p>
+<p>选择插件下载<code>gitee</code>，注意要安装好Node环境。</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20210926230424.png"></p>
+<p>填写信息：</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20210926231011.png"></p>
+<ul>
+<li>用户名是注册时候的链接名，不是昵称！！</li>
+<li>仓库名小写，直接写就行，不需要写路径</li>
+<li>存放路径随意</li>
+<li>令牌是<code>Gitee</code>私人令牌，不要给太多权限，第一个就行</li>
+<li>图片只能1M上限，大于1M访问不了，需要登陆才可以有权限访问</li>
+</ul>
+<p>设置默认图床为Gitee即可。</p>
+<h1 id="snipaste"><a href="#snipaste" class="headerlink" title="snipaste"></a>snipaste</h1><p>这是一款截图工具，搭配<code>PicGo</code>可以很流畅的截图到上传在到文档引用等整个流程。</p>
+<p>官网：<a href="https://zh.snipaste.com/">https://zh.snipaste.com/</a></p>
+<p>也可以到window商店下载。</p>
+]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>工具</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Unity2D:安装软件和导入素材</title>
+    <url>/article/cdb3de80.html</url>
+    <content><![CDATA[<p>本文主要记录如何安装Unity和导入素材。</p>
+<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>本系列主要记录使用Unity构建一款2D像素风的游戏。</p>
+<h1 id="安装软件"><a href="#安装软件" class="headerlink" title="安装软件"></a>安装软件</h1><p>打开Unity官网：<a href="https://unity.cn/">https://unity.cn/</a> ，打开下载页面：<a href="https://unity.cn/releases">https://unity.cn/releases</a> ，不同时间可能不同，本次游戏开发使用使用2018.4.5，下载Unity Installer版本，对应Visual Studio 2017，安装过程直接下一步，Unity需要登陆。</p>
+<h1 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h1><p>打开Unity，输入项目名称，保存路径，选择2D。</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220103110332.png"></p>
+<p>这是创建后unity的主界面，如果和看到不一样，可以选择顶部窗口，window-&gt;Layouts-&gt;Default就可以恢复默认。</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220103110742.png"></p>
+<h1 id="认识窗口"><a href="#认识窗口" class="headerlink" title="认识窗口"></a>认识窗口</h1><p>接下来认识窗口的大概用途，这不是必须，但是有利于开发效率。</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220103111820.png"></p>
+<ul>
+<li>01是项目的物体，可以理解</li>
+<li>02是项目目录</li>
+<li>03是相机的窗口</li>
+<li>04是游戏窗口</li>
+<li>05是Unity商店</li>
+<li>06是项目可配置的 属性</li>
+</ul>
+<h1 id="导入素材"><a href="#导入素材" class="headerlink" title="导入素材"></a>导入素材</h1><p>打开unity的商店，既是Asset Store，搜索<code>sunnyland</code>，点击下载，导入。</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220103112715.png"></p>
+<p>可以看到自己项目目录有<code>Sunnyland</code>的目录，说明导入成功</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>安装软件版本2018.4.5，认识窗口的主要功能，导入素材。</p>
+]]></content>
+      <categories>
+        <category>Unity</category>
+      </categories>
+      <tags>
+        <tag>unity</tag>
+        <tag>2D</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Unity2D:素材编辑地图设计</title>
+    <url>/article/cd58071a.html</url>
+    <content><![CDATA[<p>本文主要记录素材的编辑和地图的设计。</p>
+]]></content>
+      <categories>
+        <category>Unity</category>
+      </categories>
+      <tags>
+        <tag>unity</tag>
+        <tag>2D</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Autojs记录</title>
     <url>/article/e2e5156.html</url>
     <content><![CDATA[<p>本文主要记录<code>Autojs</code>脚本的开发。</p>
