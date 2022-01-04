@@ -22,17 +22,24 @@
     var CONFIG = {"hostname":"www.frontblog.top","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="标签">
-<meta property="og:url" content="https://www.frontblog.top/tags/index.html">
+  <meta name="description" content="本文主要记录如何让角色进行左右的移动。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Unity2D:角色移动四">
+<meta property="og:url" content="https://www.frontblog.top/article/20223717.html">
 <meta property="og:site_name" content="大前端_LSF">
+<meta property="og:description" content="本文主要记录如何让角色进行左右的移动。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-09-25T14:05:09.000Z">
-<meta property="article:modified_time" content="2021-09-26T12:35:53.780Z">
+<meta property="og:image" content="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220104094309.png">
+<meta property="og:image" content="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220104101611.png">
+<meta property="article:published_time" content="2022-01-04T01:23:10.000Z">
+<meta property="article:modified_time" content="2022-01-04T02:35:55.266Z">
 <meta property="article:author" content="const name&#x3D;&quot;LSF&quot;">
+<meta property="article:tag" content="unity">
+<meta property="article:tag" content="2D">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220104094309.png">
 
-<link rel="canonical" href="https://www.frontblog.top/tags/">
+<link rel="canonical" href="https://www.frontblog.top/article/20223717.html">
 
 
 <script id="page-configurations">
@@ -40,13 +47,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>标签 | 大前端_LSF
-</title>
+  <title>Unity2D:角色移动四 | 大前端_LSF</title>
   
 
 
@@ -210,55 +216,188 @@
       <div class="main-inner">
         <div class="content-wrap">
           
-  
-  
 
-          <div class="content page posts-expand">
+          <div class="content post posts-expand">
             
 
     
-    
-    
-    <div class="post-block" lang="zh-CN">
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.frontblog.top/article/20223717.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="const name="LSF"">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大前端_LSF">
+    </span>
       <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Unity2D:角色移动四
+        </h1>
 
-<h1 class="post-title" itemprop="name headline">标签
-</h1>
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
 
-<div class="post-meta">
+              <time title="创建时间：2022-01-04 09:23:10 / 修改时间：10:35:55" itemprop="dateCreated datePublished" datetime="2022-01-04T09:23:10+08:00">2022-01-04</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Unity/" itemprop="url" rel="index"><span itemprop="name">Unity</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/article/20223717.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/article/20223717.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
   
 
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>本文主要记录如何让角色进行左右的移动。</p>
+<h1 id="回顾"><a href="#回顾" class="headerlink" title="回顾"></a>回顾</h1><p>在上一小节中，使用Layer图层，把背景，地图和人物分别设置图层，让其能显示正常，再通过给人物设置Rigid body 2D和Box Collider 2D，让人物具有重力和碰撞体，再给地图设置Tilemap Collider，让其地图也有碰撞体，这样，人物就可以稳稳停在地图上了。</p>
+<h1 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h1><p>玩游戏都知道我们一般使用AWSD或者方向键来控制角色移动，在下面我们可以看到<code>Horizontal</code>这个属性，译文是水平的意思，当然它就是操作左右的一个属性，关于<code>Horizontal</code>在代码部分进行详解。</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220104094309.png"></p>
+<h1 id="脚本创建"><a href="#脚本创建" class="headerlink" title="脚本创建"></a>脚本创建</h1><p>要想让人物移动，就得在它身上绑定脚本，点击Player这个角色，再点击右边的Add Component，New Script，起个名字就叫做PlayerController，意思就是Player的控制器嘛，新建好之后可以创建文件夹来统一脚本存放位置，但是记得把脚本拖拽给Player这个项，然后编辑代码。</p>
+<h1 id="代码编写"><a href="#代码编写" class="headerlink" title="代码编写"></a>代码编写</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">using System.Collections;</span><br><span class="line">using System.Collections.Generic;</span><br><span class="line">using UnityEngine;</span><br><span class="line"></span><br><span class="line">public class PlayerController : MonoBehaviour</span><br><span class="line">&#123;</span><br><span class="line">    //游戏的刚体，也就是小狐狸</span><br><span class="line">    public Rigidbody2D rb;</span><br><span class="line">    public float speed;//速度</span><br><span class="line">    // Start is called before the first frame update</span><br><span class="line">    //游戏初始化执行</span><br><span class="line">    void Start()</span><br><span class="line">    &#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // Update is called once per frame</span><br><span class="line">    //每一帧变化执行</span><br><span class="line">    void Update()</span><br><span class="line">    &#123;</span><br><span class="line">        Movement();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    void Movement()</span><br><span class="line">    &#123;</span><br><span class="line">        //得到玩家输入，-1代表左，0代表没动，1代表右。</span><br><span class="line">        float horizontalmove = Input.GetAxis(&quot;Horizontal&quot;);</span><br><span class="line">            rb.velocity = new Vector2(horizontalmove * speed, rb.velocity.y);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>上面代码中是最终完成的，其实就是定义两个变量，Rigidbody2D和speed，然后在动画的每一帧执行move方法。</li>
+<li><code>Input.GetAxis(&quot;Horizontal&quot;)</code>这是得到玩家输入的方向，按下左方向或者A键得到-1，按下右方向或者D键得到1，不动就是0</li>
+<li><code>rb.velocity</code>是刚体速度的变化</li>
+<li><code>Vector2</code>是2D的速度变化，两个参数，第一个是x方向，第二是y方向，也就是上下方向，传入horizontalmove是1或者是-1，那得到结果就是正负结果，speed是速度，所以这里的意思是负数越大，说明你向左的幅度大。这里y轴没有变化。</li>
+</ul>
+<p>这里需要注意，我们设置Rigidbody2D，但是程序不会知道我们是哪个Rigidbody2D，所以返回到Unity中，可以在脚本看到脚本多了Rigidbody2D和speed这两个属性，这是我们刚才代码写的，所以我们需要把人物Rigidbody2D拖拽到脚本的Rigidbody2D进行关联。</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220104101611.png"></p>
+<p>如果这时候运行，会发现如果快速移动，小狐狸会转起来，这时候我们需要给人物的Rigidbody2D的Constraints锁定Z轴。</p>
+<h1 id="关于BUG"><a href="#关于BUG" class="headerlink" title="关于BUG"></a>关于BUG</h1><p>这个时候的小狐狸确实可以左右移动，但是会出现卡住现象，这是因为小狐狸身上是一个矩形的碰撞体，具体会在后面的8节解决问题。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><ul>
+<li>如何获取玩家输入： <code>float horizontalmove = Input.GetAxis(&quot;Horizontal&quot;);</code></li>
+<li>如何移动：<code> rb.velocity = new Vector2(horizontalmove * speed, rb.velocity.y);</code></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>const name="LSF"
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://www.frontblog.top/article/20223717.html" title="Unity2D:角色移动四">https://www.frontblog.top/article/20223717.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
 </div>
 
-</header>
-
-      
-      
-      
-      <div class="post-body">
-          <div class="tag-cloud">
-            <div class="tag-cloud-title">
-              目前共计 7 个标签
-            </div>
-            <div class="tag-cloud-tags">
-              <a href="/tags/2D/" style="font-size: 30px; color: #111">2D</a> <a href="/tags/Autojs/" style="font-size: 12px; color: #ccc">Autojs</a> <a href="/tags/HTML/" style="font-size: 12px; color: #ccc">HTML</a> <a href="/tags/unity/" style="font-size: 30px; color: #111">unity</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 12px; color: #ccc">工具</a> <a href="/tags/%E6%B5%81%E5%AA%92%E4%BD%93/" style="font-size: 12px; color: #ccc">流媒体</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 12px; color: #ccc">随笔</a>
-            </div>
-          </div>
         
-      </div>
-      
-      
-      
-    </div>
-    
 
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/images/wechat_channel.jpg">
+            <span class="icon">
+              <i class="fa fa-wechat"></i>
+            </span>
+
+            <span class="label">WeChat</span>
+          </a>
+        </div>
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/unity/" rel="tag"># unity</a>
+              <a href="/tags/2D/" rel="tag"># 2D</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/article/ba5f378c.html" rel="prev" title="Unity2D:图层Layer和角色创建三">
+      <i class="fa fa-chevron-left"></i> Unity2D:图层Layer和角色创建三
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/article/13c3ec8b.html" rel="next" title="Unity2D:角色方向和跳跃四">
+      Unity2D:角色方向和跳跃四 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
     
-    
-    
+  </article>
+  
+  
+  
+
 
 
           </div>
           
+    <div class="comments" id="valine-comments"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -305,6 +444,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%9E%E9%A1%BE"><span class="nav-number">1.</span> <span class="nav-text">回顾</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E7%BD%AE%E7%9F%A5%E8%AF%86"><span class="nav-number">2.</span> <span class="nav-text">前置知识</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%84%9A%E6%9C%AC%E5%88%9B%E5%BB%BA"><span class="nav-number">3.</span> <span class="nav-text">脚本创建</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E7%BC%96%E5%86%99"><span class="nav-number">4.</span> <span class="nav-text">代码编写</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%B3%E4%BA%8EBUG"><span class="nav-number">5.</span> <span class="nav-text">关于BUG</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">6.</span> <span class="nav-text">总结</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

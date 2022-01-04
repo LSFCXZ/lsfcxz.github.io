@@ -22,17 +22,23 @@
     var CONFIG = {"hostname":"www.frontblog.top","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="标签">
-<meta property="og:url" content="https://www.frontblog.top/tags/index.html">
+  <meta name="description" content="本文主要记录如何完成人物在左右的移动的时候改变方向，并且实现角色的跳跃。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Unity2D:角色方向和跳跃四">
+<meta property="og:url" content="https://www.frontblog.top/article/13c3ec8b.html">
 <meta property="og:site_name" content="大前端_LSF">
+<meta property="og:description" content="本文主要记录如何完成人物在左右的移动的时候改变方向，并且实现角色的跳跃。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-09-25T14:05:09.000Z">
-<meta property="article:modified_time" content="2021-09-26T12:35:53.780Z">
+<meta property="og:image" content="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220104104619.png">
+<meta property="article:published_time" content="2022-01-04T02:35:27.000Z">
+<meta property="article:modified_time" content="2022-01-04T02:58:50.402Z">
 <meta property="article:author" content="const name&#x3D;&quot;LSF&quot;">
+<meta property="article:tag" content="unity">
+<meta property="article:tag" content="2D">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220104104619.png">
 
-<link rel="canonical" href="https://www.frontblog.top/tags/">
+<link rel="canonical" href="https://www.frontblog.top/article/13c3ec8b.html">
 
 
 <script id="page-configurations">
@@ -40,13 +46,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>标签 | 大前端_LSF
-</title>
+  <title>Unity2D:角色方向和跳跃四 | 大前端_LSF</title>
   
 
 
@@ -210,55 +215,173 @@
       <div class="main-inner">
         <div class="content-wrap">
           
-  
-  
 
-          <div class="content page posts-expand">
+          <div class="content post posts-expand">
             
 
     
-    
-    
-    <div class="post-block" lang="zh-CN">
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.frontblog.top/article/13c3ec8b.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="const name="LSF"">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大前端_LSF">
+    </span>
       <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Unity2D:角色方向和跳跃四
+        </h1>
 
-<h1 class="post-title" itemprop="name headline">标签
-</h1>
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
 
-<div class="post-meta">
+              <time title="创建时间：2022-01-04 10:35:27 / 修改时间：10:58:50" itemprop="dateCreated datePublished" datetime="2022-01-04T10:35:27+08:00">2022-01-04</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Unity/" itemprop="url" rel="index"><span itemprop="name">Unity</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/article/13c3ec8b.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/article/13c3ec8b.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
   
 
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>本文主要记录如何完成人物在左右的移动的时候改变方向，并且实现角色的跳跃。</p>
+<h1 id="回顾"><a href="#回顾" class="headerlink" title="回顾"></a>回顾</h1><p>在上一节中，完成了小狐狸的左右移动，但是小狐狸的面只是朝一个方向，感觉特别僵硬，而且不能跳跃，接下来就完成这两个功能。</p>
+<h1 id="方向改变"><a href="#方向改变" class="headerlink" title="方向改变"></a>方向改变</h1><p>在unity中，我们改变<code>Transform</code>里面的Scale的x为-1，就会发现狐狸的方向改变了，有了这点思路，就可以判断按键的左右，然后去改变值，就可以实现功能。</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220104104619.png"></p>
+<p>代码是这样的：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">void Movement()</span><br><span class="line">&#123;</span><br><span class="line">    //得到玩家输入，-1代表左，0代表没动，1代表右。这个会得到1-0之间，-1到0之间的数。得到是浮点类型</span><br><span class="line">    float horizontalmove = Input.GetAxis(&quot;Horizontal&quot;);</span><br><span class="line">    //这个会直接得到1.0、0和-1.0</span><br><span class="line">    float facedircetion = Input.GetAxisRaw(&quot;Horizontal&quot;);</span><br><span class="line">    //移动 </span><br><span class="line">    rb.velocity = new Vector2(horizontalmove * speed, rb.velocity.y);</span><br><span class="line">    //移动方向</span><br><span class="line">    if(facedircetion !=0)</span><br><span class="line">    &#123;</span><br><span class="line">        transform.localScale = new Vector3(facedircetion, 1, 1);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>transform.localScale</code>也就是刚才说的<code>Transform</code>里面的Scale，因为里面是三维的，所以需要使用Vector3，改变的第一参数，其他不变。<code>Input.GetAxisRaw(&quot;Horizontal&quot;);</code>这个会得到浮点类型的-1.0、0和1.0，传递过去就刚好可以实现小狐狸方向的反转。</p>
+<p>运行游戏就可以看到小狐狸的方向跟着改变了。</p>
+
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>const name="LSF"
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://www.frontblog.top/article/13c3ec8b.html" title="Unity2D:角色方向和跳跃四">https://www.frontblog.top/article/13c3ec8b.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
 </div>
 
-</header>
-
-      
-      
-      
-      <div class="post-body">
-          <div class="tag-cloud">
-            <div class="tag-cloud-title">
-              目前共计 7 个标签
-            </div>
-            <div class="tag-cloud-tags">
-              <a href="/tags/2D/" style="font-size: 30px; color: #111">2D</a> <a href="/tags/Autojs/" style="font-size: 12px; color: #ccc">Autojs</a> <a href="/tags/HTML/" style="font-size: 12px; color: #ccc">HTML</a> <a href="/tags/unity/" style="font-size: 30px; color: #111">unity</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 12px; color: #ccc">工具</a> <a href="/tags/%E6%B5%81%E5%AA%92%E4%BD%93/" style="font-size: 12px; color: #ccc">流媒体</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 12px; color: #ccc">随笔</a>
-            </div>
-          </div>
         
-      </div>
-      
-      
-      
-    </div>
-    
 
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/images/wechat_channel.jpg">
+            <span class="icon">
+              <i class="fa fa-wechat"></i>
+            </span>
+
+            <span class="label">WeChat</span>
+          </a>
+        </div>
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/unity/" rel="tag"># unity</a>
+              <a href="/tags/2D/" rel="tag"># 2D</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/article/20223717.html" rel="prev" title="Unity2D:角色移动四">
+      <i class="fa fa-chevron-left"></i> Unity2D:角色移动四
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
     
-    
-    
+  </article>
+  
+  
+  
+
 
 
           </div>
           
+    <div class="comments" id="valine-comments"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -305,6 +428,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%9E%E9%A1%BE"><span class="nav-number">1.</span> <span class="nav-text">回顾</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%96%B9%E5%90%91%E6%94%B9%E5%8F%98"><span class="nav-number">2.</span> <span class="nav-text">方向改变</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
