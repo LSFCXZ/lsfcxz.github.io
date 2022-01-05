@@ -31,67 +31,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Hexo图床</title>
-    <url>/article/dbc4c63e.html</url>
-    <content><![CDATA[<p>本文主要介绍在写<code>Hexo</code>博客用到的两个工具，和解决图床问题。</p>
-<h1 id="图床"><a href="#图床" class="headerlink" title="图床"></a>图床</h1><p>要想<code>Hexo</code>支持图片显示，大都会想到一个插件<code>hexo-asset-image</code>，但是如果想利于SEO，链接的优化，那会使用到<code>hexo-abbrlink</code>这个插件，但是会遇到问题就是图片失效了。这里主要是<code>hexo-abbrlink</code>这个插件改变了文章的地址，导致图片找不到，所以我们干脆直接把图片放到公网，直接访问即可。这里采用<code>gitee</code>作为图床，<code>github</code>也可以，但是访问速度慢</p>
-<h1 id="PicGo"><a href="#PicGo" class="headerlink" title="PicGo"></a>PicGo</h1><p>这里使用该工具作为上传图片的工具，这是一款开源的工具，地址：<a href="https://github.com/Molunerfinn/PicGo/releases">https://github.com/Molunerfinn/PicGo/releases</a></p>
-<p>选择插件下载<code>gitee</code>，注意要安装好Node环境。</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20210926230424.png"></p>
-<p>填写信息：</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20210926231011.png"></p>
-<ul>
-<li>用户名是注册时候的链接名，不是昵称！！</li>
-<li>仓库名小写，直接写就行，不需要写路径</li>
-<li>存放路径随意</li>
-<li>令牌是<code>Gitee</code>私人令牌，不要给太多权限，第一个就行</li>
-<li>图片只能1M上限，大于1M访问不了，需要登陆才可以有权限访问</li>
-</ul>
-<p>设置默认图床为Gitee即可。</p>
-<h1 id="snipaste"><a href="#snipaste" class="headerlink" title="snipaste"></a>snipaste</h1><p>这是一款截图工具，搭配<code>PicGo</code>可以很流畅的截图到上传在到文档引用等整个流程。</p>
-<p>官网：<a href="https://zh.snipaste.com/">https://zh.snipaste.com/</a></p>
-<p>也可以到window商店下载。</p>
-]]></content>
-      <categories>
-        <category>工具</category>
-      </categories>
-      <tags>
-        <tag>工具</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Unity2D:安装软件和导入素材一</title>
-    <url>/article/cdb3de80.html</url>
-    <content><![CDATA[<p>本系列文章主要记录使用Unity构建一款2D像素风的游戏，最终会发布成一个网站供大家游玩。本文主要记录如何安装Unity和导入素材。</p>
-<h1 id="安装软件"><a href="#安装软件" class="headerlink" title="安装软件"></a>安装软件</h1><p>打开Unity官网：<a href="https://unity.cn/">https://unity.cn/</a> ，打开下载页面：<a href="https://unity.cn/releases">https://unity.cn/releases</a> ，不同时间可能不同，本次游戏开发使用使用2018.4.5，下载Unity Installer版本，对应Visual Studio 2017，安装过程直接下一步，Unity需要登陆。</p>
-<h1 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h1><p>打开Unity，输入项目名称，保存路径，选择2D。</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220103110332.png"></p>
-<p>这是创建后unity的主界面，如果和看到不一样，可以选择顶部窗口，window-&gt;Layouts-&gt;Default就可以恢复默认。</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220103110742.png"></p>
-<h1 id="认识窗口"><a href="#认识窗口" class="headerlink" title="认识窗口"></a>认识窗口</h1><p>接下来认识窗口的大概用途，这不是必须，但是有利于开发效率。</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220103111820.png"></p>
-<ul>
-<li>01是项目的物体，可以理解</li>
-<li>02是项目目录</li>
-<li>03是相机的窗口</li>
-<li>04是游戏窗口</li>
-<li>05是Unity商店</li>
-<li>06是项目可配置的 属性</li>
-</ul>
-<h1 id="导入素材"><a href="#导入素材" class="headerlink" title="导入素材"></a>导入素材</h1><p>打开unity的商店，既是Asset Store，搜索<code>sunnyland</code>，点击下载，导入。</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220103112715.png"></p>
-<p>可以看到自己项目目录有<code>Sunnyland</code>的目录，说明导入成功</p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>安装软件版本2018.4.5，认识窗口的主要功能，导入素材。</p>
-]]></content>
-      <categories>
-        <category>Unity</category>
-      </categories>
-      <tags>
-        <tag>unity</tag>
-        <tag>2D</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Unity2D:素材编辑地图设计二</title>
     <url>/article/cd58071a.html</url>
     <content><![CDATA[<p>本文主要记录素材的编辑和地图的设计。</p>
@@ -196,63 +135,57 @@
       </tags>
   </entry>
   <entry>
-    <title>Unity2D:角色方向和跳跃五</title>
-    <url>/article/13c3ec8b.html</url>
-    <content><![CDATA[<p>本文主要记录如何完成人物在左右的移动的时候改变方向，并且实现角色的跳跃。</p>
-<h1 id="回顾"><a href="#回顾" class="headerlink" title="回顾"></a>回顾</h1><p>在上一节中，完成了小狐狸的左右移动，但是小狐狸的面只是朝一个方向，感觉特别僵硬，而且不能跳跃，接下来就完成这两个功能。</p>
-<h1 id="方向改变"><a href="#方向改变" class="headerlink" title="方向改变"></a>方向改变</h1><p>在unity中，我们改变<code>Transform</code>里面的Scale的x为-1，就会发现狐狸的方向改变了，有了这点思路，就可以判断按键的左右，然后去改变值，就可以实现功能。</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220104104619.png"></p>
-<p>代码是这样的：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">void Movement()</span><br><span class="line">&#123;</span><br><span class="line">    //得到玩家输入，-1代表左，0代表没动，1代表右。这个会得到1-0之间，-1到0之间的数。得到是浮点类型</span><br><span class="line">    float horizontalmove = Input.GetAxis(&quot;Horizontal&quot;);</span><br><span class="line">    //这个会直接得到1.0、0和-1.0</span><br><span class="line">    float facedircetion = Input.GetAxisRaw(&quot;Horizontal&quot;);</span><br><span class="line">    //移动 </span><br><span class="line">    rb.velocity = new Vector2(horizontalmove * speed, rb.velocity.y);</span><br><span class="line">    //移动方向</span><br><span class="line">    if(facedircetion !=0)</span><br><span class="line">    &#123;</span><br><span class="line">        transform.localScale = new Vector3(facedircetion, 1, 1);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><code>transform.localScale</code>也就是刚才说的<code>Transform</code>里面的Scale，因为里面是三维的，所以需要使用Vector3，改变的第一参数，其他不变。<code>Input.GetAxisRaw(&quot;Horizontal&quot;);</code>这个会得到浮点类型的-1.0、0和1.0，传递过去就刚好可以实现小狐狸方向的反转。</p>
-<p>运行游戏就可以看到小狐狸的方向跟着改变了。</p>
-<h1 id="小调整"><a href="#小调整" class="headerlink" title="小调整"></a>小调整</h1><p>我们电脑不是每一个都是60帧数，所以需要修改<code>Update</code>为<code>FixedUpdate</code>。</p>
-<p>在移动代码中修改为</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">rb.velocity = new Vector2(horizontalmove * speed * Time.deltaTime, rb.velocity.y);</span><br></pre></td></tr></table></figure>
-
-<p>调整之后会发现移动速度很慢，这时候把速度调整为400，即可以正常移动了。</p>
-<h1 id="角色跳跃"><a href="#角色跳跃" class="headerlink" title="角色跳跃"></a>角色跳跃</h1><p>脚本代码：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public float jumpforce;//跳跃</span><br><span class="line">        //跳跃代码</span><br><span class="line">       if (Input.GetButtonDown(&quot;Jump&quot;))</span><br><span class="line">       &#123;</span><br><span class="line">           rb.velocity = new Vector2(rb.velocity.x, jumpforce*Time.deltaTime);</span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure>
-
+    <title>Hexo图床</title>
+    <url>/article/dbc4c63e.html</url>
+    <content><![CDATA[<p>本文主要介绍在写<code>Hexo</code>博客用到的两个工具，和解决图床问题。</p>
+<h1 id="图床"><a href="#图床" class="headerlink" title="图床"></a>图床</h1><p>要想<code>Hexo</code>支持图片显示，大都会想到一个插件<code>hexo-asset-image</code>，但是如果想利于SEO，链接的优化，那会使用到<code>hexo-abbrlink</code>这个插件，但是会遇到问题就是图片失效了。这里主要是<code>hexo-abbrlink</code>这个插件改变了文章的地址，导致图片找不到，所以我们干脆直接把图片放到公网，直接访问即可。这里采用<code>gitee</code>作为图床，<code>github</code>也可以，但是访问速度慢</p>
+<h1 id="PicGo"><a href="#PicGo" class="headerlink" title="PicGo"></a>PicGo</h1><p>这里使用该工具作为上传图片的工具，这是一款开源的工具，地址：<a href="https://github.com/Molunerfinn/PicGo/releases">https://github.com/Molunerfinn/PicGo/releases</a></p>
+<p>选择插件下载<code>gitee</code>，注意要安装好Node环境。</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20210926230424.png"></p>
+<p>填写信息：</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20210926231011.png"></p>
 <ul>
-<li><code>jumpforce</code>变量就是跳跃的力度。</li>
-<li><code>(Input.GetButtonDown(&quot;Jump&quot;)</code>是玩家按下空格的时候。</li>
-<li> <code>rb.velocity = new Vector2(rb.velocity.x, jumpforce*Time.deltaTime);</code>改变上下方向。</li>
+<li>用户名是注册时候的链接名，不是昵称！！</li>
+<li>仓库名小写，直接写就行，不需要写路径</li>
+<li>存放路径随意</li>
+<li>令牌是<code>Gitee</code>私人令牌，不要给太多权限，第一个就行</li>
+<li>图片只能1M上限，大于1M访问不了，需要登陆才可以有权限访问</li>
 </ul>
+<p>设置默认图床为Gitee即可。</p>
+<h1 id="snipaste"><a href="#snipaste" class="headerlink" title="snipaste"></a>snipaste</h1><p>这是一款截图工具，搭配<code>PicGo</code>可以很流畅的截图到上传在到文档引用等整个流程。</p>
+<p>官网：<a href="https://zh.snipaste.com/">https://zh.snipaste.com/</a></p>
+<p>也可以到window商店下载。</p>
 ]]></content>
       <categories>
-        <category>Unity</category>
+        <category>工具</category>
       </categories>
       <tags>
-        <tag>unity</tag>
-        <tag>2D</tag>
+        <tag>工具</tag>
       </tags>
   </entry>
   <entry>
-    <title>Unity2D:角色移动四</title>
-    <url>/article/20223717.html</url>
-    <content><![CDATA[<p>本文主要记录如何让角色进行左右的移动。</p>
-<h1 id="回顾"><a href="#回顾" class="headerlink" title="回顾"></a>回顾</h1><p>在上一小节中，使用Layer图层，把背景，地图和人物分别设置图层，让其能显示正常，再通过给人物设置Rigid body 2D和Box Collider 2D，让人物具有重力和碰撞体，再给地图设置Tilemap Collider，让其地图也有碰撞体，这样，人物就可以稳稳停在地图上了。</p>
-<h1 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h1><p>玩游戏都知道我们一般使用AWSD或者方向键来控制角色移动，在下面我们可以看到<code>Horizontal</code>这个属性，译文是水平的意思，当然它就是操作左右的一个属性，关于<code>Horizontal</code>在代码部分进行详解。</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220104094309.png"></p>
-<h1 id="脚本创建"><a href="#脚本创建" class="headerlink" title="脚本创建"></a>脚本创建</h1><p>要想让人物移动，就得在它身上绑定脚本，点击Player这个角色，再点击右边的Add Component，New Script，起个名字就叫做PlayerController，意思就是Player的控制器嘛，新建好之后可以创建文件夹来统一脚本存放位置，但是记得把脚本拖拽给Player这个项，然后编辑代码。</p>
-<h1 id="代码编写"><a href="#代码编写" class="headerlink" title="代码编写"></a>代码编写</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">using System.Collections;</span><br><span class="line">using System.Collections.Generic;</span><br><span class="line">using UnityEngine;</span><br><span class="line"></span><br><span class="line">public class PlayerController : MonoBehaviour</span><br><span class="line">&#123;</span><br><span class="line">    //游戏的刚体，也就是小狐狸</span><br><span class="line">    public Rigidbody2D rb;</span><br><span class="line">    public float speed;//速度</span><br><span class="line">    // Start is called before the first frame update</span><br><span class="line">    //游戏初始化执行</span><br><span class="line">    void Start()</span><br><span class="line">    &#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // Update is called once per frame</span><br><span class="line">    //每一帧变化执行</span><br><span class="line">    void Update()</span><br><span class="line">    &#123;</span><br><span class="line">        Movement();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    void Movement()</span><br><span class="line">    &#123;</span><br><span class="line">        //得到玩家输入，-1代表左，0代表没动，1代表右。</span><br><span class="line">        float horizontalmove = Input.GetAxis(&quot;Horizontal&quot;);</span><br><span class="line">            rb.velocity = new Vector2(horizontalmove * speed, rb.velocity.y);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
+    <title>Unity2D:安装软件和导入素材一</title>
+    <url>/article/cdb3de80.html</url>
+    <content><![CDATA[<p>本系列文章主要记录使用Unity构建一款2D像素风的游戏，最终会发布成一个网站供大家游玩。本文主要记录如何安装Unity和导入素材。</p>
+<h1 id="安装软件"><a href="#安装软件" class="headerlink" title="安装软件"></a>安装软件</h1><p>打开Unity官网：<a href="https://unity.cn/">https://unity.cn/</a> ，打开下载页面：<a href="https://unity.cn/releases">https://unity.cn/releases</a> ，不同时间可能不同，本次游戏开发使用使用2018.4.5，下载Unity Installer版本，对应Visual Studio 2017，安装过程直接下一步，Unity需要登陆。</p>
+<h1 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h1><p>打开Unity，输入项目名称，保存路径，选择2D。</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220103110332.png"></p>
+<p>这是创建后unity的主界面，如果和看到不一样，可以选择顶部窗口，window-&gt;Layouts-&gt;Default就可以恢复默认。</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220103110742.png"></p>
+<h1 id="认识窗口"><a href="#认识窗口" class="headerlink" title="认识窗口"></a>认识窗口</h1><p>接下来认识窗口的大概用途，这不是必须，但是有利于开发效率。</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220103111820.png"></p>
 <ul>
-<li>上面代码中是最终完成的，其实就是定义两个变量，Rigidbody2D和speed，然后在动画的每一帧执行move方法。</li>
-<li><code>Input.GetAxis(&quot;Horizontal&quot;)</code>这是得到玩家输入的方向，按下左方向或者A键得到-1，按下右方向或者D键得到1，不动就是0</li>
-<li><code>rb.velocity</code>是刚体速度的变化</li>
-<li><code>Vector2</code>是2D的速度变化，两个参数，第一个是x方向，第二是y方向，也就是上下方向，传入horizontalmove是1或者是-1，那得到结果就是正负结果，speed是速度，所以这里的意思是负数越大，说明你向左的幅度大。这里y轴没有变化。</li>
+<li>01是项目的物体，可以理解</li>
+<li>02是项目目录</li>
+<li>03是相机的窗口</li>
+<li>04是游戏窗口</li>
+<li>05是Unity商店</li>
+<li>06是项目可配置的 属性</li>
 </ul>
-<p>这里需要注意，我们设置Rigidbody2D，但是程序不会知道我们是哪个Rigidbody2D，所以返回到Unity中，可以在脚本看到脚本多了Rigidbody2D和speed这两个属性，这是我们刚才代码写的，所以我们需要把人物Rigidbody2D拖拽到脚本的Rigidbody2D进行关联。</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220104101611.png"></p>
-<p>如果这时候运行，会发现如果快速移动，小狐狸会转起来，这时候我们需要给人物的Rigidbody2D的Constraints锁定Z轴。</p>
-<h1 id="关于BUG"><a href="#关于BUG" class="headerlink" title="关于BUG"></a>关于BUG</h1><p>这个时候的小狐狸确实可以左右移动，但是会出现卡住现象，这是因为小狐狸身上是一个矩形的碰撞体，具体会在后面的8节解决问题。</p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><ul>
-<li>如何获取玩家输入： <code>float horizontalmove = Input.GetAxis(&quot;Horizontal&quot;);</code></li>
-<li>如何移动：<code> rb.velocity = new Vector2(horizontalmove * speed, rb.velocity.y);</code></li>
-</ul>
+<h1 id="导入素材"><a href="#导入素材" class="headerlink" title="导入素材"></a>导入素材</h1><p>打开unity的商店，既是Asset Store，搜索<code>sunnyland</code>，点击下载，导入。</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220103112715.png"></p>
+<p>可以看到自己项目目录有<code>Sunnyland</code>的目录，说明导入成功</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>安装软件版本2018.4.5，认识窗口的主要功能，导入素材。</p>
 ]]></content>
       <categories>
         <category>Unity</category>
@@ -314,6 +247,73 @@
       </tags>
   </entry>
   <entry>
+    <title>Unity2D:角色移动四</title>
+    <url>/article/20223717.html</url>
+    <content><![CDATA[<p>本文主要记录如何让角色进行左右的移动。</p>
+<h1 id="回顾"><a href="#回顾" class="headerlink" title="回顾"></a>回顾</h1><p>在上一小节中，使用Layer图层，把背景，地图和人物分别设置图层，让其能显示正常，再通过给人物设置Rigid body 2D和Box Collider 2D，让人物具有重力和碰撞体，再给地图设置Tilemap Collider，让其地图也有碰撞体，这样，人物就可以稳稳停在地图上了。</p>
+<h1 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h1><p>玩游戏都知道我们一般使用AWSD或者方向键来控制角色移动，在下面我们可以看到<code>Horizontal</code>这个属性，译文是水平的意思，当然它就是操作左右的一个属性，关于<code>Horizontal</code>在代码部分进行详解。</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220104094309.png"></p>
+<h1 id="脚本创建"><a href="#脚本创建" class="headerlink" title="脚本创建"></a>脚本创建</h1><p>要想让人物移动，就得在它身上绑定脚本，点击Player这个角色，再点击右边的Add Component，New Script，起个名字就叫做PlayerController，意思就是Player的控制器嘛，新建好之后可以创建文件夹来统一脚本存放位置，但是记得把脚本拖拽给Player这个项，然后编辑代码。</p>
+<h1 id="代码编写"><a href="#代码编写" class="headerlink" title="代码编写"></a>代码编写</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">using System.Collections;</span><br><span class="line">using System.Collections.Generic;</span><br><span class="line">using UnityEngine;</span><br><span class="line"></span><br><span class="line">public class PlayerController : MonoBehaviour</span><br><span class="line">&#123;</span><br><span class="line">    //游戏的刚体，也就是小狐狸</span><br><span class="line">    public Rigidbody2D rb;</span><br><span class="line">    public float speed;//速度</span><br><span class="line">    // Start is called before the first frame update</span><br><span class="line">    //游戏初始化执行</span><br><span class="line">    void Start()</span><br><span class="line">    &#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // Update is called once per frame</span><br><span class="line">    //每一帧变化执行</span><br><span class="line">    void Update()</span><br><span class="line">    &#123;</span><br><span class="line">        Movement();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    void Movement()</span><br><span class="line">    &#123;</span><br><span class="line">        //得到玩家输入，-1代表左，0代表没动，1代表右。</span><br><span class="line">        float horizontalmove = Input.GetAxis(&quot;Horizontal&quot;);</span><br><span class="line">            rb.velocity = new Vector2(horizontalmove * speed, rb.velocity.y);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>上面代码中是最终完成的，其实就是定义两个变量，Rigidbody2D和speed，然后在动画的每一帧执行move方法。</li>
+<li><code>Input.GetAxis(&quot;Horizontal&quot;)</code>这是得到玩家输入的方向，按下左方向或者A键得到-1，按下右方向或者D键得到1，不动就是0</li>
+<li><code>rb.velocity</code>是刚体速度的变化</li>
+<li><code>Vector2</code>是2D的速度变化，两个参数，第一个是x方向，第二是y方向，也就是上下方向，传入horizontalmove是1或者是-1，那得到结果就是正负结果，speed是速度，所以这里的意思是负数越大，说明你向左的幅度大。这里y轴没有变化。</li>
+</ul>
+<p>这里需要注意，我们设置Rigidbody2D，但是程序不会知道我们是哪个Rigidbody2D，所以返回到Unity中，可以在脚本看到脚本多了Rigidbody2D和speed这两个属性，这是我们刚才代码写的，所以我们需要把人物Rigidbody2D拖拽到脚本的Rigidbody2D进行关联。</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220104101611.png"></p>
+<p>如果这时候运行，会发现如果快速移动，小狐狸会转起来，这时候我们需要给人物的Rigidbody2D的Constraints锁定Z轴。</p>
+<h1 id="关于BUG"><a href="#关于BUG" class="headerlink" title="关于BUG"></a>关于BUG</h1><p>这个时候的小狐狸确实可以左右移动，但是会出现卡住现象，这是因为小狐狸身上是一个矩形的碰撞体，具体会在后面的8节解决问题。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><ul>
+<li>如何获取玩家输入： <code>float horizontalmove = Input.GetAxis(&quot;Horizontal&quot;);</code></li>
+<li>如何移动：<code> rb.velocity = new Vector2(horizontalmove * speed, rb.velocity.y);</code></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Unity</category>
+      </categories>
+      <tags>
+        <tag>unity</tag>
+        <tag>2D</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Unity2D:角色方向和跳跃五</title>
+    <url>/article/13c3ec8b.html</url>
+    <content><![CDATA[<p>本文主要记录如何完成人物在左右的移动的时候改变方向，并且实现角色的跳跃。</p>
+<h1 id="回顾"><a href="#回顾" class="headerlink" title="回顾"></a>回顾</h1><p>在上一节中，完成了小狐狸的左右移动，但是小狐狸的面只是朝一个方向，感觉特别僵硬，而且不能跳跃，接下来就完成这两个功能。</p>
+<h1 id="方向改变"><a href="#方向改变" class="headerlink" title="方向改变"></a>方向改变</h1><p>在unity中，我们改变<code>Transform</code>里面的Scale的x为-1，就会发现狐狸的方向改变了，有了这点思路，就可以判断按键的左右，然后去改变值，就可以实现功能。</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220104104619.png"></p>
+<p>代码是这样的：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">void Movement()</span><br><span class="line">&#123;</span><br><span class="line">    //得到玩家输入，-1代表左，0代表没动，1代表右。这个会得到1-0之间，-1到0之间的数。得到是浮点类型</span><br><span class="line">    float horizontalmove = Input.GetAxis(&quot;Horizontal&quot;);</span><br><span class="line">    //这个会直接得到1.0、0和-1.0</span><br><span class="line">    float facedircetion = Input.GetAxisRaw(&quot;Horizontal&quot;);</span><br><span class="line">    //移动 </span><br><span class="line">    rb.velocity = new Vector2(horizontalmove * speed, rb.velocity.y);</span><br><span class="line">    //移动方向</span><br><span class="line">    if(facedircetion !=0)</span><br><span class="line">    &#123;</span><br><span class="line">        transform.localScale = new Vector3(facedircetion, 1, 1);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>transform.localScale</code>也就是刚才说的<code>Transform</code>里面的Scale，因为里面是三维的，所以需要使用Vector3，改变的第一参数，其他不变。<code>Input.GetAxisRaw(&quot;Horizontal&quot;);</code>这个会得到浮点类型的-1.0、0和1.0，传递过去就刚好可以实现小狐狸方向的反转。</p>
+<p>运行游戏就可以看到小狐狸的方向跟着改变了。</p>
+<h1 id="小调整"><a href="#小调整" class="headerlink" title="小调整"></a>小调整</h1><p>我们电脑不是每一个都是60帧数，所以需要修改<code>Update</code>为<code>FixedUpdate</code>。</p>
+<p>在移动代码中修改为</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">rb.velocity = new Vector2(horizontalmove * speed * Time.deltaTime, rb.velocity.y);</span><br></pre></td></tr></table></figure>
+
+<p>调整之后会发现移动速度很慢，这时候把速度调整为400，即可以正常移动了。</p>
+<h1 id="角色跳跃"><a href="#角色跳跃" class="headerlink" title="角色跳跃"></a>角色跳跃</h1><p>脚本代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public float jumpforce;//跳跃</span><br><span class="line">        //跳跃代码</span><br><span class="line">       if (Input.GetButtonDown(&quot;Jump&quot;))</span><br><span class="line">       &#123;</span><br><span class="line">           rb.velocity = new Vector2(rb.velocity.x, jumpforce*Time.deltaTime);</span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>jumpforce</code>变量就是跳跃的力度。</li>
+<li><code>(Input.GetButtonDown(&quot;Jump&quot;)</code>是玩家按下空格的时候。</li>
+<li> <code>rb.velocity = new Vector2(rb.velocity.x, jumpforce*Time.deltaTime);</code>改变上下方向。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Unity</category>
+      </categories>
+      <tags>
+        <tag>unity</tag>
+        <tag>2D</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Unity2D:角色跳跃动画七</title>
     <url>/article/bd32f395.html</url>
     <content><![CDATA[<p>本文主要记录如何实现人物跳跃的动画效果，主要是对上一节中的动画效果更深入使用和理解。</p>
@@ -362,6 +362,29 @@
       </tags>
   </entry>
   <entry>
+    <title>Unity2D:修复移动问题八</title>
+    <url>/article/2d8dee04.html</url>
+    <content><![CDATA[<p> 本文主要记录前面开发中可能遇到问题的解决方法。</p>
+<h1 id="回顾"><a href="#回顾" class="headerlink" title="回顾"></a>回顾</h1><p>经过前面的开发之后，小狐狸基本实现了移动跳跃，和站立跳跃下落的动画，但是，如果按照之前的开发，可能会出现无缘无故卡住的现象，接下来就解决这个问题。</p>
+<h1 id="移动卡住问题"><a href="#移动卡住问题" class="headerlink" title="移动卡住问题"></a>移动卡住问题</h1><p>两种方法：</p>
+<p>第一种：</p>
+<p>给小狐狸添加一个圆形的碰撞体，把它绑定到脚下，这样就不会产生卡住现象。这里修改之后，记得把这个组件拖到脚本里面的coll，因为这时候，我们应该时去判断这个碰撞体和地图的接触。</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220105190347.png"></p>
+<p>第二种：</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220105185702.png"></p>
+<h1 id="优化代码"><a href="#优化代码" class="headerlink" title="优化代码"></a>优化代码</h1><p>这里有些变量我们时不需要更改的，可以设置成私有状态，那怎么获取呢，就需要在游戏开始的时候获取这些组件。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"> private Rigidbody2D rb;</span><br><span class="line"> private Animator anim;//动画</span><br><span class="line">void Start()</span><br><span class="line"> &#123;</span><br><span class="line">     rb = GetComponent&lt;Rigidbody2D&gt;();</span><br><span class="line">     anim = GetComponent&lt;Animator&gt;();</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Unity</category>
+      </categories>
+      <tags>
+        <tag>unity</tag>
+        <tag>2D</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Autojs记录</title>
     <url>/article/e2e5156.html</url>
     <content><![CDATA[<p>本文主要记录<code>Autojs</code>脚本的开发。</p>
@@ -399,6 +422,37 @@
       </tags>
   </entry>
   <entry>
+    <title>Unity2D:镜头跟踪九</title>
+    <url>/article/5a8ade92.html</url>
+    <content><![CDATA[<p> 本文主要记录Unity如何实现人物的镜头跟踪。</p>
+<h1 id="回顾"><a href="#回顾" class="headerlink" title="回顾"></a>回顾</h1><p>经过前面的Debug之后，现在基本实现了移动跳跃和动画实现，但是呢，会发现小狐狸怎么跳，镜头都是一个位置，就算跳出边界了也就看不见了，接下来就是去解决这个问题。</p>
+]]></content>
+      <categories>
+        <category>Unity</category>
+      </categories>
+      <tags>
+        <tag>unity</tag>
+        <tag>2D</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>小破站正式上线</title>
+    <url>/article/36e749dc.html</url>
+    <content><![CDATA[<p>断断续续半年时间，使用<code>Hexo</code>已有很长一段时间，经历了不断的优化踩坑，最开始使用<code>NexT</code>做为博客主题，到后来使用了Butterfly主题，到对主题的一系列魔改，最终还是回到<code>NexT</code>作为博客的主题。</p>
+<p><code>NexT</code>主题相对来说较为简洁，使用Butterfly主题确实对博客有很大的美化程度，最主要是在浏览器渲染上面，由于集成大量插件和动画特效，使得手机浏览时不是特别顺畅。</p>
+<p>最终博客站为了流畅度，只留下实用功能，对博客轻量美化，让网站即顺畅又优美。</p>
+<p>目前使用<code>GithubPages</code>加<code>GiteePages</code>双代码平台推送，测试下来，电信网络访问<code>githubPages</code>很大概率屏蔽，<code>GiteePages</code>需要手动更新，较为麻烦，<code>CDN</code>加速效果不明显，CI平台需要收取一定费用，介于目前情况，只能暂时如此，未来计划使用服务器搭建自己的CI平台进行自动化部署</p>
+<p>2021-12-22：<code>update</code></p>
+<p>目前博客已经使用自动化平台构建发布。</p>
+]]></content>
+      <categories>
+        <category>Hexo框架</category>
+      </categories>
+      <tags>
+        <tag>随笔</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>在线视频播放实现</title>
     <url>/article/bff5c62c.html</url>
     <content><![CDATA[<p>最近想开发一个在线教育类的移动Web，涉及到一个问题就是在线视频播放问题，起初以为一个video标签不就搞定，但是后来考虑到网络带宽，视频地址，文件的加密，就不得做进一步处理。</p>
@@ -430,23 +484,6 @@
       </categories>
       <tags>
         <tag>流媒体</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>小破站正式上线</title>
-    <url>/article/36e749dc.html</url>
-    <content><![CDATA[<p>断断续续半年时间，使用<code>Hexo</code>已有很长一段时间，经历了不断的优化踩坑，最开始使用<code>NexT</code>做为博客主题，到后来使用了Butterfly主题，到对主题的一系列魔改，最终还是回到<code>NexT</code>作为博客的主题。</p>
-<p><code>NexT</code>主题相对来说较为简洁，使用Butterfly主题确实对博客有很大的美化程度，最主要是在浏览器渲染上面，由于集成大量插件和动画特效，使得手机浏览时不是特别顺畅。</p>
-<p>最终博客站为了流畅度，只留下实用功能，对博客轻量美化，让网站即顺畅又优美。</p>
-<p>目前使用<code>GithubPages</code>加<code>GiteePages</code>双代码平台推送，测试下来，电信网络访问<code>githubPages</code>很大概率屏蔽，<code>GiteePages</code>需要手动更新，较为麻烦，<code>CDN</code>加速效果不明显，CI平台需要收取一定费用，介于目前情况，只能暂时如此，未来计划使用服务器搭建自己的CI平台进行自动化部署</p>
-<p>2021-12-22：<code>update</code></p>
-<p>目前博客已经使用自动化平台构建发布。</p>
-]]></content>
-      <categories>
-        <category>Hexo框架</category>
-      </categories>
-      <tags>
-        <tag>随笔</tag>
       </tags>
   </entry>
 </search>

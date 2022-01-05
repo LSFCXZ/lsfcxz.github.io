@@ -6,7 +6,7 @@
   <link href="https://www.frontblog.top/atom.xml" rel="self"/>
   
   <link href="https://www.frontblog.top/"/>
-  <updated>2022-01-05T10:17:53.780Z</updated>
+  <updated>2022-01-05T11:46:07.259Z</updated>
   <id>https://www.frontblog.top/</id>
   
   <author>
@@ -15,6 +15,52 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Unity2D:镜头跟踪九</title>
+    <link href="https://www.frontblog.top/article/5a8ade92.html"/>
+    <id>https://www.frontblog.top/article/5a8ade92.html</id>
+    <published>2022-01-05T11:21:45.000Z</published>
+    <updated>2022-01-05T11:46:07.259Z</updated>
+    
+    <content type="html"><![CDATA[<p> 本文主要记录Unity如何实现人物的镜头跟踪。</p><h1 id="回顾"><a href="#回顾" class="headerlink" title="回顾"></a>回顾</h1><p>经过前面的Debug之后，现在基本实现了移动跳跃和动画实现，但是呢，会发现小狐狸怎么跳，镜头都是一个位置，就算跳出边界了也就看不见了，接下来就是去解决这个问题。</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt; 本文主要记录Unity如何实现人物的镜头跟踪。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Unity" scheme="https://www.frontblog.top/categories/Unity/"/>
+    
+    
+    <category term="unity" scheme="https://www.frontblog.top/tags/unity/"/>
+    
+    <category term="2D" scheme="https://www.frontblog.top/tags/2D/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Unity2D:修复移动问题八</title>
+    <link href="https://www.frontblog.top/article/2d8dee04.html"/>
+    <id>https://www.frontblog.top/article/2d8dee04.html</id>
+    <published>2022-01-05T10:20:04.000Z</published>
+    <updated>2022-01-05T11:22:23.335Z</updated>
+    
+    <content type="html"><![CDATA[<p> 本文主要记录前面开发中可能遇到问题的解决方法。</p><h1 id="回顾"><a href="#回顾" class="headerlink" title="回顾"></a>回顾</h1><p>经过前面的开发之后，小狐狸基本实现了移动跳跃，和站立跳跃下落的动画，但是，如果按照之前的开发，可能会出现无缘无故卡住的现象，接下来就解决这个问题。</p><h1 id="移动卡住问题"><a href="#移动卡住问题" class="headerlink" title="移动卡住问题"></a>移动卡住问题</h1><p>两种方法：</p><p>第一种：</p><p>给小狐狸添加一个圆形的碰撞体，把它绑定到脚下，这样就不会产生卡住现象。这里修改之后，记得把这个组件拖到脚本里面的coll，因为这时候，我们应该时去判断这个碰撞体和地图的接触。</p><p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220105190347.png"></p><p>第二种：</p><p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220105185702.png"></p><h1 id="优化代码"><a href="#优化代码" class="headerlink" title="优化代码"></a>优化代码</h1><p>这里有些变量我们时不需要更改的，可以设置成私有状态，那怎么获取呢，就需要在游戏开始的时候获取这些组件。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"> private Rigidbody2D rb;</span><br><span class="line"> private Animator anim;//动画</span><br><span class="line">void Start()</span><br><span class="line"> &#123;</span><br><span class="line">     rb = GetComponent&lt;Rigidbody2D&gt;();</span><br><span class="line">     anim = GetComponent&lt;Animator&gt;();</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt; 本文主要记录前面开发中可能遇到问题的解决方法。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Unity" scheme="https://www.frontblog.top/categories/Unity/"/>
+    
+    
+    <category term="unity" scheme="https://www.frontblog.top/tags/unity/"/>
+    
+    <category term="2D" scheme="https://www.frontblog.top/tags/2D/"/>
+    
+  </entry>
   
   <entry>
     <title>Unity2D:角色跳跃动画七</title>
