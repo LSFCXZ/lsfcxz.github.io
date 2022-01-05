@@ -31,6 +31,35 @@
       </tags>
   </entry>
   <entry>
+    <title>Hexo图床</title>
+    <url>/article/dbc4c63e.html</url>
+    <content><![CDATA[<p>本文主要介绍在写<code>Hexo</code>博客用到的两个工具，和解决图床问题。</p>
+<h1 id="图床"><a href="#图床" class="headerlink" title="图床"></a>图床</h1><p>要想<code>Hexo</code>支持图片显示，大都会想到一个插件<code>hexo-asset-image</code>，但是如果想利于SEO，链接的优化，那会使用到<code>hexo-abbrlink</code>这个插件，但是会遇到问题就是图片失效了。这里主要是<code>hexo-abbrlink</code>这个插件改变了文章的地址，导致图片找不到，所以我们干脆直接把图片放到公网，直接访问即可。这里采用<code>gitee</code>作为图床，<code>github</code>也可以，但是访问速度慢</p>
+<h1 id="PicGo"><a href="#PicGo" class="headerlink" title="PicGo"></a>PicGo</h1><p>这里使用该工具作为上传图片的工具，这是一款开源的工具，地址：<a href="https://github.com/Molunerfinn/PicGo/releases">https://github.com/Molunerfinn/PicGo/releases</a></p>
+<p>选择插件下载<code>gitee</code>，注意要安装好Node环境。</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20210926230424.png"></p>
+<p>填写信息：</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20210926231011.png"></p>
+<ul>
+<li>用户名是注册时候的链接名，不是昵称！！</li>
+<li>仓库名小写，直接写就行，不需要写路径</li>
+<li>存放路径随意</li>
+<li>令牌是<code>Gitee</code>私人令牌，不要给太多权限，第一个就行</li>
+<li>图片只能1M上限，大于1M访问不了，需要登陆才可以有权限访问</li>
+</ul>
+<p>设置默认图床为Gitee即可。</p>
+<h1 id="snipaste"><a href="#snipaste" class="headerlink" title="snipaste"></a>snipaste</h1><p>这是一款截图工具，搭配<code>PicGo</code>可以很流畅的截图到上传在到文档引用等整个流程。</p>
+<p>官网：<a href="https://zh.snipaste.com/">https://zh.snipaste.com/</a></p>
+<p>也可以到window商店下载。</p>
+]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>工具</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Unity2D:安装软件和导入素材一</title>
     <url>/article/cdb3de80.html</url>
     <content><![CDATA[<p>本系列文章主要记录使用Unity构建一款2D像素风的游戏，最终会发布成一个网站供大家游玩。本文主要记录如何安装Unity和导入素材。</p>
@@ -60,35 +89,6 @@
       <tags>
         <tag>unity</tag>
         <tag>2D</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo图床</title>
-    <url>/article/dbc4c63e.html</url>
-    <content><![CDATA[<p>本文主要介绍在写<code>Hexo</code>博客用到的两个工具，和解决图床问题。</p>
-<h1 id="图床"><a href="#图床" class="headerlink" title="图床"></a>图床</h1><p>要想<code>Hexo</code>支持图片显示，大都会想到一个插件<code>hexo-asset-image</code>，但是如果想利于SEO，链接的优化，那会使用到<code>hexo-abbrlink</code>这个插件，但是会遇到问题就是图片失效了。这里主要是<code>hexo-abbrlink</code>这个插件改变了文章的地址，导致图片找不到，所以我们干脆直接把图片放到公网，直接访问即可。这里采用<code>gitee</code>作为图床，<code>github</code>也可以，但是访问速度慢</p>
-<h1 id="PicGo"><a href="#PicGo" class="headerlink" title="PicGo"></a>PicGo</h1><p>这里使用该工具作为上传图片的工具，这是一款开源的工具，地址：<a href="https://github.com/Molunerfinn/PicGo/releases">https://github.com/Molunerfinn/PicGo/releases</a></p>
-<p>选择插件下载<code>gitee</code>，注意要安装好Node环境。</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20210926230424.png"></p>
-<p>填写信息：</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20210926231011.png"></p>
-<ul>
-<li>用户名是注册时候的链接名，不是昵称！！</li>
-<li>仓库名小写，直接写就行，不需要写路径</li>
-<li>存放路径随意</li>
-<li>令牌是<code>Gitee</code>私人令牌，不要给太多权限，第一个就行</li>
-<li>图片只能1M上限，大于1M访问不了，需要登陆才可以有权限访问</li>
-</ul>
-<p>设置默认图床为Gitee即可。</p>
-<h1 id="snipaste"><a href="#snipaste" class="headerlink" title="snipaste"></a>snipaste</h1><p>这是一款截图工具，搭配<code>PicGo</code>可以很流畅的截图到上传在到文档引用等整个流程。</p>
-<p>官网：<a href="https://zh.snipaste.com/">https://zh.snipaste.com/</a></p>
-<p>也可以到window商店下载。</p>
-]]></content>
-      <categories>
-        <category>工具</category>
-      </categories>
-      <tags>
-        <tag>工具</tag>
       </tags>
   </entry>
   <entry>
@@ -263,6 +263,57 @@
       </tags>
   </entry>
   <entry>
+    <title>Unity2D:角色动画效果Animation六</title>
+    <url>/article/19149d3a.html</url>
+    <content><![CDATA[<p>本文主要记录如何设计人物站立时的动画效果。</p>
+<h1 id="回顾"><a href="#回顾" class="headerlink" title="回顾"></a>回顾</h1><p>在前面的一小节中，完成小狐狸左右方向的改变和跳跃，但是都是维持着一个动作，那么这节将完成小狐狸站立时的动画和移动时动画，涉及到操作较为繁琐，会以图片为主。</p>
+<h1 id="站立动画"><a href="#站立动画" class="headerlink" title="站立动画"></a>站立动画</h1><p>点击Player，右侧选择添加组件<code>Animator</code>，在下边项目目录新建文件夹Animation，在里面新建Player文件夹，再在里面新建Animator Controller，给它重命名叫Player吧，然后把它拖拽到刚才新建的组件。</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220104204330.png"></p>
+<p>接下来就是创建动画了</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220104204527.png"></p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220104204819.png"></p>
+<p>创建名称就叫idle吧。然后打开资源包，</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220104205012.png"></p>
+<p>然后全选图片，把它放到Animation这个窗口上，然后播放。</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220104205318.png"></p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220104210530.png"></p>
+<p>怎么查看动画的逻辑呢？</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220104210854.png"></p>
+<p>这个时候，我们基本完成了站立的动画，但是问题是无论我们是走路，跳跃都是这个动画，所以接下来就是完成移动时的 动画。</p>
+<h1 id="移动时动画"><a href="#移动时动画" class="headerlink" title="移动时动画"></a>移动时动画</h1><p>接下来我们创建跑动动画，名字就叫做run吧。同样，找到素材文件夹里面的run，记得把图片修改成16unit，然后把图片全选放到Animation这个窗口上，然后调整为10。注意保存的路径！</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220104211318.png"></p>
+<p>接下来为两个动画设置逻辑。</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220104212938.png"></p>
+<p>然后如下操作：</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220104213327.png"></p>
+<p>接下绑定一些逻辑：</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220104213959.png"></p>
+<p>接下来设置跑动到站立的逻辑。</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220104214230.png"></p>
+<p>接下来就是书写Script，获取这个<code>runing</code>。</p>
+<p>新建变量，把组件拖到这个变量里边。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public Animator anim;//动画</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220105091031.png"></p>
+<p>最终代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">using System.Collections;</span><br><span class="line">using System.Collections.Generic;</span><br><span class="line">using UnityEngine;</span><br><span class="line"></span><br><span class="line">public class PlayerController : MonoBehaviour</span><br><span class="line">&#123;</span><br><span class="line">    //游戏的刚体，也就是小狐狸</span><br><span class="line">    public Rigidbody2D rb;</span><br><span class="line">    public float speed;//速度</span><br><span class="line">    public float jumpforce;//跳跃</span><br><span class="line">    public Animator anim;//动画</span><br><span class="line">    //游戏初始化执行</span><br><span class="line">    void Start()</span><br><span class="line">    &#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    //每一帧变化执行</span><br><span class="line">    void FixedUpdate()</span><br><span class="line">    &#123;</span><br><span class="line">        Movement();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    void Movement()</span><br><span class="line">    &#123;</span><br><span class="line">        //得到玩家输入，-1代表左，0代表没动，1代表右。这个会得到1-0之间，-1到0之间的数。得到是浮点类型</span><br><span class="line">        float horizontalmove = Input.GetAxis(&quot;Horizontal&quot;);</span><br><span class="line">        //这个会直接得到1.0、0和-1.0</span><br><span class="line">        float facedircetion = Input.GetAxisRaw(&quot;Horizontal&quot;);</span><br><span class="line">        //角色移动 </span><br><span class="line">        rb.velocity = new Vector2(horizontalmove * speed * Time.deltaTime, rb.velocity.y);</span><br><span class="line">        anim.SetFloat(&quot;runing&quot;, Mathf.Abs(facedircetion));//动画</span><br><span class="line">        //移动方向</span><br><span class="line">        if(facedircetion !=0)</span><br><span class="line">        &#123;</span><br><span class="line">            transform.localScale = new Vector3(facedircetion, 1, 1);</span><br><span class="line">        &#125;</span><br><span class="line">        //跳跃代码</span><br><span class="line">        if (Input.GetButtonDown(&quot;Jump&quot;))</span><br><span class="line">        &#123;</span><br><span class="line">            rb.velocity = new Vector2(rb.velocity.x, jumpforce*Time.deltaTime);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>其实就是原来基础上新增两行代码，定义变量这个好理解。</li>
+<li> <code>anim.SetFloat(&quot;runing&quot;, Mathf.Abs(facedircetion));</code>这句主要是这个动画效果添加float的数据类型，这个键值是“<code>runing</code>”，那它的值是始终是1，这里回到刚才的设置条件，我们是设置条件大于0.1的时候改变状态，那这里只要角色移动，就会得到1的结果，角色移动，就是跑动的动画， <code>Mathf.Abs()</code>是C#的数学函数，将值放进里面都会得到正的值，就是绝对值。</li>
+</ul>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>在本节中，最主要的是如何去录制这个动画效果，如何创建Animator组件并使用，该组件主要是来完成动画效果。并且呢，如何去判断从跑到站立，从站立到跑。以下是一些思路：</p>
+<p>首先是去<strong>创建Animator组件</strong>，然后我们<strong>创建一个Animator Controller脚本</strong>去放到组件，这个就是动画相关的脚本，我们不用去编辑代码的，然后呢，我们在去<strong>录制动画</strong>，录制好之后呢，需要<strong>把动画的逻辑调整好</strong>，什么时候跑到站立，什么时候站立到跑，调正之后就是到Player脚本去<strong>定义变量，获取Animator组件</strong>，给它<strong>设置一个值</strong>，这个值就是来改变跑还是站立的动画，这个很好理解，我们移动就是跑嘛，那移动时候，不管左右，都是1，1就是跑的状态，这样就实现了小狐狸不移动的时候是站立动画，移动时候就是跑的动画</p>
+]]></content>
+      <categories>
+        <category>Unity</category>
+      </categories>
+      <tags>
+        <tag>unity</tag>
+        <tag>2D</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Autojs记录</title>
     <url>/article/e2e5156.html</url>
     <content><![CDATA[<p>本文主要记录<code>Autojs</code>脚本的开发。</p>
@@ -300,23 +351,6 @@
       </tags>
   </entry>
   <entry>
-    <title>小破站正式上线</title>
-    <url>/article/36e749dc.html</url>
-    <content><![CDATA[<p>断断续续半年时间，使用<code>Hexo</code>已有很长一段时间，经历了不断的优化踩坑，最开始使用<code>NexT</code>做为博客主题，到后来使用了Butterfly主题，到对主题的一系列魔改，最终还是回到<code>NexT</code>作为博客的主题。</p>
-<p><code>NexT</code>主题相对来说较为简洁，使用Butterfly主题确实对博客有很大的美化程度，最主要是在浏览器渲染上面，由于集成大量插件和动画特效，使得手机浏览时不是特别顺畅。</p>
-<p>最终博客站为了流畅度，只留下实用功能，对博客轻量美化，让网站即顺畅又优美。</p>
-<p>目前使用<code>GithubPages</code>加<code>GiteePages</code>双代码平台推送，测试下来，电信网络访问<code>githubPages</code>很大概率屏蔽，<code>GiteePages</code>需要手动更新，较为麻烦，<code>CDN</code>加速效果不明显，CI平台需要收取一定费用，介于目前情况，只能暂时如此，未来计划使用服务器搭建自己的CI平台进行自动化部署</p>
-<p>2021-12-22：<code>update</code></p>
-<p>目前博客已经使用自动化平台构建发布。</p>
-]]></content>
-      <categories>
-        <category>Hexo框架</category>
-      </categories>
-      <tags>
-        <tag>随笔</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>在线视频播放实现</title>
     <url>/article/bff5c62c.html</url>
     <content><![CDATA[<p>最近想开发一个在线教育类的移动Web，涉及到一个问题就是在线视频播放问题，起初以为一个video标签不就搞定，但是后来考虑到网络带宽，视频地址，文件的加密，就不得做进一步处理。</p>
@@ -348,6 +382,23 @@
       </categories>
       <tags>
         <tag>流媒体</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>小破站正式上线</title>
+    <url>/article/36e749dc.html</url>
+    <content><![CDATA[<p>断断续续半年时间，使用<code>Hexo</code>已有很长一段时间，经历了不断的优化踩坑，最开始使用<code>NexT</code>做为博客主题，到后来使用了Butterfly主题，到对主题的一系列魔改，最终还是回到<code>NexT</code>作为博客的主题。</p>
+<p><code>NexT</code>主题相对来说较为简洁，使用Butterfly主题确实对博客有很大的美化程度，最主要是在浏览器渲染上面，由于集成大量插件和动画特效，使得手机浏览时不是特别顺畅。</p>
+<p>最终博客站为了流畅度，只留下实用功能，对博客轻量美化，让网站即顺畅又优美。</p>
+<p>目前使用<code>GithubPages</code>加<code>GiteePages</code>双代码平台推送，测试下来，电信网络访问<code>githubPages</code>很大概率屏蔽，<code>GiteePages</code>需要手动更新，较为麻烦，<code>CDN</code>加速效果不明显，CI平台需要收取一定费用，介于目前情况，只能暂时如此，未来计划使用服务器搭建自己的CI平台进行自动化部署</p>
+<p>2021-12-22：<code>update</code></p>
+<p>目前博客已经使用自动化平台构建发布。</p>
+]]></content>
+      <categories>
+        <category>Hexo框架</category>
+      </categories>
+      <tags>
+        <tag>随笔</tag>
       </tags>
   </entry>
 </search>
