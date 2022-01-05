@@ -196,39 +196,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Unity2D:角色移动四</title>
-    <url>/article/20223717.html</url>
-    <content><![CDATA[<p>本文主要记录如何让角色进行左右的移动。</p>
-<h1 id="回顾"><a href="#回顾" class="headerlink" title="回顾"></a>回顾</h1><p>在上一小节中，使用Layer图层，把背景，地图和人物分别设置图层，让其能显示正常，再通过给人物设置Rigid body 2D和Box Collider 2D，让人物具有重力和碰撞体，再给地图设置Tilemap Collider，让其地图也有碰撞体，这样，人物就可以稳稳停在地图上了。</p>
-<h1 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h1><p>玩游戏都知道我们一般使用AWSD或者方向键来控制角色移动，在下面我们可以看到<code>Horizontal</code>这个属性，译文是水平的意思，当然它就是操作左右的一个属性，关于<code>Horizontal</code>在代码部分进行详解。</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220104094309.png"></p>
-<h1 id="脚本创建"><a href="#脚本创建" class="headerlink" title="脚本创建"></a>脚本创建</h1><p>要想让人物移动，就得在它身上绑定脚本，点击Player这个角色，再点击右边的Add Component，New Script，起个名字就叫做PlayerController，意思就是Player的控制器嘛，新建好之后可以创建文件夹来统一脚本存放位置，但是记得把脚本拖拽给Player这个项，然后编辑代码。</p>
-<h1 id="代码编写"><a href="#代码编写" class="headerlink" title="代码编写"></a>代码编写</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">using System.Collections;</span><br><span class="line">using System.Collections.Generic;</span><br><span class="line">using UnityEngine;</span><br><span class="line"></span><br><span class="line">public class PlayerController : MonoBehaviour</span><br><span class="line">&#123;</span><br><span class="line">    //游戏的刚体，也就是小狐狸</span><br><span class="line">    public Rigidbody2D rb;</span><br><span class="line">    public float speed;//速度</span><br><span class="line">    // Start is called before the first frame update</span><br><span class="line">    //游戏初始化执行</span><br><span class="line">    void Start()</span><br><span class="line">    &#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // Update is called once per frame</span><br><span class="line">    //每一帧变化执行</span><br><span class="line">    void Update()</span><br><span class="line">    &#123;</span><br><span class="line">        Movement();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    void Movement()</span><br><span class="line">    &#123;</span><br><span class="line">        //得到玩家输入，-1代表左，0代表没动，1代表右。</span><br><span class="line">        float horizontalmove = Input.GetAxis(&quot;Horizontal&quot;);</span><br><span class="line">            rb.velocity = new Vector2(horizontalmove * speed, rb.velocity.y);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>上面代码中是最终完成的，其实就是定义两个变量，Rigidbody2D和speed，然后在动画的每一帧执行move方法。</li>
-<li><code>Input.GetAxis(&quot;Horizontal&quot;)</code>这是得到玩家输入的方向，按下左方向或者A键得到-1，按下右方向或者D键得到1，不动就是0</li>
-<li><code>rb.velocity</code>是刚体速度的变化</li>
-<li><code>Vector2</code>是2D的速度变化，两个参数，第一个是x方向，第二是y方向，也就是上下方向，传入horizontalmove是1或者是-1，那得到结果就是正负结果，speed是速度，所以这里的意思是负数越大，说明你向左的幅度大。这里y轴没有变化。</li>
-</ul>
-<p>这里需要注意，我们设置Rigidbody2D，但是程序不会知道我们是哪个Rigidbody2D，所以返回到Unity中，可以在脚本看到脚本多了Rigidbody2D和speed这两个属性，这是我们刚才代码写的，所以我们需要把人物Rigidbody2D拖拽到脚本的Rigidbody2D进行关联。</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220104101611.png"></p>
-<p>如果这时候运行，会发现如果快速移动，小狐狸会转起来，这时候我们需要给人物的Rigidbody2D的Constraints锁定Z轴。</p>
-<h1 id="关于BUG"><a href="#关于BUG" class="headerlink" title="关于BUG"></a>关于BUG</h1><p>这个时候的小狐狸确实可以左右移动，但是会出现卡住现象，这是因为小狐狸身上是一个矩形的碰撞体，具体会在后面的8节解决问题。</p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><ul>
-<li>如何获取玩家输入： <code>float horizontalmove = Input.GetAxis(&quot;Horizontal&quot;);</code></li>
-<li>如何移动：<code> rb.velocity = new Vector2(horizontalmove * speed, rb.velocity.y);</code></li>
-</ul>
-]]></content>
-      <categories>
-        <category>Unity</category>
-      </categories>
-      <tags>
-        <tag>unity</tag>
-        <tag>2D</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Unity2D:角色方向和跳跃五</title>
     <url>/article/13c3ec8b.html</url>
     <content><![CDATA[<p>本文主要记录如何完成人物在左右的移动的时候改变方向，并且实现角色的跳跃。</p>
@@ -252,6 +219,39 @@
 <li><code>jumpforce</code>变量就是跳跃的力度。</li>
 <li><code>(Input.GetButtonDown(&quot;Jump&quot;)</code>是玩家按下空格的时候。</li>
 <li> <code>rb.velocity = new Vector2(rb.velocity.x, jumpforce*Time.deltaTime);</code>改变上下方向。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Unity</category>
+      </categories>
+      <tags>
+        <tag>unity</tag>
+        <tag>2D</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Unity2D:角色移动四</title>
+    <url>/article/20223717.html</url>
+    <content><![CDATA[<p>本文主要记录如何让角色进行左右的移动。</p>
+<h1 id="回顾"><a href="#回顾" class="headerlink" title="回顾"></a>回顾</h1><p>在上一小节中，使用Layer图层，把背景，地图和人物分别设置图层，让其能显示正常，再通过给人物设置Rigid body 2D和Box Collider 2D，让人物具有重力和碰撞体，再给地图设置Tilemap Collider，让其地图也有碰撞体，这样，人物就可以稳稳停在地图上了。</p>
+<h1 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h1><p>玩游戏都知道我们一般使用AWSD或者方向键来控制角色移动，在下面我们可以看到<code>Horizontal</code>这个属性，译文是水平的意思，当然它就是操作左右的一个属性，关于<code>Horizontal</code>在代码部分进行详解。</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220104094309.png"></p>
+<h1 id="脚本创建"><a href="#脚本创建" class="headerlink" title="脚本创建"></a>脚本创建</h1><p>要想让人物移动，就得在它身上绑定脚本，点击Player这个角色，再点击右边的Add Component，New Script，起个名字就叫做PlayerController，意思就是Player的控制器嘛，新建好之后可以创建文件夹来统一脚本存放位置，但是记得把脚本拖拽给Player这个项，然后编辑代码。</p>
+<h1 id="代码编写"><a href="#代码编写" class="headerlink" title="代码编写"></a>代码编写</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">using System.Collections;</span><br><span class="line">using System.Collections.Generic;</span><br><span class="line">using UnityEngine;</span><br><span class="line"></span><br><span class="line">public class PlayerController : MonoBehaviour</span><br><span class="line">&#123;</span><br><span class="line">    //游戏的刚体，也就是小狐狸</span><br><span class="line">    public Rigidbody2D rb;</span><br><span class="line">    public float speed;//速度</span><br><span class="line">    // Start is called before the first frame update</span><br><span class="line">    //游戏初始化执行</span><br><span class="line">    void Start()</span><br><span class="line">    &#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // Update is called once per frame</span><br><span class="line">    //每一帧变化执行</span><br><span class="line">    void Update()</span><br><span class="line">    &#123;</span><br><span class="line">        Movement();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    void Movement()</span><br><span class="line">    &#123;</span><br><span class="line">        //得到玩家输入，-1代表左，0代表没动，1代表右。</span><br><span class="line">        float horizontalmove = Input.GetAxis(&quot;Horizontal&quot;);</span><br><span class="line">            rb.velocity = new Vector2(horizontalmove * speed, rb.velocity.y);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>上面代码中是最终完成的，其实就是定义两个变量，Rigidbody2D和speed，然后在动画的每一帧执行move方法。</li>
+<li><code>Input.GetAxis(&quot;Horizontal&quot;)</code>这是得到玩家输入的方向，按下左方向或者A键得到-1，按下右方向或者D键得到1，不动就是0</li>
+<li><code>rb.velocity</code>是刚体速度的变化</li>
+<li><code>Vector2</code>是2D的速度变化，两个参数，第一个是x方向，第二是y方向，也就是上下方向，传入horizontalmove是1或者是-1，那得到结果就是正负结果，speed是速度，所以这里的意思是负数越大，说明你向左的幅度大。这里y轴没有变化。</li>
+</ul>
+<p>这里需要注意，我们设置Rigidbody2D，但是程序不会知道我们是哪个Rigidbody2D，所以返回到Unity中，可以在脚本看到脚本多了Rigidbody2D和speed这两个属性，这是我们刚才代码写的，所以我们需要把人物Rigidbody2D拖拽到脚本的Rigidbody2D进行关联。</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220104101611.png"></p>
+<p>如果这时候运行，会发现如果快速移动，小狐狸会转起来，这时候我们需要给人物的Rigidbody2D的Constraints锁定Z轴。</p>
+<h1 id="关于BUG"><a href="#关于BUG" class="headerlink" title="关于BUG"></a>关于BUG</h1><p>这个时候的小狐狸确实可以左右移动，但是会出现卡住现象，这是因为小狐狸身上是一个矩形的碰撞体，具体会在后面的8节解决问题。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><ul>
+<li>如何获取玩家输入： <code>float horizontalmove = Input.GetAxis(&quot;Horizontal&quot;);</code></li>
+<li>如何移动：<code> rb.velocity = new Vector2(horizontalmove * speed, rb.velocity.y);</code></li>
 </ul>
 ]]></content>
       <categories>
@@ -304,6 +304,54 @@
 </ul>
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>在本节中，最主要的是如何去录制这个动画效果，如何创建Animator组件并使用，该组件主要是来完成动画效果。并且呢，如何去判断从跑到站立，从站立到跑。以下是一些思路：</p>
 <p>首先是去<strong>创建Animator组件</strong>，然后我们<strong>创建一个Animator Controller脚本</strong>去放到组件，这个就是动画相关的脚本，我们不用去编辑代码的，然后呢，我们在去<strong>录制动画</strong>，录制好之后呢，需要<strong>把动画的逻辑调整好</strong>，什么时候跑到站立，什么时候站立到跑，调正之后就是到Player脚本去<strong>定义变量，获取Animator组件</strong>，给它<strong>设置一个值</strong>，这个值就是来改变跑还是站立的动画，这个很好理解，我们移动就是跑嘛，那移动时候，不管左右，都是1，1就是跑的状态，这样就实现了小狐狸不移动的时候是站立动画，移动时候就是跑的动画</p>
+]]></content>
+      <categories>
+        <category>Unity</category>
+      </categories>
+      <tags>
+        <tag>unity</tag>
+        <tag>2D</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Unity2D:角色跳跃动画七</title>
+    <url>/article/bd32f395.html</url>
+    <content><![CDATA[<p>本文主要记录如何实现人物跳跃的动画效果，主要是对上一节中的动画效果更深入使用和理解。</p>
+<h1 id="回顾"><a href="#回顾" class="headerlink" title="回顾"></a>回顾</h1><p>在上一节中，我们的人物已经实现了站立时的动画和移动时的动画，但是跳跃的时候，人物还是保持站立的动画，如果跳跃的时候左右移动还可以看到人物空中踏步，这显然是不好的，接下来就是解决这个问题。</p>
+<h1 id="创建动画"><a href="#创建动画" class="headerlink" title="创建动画"></a>创建动画</h1><p>首先跳跃动画其实是包括了两个动画，一个是跳起，一个是下落时的动画，那接下来就去创建动画。创建之前要记得把图片换成16unit，创建跳的动画，名称：jump  创建下落的动画，名称：fall，记得保存的路径。</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220105113330.png"></p>
+<p>那我们打开Animator就可以看到这两个动画了，接下来就是把动画链接起来。</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220105114540.png"></p>
+<h1 id="动画逻辑"><a href="#动画逻辑" class="headerlink" title="动画逻辑"></a>动画逻辑</h1><p>首先需要理解一点：跑动的时候我们可以跳跃，站立可以跳跃，跳跃之后就是下落，下落之后就是站立的状态。</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220105115123.png"></p>
+<p>这里修改一下之前的变量：<code>runing</code>-&gt;<code>running</code>,对于的代码需要修改。</p>
+<p>添加两个布尔值：jumping和falling，这两个值的用处就是用来控制动画之间的切换，回顾上一节中，我们是不是跑到站立，站立到跑，就是使用到runing这个值，相同的，只要我们改变这些值，我们就可以实现动画之间的切换。</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220105120118.png"></p>
+<p>首先我们来设置跑-&gt;到跳的逻辑：这里就是jumping为true的时候就变成跳的动画。</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220105120626.png"></p>
+<p>然后我们再来设置站立时候跳跃：其实时一样的，选择的箭头变成idea指向jump而已。此图省略。</p>
+<p>接下来就是在跳跃的代码里面编写：显而易见，我们上次时set一个浮点数，那这次就set一个布尔值，我们就可以实现跳跃的动画了。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">anim.SetBool(&quot;jumping&quot;, true);</span><br></pre></td></tr></table></figure>
+
+<p>接下来继续完成：</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220105121530.png"></p>
+<p>完成下落之后，我们当然得把跳的动画关闭所以记得把jump的值为false。</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220105121828.png"></p>
+<p>那接下来落地之后要回归到idle，那我们接下来就是设置这条逻辑：</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220105122154.png"></p>
+<p>我们来整理一下这里的思路：首先我们<strong>站立和跑动要到跳跃，jumping要为true</strong>，那<strong>跳跃要到下落，falling要为true，并且jumping要为false</strong>，因为你不能下落还要跳跃吧，然后就是<strong>下落之后我们要站立，那falling要为false，idle就是要为true</strong>。</p>
+<h1 id="代码逻辑"><a href="#代码逻辑" class="headerlink" title="代码逻辑"></a>代码逻辑</h1><p>完成上面动画的逻辑，我们需要使用脚本来编写控制这些动画了：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public LayerMask ground;//地图的碰撞层</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220105175634.png"></p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220105175846.png"></p>
+<p>然后回到刚才的ground属性，下拉看到Ground，就是我们地图创建的，选择它即可。这是最终代码，记得<code>Collider2D</code>是人物的碰撞体，要添加到这个变量里面来。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">using System.Collections;</span><br><span class="line">using System.Collections.Generic;</span><br><span class="line">using UnityEngine;</span><br><span class="line"></span><br><span class="line">public class PlayerController : MonoBehaviour</span><br><span class="line">&#123;</span><br><span class="line">    //游戏的刚体，也就是小狐狸</span><br><span class="line">    public Rigidbody2D rb;</span><br><span class="line">    public float speed;//速度</span><br><span class="line">    public float jumpforce;//跳跃</span><br><span class="line">    public Animator anim;//动画</span><br><span class="line">    public LayerMask ground;//地图的碰撞层</span><br><span class="line">    public Collider2D coll;//人物碰撞体</span><br><span class="line">    //游戏初始化执行</span><br><span class="line">    void Start()</span><br><span class="line">    &#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    //每一帧变化执行</span><br><span class="line">    void FixedUpdate()</span><br><span class="line">    &#123;</span><br><span class="line">        Movement();</span><br><span class="line">        SwitchAnim();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    void Movement()</span><br><span class="line">    &#123;</span><br><span class="line">        //得到玩家输入，-1代表左，0代表没动，1代表右。这个会得到1-0之间，-1到0之间的数。得到是浮点类型</span><br><span class="line">        float horizontalmove = Input.GetAxis(&quot;Horizontal&quot;);</span><br><span class="line">        //这个会直接得到1.0、0和-1.0</span><br><span class="line">        float facedircetion = Input.GetAxisRaw(&quot;Horizontal&quot;);</span><br><span class="line">        //角色移动 </span><br><span class="line">        rb.velocity = new Vector2(horizontalmove * speed * Time.deltaTime, rb.velocity.y);</span><br><span class="line">        anim.SetFloat(&quot;running&quot;, Mathf.Abs(facedircetion));//动画</span><br><span class="line">        //移动方向</span><br><span class="line">        if(facedircetion !=0)</span><br><span class="line">        &#123;</span><br><span class="line">            transform.localScale = new Vector3(facedircetion, 1, 1);</span><br><span class="line">        &#125;</span><br><span class="line">        //跳跃代码</span><br><span class="line">        if (Input.GetButtonDown(&quot;Jump&quot;))</span><br><span class="line">        &#123;</span><br><span class="line">            rb.velocity = new Vector2(rb.velocity.x, jumpforce*Time.deltaTime);</span><br><span class="line">            anim.SetBool(&quot;jumping&quot;, true);//跳跃动画</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    //动画之间切换的效果</span><br><span class="line">    void SwitchAnim()</span><br><span class="line">    &#123;</span><br><span class="line">        anim.SetBool(&quot;idle&quot;, false);//</span><br><span class="line">        //如果是跳跃</span><br><span class="line">        if (anim.GetBool(&quot;jumping&quot;))</span><br><span class="line">        &#123;</span><br><span class="line">            if (rb.velocity.y &lt; 0)</span><br><span class="line">            &#123;</span><br><span class="line">                anim.SetBool(&quot;jumping&quot;, false);</span><br><span class="line">                anim.SetBool(&quot;falling&quot;, true);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;else if (coll.IsTouchingLayers(ground))//判断是否触碰到地图</span><br><span class="line">        &#123;</span><br><span class="line">            anim.SetBool(&quot;falling&quot;,false);</span><br><span class="line">            anim.SetBool(&quot;idle&quot;, true);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>就是加了判断，如果两个碰撞体在一起，就是人物到了地面，所以就回归到站立动画</li>
+</ul>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>本节中难点在于动画之间的切换，什么时候该执行什么动画，小狐狸触碰到地面时怎么知道的，这里就是使用<code>coll.IsTouchingLayers(ground)</code>。</p>
 ]]></content>
       <categories>
         <category>Unity</category>
