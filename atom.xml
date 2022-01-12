@@ -6,7 +6,7 @@
   <link href="https://www.frontblog.top/atom.xml" rel="self"/>
   
   <link href="https://www.frontblog.top/"/>
-  <updated>2022-01-07T04:49:47.386Z</updated>
+  <updated>2022-01-06T11:12:11.582Z</updated>
   <id>https://www.frontblog.top/</id>
   
   <author>
@@ -15,27 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>autoJS学习</title>
-    <link href="https://www.frontblog.top/article/7a4b078b.html"/>
-    <id>https://www.frontblog.top/article/7a4b078b.html</id>
-    <published>2022-01-06T13:38:11.000Z</published>
-    <updated>2022-01-07T04:49:47.386Z</updated>
-    
-    <content type="html"><![CDATA[<p>本文主要记录如何使用<code>AutoJS</code>开发一些自动化脚本功能。</p><h1 id="启动app"><a href="#启动app" class="headerlink" title="启动app"></a>启动app</h1><p>启动app有几种方式：</p><p>第一种</p><h1 id="点击任意坐标"><a href="#点击任意坐标" class="headerlink" title="点击任意坐标"></a>点击任意坐标</h1><h1 id="点击组件"><a href="#点击组件" class="headerlink" title="点击组件"></a>点击组件</h1><h1 id="滚动"><a href="#滚动" class="headerlink" title="滚动"></a>滚动</h1><h1 id="获取组件"><a href="#获取组件" class="headerlink" title="获取组件"></a>获取组件</h1>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;本文主要记录如何使用&lt;code&gt;AutoJS&lt;/code&gt;开发一些自动化脚本功能。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="AutoJS" scheme="https://www.frontblog.top/categories/AutoJS/"/>
-    
-    
-    <category term="Autojs" scheme="https://www.frontblog.top/tags/Autojs/"/>
-    
-  </entry>
   
   <entry>
     <title>Unity2D:镜头追踪Cinemachine九</title>
@@ -304,6 +283,27 @@
     
     
     <category term="流媒体" scheme="https://www.frontblog.top/tags/%E6%B5%81%E5%AA%92%E4%BD%93/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HTML的语义化</title>
+    <link href="https://www.frontblog.top/article/1519e493.html"/>
+    <id>https://www.frontblog.top/article/1519e493.html</id>
+    <published>2021-12-22T05:00:21.000Z</published>
+    <updated>2022-01-03T03:48:36.879Z</updated>
+    
+    <content type="html"><![CDATA[<p>HTML是前端必须会的一门语言，最近在面试过程中会问到一些标签的语义，在此做下记录。通过本文可以了解到<code>HTML</code>的语义化标签</p><h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>HTML是一门超文本标记语言，由浏览器解析执行，<code>HTML5</code>是第五代版本，由<code>W3C</code>制定标准。<code>HTML5</code>新增特性之一就是语义化，语义化最大的好处就是利于<code>SEO</code>，利于搜索引擎的收录，也利于开发维护，所以知道语义是有必要的。</p><p>本章主要介绍具有语义的标签。</p><h1 id="内容区块（八个）"><a href="#内容区块（八个）" class="headerlink" title="内容区块（八个）"></a>内容区块（八个）</h1><p>在<code>HTML5</code>之前，我们可以使用<code>div</code>来包裹容器，现在新增了以下区块标签。</p><ul><li><p><code>&lt;header&gt;&lt;/header&gt;</code></p><p>语义：头部；通常用在网页的头部内容。</p></li><li><p><code>&lt;footer&gt;&lt;/footer&gt;</code></p><p>语义：尾部；通常包含该章节<strong>作者、版权数据或者与文档相关的链接</strong>等信息</p></li><li><p><code>&lt;nav&gt;&lt;/nav&gt;</code></p><p>语义：导航栏；通常用在网页的<strong>菜单，目录和索引</strong></p></li><li><p><code>&lt;address&gt;&lt;/address&gt;</code></p><p>语义：地址、通讯处；通常用在网页的<strong>联系方式</strong>，语义要比footer小</p></li><li><p><code>&lt;article&gt;&lt;/article&gt;</code></p><p>语义：文章；表示文档、页面、应用或网站中的独立结构，其意在成为<strong>可独立分配的或可复用的结构</strong>，如在发布中，它可能是论坛帖子、杂志或新闻文章、博客、用户提交的评论、交互式组件，或者其他独立的内容项目</p></li><li><p><code>&lt;aside&gt;&lt;/aside&gt;</code></p><p>语义：在一边、到旁边;表示一个<strong>和其余页面内容几乎无关的部分</strong>，被认为是独立于该内容的一部分并且可以被单独的拆分出来而不会使整体受影响。其通常<strong>表现为侧边栏或者标注框</strong>。</p></li><li><p><code>&lt;main&gt;&lt;/main&gt;</code></p><p>语义：主要的、最重要的；<strong>主体部分</strong>由与文档直接相关，或者扩展于文档的中心主题、应用的主要功能部分的内容组成</p></li><li><p><code>&lt;section&gt;&lt;/section&gt;</code></p><p>语义：部分、部门；表示一个包含在HTML文档中的<strong>独立部分</strong>，它没有更具体的语义元素来表示，一般来说会有<strong>包含一个标题</strong>。</p></li></ul><p>图例：</p><p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211223132137.png"></p><h1 id="内联语义"><a href="#内联语义" class="headerlink" title="内联语义"></a>内联语义</h1><ul><li><p><code>&lt;abbr&gt;&lt;/abbr&gt;</code></p><p>语义：缩写；用于<strong>代表缩写</strong>，并且可以通过可选的 <code>title</code> 属性提供完整的描述</p></li><li><p><code>b、u、i、s</code></p><p>示例：</p><p><b>我是b标签</b>    <u>我是u标签</u>   <i>我是i标签</i>    <s>我是s标签</s></p><p>语义：加粗、下划线、倾斜、删除；这四个标签在<code>HTML5</code>中是不建议使用的，建议使用<code>CSS</code>来改变。</p><p>加粗使用 <code>font-weight: bold;</code>，下划线使用<code>text-decoration: underline;</code>，倾斜使用<code>font-style:italic;</code>，删除线使用<code>text-decoration: line-through;</code></p></li><li><p><code>strong</code>、<code>ins</code>、<code>em</code>、<code>del</code></p><p>示例：</p><p><strong>我是strong</strong>  <ins>我是ins标签</ins> <em>我是em标签</em>   <del>我是del</del></p><p>语义：<code>strong</code>表示文本十分重要，一般用粗体显示；</p><p><code>ins</code>定义已经被插入文档中的文本；</p><p><code>em</code>标记出需要用户着重阅读的内容， <code>&lt;em&gt;</code> 元素是可以嵌套的，嵌套层次越深，则其包含的内容被认定为越需要着重阅读；</p><p><code>del</code>表示一些被从文档中删除的文字内容</p><p>这四个标签<strong>表现形式和前面的四个是一样</strong>的，但是<strong>语义存在很大不同</strong>，在HTML中，一切应该以语义为主，样式部分交由<code>CSS</code>完成。</p></li></ul>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;HTML是前端必须会的一门语言，最近在面试过程中会问到一些标签的语义，在此做下记录。通过本文可以了解到&lt;code&gt;HTML&lt;/code&gt;的语义化标签&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="HTML" scheme="https://www.frontblog.top/categories/HTML/"/>
+    
+    
+    <category term="语义化" scheme="https://www.frontblog.top/tags/%E8%AF%AD%E4%B9%89%E5%8C%96/"/>
     
   </entry>
   
