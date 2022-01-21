@@ -1,49 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>HTML标签(功能划分)</title>
-    <url>/article/a73ea136.html</url>
-    <content><![CDATA[<p> 本文主要记录HTML的每个标签属性的功能和语义。部分参考MDN文档。</p>
-<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>一个HTML文档是由元素去组成，标签是元素的组成部分，这么说是因为在HTML中元素是这样：<code>&lt;p class=&quot;nice”&gt;Hello,HTML&lt;/p&gt;</code>，</p>
-<p>而标签只是：<code>&lt;p&gt;&lt;/p&gt;</code>,元素是由标签，标签属性和属性值组成。HTML有效标签共计114个，废弃过时28个。</p>
-<h1 id="主根元素（1）"><a href="#主根元素（1）" class="headerlink" title="主根元素（1）"></a>主根元素（1）</h1><p><code>html</code></p>
+    <title>Hexo图床</title>
+    <url>/article/dbc4c63e.html</url>
+    <content><![CDATA[<p>本文主要介绍在写<code>Hexo</code>博客用到的两个工具，和解决图床问题。</p>
+<h1 id="图床"><a href="#图床" class="headerlink" title="图床"></a>图床</h1><p>要想<code>Hexo</code>支持图片显示，大都会想到一个插件<code>hexo-asset-image</code>，但是如果想利于SEO，链接的优化，那会使用到<code>hexo-abbrlink</code>这个插件，但是会遇到问题就是图片失效了。这里主要是<code>hexo-abbrlink</code>这个插件改变了文章的地址，导致图片找不到，所以我们干脆直接把图片放到公网，直接访问即可。这里采用<code>gitee</code>作为图床，<code>github</code>也可以，但是访问速度慢</p>
+<h1 id="PicGo"><a href="#PicGo" class="headerlink" title="PicGo"></a>PicGo</h1><p>这里使用该工具作为上传图片的工具，这是一款开源的工具，地址：<a href="https://github.com/Molunerfinn/PicGo/releases">https://github.com/Molunerfinn/PicGo/releases</a></p>
+<p>选择插件下载<code>gitee</code>，注意要安装好Node环境。</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20210926230424.png"></p>
+<p>填写信息：</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20210926231011.png"></p>
 <ul>
-<li>表示一个HTML<strong>文档的根</strong>（顶级元素），所以它也被称为<em>根元素</em>。所有<strong>其他元素必须是此元素的后代</strong>。</li>
+<li>用户名是注册时候的链接名，不是昵称！！</li>
+<li>仓库名小写，直接写就行，不需要写路径</li>
+<li>存放路径随意</li>
+<li>令牌是<code>Gitee</code>私人令牌，不要给太多权限，第一个就行</li>
+<li>图片只能1M上限，大于1M访问不了，需要登陆才可以有权限访问</li>
 </ul>
-<h1 id="文档元数据（6）"><a href="#文档元数据（6）" class="headerlink" title="文档元数据（6）"></a>文档元数据（6）</h1><p><code>base</code></p>
-<ul>
-<li>指定用于一个文档中<strong>包含的所有相对 URL 的根 URL</strong>。一份中只能有一个 <code>&lt;base&gt;</code> 元素。也就是图片路径如果不设置，那么就采用这个URL。</li>
-</ul>
-<p><code>head</code></p>
-<ul>
-<li>规定<strong>文档相关的配置信息</strong>（元数据），包括文档的标题，引用的文档样式和脚本等</li>
-</ul>
-<p><code>meta</code></p>
-<ul>
-<li>表示那些不能由其它 HTML 元相关（meta-related）元素表示的<strong>任何元数据信息</strong>。简单说就是描述文档的内容。</li>
-</ul>
-<p><code>link</code></p>
-<ul>
-<li>规定了当前文档与外部资源的关系。</li>
-</ul>
-<p><code>style</code></p>
-<ul>
-<li>包含文档的样式信息或者文档的部分内容。默认情况下，该标签的样式信息通常是<code>CSS</code>的格式。</li>
-</ul>
-<p><code>title</code></p>
-<ul>
-<li>定义文档的标题，显示在Browser的标题栏或标签页上。它只应该包含文本，若是包含有标签，则它包含的任何标签都将被忽略。</li>
-</ul>
-<h1 id="分区根元素（1）"><a href="#分区根元素（1）" class="headerlink" title="分区根元素（1）"></a>分区根元素（1）</h1><p><code>body</code></p>
-<ul>
-<li></li>
-</ul>
-<h1 id="内容分区（9-14）"><a href="#内容分区（9-14）" class="headerlink" title="内容分区（9~14）"></a>内容分区（9~14）</h1><h1 id="文本内容（13）"><a href="#文本内容（13）" class="headerlink" title="文本内容（13）"></a>文本内容（13）</h1><h1 id="内联文本语义（29）"><a href="#内联文本语义（29）" class="headerlink" title="内联文本语义（29）"></a>内联文本语义（29）</h1><h1 id="图片和多媒体（6）"><a href="#图片和多媒体（6）" class="headerlink" title="图片和多媒体（6）"></a>图片和多媒体（6）</h1><h1 id="内嵌内容（7）"><a href="#内嵌内容（7）" class="headerlink" title="内嵌内容（7）"></a>内嵌内容（7）</h1><h1 id="脚本（3）"><a href="#脚本（3）" class="headerlink" title="脚本（3）"></a>脚本（3）</h1><h1 id="标记标识（2）"><a href="#标记标识（2）" class="headerlink" title="标记标识（2）"></a>标记标识（2）</h1><h1 id="表格内容（10）"><a href="#表格内容（10）" class="headerlink" title="表格内容（10）"></a>表格内容（10）</h1><h1 id="表单（14）"><a href="#表单（14）" class="headerlink" title="表单（14）"></a>表单（14）</h1><h1 id="交互元素（4）"><a href="#交互元素（4）" class="headerlink" title="交互元素（4）"></a>交互元素（4）</h1><h1 id="Web组件（4）"><a href="#Web组件（4）" class="headerlink" title="Web组件（4）"></a>Web组件（4）</h1><h1 id="过时和弃用元素（28）"><a href="#过时和弃用元素（28）" class="headerlink" title="过时和弃用元素（28）"></a>过时和弃用元素（28）</h1>]]></content>
+<p>设置默认图床为Gitee即可。</p>
+<h1 id="snipaste"><a href="#snipaste" class="headerlink" title="snipaste"></a>snipaste</h1><p>这是一款截图工具，搭配<code>PicGo</code>可以很流畅的截图到上传在到文档引用等整个流程。</p>
+<p>官网：<a href="https://zh.snipaste.com/">https://zh.snipaste.com/</a></p>
+<p>也可以到window商店下载。</p>
+]]></content>
       <categories>
-        <category>HTML</category>
+        <category>工具</category>
       </categories>
       <tags>
-        <tag>HTML</tag>
+        <tag>工具</tag>
       </tags>
   </entry>
   <entry>
@@ -110,32 +93,91 @@
       </tags>
   </entry>
   <entry>
-    <title>Hexo图床</title>
-    <url>/article/dbc4c63e.html</url>
-    <content><![CDATA[<p>本文主要介绍在写<code>Hexo</code>博客用到的两个工具，和解决图床问题。</p>
-<h1 id="图床"><a href="#图床" class="headerlink" title="图床"></a>图床</h1><p>要想<code>Hexo</code>支持图片显示，大都会想到一个插件<code>hexo-asset-image</code>，但是如果想利于SEO，链接的优化，那会使用到<code>hexo-abbrlink</code>这个插件，但是会遇到问题就是图片失效了。这里主要是<code>hexo-abbrlink</code>这个插件改变了文章的地址，导致图片找不到，所以我们干脆直接把图片放到公网，直接访问即可。这里采用<code>gitee</code>作为图床，<code>github</code>也可以，但是访问速度慢</p>
-<h1 id="PicGo"><a href="#PicGo" class="headerlink" title="PicGo"></a>PicGo</h1><p>这里使用该工具作为上传图片的工具，这是一款开源的工具，地址：<a href="https://github.com/Molunerfinn/PicGo/releases">https://github.com/Molunerfinn/PicGo/releases</a></p>
-<p>选择插件下载<code>gitee</code>，注意要安装好Node环境。</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20210926230424.png"></p>
-<p>填写信息：</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20210926231011.png"></p>
+    <title>HTML标签(功能划分)</title>
+    <url>/article/a73ea136.html</url>
+    <content><![CDATA[<p> 本文主要记录HTML的每个标签属性的功能和语义。部分参考MDN文档。</p>
+<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>一个HTML文档是由元素去组成，标签是元素的组成部分；</p>
+<p>HTML文档中的元素：<code>&lt;p class=&quot;nice”&gt;Hello,HTML&lt;/p&gt;</code>，标签：<code>&lt;p&gt;&lt;/p&gt;</code>；</p>
+<p>元素是由标签，标签属性和属性值组成；</p>
+<p>HTML有效标签共计114个，废弃过时28个。</p>
+<h1 id="主根元素（1）"><a href="#主根元素（1）" class="headerlink" title="主根元素（1）"></a>主根元素（1）</h1><p><code>html</code></p>
 <ul>
-<li>用户名是注册时候的链接名，不是昵称！！</li>
-<li>仓库名小写，直接写就行，不需要写路径</li>
-<li>存放路径随意</li>
-<li>令牌是<code>Gitee</code>私人令牌，不要给太多权限，第一个就行</li>
-<li>图片只能1M上限，大于1M访问不了，需要登陆才可以有权限访问</li>
+<li>表示一个HTML<strong>文档的根</strong>（顶级元素），所以它也被称为<em>根元素</em>。所有<strong>其他元素必须是此元素的后代</strong>。</li>
 </ul>
-<p>设置默认图床为Gitee即可。</p>
-<h1 id="snipaste"><a href="#snipaste" class="headerlink" title="snipaste"></a>snipaste</h1><p>这是一款截图工具，搭配<code>PicGo</code>可以很流畅的截图到上传在到文档引用等整个流程。</p>
-<p>官网：<a href="https://zh.snipaste.com/">https://zh.snipaste.com/</a></p>
-<p>也可以到window商店下载。</p>
-]]></content>
+<h1 id="文档元数据（6）"><a href="#文档元数据（6）" class="headerlink" title="文档元数据（6）"></a>文档元数据（6）</h1><p><code>base</code></p>
+<ul>
+<li>指定用于一个文档中<strong>包含的所有相对 URL 的根 URL</strong>。一份中只能有一个 <code>&lt;base&gt;</code> 元素。也就是图片路径如果不设置，那么就采用这个URL。</li>
+</ul>
+<p><code>head</code></p>
+<ul>
+<li>规定<strong>文档相关的配置信息</strong>（元数据），包括文档的标题，引用的文档样式和脚本等</li>
+</ul>
+<p><code>meta</code></p>
+<ul>
+<li>表示那些不能由其它 HTML 元相关（meta-related）元素表示的<strong>任何元数据信息</strong>。简单说就是描述文档的内容。</li>
+</ul>
+<p><code>link</code></p>
+<ul>
+<li>规定了<strong>当前文档与外部资源的关系</strong>。</li>
+</ul>
+<p><code>style</code></p>
+<ul>
+<li><strong>包含文档的样式信息或者文档的部分内容</strong>。默认情况下，该标签的样式信息通常是<code>CSS</code>的格式。</li>
+</ul>
+<p><code>title</code></p>
+<ul>
+<li>定义<strong>文档的标题</strong>，显示在Browser的标题栏或标签页上。它只应该包含文本，若是包含有标签，则它包含的任何标签都将被忽略。</li>
+</ul>
+<h1 id="分区根元素（1）"><a href="#分区根元素（1）" class="headerlink" title="分区根元素（1）"></a>分区根元素（1）</h1><p><code>body</code></p>
+<ul>
+<li>表示文档的内容。</li>
+</ul>
+<h1 id="内容分区（9-14）"><a href="#内容分区（9-14）" class="headerlink" title="内容分区（9~14）"></a>内容分区（9~14）</h1><p><code>address</code></p>
+<ul>
+<li>表示其中的 HTML 提供了某个人或某个组织（等等）的<strong>联系信息</strong>。默认样式是斜体。</li>
+</ul>
+<p><code>article</code></p>
+<ul>
+<li>表示文档、页面、应用或网站中的独立结构，其意在成为可<strong>独立分配的或可复用的结构</strong>，如在发布中，它可能是论坛帖子、杂志或新闻文章、博客、用户提交的评论、交互式组件，或者其他独立的内容项目。</li>
+</ul>
+<p><code>aside</code></p>
+<ul>
+<li>表示<strong>一个和其余页面内容几乎无关的部分</strong>，被认为是独立于该内容的一部分并且可以被单独的拆分出来而不会使整体受影响。其通常表现为侧边栏或者标注框。</li>
+</ul>
+<p><code>footer</code></p>
+<ul>
+<li>表示章节内容的页脚。一个<strong>页脚</strong>通常包含该章节作者、版权数据或者与文档相关的链接等信息。</li>
+</ul>
+<p><code>header</code></p>
+<ul>
+<li>用于<strong>展示介绍性内容</strong>，通常包含一组介绍性的或是辅助导航的实用元素。它可能包含一些标题元素，但也可能包含其他元素，比如 Logo、搜索框、作者名称，等等</li>
+</ul>
+<p><code>&lt;h1&gt;~&lt;h6&gt;</code></p>
+<ul>
+<li>呈现了<strong>六个不同的级别的标题</strong>，<code>&lt;h1&gt;</code> 级别最高，而 <code>&lt;h6&gt;</code> 级别最低。</li>
+</ul>
+<p><code>main</code></p>
+<ul>
+<li>呈现了文档的<code>&lt;body&gt;</code>或应用的主体部分。主体部分由与文档直接相关，或者扩展于<strong>文档的中心主题、应用的主要功能部分</strong>的内容组成。</li>
+</ul>
+<p><code>nav</code></p>
+<ul>
+<li>表示页面的一部分，其目的是在当前文档或其他文档中提供导航链接。导航部分的常见示例是菜单，目录和索引。</li>
+</ul>
+<p><code>section</code></p>
+<ul>
+<li>表示一个包含在HTML文档中的<strong>独立部分</strong>，它没有更具体的语义元素来表示，一般来说会有包含一个标题。</li>
+</ul>
+<h1 id="文本内容（13）"><a href="#文本内容（13）" class="headerlink" title="文本内容（13）"></a>文本内容（13）</h1><p><code>blockquote</code></p>
+<ul>
+<li>代表其中的文字是引用内容。通常在渲染时，这部分的内容会有一定的缩进。若引文来源于网络，则可以将原内容的出处 URL 地址设置到 cite 特性上，若要以文本的形式告知读者引文的出处时，可以通过 <code>&lt;cite&gt;</code> 元素。</li>
+</ul>
+<h1 id="内联文本语义（29）"><a href="#内联文本语义（29）" class="headerlink" title="内联文本语义（29）"></a>内联文本语义（29）</h1><h1 id="图片和多媒体（6）"><a href="#图片和多媒体（6）" class="headerlink" title="图片和多媒体（6）"></a>图片和多媒体（6）</h1><h1 id="内嵌内容（7）"><a href="#内嵌内容（7）" class="headerlink" title="内嵌内容（7）"></a>内嵌内容（7）</h1><h1 id="脚本（3）"><a href="#脚本（3）" class="headerlink" title="脚本（3）"></a>脚本（3）</h1><h1 id="标记标识（2）"><a href="#标记标识（2）" class="headerlink" title="标记标识（2）"></a>标记标识（2）</h1><h1 id="表格内容（10）"><a href="#表格内容（10）" class="headerlink" title="表格内容（10）"></a>表格内容（10）</h1><h1 id="表单（14）"><a href="#表单（14）" class="headerlink" title="表单（14）"></a>表单（14）</h1><h1 id="交互元素（4）"><a href="#交互元素（4）" class="headerlink" title="交互元素（4）"></a>交互元素（4）</h1><h1 id="Web组件（4）"><a href="#Web组件（4）" class="headerlink" title="Web组件（4）"></a>Web组件（4）</h1><h1 id="过时和弃用元素（28）"><a href="#过时和弃用元素（28）" class="headerlink" title="过时和弃用元素（28）"></a>过时和弃用元素（28）</h1>]]></content>
       <categories>
-        <category>工具</category>
+        <category>HTML</category>
       </categories>
       <tags>
-        <tag>工具</tag>
+        <tag>HTML</tag>
       </tags>
   </entry>
   <entry>
@@ -275,40 +317,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Unity2D:角色方向和跳跃五</title>
-    <url>/article/13c3ec8b.html</url>
-    <content><![CDATA[<p>本文主要记录如何完成人物在左右的移动的时候改变方向，并且实现角色的跳跃。</p>
-<h1 id="回顾"><a href="#回顾" class="headerlink" title="回顾"></a>回顾</h1><p>在上一节中，完成了小狐狸的左右移动，但是小狐狸的面只是朝一个方向，感觉特别僵硬，而且不能跳跃，接下来就完成这两个功能。</p>
-<h1 id="方向改变"><a href="#方向改变" class="headerlink" title="方向改变"></a>方向改变</h1><p>在unity中，我们改变<code>Transform</code>里面的Scale的x为-1，就会发现狐狸的方向改变了，有了这点思路，就可以判断按键的左右，然后去改变值，就可以实现功能。</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220104104619.png"></p>
-<p>代码是这样的：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">void Movement()</span><br><span class="line">&#123;</span><br><span class="line">    //得到玩家输入，-1代表左，0代表没动，1代表右。这个会得到1-0之间，-1到0之间的数。得到是浮点类型</span><br><span class="line">    float horizontalmove = Input.GetAxis(&quot;Horizontal&quot;);</span><br><span class="line">    //这个会直接得到1.0、0和-1.0</span><br><span class="line">    float facedircetion = Input.GetAxisRaw(&quot;Horizontal&quot;);</span><br><span class="line">    //移动 </span><br><span class="line">    rb.velocity = new Vector2(horizontalmove * speed, rb.velocity.y);</span><br><span class="line">    //移动方向</span><br><span class="line">    if(facedircetion !=0)</span><br><span class="line">    &#123;</span><br><span class="line">        transform.localScale = new Vector3(facedircetion, 1, 1);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><code>transform.localScale</code>也就是刚才说的<code>Transform</code>里面的Scale，因为里面是三维的，所以需要使用Vector3，改变的第一参数，其他不变。<code>Input.GetAxisRaw(&quot;Horizontal&quot;);</code>这个会得到浮点类型的-1.0、0和1.0，传递过去就刚好可以实现小狐狸方向的反转。</p>
-<p>运行游戏就可以看到小狐狸的方向跟着改变了。</p>
-<h1 id="小调整"><a href="#小调整" class="headerlink" title="小调整"></a>小调整</h1><p>我们电脑不是每一个都是60帧数，所以需要修改<code>Update</code>为<code>FixedUpdate</code>。</p>
-<p>在移动代码中修改为</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">rb.velocity = new Vector2(horizontalmove * speed * Time.deltaTime, rb.velocity.y);</span><br></pre></td></tr></table></figure>
-
-<p>调整之后会发现移动速度很慢，这时候把速度调整为400，即可以正常移动了。</p>
-<h1 id="角色跳跃"><a href="#角色跳跃" class="headerlink" title="角色跳跃"></a>角色跳跃</h1><p>脚本代码：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public float jumpforce;//跳跃</span><br><span class="line">        //跳跃代码</span><br><span class="line">       if (Input.GetButtonDown(&quot;Jump&quot;))</span><br><span class="line">       &#123;</span><br><span class="line">           rb.velocity = new Vector2(rb.velocity.x, jumpforce*Time.deltaTime);</span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><code>jumpforce</code>变量就是跳跃的力度。</li>
-<li><code>(Input.GetButtonDown(&quot;Jump&quot;)</code>是玩家按下空格的时候。</li>
-<li> <code>rb.velocity = new Vector2(rb.velocity.x, jumpforce*Time.deltaTime);</code>改变上下方向。</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Unity</category>
-      </categories>
-      <tags>
-        <tag>unity</tag>
-        <tag>2D</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Unity2D:角色动画效果Animation六</title>
     <url>/article/19149d3a.html</url>
     <content><![CDATA[<p>本文主要记录如何设计人物站立时的动画效果。</p>
@@ -360,6 +368,40 @@
       </tags>
   </entry>
   <entry>
+    <title>Unity2D:角色方向和跳跃五</title>
+    <url>/article/13c3ec8b.html</url>
+    <content><![CDATA[<p>本文主要记录如何完成人物在左右的移动的时候改变方向，并且实现角色的跳跃。</p>
+<h1 id="回顾"><a href="#回顾" class="headerlink" title="回顾"></a>回顾</h1><p>在上一节中，完成了小狐狸的左右移动，但是小狐狸的面只是朝一个方向，感觉特别僵硬，而且不能跳跃，接下来就完成这两个功能。</p>
+<h1 id="方向改变"><a href="#方向改变" class="headerlink" title="方向改变"></a>方向改变</h1><p>在unity中，我们改变<code>Transform</code>里面的Scale的x为-1，就会发现狐狸的方向改变了，有了这点思路，就可以判断按键的左右，然后去改变值，就可以实现功能。</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220104104619.png"></p>
+<p>代码是这样的：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">void Movement()</span><br><span class="line">&#123;</span><br><span class="line">    //得到玩家输入，-1代表左，0代表没动，1代表右。这个会得到1-0之间，-1到0之间的数。得到是浮点类型</span><br><span class="line">    float horizontalmove = Input.GetAxis(&quot;Horizontal&quot;);</span><br><span class="line">    //这个会直接得到1.0、0和-1.0</span><br><span class="line">    float facedircetion = Input.GetAxisRaw(&quot;Horizontal&quot;);</span><br><span class="line">    //移动 </span><br><span class="line">    rb.velocity = new Vector2(horizontalmove * speed, rb.velocity.y);</span><br><span class="line">    //移动方向</span><br><span class="line">    if(facedircetion !=0)</span><br><span class="line">    &#123;</span><br><span class="line">        transform.localScale = new Vector3(facedircetion, 1, 1);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>transform.localScale</code>也就是刚才说的<code>Transform</code>里面的Scale，因为里面是三维的，所以需要使用Vector3，改变的第一参数，其他不变。<code>Input.GetAxisRaw(&quot;Horizontal&quot;);</code>这个会得到浮点类型的-1.0、0和1.0，传递过去就刚好可以实现小狐狸方向的反转。</p>
+<p>运行游戏就可以看到小狐狸的方向跟着改变了。</p>
+<h1 id="小调整"><a href="#小调整" class="headerlink" title="小调整"></a>小调整</h1><p>我们电脑不是每一个都是60帧数，所以需要修改<code>Update</code>为<code>FixedUpdate</code>。</p>
+<p>在移动代码中修改为</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">rb.velocity = new Vector2(horizontalmove * speed * Time.deltaTime, rb.velocity.y);</span><br></pre></td></tr></table></figure>
+
+<p>调整之后会发现移动速度很慢，这时候把速度调整为400，即可以正常移动了。</p>
+<h1 id="角色跳跃"><a href="#角色跳跃" class="headerlink" title="角色跳跃"></a>角色跳跃</h1><p>脚本代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public float jumpforce;//跳跃</span><br><span class="line">        //跳跃代码</span><br><span class="line">       if (Input.GetButtonDown(&quot;Jump&quot;))</span><br><span class="line">       &#123;</span><br><span class="line">           rb.velocity = new Vector2(rb.velocity.x, jumpforce*Time.deltaTime);</span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>jumpforce</code>变量就是跳跃的力度。</li>
+<li><code>(Input.GetButtonDown(&quot;Jump&quot;)</code>是玩家按下空格的时候。</li>
+<li> <code>rb.velocity = new Vector2(rb.velocity.x, jumpforce*Time.deltaTime);</code>改变上下方向。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Unity</category>
+      </categories>
+      <tags>
+        <tag>unity</tag>
+        <tag>2D</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Unity2D:角色移动四</title>
     <url>/article/20223717.html</url>
     <content><![CDATA[<p>本文主要记录如何让角色进行左右的移动。</p>
@@ -383,6 +425,29 @@
 <li>如何获取玩家输入： <code>float horizontalmove = Input.GetAxis(&quot;Horizontal&quot;);</code></li>
 <li>如何移动：<code> rb.velocity = new Vector2(horizontalmove * speed, rb.velocity.y);</code></li>
 </ul>
+]]></content>
+      <categories>
+        <category>Unity</category>
+      </categories>
+      <tags>
+        <tag>unity</tag>
+        <tag>2D</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Unity2D:修复移动问题八</title>
+    <url>/article/2d8dee04.html</url>
+    <content><![CDATA[<p> 本文主要记录前面开发中可能遇到问题的解决方法。</p>
+<h1 id="回顾"><a href="#回顾" class="headerlink" title="回顾"></a>回顾</h1><p>经过前面的开发之后，小狐狸基本实现了移动跳跃，和站立跳跃下落的动画，但是，如果按照之前的开发，可能会出现无缘无故卡住的现象，接下来就解决这个问题。</p>
+<h1 id="移动卡住问题"><a href="#移动卡住问题" class="headerlink" title="移动卡住问题"></a>移动卡住问题</h1><p>两种方法：</p>
+<p>第一种：</p>
+<p>给小狐狸添加一个圆形的碰撞体，把它绑定到脚下，这样就不会产生卡住现象。这里修改之后，记得把这个组件拖到脚本里面的coll，因为这时候，我们应该时去判断这个碰撞体和地图的接触。</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220105190347.png"></p>
+<p>第二种：</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220105185702.png"></p>
+<h1 id="优化代码"><a href="#优化代码" class="headerlink" title="优化代码"></a>优化代码</h1><p>这里有些变量我们时不需要更改的，可以设置成私有状态，那怎么获取呢，就需要在游戏开始的时候获取这些组件。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"> private Rigidbody2D rb;</span><br><span class="line"> private Animator anim;//动画</span><br><span class="line">void Start()</span><br><span class="line"> &#123;</span><br><span class="line">     rb = GetComponent&lt;Rigidbody2D&gt;();</span><br><span class="line">     anim = GetComponent&lt;Animator&gt;();</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
 ]]></content>
       <categories>
         <category>Unity</category>
@@ -488,26 +553,40 @@
       </tags>
   </entry>
   <entry>
-    <title>Unity2D:修复移动问题八</title>
-    <url>/article/2d8dee04.html</url>
-    <content><![CDATA[<p> 本文主要记录前面开发中可能遇到问题的解决方法。</p>
-<h1 id="回顾"><a href="#回顾" class="headerlink" title="回顾"></a>回顾</h1><p>经过前面的开发之后，小狐狸基本实现了移动跳跃，和站立跳跃下落的动画，但是，如果按照之前的开发，可能会出现无缘无故卡住的现象，接下来就解决这个问题。</p>
-<h1 id="移动卡住问题"><a href="#移动卡住问题" class="headerlink" title="移动卡住问题"></a>移动卡住问题</h1><p>两种方法：</p>
-<p>第一种：</p>
-<p>给小狐狸添加一个圆形的碰撞体，把它绑定到脚下，这样就不会产生卡住现象。这里修改之后，记得把这个组件拖到脚本里面的coll，因为这时候，我们应该时去判断这个碰撞体和地图的接触。</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220105190347.png"></p>
-<p>第二种：</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220105185702.png"></p>
-<h1 id="优化代码"><a href="#优化代码" class="headerlink" title="优化代码"></a>优化代码</h1><p>这里有些变量我们时不需要更改的，可以设置成私有状态，那怎么获取呢，就需要在游戏开始的时候获取这些组件。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"> private Rigidbody2D rb;</span><br><span class="line"> private Animator anim;//动画</span><br><span class="line">void Start()</span><br><span class="line"> &#123;</span><br><span class="line">     rb = GetComponent&lt;Rigidbody2D&gt;();</span><br><span class="line">     anim = GetComponent&lt;Animator&gt;();</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+    <title>Autojs记录</title>
+    <url>/article/e2e5156.html</url>
+    <content><![CDATA[<p>本文主要记录<code>Autojs</code>脚本的开发。</p>
+<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p><strong>不需要Root权限</strong>的JavaScript自动化软件，这是<code>AutoJS</code>的官方的宣传语，它主要就是实现手机屏幕的自动点击。学习<code>AutoJS</code>有必要了解它的历史，现在<code>AutoJS</code>分为两个版本，一个为开源版本（已经停更），一个就是Pro版本，这个是闭源并且收费的，至于为什么，这是作者的回答：</p>
+<blockquote>
+<p>这些功能我都不需要，想继续使用免费版，免费版仍然会更新吗？<br>答：免费版已更新至<code>4.1.1Beta</code>并且不再更新。一方面，<code>Auto.js</code>从2017年1月免费提供<code>Auto.js</code>至今，已经花费了大量精力，无法同时维持两个版本，而如果只维持免费版则没有继续更新的足够动力；另一方面，有不少人对<code>Auto.js</code>的开源代码进行修改，增加某些功能后做成费用高昂的收费版出售，没有取得任何授权，也违背了开源协议中的【非商业性使用】条款；甚至用以群控、刷单等灰色、非法用途。这让本人感到十分心寒，这也是免费/开源版停更的重要原因。</p>
+</blockquote>
+<p>这两个版本的 差异还是挺明显，开源版本是比较强大些的，但是存在一些Bug，一些功能也没用那么完善，文档也不是很全，当然也可以拉取项目后自己维护。Pro版本就砍掉一些功能，砍掉这些功能就是为了防止别人进行一些非法用途。</p>
+<h1 id="开发环境"><a href="#开发环境" class="headerlink" title="开发环境"></a>开发环境</h1><p>现在官网只有<code>AutoJSPro</code>的软件，这里是4.1.1的软件和打包插件：链接：<a href="https://pan.baidu.com/s/1LqlkACcsw558zNc4w8MjIw">https://pan.baidu.com/s/1LqlkACcsw558zNc4w8MjIw</a><br>提取码：6666</p>
+<p>在手机安装好后打开软件，点开连接电脑，输入电脑的<code>IP</code>地址。</p>
+<p>电脑安装<code>VSCode</code>，点击扩展，搜索<code>Auto.js-VSCodeExt</code>，安装，查看，命令面板，<code>auto js new project</code>,会看到<code>mainjs</code>和一个<code>json</code>文件，main就是程序要运行的，<code>json</code>文件是打包需要的配置</p>
+<p>然后就是<code>auto js start serve</code>开启服务，run就是运行项目，看到屏幕有弹窗就是成功了。</p>
+<h1 id="如何开发"><a href="#如何开发" class="headerlink" title="如何开发"></a>如何开发</h1><p>完成了项目环境基本也就没啥问题，想实现什么功能基本就是看文档自行发挥，这里需要注意的是，<code>AutoJS</code>的文档是<a href="https://hyb1996.github.io/AutoJs-Docs/#/">https://hyb1996.github.io/AutoJs-Docs/#/</a> 这个，不要写着<code>AutoJs</code>的代码，看着Pro版本的文档。</p>
+<h2 id="调起应用"><a href="#调起应用" class="headerlink" title="调起应用"></a>调起应用</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//启动微信</span></span><br><span class="line"><span class="keyword">var</span> wx = getPackageName(<span class="string">&quot;微信&quot;</span>);</span><br><span class="line">app.launch(wx);</span><br><span class="line"><span class="built_in">console</span>.show()</span><br><span class="line"><span class="built_in">console</span>.log(wx);</span><br></pre></td></tr></table></figure>
 
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">app.launch(<span class="string">&#x27;com.tencent.mm&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>上面两个其实都一样，第一个去显示控制台，打印微信这个程序的包名，第二个就是直接调起微信，有些时候我们是不知道包名的，所以第一种方法就有用处了。</p>
+<h2 id="坐标点击"><a href="#坐标点击" class="headerlink" title="坐标点击"></a>坐标点击</h2><p>坐标点击算是比较直接的 方法，但是只能适合自己的手机，比较每个手机的屏幕是不一样的，可以打开手机开发者模式，打开输入模式里面的指针，显示指针位置就可以看到点击的坐标，有了坐标以后就可以让<code>Autojs</code>自己点击了</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">click(x,y)</span><br></pre></td></tr></table></figure>
+
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><ul>
+<li><code>AutoJS</code>算是容易学习的，所见即所得，基本都是全局函数，想实现什么功能，直接调用<code>Api</code>即可实现功能;</li>
+<li>开发的难度在于页面的点击逻辑，程序点击时间是立即生效的，而页面时需要时间响应的，所以中间需要停留一段时间再去执行程序才能确保点击成功。</li>
+<li><code>AutoJS</code>的调试一般就是显示控制台，在控制台打印消息，然后去跟踪错误的信息并调整代码。</li>
+<li>做好代码功能划分也是十分必要的，如果十几个页面功能堆叠一起，查起Bug十分痛苦，也不利于维护。</li>
+<li><code>AutoJS</code>本身代码就在于客户端，想破解理论是可以的，想真正防止被破解，除非代码放在服务器，但是代价就是你需要花时间搞定后端的东西，另外就是设置卡密，卡密只能限制恶意传播，通过反编译后依然可以得到源代码。</li>
+</ul>
 ]]></content>
       <categories>
-        <category>Unity</category>
+        <category>AutoJS</category>
       </categories>
       <tags>
-        <tag>unity</tag>
-        <tag>2D</tag>
+        <tag>Autojs</tag>
       </tags>
   </entry>
   <entry>
@@ -567,43 +646,6 @@
       </categories>
       <tags>
         <tag>流媒体</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Autojs记录</title>
-    <url>/article/e2e5156.html</url>
-    <content><![CDATA[<p>本文主要记录<code>Autojs</code>脚本的开发。</p>
-<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p><strong>不需要Root权限</strong>的JavaScript自动化软件，这是<code>AutoJS</code>的官方的宣传语，它主要就是实现手机屏幕的自动点击。学习<code>AutoJS</code>有必要了解它的历史，现在<code>AutoJS</code>分为两个版本，一个为开源版本（已经停更），一个就是Pro版本，这个是闭源并且收费的，至于为什么，这是作者的回答：</p>
-<blockquote>
-<p>这些功能我都不需要，想继续使用免费版，免费版仍然会更新吗？<br>答：免费版已更新至<code>4.1.1Beta</code>并且不再更新。一方面，<code>Auto.js</code>从2017年1月免费提供<code>Auto.js</code>至今，已经花费了大量精力，无法同时维持两个版本，而如果只维持免费版则没有继续更新的足够动力；另一方面，有不少人对<code>Auto.js</code>的开源代码进行修改，增加某些功能后做成费用高昂的收费版出售，没有取得任何授权，也违背了开源协议中的【非商业性使用】条款；甚至用以群控、刷单等灰色、非法用途。这让本人感到十分心寒，这也是免费/开源版停更的重要原因。</p>
-</blockquote>
-<p>这两个版本的 差异还是挺明显，开源版本是比较强大些的，但是存在一些Bug，一些功能也没用那么完善，文档也不是很全，当然也可以拉取项目后自己维护。Pro版本就砍掉一些功能，砍掉这些功能就是为了防止别人进行一些非法用途。</p>
-<h1 id="开发环境"><a href="#开发环境" class="headerlink" title="开发环境"></a>开发环境</h1><p>现在官网只有<code>AutoJSPro</code>的软件，这里是4.1.1的软件和打包插件：链接：<a href="https://pan.baidu.com/s/1LqlkACcsw558zNc4w8MjIw">https://pan.baidu.com/s/1LqlkACcsw558zNc4w8MjIw</a><br>提取码：6666</p>
-<p>在手机安装好后打开软件，点开连接电脑，输入电脑的<code>IP</code>地址。</p>
-<p>电脑安装<code>VSCode</code>，点击扩展，搜索<code>Auto.js-VSCodeExt</code>，安装，查看，命令面板，<code>auto js new project</code>,会看到<code>mainjs</code>和一个<code>json</code>文件，main就是程序要运行的，<code>json</code>文件是打包需要的配置</p>
-<p>然后就是<code>auto js start serve</code>开启服务，run就是运行项目，看到屏幕有弹窗就是成功了。</p>
-<h1 id="如何开发"><a href="#如何开发" class="headerlink" title="如何开发"></a>如何开发</h1><p>完成了项目环境基本也就没啥问题，想实现什么功能基本就是看文档自行发挥，这里需要注意的是，<code>AutoJS</code>的文档是<a href="https://hyb1996.github.io/AutoJs-Docs/#/">https://hyb1996.github.io/AutoJs-Docs/#/</a> 这个，不要写着<code>AutoJs</code>的代码，看着Pro版本的文档。</p>
-<h2 id="调起应用"><a href="#调起应用" class="headerlink" title="调起应用"></a>调起应用</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//启动微信</span></span><br><span class="line"><span class="keyword">var</span> wx = getPackageName(<span class="string">&quot;微信&quot;</span>);</span><br><span class="line">app.launch(wx);</span><br><span class="line"><span class="built_in">console</span>.show()</span><br><span class="line"><span class="built_in">console</span>.log(wx);</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">app.launch(<span class="string">&#x27;com.tencent.mm&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<p>上面两个其实都一样，第一个去显示控制台，打印微信这个程序的包名，第二个就是直接调起微信，有些时候我们是不知道包名的，所以第一种方法就有用处了。</p>
-<h2 id="坐标点击"><a href="#坐标点击" class="headerlink" title="坐标点击"></a>坐标点击</h2><p>坐标点击算是比较直接的 方法，但是只能适合自己的手机，比较每个手机的屏幕是不一样的，可以打开手机开发者模式，打开输入模式里面的指针，显示指针位置就可以看到点击的坐标，有了坐标以后就可以让<code>Autojs</code>自己点击了</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">click(x,y)</span><br></pre></td></tr></table></figure>
-
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><ul>
-<li><code>AutoJS</code>算是容易学习的，所见即所得，基本都是全局函数，想实现什么功能，直接调用<code>Api</code>即可实现功能;</li>
-<li>开发的难度在于页面的点击逻辑，程序点击时间是立即生效的，而页面时需要时间响应的，所以中间需要停留一段时间再去执行程序才能确保点击成功。</li>
-<li><code>AutoJS</code>的调试一般就是显示控制台，在控制台打印消息，然后去跟踪错误的信息并调整代码。</li>
-<li>做好代码功能划分也是十分必要的，如果十几个页面功能堆叠一起，查起Bug十分痛苦，也不利于维护。</li>
-<li><code>AutoJS</code>本身代码就在于客户端，想破解理论是可以的，想真正防止被破解，除非代码放在服务器，但是代价就是你需要花时间搞定后端的东西，另外就是设置卡密，卡密只能限制恶意传播，通过反编译后依然可以得到源代码。</li>
-</ul>
-]]></content>
-      <categories>
-        <category>AutoJS</category>
-      </categories>
-      <tags>
-        <tag>Autojs</tag>
       </tags>
   </entry>
   <entry>
