@@ -1,98 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hexo图床</title>
-    <url>/article/dbc4c63e.html</url>
-    <content><![CDATA[<p>本文主要介绍在写<code>Hexo</code>博客用到的两个工具，和解决图床问题。</p>
-<h1 id="图床"><a href="#图床" class="headerlink" title="图床"></a>图床</h1><p>要想<code>Hexo</code>支持图片显示，大都会想到一个插件<code>hexo-asset-image</code>，但是如果想利于SEO，链接的优化，那会使用到<code>hexo-abbrlink</code>这个插件，但是会遇到问题就是图片失效了。这里主要是<code>hexo-abbrlink</code>这个插件改变了文章的地址，导致图片找不到，所以我们干脆直接把图片放到公网，直接访问即可。这里采用<code>gitee</code>作为图床，<code>github</code>也可以，但是访问速度慢</p>
-<h1 id="PicGo"><a href="#PicGo" class="headerlink" title="PicGo"></a>PicGo</h1><p>这里使用该工具作为上传图片的工具，这是一款开源的工具，地址：<a href="https://github.com/Molunerfinn/PicGo/releases">https://github.com/Molunerfinn/PicGo/releases</a></p>
-<p>选择插件下载<code>gitee</code>，注意要安装好Node环境。</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20210926230424.png"></p>
-<p>填写信息：</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20210926231011.png"></p>
-<ul>
-<li>用户名是注册时候的链接名，不是昵称！！</li>
-<li>仓库名小写，直接写就行，不需要写路径</li>
-<li>存放路径随意</li>
-<li>令牌是<code>Gitee</code>私人令牌，不要给太多权限，第一个就行</li>
-<li>图片只能1M上限，大于1M访问不了，需要登陆才可以有权限访问</li>
-</ul>
-<p>设置默认图床为Gitee即可。</p>
-<h1 id="snipaste"><a href="#snipaste" class="headerlink" title="snipaste"></a>snipaste</h1><p>这是一款截图工具，搭配<code>PicGo</code>可以很流畅的截图到上传在到文档引用等整个流程。</p>
-<p>官网：<a href="https://zh.snipaste.com/">https://zh.snipaste.com/</a></p>
-<p>也可以到window商店下载。</p>
-]]></content>
-      <categories>
-        <category>工具</category>
-      </categories>
-      <tags>
-        <tag>工具</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>HTML的语义化</title>
-    <url>/article/1519e493.html</url>
-    <content><![CDATA[<p>HTML是前端必须会的一门语言，最近在面试过程中会问到一些标签的语义，在此做下记录。通过本文可以了解到<code>HTML</code>的语义化标签</p>
-<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>HTML是一门超文本标记语言，由浏览器解析执行，<code>HTML5</code>是第五代版本，由<code>W3C</code>制定标准。<code>HTML5</code>新增特性之一就是语义化，语义化最大的好处就是利于<code>SEO</code>，利于搜索引擎的收录，也利于开发维护，所以知道语义是有必要的。</p>
-<p>本章主要介绍具有语义的标签。</p>
-<h1 id="内容区块（八个）"><a href="#内容区块（八个）" class="headerlink" title="内容区块（八个）"></a>内容区块（八个）</h1><p>在<code>HTML5</code>之前，我们可以使用<code>div</code>来包裹容器，现在新增了以下区块标签。</p>
-<ul>
-<li><p><code>&lt;header&gt;&lt;/header&gt;</code></p>
-<p>语义：头部；通常用在网页的头部内容。</p>
-</li>
-<li><p><code>&lt;footer&gt;&lt;/footer&gt;</code></p>
-<p>语义：尾部；通常包含该章节<strong>作者、版权数据或者与文档相关的链接</strong>等信息</p>
-</li>
-<li><p><code>&lt;nav&gt;&lt;/nav&gt;</code></p>
-<p>语义：导航栏；通常用在网页的<strong>菜单，目录和索引</strong></p>
-</li>
-<li><p><code>&lt;address&gt;&lt;/address&gt;</code></p>
-<p>语义：地址、通讯处；通常用在网页的<strong>联系方式</strong>，语义要比footer小</p>
-</li>
-<li><p><code>&lt;article&gt;&lt;/article&gt;</code></p>
-<p>语义：文章；表示文档、页面、应用或网站中的独立结构，其意在成为<strong>可独立分配的或可复用的结构</strong>，如在发布中，它可能是论坛帖子、杂志或新闻文章、博客、用户提交的评论、交互式组件，或者其他独立的内容项目</p>
-</li>
-<li><p><code>&lt;aside&gt;&lt;/aside&gt;</code></p>
-<p>语义：在一边、到旁边;表示一个<strong>和其余页面内容几乎无关的部分</strong>，被认为是独立于该内容的一部分并且可以被单独的拆分出来而不会使整体受影响。其通常<strong>表现为侧边栏或者标注框</strong>。</p>
-</li>
-<li><p><code>&lt;main&gt;&lt;/main&gt;</code></p>
-<p>语义：主要的、最重要的；<strong>主体部分</strong>由与文档直接相关，或者扩展于文档的中心主题、应用的主要功能部分的内容组成</p>
-</li>
-<li><p><code>&lt;section&gt;&lt;/section&gt;</code></p>
-<p>语义：部分、部门；表示一个包含在HTML文档中的<strong>独立部分</strong>，它没有更具体的语义元素来表示，一般来说会有<strong>包含一个标题</strong>。</p>
-</li>
-</ul>
-<p>图例：</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211223132137.png"></p>
-<h1 id="内联语义"><a href="#内联语义" class="headerlink" title="内联语义"></a>内联语义</h1><ul>
-<li><p><code>&lt;abbr&gt;&lt;/abbr&gt;</code></p>
-<p>语义：缩写；用于<strong>代表缩写</strong>，并且可以通过可选的 <code>title</code> 属性提供完整的描述</p>
-</li>
-<li><p><code>b、u、i、s</code></p>
-<p>示例：</p>
-<p><b>我是b标签</b>    <u>我是u标签</u>   <i>我是i标签</i>    <s>我是s标签</s></p>
-<p>语义：加粗、下划线、倾斜、删除；这四个标签在<code>HTML5</code>中是不建议使用的，建议使用<code>CSS</code>来改变。</p>
-<p>加粗使用 <code>font-weight: bold;</code>，下划线使用<code>text-decoration: underline;</code>，倾斜使用<code>font-style:italic;</code>，删除线使用<code>text-decoration: line-through;</code></p>
-</li>
-<li><p><code>strong</code>、<code>ins</code>、<code>em</code>、<code>del</code></p>
-<p>示例：</p>
-<p><strong>我是strong</strong>  <ins>我是ins标签</ins> <em>我是em标签</em>   <del>我是del</del></p>
-<p>语义：<code>strong</code>表示文本十分重要，一般用粗体显示；</p>
-<p><code>ins</code>定义已经被插入文档中的文本；</p>
-<p><code>em</code>标记出需要用户着重阅读的内容， <code>&lt;em&gt;</code> 元素是可以嵌套的，嵌套层次越深，则其包含的内容被认定为越需要着重阅读；</p>
-<p><code>del</code>表示一些被从文档中删除的文字内容</p>
-<p>这四个标签<strong>表现形式和前面的四个是一样</strong>的，但是<strong>语义存在很大不同</strong>，在HTML中，一切应该以语义为主，样式部分交由<code>CSS</code>完成。</p>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>HTML</category>
-      </categories>
-      <tags>
-        <tag>语义化</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>HTML标签(功能划分)</title>
     <url>/article/a73ea136.html</url>
     <content><![CDATA[<p> 本文主要记录HTML的每个标签属性的功能和语义。部分参考MDN文档。</p>
@@ -279,6 +187,131 @@
       </tags>
   </entry>
   <entry>
+    <title>HTML的语义化</title>
+    <url>/article/1519e493.html</url>
+    <content><![CDATA[<p>HTML是前端必须会的一门语言，最近在面试过程中会问到一些标签的语义，在此做下记录。通过本文可以了解到<code>HTML</code>的语义化标签</p>
+<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>HTML是一门超文本标记语言，由浏览器解析执行，<code>HTML5</code>是第五代版本，由<code>W3C</code>制定标准。<code>HTML5</code>新增特性之一就是语义化，语义化最大的好处就是利于<code>SEO</code>，利于搜索引擎的收录，也利于开发维护，所以知道语义是有必要的。</p>
+<p>本章主要介绍具有语义的标签。</p>
+<h1 id="内容区块（八个）"><a href="#内容区块（八个）" class="headerlink" title="内容区块（八个）"></a>内容区块（八个）</h1><p>在<code>HTML5</code>之前，我们可以使用<code>div</code>来包裹容器，现在新增了以下区块标签。</p>
+<ul>
+<li><p><code>&lt;header&gt;&lt;/header&gt;</code></p>
+<p>语义：头部；通常用在网页的头部内容。</p>
+</li>
+<li><p><code>&lt;footer&gt;&lt;/footer&gt;</code></p>
+<p>语义：尾部；通常包含该章节<strong>作者、版权数据或者与文档相关的链接</strong>等信息</p>
+</li>
+<li><p><code>&lt;nav&gt;&lt;/nav&gt;</code></p>
+<p>语义：导航栏；通常用在网页的<strong>菜单，目录和索引</strong></p>
+</li>
+<li><p><code>&lt;address&gt;&lt;/address&gt;</code></p>
+<p>语义：地址、通讯处；通常用在网页的<strong>联系方式</strong>，语义要比footer小</p>
+</li>
+<li><p><code>&lt;article&gt;&lt;/article&gt;</code></p>
+<p>语义：文章；表示文档、页面、应用或网站中的独立结构，其意在成为<strong>可独立分配的或可复用的结构</strong>，如在发布中，它可能是论坛帖子、杂志或新闻文章、博客、用户提交的评论、交互式组件，或者其他独立的内容项目</p>
+</li>
+<li><p><code>&lt;aside&gt;&lt;/aside&gt;</code></p>
+<p>语义：在一边、到旁边;表示一个<strong>和其余页面内容几乎无关的部分</strong>，被认为是独立于该内容的一部分并且可以被单独的拆分出来而不会使整体受影响。其通常<strong>表现为侧边栏或者标注框</strong>。</p>
+</li>
+<li><p><code>&lt;main&gt;&lt;/main&gt;</code></p>
+<p>语义：主要的、最重要的；<strong>主体部分</strong>由与文档直接相关，或者扩展于文档的中心主题、应用的主要功能部分的内容组成</p>
+</li>
+<li><p><code>&lt;section&gt;&lt;/section&gt;</code></p>
+<p>语义：部分、部门；表示一个包含在HTML文档中的<strong>独立部分</strong>，它没有更具体的语义元素来表示，一般来说会有<strong>包含一个标题</strong>。</p>
+</li>
+</ul>
+<p>图例：</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20211223132137.png"></p>
+<h1 id="内联语义"><a href="#内联语义" class="headerlink" title="内联语义"></a>内联语义</h1><ul>
+<li><p><code>&lt;abbr&gt;&lt;/abbr&gt;</code></p>
+<p>语义：缩写；用于<strong>代表缩写</strong>，并且可以通过可选的 <code>title</code> 属性提供完整的描述</p>
+</li>
+<li><p><code>b、u、i、s</code></p>
+<p>示例：</p>
+<p><b>我是b标签</b>    <u>我是u标签</u>   <i>我是i标签</i>    <s>我是s标签</s></p>
+<p>语义：加粗、下划线、倾斜、删除；这四个标签在<code>HTML5</code>中是不建议使用的，建议使用<code>CSS</code>来改变。</p>
+<p>加粗使用 <code>font-weight: bold;</code>，下划线使用<code>text-decoration: underline;</code>，倾斜使用<code>font-style:italic;</code>，删除线使用<code>text-decoration: line-through;</code></p>
+</li>
+<li><p><code>strong</code>、<code>ins</code>、<code>em</code>、<code>del</code></p>
+<p>示例：</p>
+<p><strong>我是strong</strong>  <ins>我是ins标签</ins> <em>我是em标签</em>   <del>我是del</del></p>
+<p>语义：<code>strong</code>表示文本十分重要，一般用粗体显示；</p>
+<p><code>ins</code>定义已经被插入文档中的文本；</p>
+<p><code>em</code>标记出需要用户着重阅读的内容， <code>&lt;em&gt;</code> 元素是可以嵌套的，嵌套层次越深，则其包含的内容被认定为越需要着重阅读；</p>
+<p><code>del</code>表示一些被从文档中删除的文字内容</p>
+<p>这四个标签<strong>表现形式和前面的四个是一样</strong>的，但是<strong>语义存在很大不同</strong>，在HTML中，一切应该以语义为主，样式部分交由<code>CSS</code>完成。</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>HTML</category>
+      </categories>
+      <tags>
+        <tag>语义化</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo图床</title>
+    <url>/article/dbc4c63e.html</url>
+    <content><![CDATA[<p>本文主要介绍在写<code>Hexo</code>博客用到的两个工具，和解决图床问题。</p>
+<h1 id="图床"><a href="#图床" class="headerlink" title="图床"></a>图床</h1><p>要想<code>Hexo</code>支持图片显示，大都会想到一个插件<code>hexo-asset-image</code>，但是如果想利于SEO，链接的优化，那会使用到<code>hexo-abbrlink</code>这个插件，但是会遇到问题就是图片失效了。这里主要是<code>hexo-abbrlink</code>这个插件改变了文章的地址，导致图片找不到，所以我们干脆直接把图片放到公网，直接访问即可。这里采用<code>gitee</code>作为图床，<code>github</code>也可以，但是访问速度慢</p>
+<h1 id="PicGo"><a href="#PicGo" class="headerlink" title="PicGo"></a>PicGo</h1><p>这里使用该工具作为上传图片的工具，这是一款开源的工具，地址：<a href="https://github.com/Molunerfinn/PicGo/releases">https://github.com/Molunerfinn/PicGo/releases</a></p>
+<p>选择插件下载<code>gitee</code>，注意要安装好Node环境。</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20210926230424.png"></p>
+<p>填写信息：</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20210926231011.png"></p>
+<ul>
+<li>用户名是注册时候的链接名，不是昵称！！</li>
+<li>仓库名小写，直接写就行，不需要写路径</li>
+<li>存放路径随意</li>
+<li>令牌是<code>Gitee</code>私人令牌，不要给太多权限，第一个就行</li>
+<li>图片只能1M上限，大于1M访问不了，需要登陆才可以有权限访问</li>
+</ul>
+<p>设置默认图床为Gitee即可。</p>
+<h1 id="snipaste"><a href="#snipaste" class="headerlink" title="snipaste"></a>snipaste</h1><p>这是一款截图工具，搭配<code>PicGo</code>可以很流畅的截图到上传在到文档引用等整个流程。</p>
+<p>官网：<a href="https://zh.snipaste.com/">https://zh.snipaste.com/</a></p>
+<p>也可以到window商店下载。</p>
+]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>工具</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Unity2D:角色移动四</title>
+    <url>/article/20223717.html</url>
+    <content><![CDATA[<p>本文主要记录如何让角色进行左右的移动。</p>
+<h1 id="回顾"><a href="#回顾" class="headerlink" title="回顾"></a>回顾</h1><p>在上一小节中，使用Layer图层，把背景，地图和人物分别设置图层，让其能显示正常，再通过给人物设置Rigid body 2D和Box Collider 2D，让人物具有重力和碰撞体，再给地图设置Tilemap Collider，让其地图也有碰撞体，这样，人物就可以稳稳停在地图上了。</p>
+<h1 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h1><p>玩游戏都知道我们一般使用AWSD或者方向键来控制角色移动，在下面我们可以看到<code>Horizontal</code>这个属性，译文是水平的意思，当然它就是操作左右的一个属性，关于<code>Horizontal</code>在代码部分进行详解。</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220104094309.png"></p>
+<h1 id="脚本创建"><a href="#脚本创建" class="headerlink" title="脚本创建"></a>脚本创建</h1><p>要想让人物移动，就得在它身上绑定脚本，点击Player这个角色，再点击右边的Add Component，New Script，起个名字就叫做PlayerController，意思就是Player的控制器嘛，新建好之后可以创建文件夹来统一脚本存放位置，但是记得把脚本拖拽给Player这个项，然后编辑代码。</p>
+<h1 id="代码编写"><a href="#代码编写" class="headerlink" title="代码编写"></a>代码编写</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">using System.Collections;</span><br><span class="line">using System.Collections.Generic;</span><br><span class="line">using UnityEngine;</span><br><span class="line"></span><br><span class="line">public class PlayerController : MonoBehaviour</span><br><span class="line">&#123;</span><br><span class="line">    //游戏的刚体，也就是小狐狸</span><br><span class="line">    public Rigidbody2D rb;</span><br><span class="line">    public float speed;//速度</span><br><span class="line">    // Start is called before the first frame update</span><br><span class="line">    //游戏初始化执行</span><br><span class="line">    void Start()</span><br><span class="line">    &#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // Update is called once per frame</span><br><span class="line">    //每一帧变化执行</span><br><span class="line">    void Update()</span><br><span class="line">    &#123;</span><br><span class="line">        Movement();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    void Movement()</span><br><span class="line">    &#123;</span><br><span class="line">        //得到玩家输入，-1代表左，0代表没动，1代表右。</span><br><span class="line">        float horizontalmove = Input.GetAxis(&quot;Horizontal&quot;);</span><br><span class="line">            rb.velocity = new Vector2(horizontalmove * speed, rb.velocity.y);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>上面代码中是最终完成的，其实就是定义两个变量，Rigidbody2D和speed，然后在动画的每一帧执行move方法。</li>
+<li><code>Input.GetAxis(&quot;Horizontal&quot;)</code>这是得到玩家输入的方向，按下左方向或者A键得到-1，按下右方向或者D键得到1，不动就是0</li>
+<li><code>rb.velocity</code>是刚体速度的变化</li>
+<li><code>Vector2</code>是2D的速度变化，两个参数，第一个是x方向，第二是y方向，也就是上下方向，传入horizontalmove是1或者是-1，那得到结果就是正负结果，speed是速度，所以这里的意思是负数越大，说明你向左的幅度大。这里y轴没有变化。</li>
+</ul>
+<p>这里需要注意，我们设置Rigidbody2D，但是程序不会知道我们是哪个Rigidbody2D，所以返回到Unity中，可以在脚本看到脚本多了Rigidbody2D和speed这两个属性，这是我们刚才代码写的，所以我们需要把人物Rigidbody2D拖拽到脚本的Rigidbody2D进行关联。</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220104101611.png"></p>
+<p>如果这时候运行，会发现如果快速移动，小狐狸会转起来，这时候我们需要给人物的Rigidbody2D的Constraints锁定Z轴。</p>
+<h1 id="关于BUG"><a href="#关于BUG" class="headerlink" title="关于BUG"></a>关于BUG</h1><p>这个时候的小狐狸确实可以左右移动，但是会出现卡住现象，这是因为小狐狸身上是一个矩形的碰撞体，具体会在后面的8节解决问题。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><ul>
+<li>如何获取玩家输入： <code>float horizontalmove = Input.GetAxis(&quot;Horizontal&quot;);</code></li>
+<li>如何移动：<code> rb.velocity = new Vector2(horizontalmove * speed, rb.velocity.y);</code></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Unity</category>
+      </categories>
+      <tags>
+        <tag>unity</tag>
+        <tag>2D</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Unity2D:图层Layer和角色创建三</title>
     <url>/article/ba5f378c.html</url>
     <content><![CDATA[<p>本文主要记录使用Unity完成图层的设计和角色的创建。</p>
@@ -307,6 +340,88 @@
 <li>设置重力：Rigid body 2D</li>
 <li>设置碰撞体：Collider就是碰撞体，类型不同选择不同，这里我们小狐狸理解为一个盒子的碰撞体，而地图有地图的碰撞类型</li>
 </ul>
+]]></content>
+      <categories>
+        <category>Unity</category>
+      </categories>
+      <tags>
+        <tag>unity</tag>
+        <tag>2D</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Unity2D:角色方向和跳跃五</title>
+    <url>/article/13c3ec8b.html</url>
+    <content><![CDATA[<p>本文主要记录如何完成人物在左右的移动的时候改变方向，并且实现角色的跳跃。</p>
+<h1 id="回顾"><a href="#回顾" class="headerlink" title="回顾"></a>回顾</h1><p>在上一节中，完成了小狐狸的左右移动，但是小狐狸的面只是朝一个方向，感觉特别僵硬，而且不能跳跃，接下来就完成这两个功能。</p>
+<h1 id="方向改变"><a href="#方向改变" class="headerlink" title="方向改变"></a>方向改变</h1><p>在unity中，我们改变<code>Transform</code>里面的Scale的x为-1，就会发现狐狸的方向改变了，有了这点思路，就可以判断按键的左右，然后去改变值，就可以实现功能。</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220104104619.png"></p>
+<p>代码是这样的：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">void Movement()</span><br><span class="line">&#123;</span><br><span class="line">    //得到玩家输入，-1代表左，0代表没动，1代表右。这个会得到1-0之间，-1到0之间的数。得到是浮点类型</span><br><span class="line">    float horizontalmove = Input.GetAxis(&quot;Horizontal&quot;);</span><br><span class="line">    //这个会直接得到1.0、0和-1.0</span><br><span class="line">    float facedircetion = Input.GetAxisRaw(&quot;Horizontal&quot;);</span><br><span class="line">    //移动 </span><br><span class="line">    rb.velocity = new Vector2(horizontalmove * speed, rb.velocity.y);</span><br><span class="line">    //移动方向</span><br><span class="line">    if(facedircetion !=0)</span><br><span class="line">    &#123;</span><br><span class="line">        transform.localScale = new Vector3(facedircetion, 1, 1);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>transform.localScale</code>也就是刚才说的<code>Transform</code>里面的Scale，因为里面是三维的，所以需要使用Vector3，改变的第一参数，其他不变。<code>Input.GetAxisRaw(&quot;Horizontal&quot;);</code>这个会得到浮点类型的-1.0、0和1.0，传递过去就刚好可以实现小狐狸方向的反转。</p>
+<p>运行游戏就可以看到小狐狸的方向跟着改变了。</p>
+<h1 id="小调整"><a href="#小调整" class="headerlink" title="小调整"></a>小调整</h1><p>我们电脑不是每一个都是60帧数，所以需要修改<code>Update</code>为<code>FixedUpdate</code>。</p>
+<p>在移动代码中修改为</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">rb.velocity = new Vector2(horizontalmove * speed * Time.deltaTime, rb.velocity.y);</span><br></pre></td></tr></table></figure>
+
+<p>调整之后会发现移动速度很慢，这时候把速度调整为400，即可以正常移动了。</p>
+<h1 id="角色跳跃"><a href="#角色跳跃" class="headerlink" title="角色跳跃"></a>角色跳跃</h1><p>脚本代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public float jumpforce;//跳跃</span><br><span class="line">        //跳跃代码</span><br><span class="line">       if (Input.GetButtonDown(&quot;Jump&quot;))</span><br><span class="line">       &#123;</span><br><span class="line">           rb.velocity = new Vector2(rb.velocity.x, jumpforce*Time.deltaTime);</span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>jumpforce</code>变量就是跳跃的力度。</li>
+<li><code>(Input.GetButtonDown(&quot;Jump&quot;)</code>是玩家按下空格的时候。</li>
+<li> <code>rb.velocity = new Vector2(rb.velocity.x, jumpforce*Time.deltaTime);</code>改变上下方向。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Unity</category>
+      </categories>
+      <tags>
+        <tag>unity</tag>
+        <tag>2D</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Unity2D:角色跳跃动画七</title>
+    <url>/article/bd32f395.html</url>
+    <content><![CDATA[<p>本文主要记录如何实现人物跳跃的动画效果，主要是对上一节中的动画效果更深入使用和理解。</p>
+<h1 id="回顾"><a href="#回顾" class="headerlink" title="回顾"></a>回顾</h1><p>在上一节中，我们的人物已经实现了站立时的动画和移动时的动画，但是跳跃的时候，人物还是保持站立的动画，如果跳跃的时候左右移动还可以看到人物空中踏步，这显然是不好的，接下来就是解决这个问题。</p>
+<h1 id="创建动画"><a href="#创建动画" class="headerlink" title="创建动画"></a>创建动画</h1><p>首先跳跃动画其实是包括了两个动画，一个是跳起，一个是下落时的动画，那接下来就去创建动画。创建之前要记得把图片换成16unit，创建跳的动画，名称：jump  创建下落的动画，名称：fall，记得保存的路径。</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220105113330.png"></p>
+<p>那我们打开Animator就可以看到这两个动画了，接下来就是把动画链接起来。</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220105114540.png"></p>
+<h1 id="动画逻辑"><a href="#动画逻辑" class="headerlink" title="动画逻辑"></a>动画逻辑</h1><p>首先需要理解一点：跑动的时候我们可以跳跃，站立可以跳跃，跳跃之后就是下落，下落之后就是站立的状态。</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220105115123.png"></p>
+<p>这里修改一下之前的变量：<code>runing</code>-&gt;<code>running</code>,对于的代码需要修改。</p>
+<p>添加两个布尔值：jumping和falling，这两个值的用处就是用来控制动画之间的切换，回顾上一节中，我们是不是跑到站立，站立到跑，就是使用到runing这个值，相同的，只要我们改变这些值，我们就可以实现动画之间的切换。</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220105120118.png"></p>
+<p>首先我们来设置跑-&gt;到跳的逻辑：这里就是jumping为true的时候就变成跳的动画。</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220105120626.png"></p>
+<p>然后我们再来设置站立时候跳跃：其实时一样的，选择的箭头变成idea指向jump而已。此图省略。</p>
+<p>接下来就是在跳跃的代码里面编写：显而易见，我们上次时set一个浮点数，那这次就set一个布尔值，我们就可以实现跳跃的动画了。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">anim.SetBool(&quot;jumping&quot;, true);</span><br></pre></td></tr></table></figure>
+
+<p>接下来继续完成：</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220105121530.png"></p>
+<p>完成下落之后，我们当然得把跳的动画关闭所以记得把jump的值为false。</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220105121828.png"></p>
+<p>那接下来落地之后要回归到idle，那我们接下来就是设置这条逻辑：</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220105122154.png"></p>
+<p>我们来整理一下这里的思路：首先我们<strong>站立和跑动要到跳跃，jumping要为true</strong>，那<strong>跳跃要到下落，falling要为true，并且jumping要为false</strong>，因为你不能下落还要跳跃吧，然后就是<strong>下落之后我们要站立，那falling要为false，idle就是要为true</strong>。</p>
+<h1 id="代码逻辑"><a href="#代码逻辑" class="headerlink" title="代码逻辑"></a>代码逻辑</h1><p>完成上面动画的逻辑，我们需要使用脚本来编写控制这些动画了：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public LayerMask ground;//地图的碰撞层</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220105175634.png"></p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220105175846.png"></p>
+<p>然后回到刚才的ground属性，下拉看到Ground，就是我们地图创建的，选择它即可。这是最终代码，记得<code>Collider2D</code>是人物的碰撞体，要添加到这个变量里面来。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">using System.Collections;</span><br><span class="line">using System.Collections.Generic;</span><br><span class="line">using UnityEngine;</span><br><span class="line"></span><br><span class="line">public class PlayerController : MonoBehaviour</span><br><span class="line">&#123;</span><br><span class="line">    //游戏的刚体，也就是小狐狸</span><br><span class="line">    public Rigidbody2D rb;</span><br><span class="line">    public float speed;//速度</span><br><span class="line">    public float jumpforce;//跳跃</span><br><span class="line">    public Animator anim;//动画</span><br><span class="line">    public LayerMask ground;//地图的碰撞层</span><br><span class="line">    public Collider2D coll;//人物碰撞体</span><br><span class="line">    //游戏初始化执行</span><br><span class="line">    void Start()</span><br><span class="line">    &#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    //每一帧变化执行</span><br><span class="line">    void FixedUpdate()</span><br><span class="line">    &#123;</span><br><span class="line">        Movement();</span><br><span class="line">        SwitchAnim();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    void Movement()</span><br><span class="line">    &#123;</span><br><span class="line">        //得到玩家输入，-1代表左，0代表没动，1代表右。这个会得到1-0之间，-1到0之间的数。得到是浮点类型</span><br><span class="line">        float horizontalmove = Input.GetAxis(&quot;Horizontal&quot;);</span><br><span class="line">        //这个会直接得到1.0、0和-1.0</span><br><span class="line">        float facedircetion = Input.GetAxisRaw(&quot;Horizontal&quot;);</span><br><span class="line">        //角色移动 </span><br><span class="line">        rb.velocity = new Vector2(horizontalmove * speed * Time.deltaTime, rb.velocity.y);</span><br><span class="line">        anim.SetFloat(&quot;running&quot;, Mathf.Abs(facedircetion));//动画</span><br><span class="line">        //移动方向</span><br><span class="line">        if(facedircetion !=0)</span><br><span class="line">        &#123;</span><br><span class="line">            transform.localScale = new Vector3(facedircetion, 1, 1);</span><br><span class="line">        &#125;</span><br><span class="line">        //跳跃代码</span><br><span class="line">        if (Input.GetButtonDown(&quot;Jump&quot;))</span><br><span class="line">        &#123;</span><br><span class="line">            rb.velocity = new Vector2(rb.velocity.x, jumpforce*Time.deltaTime);</span><br><span class="line">            anim.SetBool(&quot;jumping&quot;, true);//跳跃动画</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    //动画之间切换的效果</span><br><span class="line">    void SwitchAnim()</span><br><span class="line">    &#123;</span><br><span class="line">        anim.SetBool(&quot;idle&quot;, false);//</span><br><span class="line">        //如果是跳跃</span><br><span class="line">        if (anim.GetBool(&quot;jumping&quot;))</span><br><span class="line">        &#123;</span><br><span class="line">            if (rb.velocity.y &lt; 0)</span><br><span class="line">            &#123;</span><br><span class="line">                anim.SetBool(&quot;jumping&quot;, false);</span><br><span class="line">                anim.SetBool(&quot;falling&quot;, true);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;else if (coll.IsTouchingLayers(ground))//判断是否触碰到地图</span><br><span class="line">        &#123;</span><br><span class="line">            anim.SetBool(&quot;falling&quot;,false);</span><br><span class="line">            anim.SetBool(&quot;idle&quot;, true);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>就是加了判断，如果两个碰撞体在一起，就是人物到了地面，所以就回归到站立动画</li>
+</ul>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>本节中难点在于动画之间的切换，什么时候该执行什么动画，小狐狸触碰到地面时怎么知道的，这里就是使用<code>coll.IsTouchingLayers(ground)</code>。</p>
 ]]></content>
       <categories>
         <category>Unity</category>
@@ -368,144 +483,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Unity2D:角色方向和跳跃五</title>
-    <url>/article/13c3ec8b.html</url>
-    <content><![CDATA[<p>本文主要记录如何完成人物在左右的移动的时候改变方向，并且实现角色的跳跃。</p>
-<h1 id="回顾"><a href="#回顾" class="headerlink" title="回顾"></a>回顾</h1><p>在上一节中，完成了小狐狸的左右移动，但是小狐狸的面只是朝一个方向，感觉特别僵硬，而且不能跳跃，接下来就完成这两个功能。</p>
-<h1 id="方向改变"><a href="#方向改变" class="headerlink" title="方向改变"></a>方向改变</h1><p>在unity中，我们改变<code>Transform</code>里面的Scale的x为-1，就会发现狐狸的方向改变了，有了这点思路，就可以判断按键的左右，然后去改变值，就可以实现功能。</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220104104619.png"></p>
-<p>代码是这样的：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">void Movement()</span><br><span class="line">&#123;</span><br><span class="line">    //得到玩家输入，-1代表左，0代表没动，1代表右。这个会得到1-0之间，-1到0之间的数。得到是浮点类型</span><br><span class="line">    float horizontalmove = Input.GetAxis(&quot;Horizontal&quot;);</span><br><span class="line">    //这个会直接得到1.0、0和-1.0</span><br><span class="line">    float facedircetion = Input.GetAxisRaw(&quot;Horizontal&quot;);</span><br><span class="line">    //移动 </span><br><span class="line">    rb.velocity = new Vector2(horizontalmove * speed, rb.velocity.y);</span><br><span class="line">    //移动方向</span><br><span class="line">    if(facedircetion !=0)</span><br><span class="line">    &#123;</span><br><span class="line">        transform.localScale = new Vector3(facedircetion, 1, 1);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><code>transform.localScale</code>也就是刚才说的<code>Transform</code>里面的Scale，因为里面是三维的，所以需要使用Vector3，改变的第一参数，其他不变。<code>Input.GetAxisRaw(&quot;Horizontal&quot;);</code>这个会得到浮点类型的-1.0、0和1.0，传递过去就刚好可以实现小狐狸方向的反转。</p>
-<p>运行游戏就可以看到小狐狸的方向跟着改变了。</p>
-<h1 id="小调整"><a href="#小调整" class="headerlink" title="小调整"></a>小调整</h1><p>我们电脑不是每一个都是60帧数，所以需要修改<code>Update</code>为<code>FixedUpdate</code>。</p>
-<p>在移动代码中修改为</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">rb.velocity = new Vector2(horizontalmove * speed * Time.deltaTime, rb.velocity.y);</span><br></pre></td></tr></table></figure>
-
-<p>调整之后会发现移动速度很慢，这时候把速度调整为400，即可以正常移动了。</p>
-<h1 id="角色跳跃"><a href="#角色跳跃" class="headerlink" title="角色跳跃"></a>角色跳跃</h1><p>脚本代码：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public float jumpforce;//跳跃</span><br><span class="line">        //跳跃代码</span><br><span class="line">       if (Input.GetButtonDown(&quot;Jump&quot;))</span><br><span class="line">       &#123;</span><br><span class="line">           rb.velocity = new Vector2(rb.velocity.x, jumpforce*Time.deltaTime);</span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><code>jumpforce</code>变量就是跳跃的力度。</li>
-<li><code>(Input.GetButtonDown(&quot;Jump&quot;)</code>是玩家按下空格的时候。</li>
-<li> <code>rb.velocity = new Vector2(rb.velocity.x, jumpforce*Time.deltaTime);</code>改变上下方向。</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Unity</category>
-      </categories>
-      <tags>
-        <tag>unity</tag>
-        <tag>2D</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Unity2D:角色移动四</title>
-    <url>/article/20223717.html</url>
-    <content><![CDATA[<p>本文主要记录如何让角色进行左右的移动。</p>
-<h1 id="回顾"><a href="#回顾" class="headerlink" title="回顾"></a>回顾</h1><p>在上一小节中，使用Layer图层，把背景，地图和人物分别设置图层，让其能显示正常，再通过给人物设置Rigid body 2D和Box Collider 2D，让人物具有重力和碰撞体，再给地图设置Tilemap Collider，让其地图也有碰撞体，这样，人物就可以稳稳停在地图上了。</p>
-<h1 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h1><p>玩游戏都知道我们一般使用AWSD或者方向键来控制角色移动，在下面我们可以看到<code>Horizontal</code>这个属性，译文是水平的意思，当然它就是操作左右的一个属性，关于<code>Horizontal</code>在代码部分进行详解。</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220104094309.png"></p>
-<h1 id="脚本创建"><a href="#脚本创建" class="headerlink" title="脚本创建"></a>脚本创建</h1><p>要想让人物移动，就得在它身上绑定脚本，点击Player这个角色，再点击右边的Add Component，New Script，起个名字就叫做PlayerController，意思就是Player的控制器嘛，新建好之后可以创建文件夹来统一脚本存放位置，但是记得把脚本拖拽给Player这个项，然后编辑代码。</p>
-<h1 id="代码编写"><a href="#代码编写" class="headerlink" title="代码编写"></a>代码编写</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">using System.Collections;</span><br><span class="line">using System.Collections.Generic;</span><br><span class="line">using UnityEngine;</span><br><span class="line"></span><br><span class="line">public class PlayerController : MonoBehaviour</span><br><span class="line">&#123;</span><br><span class="line">    //游戏的刚体，也就是小狐狸</span><br><span class="line">    public Rigidbody2D rb;</span><br><span class="line">    public float speed;//速度</span><br><span class="line">    // Start is called before the first frame update</span><br><span class="line">    //游戏初始化执行</span><br><span class="line">    void Start()</span><br><span class="line">    &#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // Update is called once per frame</span><br><span class="line">    //每一帧变化执行</span><br><span class="line">    void Update()</span><br><span class="line">    &#123;</span><br><span class="line">        Movement();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    void Movement()</span><br><span class="line">    &#123;</span><br><span class="line">        //得到玩家输入，-1代表左，0代表没动，1代表右。</span><br><span class="line">        float horizontalmove = Input.GetAxis(&quot;Horizontal&quot;);</span><br><span class="line">            rb.velocity = new Vector2(horizontalmove * speed, rb.velocity.y);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>上面代码中是最终完成的，其实就是定义两个变量，Rigidbody2D和speed，然后在动画的每一帧执行move方法。</li>
-<li><code>Input.GetAxis(&quot;Horizontal&quot;)</code>这是得到玩家输入的方向，按下左方向或者A键得到-1，按下右方向或者D键得到1，不动就是0</li>
-<li><code>rb.velocity</code>是刚体速度的变化</li>
-<li><code>Vector2</code>是2D的速度变化，两个参数，第一个是x方向，第二是y方向，也就是上下方向，传入horizontalmove是1或者是-1，那得到结果就是正负结果，speed是速度，所以这里的意思是负数越大，说明你向左的幅度大。这里y轴没有变化。</li>
-</ul>
-<p>这里需要注意，我们设置Rigidbody2D，但是程序不会知道我们是哪个Rigidbody2D，所以返回到Unity中，可以在脚本看到脚本多了Rigidbody2D和speed这两个属性，这是我们刚才代码写的，所以我们需要把人物Rigidbody2D拖拽到脚本的Rigidbody2D进行关联。</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220104101611.png"></p>
-<p>如果这时候运行，会发现如果快速移动，小狐狸会转起来，这时候我们需要给人物的Rigidbody2D的Constraints锁定Z轴。</p>
-<h1 id="关于BUG"><a href="#关于BUG" class="headerlink" title="关于BUG"></a>关于BUG</h1><p>这个时候的小狐狸确实可以左右移动，但是会出现卡住现象，这是因为小狐狸身上是一个矩形的碰撞体，具体会在后面的8节解决问题。</p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><ul>
-<li>如何获取玩家输入： <code>float horizontalmove = Input.GetAxis(&quot;Horizontal&quot;);</code></li>
-<li>如何移动：<code> rb.velocity = new Vector2(horizontalmove * speed, rb.velocity.y);</code></li>
-</ul>
-]]></content>
-      <categories>
-        <category>Unity</category>
-      </categories>
-      <tags>
-        <tag>unity</tag>
-        <tag>2D</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Unity2D:修复移动问题八</title>
-    <url>/article/2d8dee04.html</url>
-    <content><![CDATA[<p> 本文主要记录前面开发中可能遇到问题的解决方法。</p>
-<h1 id="回顾"><a href="#回顾" class="headerlink" title="回顾"></a>回顾</h1><p>经过前面的开发之后，小狐狸基本实现了移动跳跃，和站立跳跃下落的动画，但是，如果按照之前的开发，可能会出现无缘无故卡住的现象，接下来就解决这个问题。</p>
-<h1 id="移动卡住问题"><a href="#移动卡住问题" class="headerlink" title="移动卡住问题"></a>移动卡住问题</h1><p>两种方法：</p>
-<p>第一种：</p>
-<p>给小狐狸添加一个圆形的碰撞体，把它绑定到脚下，这样就不会产生卡住现象。这里修改之后，记得把这个组件拖到脚本里面的coll，因为这时候，我们应该时去判断这个碰撞体和地图的接触。</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220105190347.png"></p>
-<p>第二种：</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220105185702.png"></p>
-<h1 id="优化代码"><a href="#优化代码" class="headerlink" title="优化代码"></a>优化代码</h1><p>这里有些变量我们时不需要更改的，可以设置成私有状态，那怎么获取呢，就需要在游戏开始的时候获取这些组件。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"> private Rigidbody2D rb;</span><br><span class="line"> private Animator anim;//动画</span><br><span class="line">void Start()</span><br><span class="line"> &#123;</span><br><span class="line">     rb = GetComponent&lt;Rigidbody2D&gt;();</span><br><span class="line">     anim = GetComponent&lt;Animator&gt;();</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>Unity</category>
-      </categories>
-      <tags>
-        <tag>unity</tag>
-        <tag>2D</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Unity2D:角色跳跃动画七</title>
-    <url>/article/bd32f395.html</url>
-    <content><![CDATA[<p>本文主要记录如何实现人物跳跃的动画效果，主要是对上一节中的动画效果更深入使用和理解。</p>
-<h1 id="回顾"><a href="#回顾" class="headerlink" title="回顾"></a>回顾</h1><p>在上一节中，我们的人物已经实现了站立时的动画和移动时的动画，但是跳跃的时候，人物还是保持站立的动画，如果跳跃的时候左右移动还可以看到人物空中踏步，这显然是不好的，接下来就是解决这个问题。</p>
-<h1 id="创建动画"><a href="#创建动画" class="headerlink" title="创建动画"></a>创建动画</h1><p>首先跳跃动画其实是包括了两个动画，一个是跳起，一个是下落时的动画，那接下来就去创建动画。创建之前要记得把图片换成16unit，创建跳的动画，名称：jump  创建下落的动画，名称：fall，记得保存的路径。</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220105113330.png"></p>
-<p>那我们打开Animator就可以看到这两个动画了，接下来就是把动画链接起来。</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220105114540.png"></p>
-<h1 id="动画逻辑"><a href="#动画逻辑" class="headerlink" title="动画逻辑"></a>动画逻辑</h1><p>首先需要理解一点：跑动的时候我们可以跳跃，站立可以跳跃，跳跃之后就是下落，下落之后就是站立的状态。</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220105115123.png"></p>
-<p>这里修改一下之前的变量：<code>runing</code>-&gt;<code>running</code>,对于的代码需要修改。</p>
-<p>添加两个布尔值：jumping和falling，这两个值的用处就是用来控制动画之间的切换，回顾上一节中，我们是不是跑到站立，站立到跑，就是使用到runing这个值，相同的，只要我们改变这些值，我们就可以实现动画之间的切换。</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220105120118.png"></p>
-<p>首先我们来设置跑-&gt;到跳的逻辑：这里就是jumping为true的时候就变成跳的动画。</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220105120626.png"></p>
-<p>然后我们再来设置站立时候跳跃：其实时一样的，选择的箭头变成idea指向jump而已。此图省略。</p>
-<p>接下来就是在跳跃的代码里面编写：显而易见，我们上次时set一个浮点数，那这次就set一个布尔值，我们就可以实现跳跃的动画了。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">anim.SetBool(&quot;jumping&quot;, true);</span><br></pre></td></tr></table></figure>
-
-<p>接下来继续完成：</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220105121530.png"></p>
-<p>完成下落之后，我们当然得把跳的动画关闭所以记得把jump的值为false。</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220105121828.png"></p>
-<p>那接下来落地之后要回归到idle，那我们接下来就是设置这条逻辑：</p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220105122154.png"></p>
-<p>我们来整理一下这里的思路：首先我们<strong>站立和跑动要到跳跃，jumping要为true</strong>，那<strong>跳跃要到下落，falling要为true，并且jumping要为false</strong>，因为你不能下落还要跳跃吧，然后就是<strong>下落之后我们要站立，那falling要为false，idle就是要为true</strong>。</p>
-<h1 id="代码逻辑"><a href="#代码逻辑" class="headerlink" title="代码逻辑"></a>代码逻辑</h1><p>完成上面动画的逻辑，我们需要使用脚本来编写控制这些动画了：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public LayerMask ground;//地图的碰撞层</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220105175634.png"></p>
-<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220105175846.png"></p>
-<p>然后回到刚才的ground属性，下拉看到Ground，就是我们地图创建的，选择它即可。这是最终代码，记得<code>Collider2D</code>是人物的碰撞体，要添加到这个变量里面来。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">using System.Collections;</span><br><span class="line">using System.Collections.Generic;</span><br><span class="line">using UnityEngine;</span><br><span class="line"></span><br><span class="line">public class PlayerController : MonoBehaviour</span><br><span class="line">&#123;</span><br><span class="line">    //游戏的刚体，也就是小狐狸</span><br><span class="line">    public Rigidbody2D rb;</span><br><span class="line">    public float speed;//速度</span><br><span class="line">    public float jumpforce;//跳跃</span><br><span class="line">    public Animator anim;//动画</span><br><span class="line">    public LayerMask ground;//地图的碰撞层</span><br><span class="line">    public Collider2D coll;//人物碰撞体</span><br><span class="line">    //游戏初始化执行</span><br><span class="line">    void Start()</span><br><span class="line">    &#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    //每一帧变化执行</span><br><span class="line">    void FixedUpdate()</span><br><span class="line">    &#123;</span><br><span class="line">        Movement();</span><br><span class="line">        SwitchAnim();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    void Movement()</span><br><span class="line">    &#123;</span><br><span class="line">        //得到玩家输入，-1代表左，0代表没动，1代表右。这个会得到1-0之间，-1到0之间的数。得到是浮点类型</span><br><span class="line">        float horizontalmove = Input.GetAxis(&quot;Horizontal&quot;);</span><br><span class="line">        //这个会直接得到1.0、0和-1.0</span><br><span class="line">        float facedircetion = Input.GetAxisRaw(&quot;Horizontal&quot;);</span><br><span class="line">        //角色移动 </span><br><span class="line">        rb.velocity = new Vector2(horizontalmove * speed * Time.deltaTime, rb.velocity.y);</span><br><span class="line">        anim.SetFloat(&quot;running&quot;, Mathf.Abs(facedircetion));//动画</span><br><span class="line">        //移动方向</span><br><span class="line">        if(facedircetion !=0)</span><br><span class="line">        &#123;</span><br><span class="line">            transform.localScale = new Vector3(facedircetion, 1, 1);</span><br><span class="line">        &#125;</span><br><span class="line">        //跳跃代码</span><br><span class="line">        if (Input.GetButtonDown(&quot;Jump&quot;))</span><br><span class="line">        &#123;</span><br><span class="line">            rb.velocity = new Vector2(rb.velocity.x, jumpforce*Time.deltaTime);</span><br><span class="line">            anim.SetBool(&quot;jumping&quot;, true);//跳跃动画</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    //动画之间切换的效果</span><br><span class="line">    void SwitchAnim()</span><br><span class="line">    &#123;</span><br><span class="line">        anim.SetBool(&quot;idle&quot;, false);//</span><br><span class="line">        //如果是跳跃</span><br><span class="line">        if (anim.GetBool(&quot;jumping&quot;))</span><br><span class="line">        &#123;</span><br><span class="line">            if (rb.velocity.y &lt; 0)</span><br><span class="line">            &#123;</span><br><span class="line">                anim.SetBool(&quot;jumping&quot;, false);</span><br><span class="line">                anim.SetBool(&quot;falling&quot;, true);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;else if (coll.IsTouchingLayers(ground))//判断是否触碰到地图</span><br><span class="line">        &#123;</span><br><span class="line">            anim.SetBool(&quot;falling&quot;,false);</span><br><span class="line">            anim.SetBool(&quot;idle&quot;, true);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>就是加了判断，如果两个碰撞体在一起，就是人物到了地面，所以就回归到站立动画</li>
-</ul>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>本节中难点在于动画之间的切换，什么时候该执行什么动画，小狐狸触碰到地面时怎么知道的，这里就是使用<code>coll.IsTouchingLayers(ground)</code>。</p>
-]]></content>
-      <categories>
-        <category>Unity</category>
-      </categories>
-      <tags>
-        <tag>unity</tag>
-        <tag>2D</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Unity2D:镜头追踪Cinemachine九</title>
     <url>/article/5a8ade92.html</url>
     <content><![CDATA[<p> 本文主要记录Unity如何实现人物的镜头跟踪。</p>
@@ -553,6 +530,29 @@
       </tags>
   </entry>
   <entry>
+    <title>Unity2D:修复移动问题八</title>
+    <url>/article/2d8dee04.html</url>
+    <content><![CDATA[<p> 本文主要记录前面开发中可能遇到问题的解决方法。</p>
+<h1 id="回顾"><a href="#回顾" class="headerlink" title="回顾"></a>回顾</h1><p>经过前面的开发之后，小狐狸基本实现了移动跳跃，和站立跳跃下落的动画，但是，如果按照之前的开发，可能会出现无缘无故卡住的现象，接下来就解决这个问题。</p>
+<h1 id="移动卡住问题"><a href="#移动卡住问题" class="headerlink" title="移动卡住问题"></a>移动卡住问题</h1><p>两种方法：</p>
+<p>第一种：</p>
+<p>给小狐狸添加一个圆形的碰撞体，把它绑定到脚下，这样就不会产生卡住现象。这里修改之后，记得把这个组件拖到脚本里面的coll，因为这时候，我们应该时去判断这个碰撞体和地图的接触。</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220105190347.png"></p>
+<p>第二种：</p>
+<p><img src="https://gitee.com/bamboolsf/image-bed/raw/master/img/20220105185702.png"></p>
+<h1 id="优化代码"><a href="#优化代码" class="headerlink" title="优化代码"></a>优化代码</h1><p>这里有些变量我们时不需要更改的，可以设置成私有状态，那怎么获取呢，就需要在游戏开始的时候获取这些组件。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"> private Rigidbody2D rb;</span><br><span class="line"> private Animator anim;//动画</span><br><span class="line">void Start()</span><br><span class="line"> &#123;</span><br><span class="line">     rb = GetComponent&lt;Rigidbody2D&gt;();</span><br><span class="line">     anim = GetComponent&lt;Animator&gt;();</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Unity</category>
+      </categories>
+      <tags>
+        <tag>unity</tag>
+        <tag>2D</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Autojs记录</title>
     <url>/article/e2e5156.html</url>
     <content><![CDATA[<p>本文主要记录<code>Autojs</code>脚本的开发。</p>
@@ -590,29 +590,9 @@
       </tags>
   </entry>
   <entry>
-    <title>v2ray搭建</title>
-    <url>/article/8744842a.html</url>
-    <content><![CDATA[<p> 本文主要记录如何搭建<code>v2ray</code>。</p>
-<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>需要一个域名，一台服务器。域名不需要备案。</p>
-<h1 id="服务端"><a href="#服务端" class="headerlink" title="服务端"></a>服务端</h1><p>服务端推荐使用一键带伪装安装命令。</p>
-<p>连接<code>vps</code>：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><code>v2ray</code>一键安装命令：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>配置</li>
-</ul>
-<h1 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h1><p>客户端以<code>v2rayW</code>为演示。</p>
-<p>官方开源地址：</p>
-<p>集成软件：</p>
-<p>配置：</p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p><code>v2ray</code>就是把本地地址代理成服务器地址，从而达到访问目的。</p>
-<h1 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h1>]]></content>
-      <tags>
-        <tag>v2ray</tag>
-      </tags>
+    <title>let和const命令</title>
+    <url>/article/ced66c.html</url>
+    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>在线视频播放实现</title>

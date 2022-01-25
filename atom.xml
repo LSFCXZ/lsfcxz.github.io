@@ -6,7 +6,7 @@
   <link href="https://www.frontblog.top/atom.xml" rel="self"/>
   
   <link href="https://www.frontblog.top/"/>
-  <updated>2022-01-19T09:57:23.760Z</updated>
+  <updated>2022-01-25T09:22:31.965Z</updated>
   <id>https://www.frontblog.top/</id>
   
   <author>
@@ -17,21 +17,15 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>v2ray搭建</title>
-    <link href="https://www.frontblog.top/article/8744842a.html"/>
-    <id>https://www.frontblog.top/article/8744842a.html</id>
-    <published>2022-01-18T12:42:03.000Z</published>
-    <updated>2022-01-19T09:57:23.760Z</updated>
-    
-    <content type="html"><![CDATA[<p> 本文主要记录如何搭建<code>v2ray</code>。</p><h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>需要一个域名，一台服务器。域名不需要备案。</p><h1 id="服务端"><a href="#服务端" class="headerlink" title="服务端"></a>服务端</h1><p>服务端推荐使用一键带伪装安装命令。</p><p>连接<code>vps</code>：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure><p><code>v2ray</code>一键安装命令：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure><ul><li>配置</li></ul><h1 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h1><p>客户端以<code>v2rayW</code>为演示。</p><p>官方开源地址：</p><p>集成软件：</p><p>配置：</p><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p><code>v2ray</code>就是把本地地址代理成服务器地址，从而达到访问目的。</p><h1 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h1>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt; 本文主要记录如何搭建&lt;code&gt;v2ray&lt;/code&gt;。&lt;/p&gt;</summary>
+    <title>let和const命令</title>
+    <link href="https://www.frontblog.top/article/ced66c.html"/>
+    <id>https://www.frontblog.top/article/ced66c.html</id>
+    <published>2022-01-25T09:22:31.000Z</published>
+    <updated>2022-01-25T09:22:31.965Z</updated>
     
     
     
     
-    <category term="v2ray" scheme="https://www.frontblog.top/tags/v2ray/"/>
     
   </entry>
   
